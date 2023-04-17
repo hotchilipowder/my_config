@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>HomeLab Configurations - My Dev Config 文档</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" />
+  <script>
+    const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const sessionTheme = sessionStorage['_theme']
+    if (sessionTheme) {
+      document.documentElement.classList.add(sessionTheme)
+    } else if (isDarkTheme) {
+      document.documentElement.classList.add('dark')
+    }
+  </script><link rel="stylesheet" href="../_static/pygments.css?v=2023.3.19" type="text/css" />
+    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.3.19" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.3.19" />
+    <style>
+:root {
+  --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:4rem;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));
+  --sy-rc-theme:143, 118, 214;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --sy-rc-theme:143, 118, 214;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sy-rc-theme:143, 118, 214;--sy-rc-bg:18, 18, 18;--sy-rc-invert:255, 255, 255;--sy-rc-text:255, 255, 255;--sy-c-bg:#121212;--sy-c-bg-weak:#212833;--sy-c-text:#cedbea;--sy-c-text-weak:#77889f;--sy-c-heading:#ebf0f4;--sy-c-bold:#ebf0f4;--sy-c-foot-text:#eee;--sy-c-foot-bg:#000;--sy-c-foot-divider:#000;
+  }
+}
+html.light {
+  --sy-rc-theme:143, 118, 214;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+}
+html.dark {
+  --sy-rc-theme:143, 118, 214;--sy-rc-bg:18, 18, 18;--sy-rc-invert:255, 255, 255;--sy-rc-text:255, 255, 255;--sy-c-bg:#121212;--sy-c-bg-weak:#212833;--sy-c-text:#cedbea;--sy-c-text-weak:#77889f;--sy-c-heading:#ebf0f4;--sy-c-bold:#ebf0f4;--sy-c-foot-text:#eee;--sy-c-foot-bg:#000;--sy-c-foot-divider:#000;
+}
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-heading: Inter, var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="HomeLab Configurations"/>
+<meta name="twitter:card" content="summary"/></head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <div class="sy-head-brand flex items-center">
+      <div class="md:hidden flex items-center">
+        <button class="hamburger js-menu mr-3" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </button>
+      </div>
+      <a href="../index.html">
+        
+        
+        <strong>My Dev Config</strong>
+      </a>
+      
+    </div>
+    <div class="sy-head-actions flex gap-2 items-center print:hidden">
+      <nav class="sy-head-nav hidden md:block">
+      </nav>
+      <div class="hidden md:block"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+      </div>
+      <button class="js-theme theme-switch flex items-center ml-1" data-aria-light="Switch to dark mode" data-aria-dark="Switch to light mode">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-64 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="md:hidden pt-6 px-6"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <button>提交</button>
+</form>
+      </div>
+      <div class="md:hidden pt-3 px-6">
+      </div>
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc">
+          <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>目录</h3>
+    <ul>
+<li><a class="reference internal" href="#pve-ipv6-issues">PVE IPv6 Issues</a></li>
+</ul>
+
+
+  </div><div id="ethical-ad-placement"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
+        <article class="yue" role="main">
+          <section id="homelab-configurations">
+<h1>HomeLab Configurations<a class="headerlink" href="#homelab-configurations" title="此标题的永久链接">¶</a></h1>
+<section id="pve-ipv6-issues">
+<h2>PVE IPv6 Issues<a class="headerlink" href="#pve-ipv6-issues" title="此标题的永久链接">¶</a></h2>
+<p>这个问题主要是PVE的使用下，IPv6一直无法正常使用。
+首先，我的网路的入口是一个路由器，这个路由器会分发一个ipv6的地址。
+但是在使用了PVE后，无法再分配对应的IPv6到各个虚拟机。
+事实上，我当时无法获取ipv6地址的问题是PVE7.0之后的一个问题。
+See <a class="reference external" href="https://www.haiyun.me/archives/1416.html">Proxmox网桥通过SLAAC配置公网ipv6地址 - 海运的博客</a></p>
+<p>Proxmox安装后默认没有通过SLAAC配置公网ipv6地址，使用debian/ubuntu的方法配置ipv6提示错误不支持的方法auto。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">iface<span class="w"> </span>vmbr0<span class="w"> </span>inet6<span class="w"> </span>auto
+</span></pre></div>
+</div>
+<p>原来Proxmox使用的是ifupdown2，非debian/ubuntu使用ifupdown。
+查看内核也已经开启ipv6自动配置：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">net</span><span class="o">/</span><span class="n">ipv6</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">vmbr0</span><span class="o">/</span><span class="n">accept_ra</span>
+</span><span id="1-2"><span class="mi">1</span>
+</span><span id="1-3"><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">net</span><span class="o">/</span><span class="n">ipv6</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">vmbr0</span><span class="o">/</span><span class="n">autoconf</span>
+</span><span id="1-4"><span class="mi">1</span>
+</span><span id="1-5"><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">net</span><span class="o">/</span><span class="n">ipv6</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">vmbr0</span><span class="o">/</span><span class="n">forwarding</span>
+</span><span id="1-6"><span class="mi">1</span>
+</span></pre></div>
+</div>
+<p>需要将accept_ra值改成2才能自动配置SLAAC ipv6地址：
+在文件末添加</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="n">conf</span>
+</span><span id="1-2"><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">accept_ra</span><span class="o">=</span><span class="mi">2</span>
+</span><span id="1-3"><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">accept_ra</span><span class="o">=</span><span class="mi">2</span>
+</span><span id="1-4"><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">vmbr0</span><span class="o">.</span><span class="n">accept_ra</span><span class="o">=</span><span class="mi">2</span>
+</span><span id="1-5"><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">autoconf</span><span class="o">=</span><span class="mi">1</span>
+</span><span id="1-6"><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">autoconf</span><span class="o">=</span><span class="mi">1</span>
+</span><span id="1-7"><span class="n">net</span><span class="o">.</span><span class="n">ipv6</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">vmbr0</span><span class="o">.</span><span class="n">autoconf</span><span class="o">=</span><span class="mi">1</span>
+</span></pre></div>
+</div>
+<p>然后ipv6的地址就有了。</p>
+<p>这个时候:code:` /etc/network/interface`的配置为:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nb">source</span><span class="w"> </span>/etc/network/interfaces.d/*
+</span><span id="1-2">auto<span class="w"> </span>lo
+</span><span id="1-3">iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
+</span><span id="1-4">
+</span><span id="1-5">iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>manual
+</span><span id="1-6">
+</span><span id="1-7">auto<span class="w"> </span>vmbr0
+</span><span id="1-8">iface<span class="w"> </span>vmbr0<span class="w"> </span>inet<span class="w"> </span>static
+</span><span id="1-9"><span class="w">   </span>address<span class="w"> </span><span class="m">192</span>.168.123.86/24
+</span><span id="1-10"><span class="w">   </span>gateway<span class="w"> </span><span class="m">192</span>.168.123.1
+</span><span id="1-11"><span class="w">   </span>bridge-ports<span class="w"> </span>enp1s0
+</span><span id="1-12"><span class="w">   </span>bridge-stp<span class="w"> </span>off
+</span><span id="1-13"><span class="w">   </span>bridge-fd<span class="w"> </span><span class="m">0</span>
+</span><span id="1-14">iface<span class="w"> </span>vmbr0<span class="w"> </span>inet6<span class="w"> </span>auto
+</span></pre></div>
+</div>
+</section>
+</section>
+
+        </article>
+        
+      </div>
+      <div class="min-w-0 max-w-6xl px-6 pb-6 xl:pt-6 xl:px-12">
+        <div class="navigation flex print:hidden">
+  
+  
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/clipboard.min.js"></script>
+      <script src="../_static/copybutton.js"></script>
+      <script src="../_static/design-tabs.js"></script>
+      <script src="../_static/shibuya.js?v=2023.3.19"></script>
+    
+</body>
+</html>
