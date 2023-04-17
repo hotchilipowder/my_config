@@ -21,6 +21,7 @@ Welcome to My Dev Config's documentation!
    docs/neovim.rst
    docs/tmux.rst
    docs/resources.rst
+   docs/homelab.rst
 
 
 Indices and tables

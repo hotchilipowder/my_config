@@ -2,6 +2,57 @@
 HomeLab Configurations
 ======================
 
+Introduction
+============
+
+[HomeLab]_ 是一个比较好的环境，可以跑一些docker和linux，服务于自己。我主要是采用pve进行虚拟化。
+其中软件上有不少的坑，都记录在这里，方便查阅。
+
+Install Docker
+==============
+
+
+
+.. tabs::
+
+   .. tab:: MacOS
+
+     .. code-block:: bash
+
+         brew install --cask docker
+
+
+   .. tab:: Linux (Using getdocker)
+
+
+    .. code-block:: bash
+    
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+    
+   .. tab:: Linux (Using apt)
+
+    See  `Linux Install <https://docs.docker.com/engine/install/>`_
+
+    .. code-block:: bash
+    
+        sudo apt-get remove docker docker-engine docker.io containerd runc
+        sudo apt-get update
+        sudo apt-get install \
+            ca-certificates \
+            curl \
+            gnupg
+        sudo install -m 0755 -d /etc/apt/keyrings
+        curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+        sudo chmod a+r /etc/apt/keyrings/docker.gpg
+        echo \
+          "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+          "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
+
 
 PVE IPv6 Issues
 ===============
@@ -62,5 +113,12 @@ Proxmox安装后默认没有通过SLAAC配置公网ipv6地址，使用debian/ubu
        bridge-stp off
        bridge-fd 0
     iface vmbr0 inet6 auto
+
+
+
+References
+==========
+
+.. [HomeLab] a laboratory of (usually slightly outdated) awesome in the domicile. See https://icyleaf.com/2022/02/how-to-homelab-part-0
 
 
