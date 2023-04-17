@@ -72,19 +72,20 @@ Proxmox安装后默认没有通过SLAAC配置公网ipv6地址，使用debian/ubu
 原来Proxmox使用的是ifupdown2，非debian/ubuntu使用ifupdown。
 查看内核也已经开启ipv6自动配置：
 
-::
+.. code-block:: bash
 
-   cat /proc/sys/net/ipv6/conf/vmbr0/accept_ra
-   1
-   cat /proc/sys/net/ipv6/conf/vmbr0/autoconf
-   1
-   cat /proc/sys/net/ipv6/conf/vmbr0/forwarding
-   1
+     cat /proc/sys/net/ipv6/conf/vmbr0/accept_ra
+     1
+     cat /proc/sys/net/ipv6/conf/vmbr0/autoconf
+     1
+     cat /proc/sys/net/ipv6/conf/vmbr0/forwarding
+     1
+
 需要将accept_ra值改成2才能自动配置SLAAC ipv6地址：
-在文件末添加
-::
+在\ :code:`/etc/sysctl.conf`\文件末添加
+   
+.. code-block:: bash
 
-   /etc/sysctl.conf  
    net.ipv6.conf.all.accept_ra=2
    net.ipv6.conf.default.accept_ra=2
    net.ipv6.conf.vmbr0.accept_ra=2
@@ -95,7 +96,7 @@ Proxmox安装后默认没有通过SLAAC配置公网ipv6地址，使用debian/ubu
 
 然后ipv6的地址就有了。
 
-这个时候\ :code:` /etc/network/interface`\的配置为:
+这个时候\ :code:`/etc/network/interface`\的配置为:
 
 .. code-block:: bash
 
