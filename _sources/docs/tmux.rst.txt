@@ -15,15 +15,27 @@ Why tmux instead of Zellij
 
     .. literalinclude:: ../../tmux/.tmux.conf
        :language: bash
-    .. FILE ../../tmux/.tmux.conf does not exist
 
 
 Tmux with Neovim
 ================
 
+.. tabs::
 
+   .. tab:: Plug
 
+     .. code-block:: bash
+     
+         
+        'christoomey/vim-tmux-navigator',
 
+   .. tab:: Lazy.nvim
+
+     .. code-block:: bash
+     
+         Plug 'christoomey/vim-tmux-navigator',
+     
+     
 
 Install Tmux
 ============
