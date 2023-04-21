@@ -22,7 +22,26 @@ Why Neovim instead of Vim
        :language: lua
 
 
-    
+当然，由于老的配置使用 [coc.nvim]_ ,因此也存在一些老的配置，还算好用。
+具体如下：
+
+.. dropdown:: ~/.config/nvim/init.vim
+
+    .. literalinclude:: ../../nvim/init.vim
+        :language: bash
+
+另外还有一个\ :literal:`~/.config/nvim/coc-settings.json`\ 文件需要注意:
+
+.. dropdown:: ~/.config/nvim/coc-settings.json
+
+    .. literalinclude:: ../../nvim/coc-settings.json
+        :language: bash
+
+
+
+
+
+
 
 
 
@@ -45,3 +64,5 @@ Reference
 .. [lazy.nvim] `lazy.nvim <https://github.com/folke/lazy.nvim>`_
 
 .. [kickstart] https://github.com/nvim-lua/kickstart.nvim
+
+.. [coc.nvim] https://github.com/neoclide/coc.nvim
