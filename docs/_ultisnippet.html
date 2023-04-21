@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>python - My Dev Config 文档</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" />
+  <script>
+    const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const sessionTheme = sessionStorage['_theme']
+    if (sessionTheme) {
+      document.documentElement.classList.add(sessionTheme)
+    } else if (isDarkTheme) {
+      document.documentElement.classList.add('dark')
+    }
+  </script><link rel="stylesheet" href="../_static/pygments.css?v=2023.3.19" type="text/css" />
+    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.3.19" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.3.19" />
+    <style>
+:root {
+  --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:4rem;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));
+  --sy-rc-theme:143, 118, 214;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --sy-rc-theme:143, 118, 214;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sy-rc-theme:143, 118, 214;--sy-rc-bg:18, 18, 18;--sy-rc-invert:255, 255, 255;--sy-rc-text:255, 255, 255;--sy-c-bg:#121212;--sy-c-bg-weak:#212833;--sy-c-text:#cedbea;--sy-c-text-weak:#77889f;--sy-c-heading:#ebf0f4;--sy-c-bold:#ebf0f4;--sy-c-foot-text:#eee;--sy-c-foot-bg:#000;--sy-c-foot-divider:#000;
+  }
+}
+html.light {
+  --sy-rc-theme:143, 118, 214;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+}
+html.dark {
+  --sy-rc-theme:143, 118, 214;--sy-rc-bg:18, 18, 18;--sy-rc-invert:255, 255, 255;--sy-rc-text:255, 255, 255;--sy-c-bg:#121212;--sy-c-bg-weak:#212833;--sy-c-text:#cedbea;--sy-c-text-weak:#77889f;--sy-c-heading:#ebf0f4;--sy-c-bold:#ebf0f4;--sy-c-foot-text:#eee;--sy-c-foot-bg:#000;--sy-c-foot-divider:#000;
+}
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-heading: Inter, var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="python"/>
+<meta name="twitter:card" content="summary"/></head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <div class="sy-head-brand flex items-center">
+      <div class="md:hidden flex items-center">
+        <button class="hamburger js-menu mr-3" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </button>
+      </div>
+      <a href="../index.html">
+        
+        
+        <strong>My Dev Config</strong>
+      </a>
+      
+    </div>
+    <div class="sy-head-actions flex gap-2 items-center print:hidden">
+      <nav class="sy-head-nav hidden md:block">
+      </nav>
+      <div class="hidden md:block"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+      </div>
+      <button class="js-theme theme-switch flex items-center ml-1" data-aria-light="Switch to dark mode" data-aria-dark="Switch to light mode">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-64 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="md:hidden pt-6 px-6"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <button>提交</button>
+</form>
+      </div>
+      <div class="md:hidden pt-3 px-6">
+      </div>
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc">
+          <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>目录</h3>
+    </li>
+<li><a class="reference internal" href="#latex">latex</a></li>
+<li><a class="reference internal" href="#restructuredtext">restructuredtext</a>
+
+  </div><div id="ethical-ad-placement"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
+        <article class="yue" role="main">
+          <section id="python">
+<h1>python<a class="headerlink" href="#python" title="此标题的永久链接">¶</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[pybname]  input the header<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="1-2"><span class="c1">#-*- coding: utf-8 -*-</span>
+</span><span id="1-3"><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="1-4"><span class="s2">@author: </span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">huangjunjie</span><span class="si">}</span>
+</span><span id="1-5"><span class="s2">`!p</span>
+</span><span id="1-6"><span class="s2">import datetime</span>
+</span><span id="1-7"><span class="s2">import vim</span>
+</span><span id="1-8"><span class="s2">import os</span>
+</span><span id="1-9"><span class="s2">date_now = datetime.datetime.now().strftime(&#39;%Y/%m/%d&#39;)</span>
+</span><span id="1-10"><span class="s2">filename = os.path.basename(vim.current.buffer.name)</span>
+</span><span id="1-11"><span class="s2">snip.rv = f&#39;&#39;&#39;@file: {filename}</span>
+</span><span id="1-12"><span class="s2">@time: {date_now}&#39;&#39;&#39;</span>
+</span><span id="1-13"><span class="s2">`</span>
+</span><span id="1-14"><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="1-15">
+</span><span id="1-16"><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="latex">
+<h1>latex<a class="headerlink" href="#latex" title="此标题的永久链接">¶</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[dm]  Math<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="se">\[</span>
+</span><span id="1-2"><span class="nv">$1</span>
+</span><span id="1-3">.<span class="se">\]</span><span class="w"> </span><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[today]  Date<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">endsnippet
+</span><span id="1-2">
+</span><span id="1-3">
+</span><span id="1-4">
+</span><span id="1-5">snippet<span class="w"> </span>box<span class="w"> </span><span class="s2">&quot;Box&quot;</span>
+</span><span id="1-6"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;┌&#39;</span><span class="w"> </span>+<span class="w"> </span><span class="s1">&#39;─&#39;</span><span class="w"> </span>*<span class="w"> </span><span class="o">(</span>len<span class="o">(</span>t<span class="o">[</span><span class="m">1</span><span class="o">])</span><span class="w"> </span>+<span class="w"> </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>+<span class="w"> </span><span class="s1">&#39;┐&#39;</span><span class="sb">`</span>
+</span><span id="1-7">│<span class="w"> </span><span class="nv">$1</span><span class="w"> </span>│
+</span><span id="1-8"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;└&#39;</span><span class="w"> </span>+<span class="w"> </span><span class="s1">&#39;─&#39;</span><span class="w"> </span>*<span class="w"> </span><span class="o">(</span>len<span class="o">(</span>t<span class="o">[</span><span class="m">1</span><span class="o">])</span><span class="w"> </span>+<span class="w"> </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>+<span class="w"> </span><span class="s1">&#39;┘&#39;</span><span class="sb">`</span>
+</span><span id="1-9"><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[tttbegin]  xelatex begin<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">%<span class="w"> </span>!TeX<span class="w"> </span><span class="nv">program</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>xelatex
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[tt]  The texttt{} command for typewriter-style font<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">endsnippet
+</span><span id="1-2">
+</span><span id="1-3">
+</span><span id="1-4">snippet<span class="w"> </span>ff<span class="w"> </span><span class="s2">&quot;The LaTeX \frac{}{} command&quot;</span>
+</span><span id="1-5"><span class="se">\f</span>rac<span class="o">{</span><span class="nv">$1</span><span class="o">}{</span><span class="nv">$2</span><span class="o">}</span><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[hr]  The hyperref package's href{}{} command (for url links)<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">endsnippet
+</span><span id="1-2">
+</span><span id="1-3">snippet<span class="w"> </span><span class="s2">&quot;(^|[^a-zA-Z])mi&quot;</span><span class="w"> </span><span class="s2">&quot;Inline LaTeX math&quot;</span><span class="w"> </span>rA
+</span><span id="1-4"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span>match.group<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="sb">`</span><span class="se">\$</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="si">${</span><span class="nv">VISUAL</span><span class="p">:</span><span class="si">}}</span><span class="w"> </span><span class="se">\$</span><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[snippet]  (?&lt;![\a-zA-Z])([a-zA-Z])1{1}(?![a-zA-Z ])<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="sb">`</span>!p<span class="w"> </span><span class="nv">transliteration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="s2">&quot;a&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\alpha&quot;</span>,<span class="w"> </span><span class="s2">&quot;b&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\beta&quot;</span>,<span class="w"> </span><span class="s2">&quot;g&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\gamma&quot;</span>,<span class="w"> </span><span class="s2">&quot;G&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Gamma&quot;</span>,<span class="w"> </span><span class="s2">&quot;d&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\delta&quot;</span>,<span class="w"> </span><span class="s2">&quot;D&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Delta&quot;</span>,<span class="w"> </span><span class="s2">&quot;e&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\epsilon&quot;</span>,<span class="w"> </span><span class="s2">&quot;E&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\varepsilon&quot;</span>,<span class="w"> </span><span class="s2">&quot;z&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\zeta&quot;</span>,<span class="w"> </span><span class="s2">&quot;h&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\eta&quot;</span>,<span class="w"> </span><span class="s2">&quot;t&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\theta&quot;</span>,<span class="w"> </span><span class="s2">&quot;T&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Theta&quot;</span>,<span class="w"> </span><span class="s2">&quot;k&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\kappa&quot;</span>,<span class="w"> </span><span class="s2">&quot;i&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\iota&quot;</span>,<span class="w"> </span><span class="s2">&quot;l&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\lambda&quot;</span>,<span class="w"> </span><span class="s2">&quot;L&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Lambda&quot;</span>,<span class="w"> </span><span class="s2">&quot;n&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\nu&quot;</span>,<span class="w"> </span><span class="s2">&quot;x&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\xi&quot;</span>,<span class="w"> </span><span class="s2">&quot;X&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Xi&quot;</span>,<span class="w"> </span><span class="s2">&quot;p&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\pi&quot;</span>,<span class="w"> </span><span class="s2">&quot;P&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Pi&quot;</span>,<span class="w"> </span><span class="s2">&quot;r&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\rho&quot;</span>,<span class="w"> </span><span class="s2">&quot;s&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\sigma&quot;</span>,<span class="w"> </span><span class="s2">&quot;S&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Sigma&quot;</span>,<span class="w"> </span><span class="s2">&quot;o&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\omega&quot;</span>,<span class="w"> </span><span class="s2">&quot;O&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Omega&quot;</span>,<span class="w"> </span><span class="s2">&quot;c&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\chi&quot;</span>,<span class="w"> </span><span class="s2">&quot;f&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\phi&quot;</span>,<span class="w"> </span><span class="s2">&quot;F&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Phi&quot;</span>,<span class="w"> </span><span class="s2">&quot;y&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\upsilon&quot;</span>,<span class="w"> </span><span class="s2">&quot;Y&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Upsilon&quot;</span>,<span class="w"> </span><span class="s2">&quot;v&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\psi&quot;</span>,<span class="w"> </span><span class="s2">&quot;V&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\Psi&quot;</span>,<span class="w"> </span><span class="s2">&quot;u&quot;</span>:<span class="w"> </span><span class="s2">&quot;\\tau&quot;</span><span class="w"> </span><span class="o">}</span>
+</span><span id="1-2"><span class="nv">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>match.group<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</span><span id="1-3"><span class="k">if</span><span class="w"> </span>m<span class="w"> </span><span class="k">in</span><span class="w"> </span>transliteration:
+</span><span id="1-4"><span class="w">        </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span>transliteration<span class="o">[</span>m<span class="o">]</span><span class="sb">`</span><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[hello]  test for python<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="o">=</span><span class="s2">&quot;hello world&quot;</span><span class="sb">`</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="restructuredtext">
+<h1>restructuredtext<a class="headerlink" href="#restructuredtext" title="此标题的永久链接">¶</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[h2]  Description<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">$1</span>
+</span><span id="1-2"><span class="c1">######################################</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nv">$2</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[codeblock]  Description<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">..<span class="w"> </span>code-block::<span class="w"> </span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">type</span><span class="si">}</span>
+</span><span id="1-2"><span class="w">  </span>:linenos:
+</span><span id="1-3"><span class="w">  </span><span class="si">${</span><span class="nv">2</span><span class="p">:</span><span class="nv">code</span><span class="si">}</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[list]  Description<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">*<span class="w"> </span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">this</span><span class="si">}</span>
+</span><span id="1-2">
+</span><span id="1-3">*<span class="w"> </span><span class="si">${</span><span class="nv">2</span><span class="p">:</span><span class="nv">this</span><span class="si">}</span>
+</span><span id="1-4">
+</span><span id="1-5">*<span class="w"> </span><span class="si">${</span><span class="nv">3</span><span class="p">:</span><span class="nv">this</span><span class="si">}</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[xref]  Description<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">:xref:<span class="se">\`</span><span class="nv">$1</span><span class="se">\`</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[test]  Description<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="si">${</span><span class="nv">VISUAL</span><span class="p">:</span><span class="nv">test</span><span class="si">}}</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[ablog_new]  ablog new<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span>display_width<span class="o">(</span>t<span class="o">[</span><span class="m">1</span><span class="o">])</span>*<span class="s1">&#39;=&#39;</span><span class="sb">`</span>
+</span><span id="1-2"><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="si">${</span><span class="nv">VISUAL</span><span class="p">:</span><span class="nv">Chapter</span><span class="p"> name</span><span class="si">}}</span>
+</span><span id="1-3"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span>display_width<span class="o">(</span>t<span class="o">[</span><span class="m">1</span><span class="o">])</span>*<span class="s1">&#39;=&#39;</span><span class="sb">`</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+[ablognote_new]  ablog new<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="sb">`</span>!v<span class="w"> </span>strftime<span class="o">(</span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="o">)</span><span class="sb">`</span><span class="w"> </span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="si">${</span><span class="nv">VISUAL</span><span class="p">:</span><span class="nv">Section</span><span class="p"> name</span><span class="si">}}</span>
+</span><span id="1-2"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">11</span><span class="w"> </span>*<span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span>+<span class="w"> </span>display_width<span class="o">(</span>t<span class="o">[</span><span class="m">1</span><span class="o">])</span>*<span class="s1">&#39;*&#39;</span><span class="sb">`</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+
+        </article>
+        
+      </div>
+      <div class="min-w-0 max-w-6xl px-6 pb-6 xl:pt-6 xl:px-12">
+        <div class="navigation flex print:hidden">
+  
+  
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/clipboard.min.js"></script>
+      <script src="../_static/copybutton.js"></script>
+      <script src="../_static/design-tabs.js"></script>
+      <script src="../_static/shibuya.js?v=2023.3.19"></script>
+    
+</body>
+</html>

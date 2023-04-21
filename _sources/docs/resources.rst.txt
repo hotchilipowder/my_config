@@ -81,5 +81,4 @@ References
 
 .. [scientific-python-cookiecutter] https://github.com/NSLS-II/scientific-python-cookiecutter
 
-
-.. [cookiecutterdjano]  https://github.com/cookiecutter/cookiecutter-django
+.. [cookiecutterdjango]  https://github.com/cookiecutter/cookiecutter-django

@@ -1,0 +1,36 @@
+===============
+Snippets System
+===============
+
+Introduction
+============
+
+使用Snippets无意是在日常工作流中非常重要的一环。
+常见的编辑起无论是 \ :literal:`vscode`\还是 \ :literal:`neovim`\ 都有很多的snipets系统。
+
+而且在 [#how-to-make-math-note]_ 中对于 \ :literal:`Ultisnipets`\ 有大量的使用。
+更多的参考资料也包括: [#Supercharged-Latex]_ 
+
+Vsnip
+=====
+Just use \ :code:`VsniptOpenEdit`\
+
+.. include:: _vs-snippet.rst
+
+
+Ultisnipets
+===========
+
+.. include:: ./_ultisnippet.rst
+
+
+
+References
+==========
+
+
+
+.. [#Supercharged-Latex]  `Supercharged LaTeX using Vim/Neovim, VimTeX, and snippets <https://www.ejmastnak.com/tutorials/vim-latex/intro/>`_
+
+.. [#how-to-make-math-note]  `How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel <https://castel.dev/post/lecture-notes-1/>`_
+
