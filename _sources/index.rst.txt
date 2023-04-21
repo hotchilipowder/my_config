@@ -10,7 +10,7 @@ Welcome to My Dev Config's documentation!
 鄙人不才，主要的技术栈是\ :literal:`Python`\ + \ :literal:`TS/JS`\。当然,也对\ :literal:`Rust`\颇有兴趣。
 
 当然，这两个语言比较高级，因此离底层偏远，但是大名鼎鼎的\ `OpenAI' ChatGPT也主要采用Python <https://openai.com/blog/march-20-chatgpt-outage>`_\ 。
-因此，\ :code:`Life is short, please use python.`\
+因此，\ :code:`Life is short, please use Python.`\
 
 
 
