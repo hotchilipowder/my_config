@@ -122,18 +122,23 @@ html.dark {
   <div class="localtoc">
     <h3>目录</h3>
     <ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#rst">Rst</a></li>
+<li><a class="reference internal" href="#python">Python</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sync-from-github">Sync from github</a></li>
 <li><a class="reference internal" href="#vsnip">Vsnip</a><ul>
-<li><a class="reference internal" href="#python">python</a></li>
+<li><a class="reference internal" href="#id4">python</a></li>
 <li><a class="reference internal" href="#latex">latex</a></li>
 <li><a class="reference internal" href="#markdown">markdown</a></li>
 <li><a class="reference internal" href="#restructuredtext">restructuredtext</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ultisnipets">Ultisnipets</a><ul>
-<li><a class="reference internal" href="#id3">python</a></li>
-<li><a class="reference internal" href="#id4">latex</a></li>
-<li><a class="reference internal" href="#id5">restructuredtext</a></li>
+<li><a class="reference internal" href="#id5">python</a></li>
+<li><a class="reference internal" href="#id6">latex</a></li>
+<li><a class="reference internal" href="#id7">restructuredtext</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#references">References</a></li>
@@ -173,15 +178,89 @@ html.dark {
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="此标题的永久链接">¶</a></h2>
 <p>使用Snippets无意是在日常工作流中非常重要的一环。
-常见的编辑起无论是 <code class="docutils literal notranslate"><span class="pre">vscode</span></code>还是 <code class="docutils literal notranslate"><span class="pre">neovim</span></code>都有很多的snipets系统。</p>
+常见的编辑起无论是 <code class="docutils literal notranslate"><span class="pre">vscode</span></code>还是 <code class="docutils literal notranslate"><span class="pre">neovim</span></code>都有很多的snippets系统。</p>
 <p>而且在 <a class="footnote-reference brackets" href="#how-to-make-math-note" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> 中对于 <code class="docutils literal notranslate"><span class="pre">Ultisnipets</span></code>有大量的使用。
-更多的参考资料也包括: <a class="footnote-reference brackets" href="#supercharged-latex" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+更多的参考资料也包括: <a class="footnote-reference brackets" href="#supercharged-latex" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>。</p>
+<p>当然，如果你用 <a class="footnote-reference brackets" href="#vim-snippets" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).</p>
+<section id="rst">
+<h3>Rst<a class="headerlink" href="#rst" title="此标题的永久链接">¶</a></h3>
+<ul class="simple">
+<li><p>part,Part</p></li>
+<li><p>chap,Chapter</p></li>
+<li><p>sec,Section</p></li>
+<li><p>ssec,Subsection</p></li>
+<li><p>sssec,Subsubsubsection</p></li>
+<li><p>para,Paragraph</p></li>
+<li><p>em,Emphasize string</p></li>
+<li><p>st,Strong string</p></li>
+<li><p>li N&lt;tab&gt;,n List</p></li>
+<li><p>oi N&lt;tab&gt;,n Order List</p></li>
+<li><p>cb, Code block</p></li>
+<li><p>id, Includable Directives</p></li>
+<li><p>di, Directives, csv-table</p></li>
+<li><p>dt, Directives without title, code</p></li>
+<li><p>ds, Directives for subscription, |python|</p></li>
+<li><p>sa, Specific Admonitions, hint</p></li>
+<li><p>ro, Text Roles, code</p></li>
+<li><p>eu, Embedded URI</p></li>
+<li><p>fnt, Footnote or Citation</p></li>
+<li><p>sid, sidebar</p></li>
+</ul>
+</section>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="此标题的永久链接">¶</a></h3>
+<p>see <a class="reference external" href="https://github.com/honza/vim-snippets/blob/master/UltiSnips/python.snippets">python.snippets</a> 。</p>
+<ul class="simple">
+<li><p>class,&quot;class with docstrings&quot;</p></li>
+<li><p>slotclass,&quot;class with slots and docstrings&quot;</p></li>
+<li><p>dcl,&quot;dataclass&quot;</p></li>
+<li><p>contain,&quot;methods for emulating a container type&quot;</p></li>
+<li><p>context,&quot;context manager methods&quot;</p></li>
+<li><p>attr,&quot;methods for customizing attribute access&quot;</p></li>
+<li><p>desc,&quot;methods implementing descriptors&quot;</p></li>
+<li><p>cmp,&quot;methods implementing rich comparison&quot;</p></li>
+<li><p>repr,&quot;methods implementing string representation&quot;</p></li>
+<li><p>numeric,&quot;methods for emulating a numeric type&quot;</p></li>
+<li><p>deff,&quot;function or class method&quot;</p></li>
+<li><p>def,&quot;function with docstrings&quot;</p></li>
+<li><p>defc,&quot;class method with docstrings&quot;</p></li>
+<li><p>defs,&quot;static method with docstrings&quot;</p></li>
+<li><p>from,&quot;from module import name&quot;</p></li>
+<li><p>roprop,&quot;Read Only Property&quot;</p></li>
+<li><p>rwprop,&quot;Read write property&quot;</p></li>
+<li><p>if,&quot;If&quot;</p></li>
+<li><p>ife,&quot;If / Else&quot;</p></li>
+<li><p>ifee,&quot;If / Elif / Else&quot;</p></li>
+<li><p>match,&quot;Structural pattern matching&quot;</p></li>
+<li><p>matchw,&quot;Pattern matching with wildcard&quot; b</p></li>
+<li><p>try,&quot;Try / Except&quot;</p></li>
+<li><p>trye,&quot;Try / Except / Else&quot; b</p></li>
+<li><p>tryf,&quot;Try / Except / Finally&quot;</p></li>
+<li><p>tryef,&quot;Try / Except / Else / Finally&quot;</p></li>
+<li><p>ae,&quot;Assert equal&quot;</p></li>
+<li><p>at,&quot;Assert True&quot;</p></li>
+<li><p>af,&quot;Assert False&quot;</p></li>
+<li><p>aae,&quot;Assert almost equal&quot;</p></li>
+<li><p>ar,&quot;Assert raises&quot;</p></li>
+<li><p>an,&quot;Assert is None&quot;</p></li>
+<li><p>ann,&quot;Assert is not None&quot;</p></li>
+<li><p>testcase &quot;pyunit testcase&quot;</p></li>
+<li><p>&quot;,&quot;triple quoted string (double quotes)&quot;</p></li>
+<li><p>',&quot;triple quoted string (single quotes)&quot;</p></li>
+</ul>
+</section>
+</section>
+<section id="sync-from-github">
+<h2>Sync from github<a class="headerlink" href="#sync-from-github" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>https://codeload.github.com/hotchilipowder/my_config/tar.gz/main<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz<span class="w"> </span>--strip<span class="o">=</span><span class="m">2</span><span class="w"> </span>my_config-main/snippets/
+</span></pre></div>
+</div>
 </section>
 <section id="vsnip">
 <h2>Vsnip<a class="headerlink" href="#vsnip" title="此标题的永久链接">¶</a></h2>
 <p>Just use <code class="code docutils literal notranslate"><span class="pre">VsniptOpenEdit</span></code></p>
-<section id="python">
-<h3>python<a class="headerlink" href="#python" title="此标题的永久链接">¶</a></h3>
+<section id="id4">
+<h3>python<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 [pybegin]  Begin a python&quot;<div class="sd-summary-down docutils">
@@ -1039,8 +1118,9 @@ html.dark {
 </section>
 <section id="ultisnipets">
 <h2>Ultisnipets<a class="headerlink" href="#ultisnipets" title="此标题的永久链接">¶</a></h2>
-<section id="id3">
-<h3>python<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h3>
+<p>Just use <code class="code docutils literal notranslate"><span class="pre">UltiSnipsEdit</span></code></p>
+<section id="id5">
+<h3>python<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 [pybname]  input the header<div class="sd-summary-down docutils">
@@ -1068,8 +1148,8 @@ html.dark {
 </div>
 </div>
 </details></section>
-<section id="id4">
-<h3>latex<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
+<section id="id6">
+<h3>latex<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 [dm]  Math<div class="sd-summary-down docutils">
@@ -1168,8 +1248,8 @@ html.dark {
 </div>
 </div>
 </details></section>
-<section id="id5">
-<h3>restructuredtext<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
+<section id="id7">
+<h3>restructuredtext<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 [h2]  Description<div class="sd-summary-down docutils">
@@ -1275,6 +1355,10 @@ html.dark {
 <aside class="footnote brackets" id="how-to-make-math-note" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://castel.dev/post/lecture-notes-1/">How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel</a></p>
+</aside>
+<aside class="footnote brackets" id="vim-snippets" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/honza/vim-snippets">https://github.com/honza/vim-snippets</a></p>
 </aside>
 </aside>
 </section>
