@@ -64,8 +64,8 @@ html.dark {
         </button>
       </div>
       <a href="/my_config">
-        <img class="light-logo" src="../_static/logo.svg" alt="My Dev Config" height="28" />
-        <img class="dark-logo" src="../_static/logo.svg" alt="My Dev Config" height="28" />
+        <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" />
+        <img class="dark-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" />
         <strong>My Dev Config</strong>
       </a>
       
@@ -126,8 +126,14 @@ html.dark {
     <h3>目录</h3>
     <ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#docker">Docker</a><ul>
 <li><a class="reference internal" href="#install-docker">Install Docker</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pve">PVE</a><ul>
 <li><a class="reference internal" href="#pve-ipv6-issues">PVE IPv6 Issues</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
 
@@ -167,8 +173,10 @@ html.dark {
 <p><a class="reference internal" href="#homelab" id="id1"><span>[HomeLab]</span></a> 是一个比较好的环境，可以跑一些docker和linux，服务于自己。我主要是采用pve进行虚拟化。
 其中软件上有不少的坑，都记录在这里，方便查阅。</p>
 </section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="此标题的永久链接">¶</a></h2>
 <section id="install-docker">
-<h2>Install Docker<a class="headerlink" href="#install-docker" title="此标题的永久链接">¶</a></h2>
+<h3>Install Docker<a class="headerlink" href="#install-docker" title="此标题的永久链接">¶</a></h3>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux (Using getdocker)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Linux (Using apt)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>docker
 </span></pre></div>
@@ -196,8 +204,11 @@ html.dark {
 </div>
 </div></div>
 </section>
+</section>
+<section id="pve">
+<h2>PVE<a class="headerlink" href="#pve" title="此标题的永久链接">¶</a></h2>
 <section id="pve-ipv6-issues">
-<h2>PVE IPv6 Issues<a class="headerlink" href="#pve-ipv6-issues" title="此标题的永久链接">¶</a></h2>
+<h3>PVE IPv6 Issues<a class="headerlink" href="#pve-ipv6-issues" title="此标题的永久链接">¶</a></h3>
 <p>这个问题主要是PVE的使用下，IPv6一直无法正常使用。
 首先，我的网路的入口是一个路由器，这个路由器会分发一个ipv6的地址。
 但是在使用了PVE后，无法再分配对应的IPv6到各个虚拟机。
@@ -245,6 +256,7 @@ See <a class="reference external" href="https://www.haiyun.me/archives/1416.html
 </span><span id="1-14">iface<span class="w"> </span>vmbr0<span class="w"> </span>inet6<span class="w"> </span>auto
 </span></pre></div>
 </div>
+</section>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="此标题的永久链接">¶</a></h2>
