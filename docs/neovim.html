@@ -756,8 +756,9 @@ html.dark {
 </span></pre></div>
 </div>
 </div>
-</details><p>当然，由于老的配置使用 <a class="reference internal" href="#coc-nvim" id="id4"><span>[coc.nvim]</span></a> ,因此也存在一些老的配置，还算好用。
-具体如下：</p>
+</details><p>当然，由于老的配置使用 <a class="reference internal" href="#coc-nvim" id="id4"><span>[coc.nvim]</span></a> ,因此也存在一些老的配置，还算好用。另外，这个配置在 <code class="docutils literal notranslate"><span class="pre">Git</span></code>版本比较低的场景下也比较实用。
+因为 <a class="reference internal" href="#lazy-nvim" id="id5"><span>[lazy.nvim]</span></a>需要的版本还比较高。</p>
+<p>具体如下：</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 ~/.config/nvim/init.vim<div class="sd-summary-down docutils">
@@ -772,472 +773,470 @@ html.dark {
 </span><span id="1-5"><span class="s2">&quot;|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|</span>
 </span><span id="1-6"><span class="s2">&quot;</span>
 </span><span id="1-7"><span class="s2">&quot;</span>
-</span><span id="1-8"><span class="s2">&quot;</span><span class="w"> </span>author:<span class="w"> </span>h12345jack
+</span><span id="1-8"><span class="s2">&quot;</span><span class="w"> </span>author:<span class="w"> </span>hotchilipowder
 </span><span id="1-9"><span class="s2">&quot;</span>
 </span><span id="1-10"><span class="s2">&quot;</span><span class="w"> </span><span class="o">==============</span><span class="w"> </span>plug<span class="w"> </span>config<span class="w"> </span>
 </span><span id="1-11"><span class="s2">&quot;</span>
-</span><span id="1-12"><span class="s2">&quot;</span>
-</span><span id="1-13"><span class="s2">&quot;</span>
-</span><span id="1-14">
-</span><span id="1-15"><span class="s2">set encoding=utf-8</span>
-</span><span id="1-16"><span class="s2">scriptencoding utf-8</span>
-</span><span id="1-17">
-</span><span id="1-18">
-</span><span id="1-19"><span class="s2">filetype plugin indent on &quot;</span>Enabling<span class="w"> </span>Plugin<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>Indent
-</span><span id="1-20">syntax<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="s2">&quot;Turning Syntax on</span>
-</span><span id="1-21">
-</span><span id="1-22"><span class="s2">&quot;</span><span class="w"> </span>enables<span class="w"> </span>syntax<span class="w"> </span>highlighting
-</span><span id="1-23">syntax<span class="w"> </span>on
-</span><span id="1-24"><span class="s2">&quot; number of spaces in a &lt;Tab&gt;</span>
-</span><span id="1-25"><span class="s2">set tabstop=4</span>
-</span><span id="1-26"><span class="s2">set softtabstop=4</span>
-</span><span id="1-27"><span class="s2">set expandtab</span>
-</span><span id="1-28"><span class="s2">&quot;</span><span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>spaces<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>autoindents
-</span><span id="1-29"><span class="nb">set</span><span class="w"> </span><span class="nv">shiftwidth</span><span class="o">=</span><span class="m">4</span>
-</span><span id="1-30">
-</span><span id="1-31"><span class="s2">&quot; enable autoindents</span>
-</span><span id="1-32"><span class="s2">set smartindent</span>
-</span><span id="1-33"><span class="s2">&quot;</span><span class="w"> </span>adds<span class="w"> </span>line<span class="w"> </span>numbers
-</span><span id="1-34"><span class="nb">set</span><span class="w"> </span>number
-</span><span id="1-35"><span class="s2">&quot; columns used for the line number</span>
-</span><span id="1-36"><span class="s2">set numberwidth=4</span>
-</span><span id="1-37"><span class="s2">&quot;</span><span class="w"> </span>highlights<span class="w"> </span>the<span class="w"> </span>matched<span class="w"> </span>text<span class="w"> </span>pattern<span class="w"> </span>when<span class="w"> </span>searching
-</span><span id="1-38"><span class="nb">set</span><span class="w"> </span>incsearch
-</span><span id="1-39"><span class="nb">set</span><span class="w"> </span>hlsearch
-</span><span id="1-40"><span class="s2">&quot; open splits intuitively</span>
-</span><span id="1-41"><span class="s2">set splitbelow</span>
-</span><span id="1-42"><span class="s2">set splitright</span>
-</span><span id="1-43"><span class="s2">&quot;</span><span class="w"> </span>navigate<span class="w"> </span>buffers<span class="w"> </span>without<span class="w"> </span>losing<span class="w"> </span>unsaved<span class="w"> </span>work
-</span><span id="1-44"><span class="nb">set</span><span class="w"> </span>hidden
-</span><span id="1-45"><span class="s2">&quot; start scrolling when 8 lines from top or bottom</span>
-</span><span id="1-46"><span class="s2">set scrolloff=8</span>
-</span><span id="1-47"><span class="s2">&quot;</span><span class="w"> </span>Save<span class="w"> </span>undo<span class="w"> </span><span class="nb">history</span>
-</span><span id="1-48"><span class="nb">set</span><span class="w"> </span>undofile
-</span><span id="1-49"><span class="s2">&quot; Enable mouse support</span>
-</span><span id="1-50"><span class="s2">set mouse=a</span>
-</span><span id="1-51"><span class="s2">&quot;</span><span class="w"> </span><span class="k">case</span><span class="w"> </span>insensitive<span class="w"> </span>search<span class="w"> </span>unless<span class="w"> </span>capital<span class="w"> </span>letters<span class="w"> </span>are<span class="w"> </span>used
-</span><span id="1-52"><span class="nb">set</span><span class="w"> </span>ignorecase
-</span><span id="1-53"><span class="nb">set</span><span class="w"> </span>smartcase
-</span><span id="1-54"><span class="nb">set</span><span class="w"> </span>noswapfile
-</span><span id="1-55">
-</span><span id="1-56">
-</span><span id="1-57"><span class="nb">set</span><span class="w"> </span>cursorline
-</span><span id="1-58"><span class="s2">&quot; Set a ruler at column 80, see https://stackoverflow.com/q/2447109/6064933</span>
-</span><span id="1-59"><span class="s2">set colorcolumn=80</span>
-</span><span id="1-60">
-</span><span id="1-61">
-</span><span id="1-62"><span class="s2">set clipboard+=unnamed</span>
-</span><span id="1-63"><span class="s2">set clipboard+=unnamedplus</span>
-</span><span id="1-64"><span class="s2">set fileencoding=utf-8</span>
-</span><span id="1-65">
-</span><span id="1-66"><span class="s2">&quot;</span><span class="w"> </span>map<span class="w"> </span>jk<span class="w"> </span>to<span class="w"> </span>esc<span class="w"> </span>
-</span><span id="1-67"><span class="nb">let</span><span class="w"> </span><span class="nv">mapleader</span><span class="o">=</span><span class="s2">&quot;\&lt;space&gt;&quot;</span>
-</span><span id="1-68"><span class="nb">let</span><span class="w"> </span>g:mapleader<span class="o">=</span><span class="s2">&quot;\&lt;space&gt;&quot;</span>
-</span><span id="1-69">imap<span class="w"> </span>jk<span class="w"> </span>&lt;Esc&gt;<span class="w"> </span>
-</span><span id="1-70">imap<span class="w"> </span>kj<span class="w"> </span>&lt;Esc&gt;
-</span><span id="1-71">
-</span><span id="1-72"><span class="s2">&quot; near to SPC f e d in spacemacs</span>
-</span><span id="1-73"><span class="s2">nmap &lt;leader&gt;fed :e ~/.config/nvim/init.vim&lt;cr&gt;</span>
-</span><span id="1-74"><span class="s2">nmap &lt;leader&gt;fec :e ~/.config/nvim/coc-settings.json&lt;cr&gt;</span>
-</span><span id="1-75">
-</span><span id="1-76"><span class="s2">&quot;</span><span class="w"> </span>Split<span class="w"> </span>window
-</span><span id="1-77">nmap<span class="w"> </span>&lt;leader&gt;ws<span class="w"> </span>:split&lt;Return&gt;&lt;C-w&gt;w
-</span><span id="1-78">nmap<span class="w"> </span>&lt;leader&gt;wv<span class="w"> </span>:vsplit&lt;Return&gt;&lt;C-w&gt;w
-</span><span id="1-79">
-</span><span id="1-80"><span class="s2">&quot; Move window</span>
-</span><span id="1-81"><span class="s2">map &lt;leader&gt;wh &lt;C-w&gt;h</span>
-</span><span id="1-82"><span class="s2">map &lt;leader&gt;wk &lt;C-w&gt;k</span>
-</span><span id="1-83"><span class="s2">map &lt;leader&gt;wj &lt;C-w&gt;j</span>
-</span><span id="1-84"><span class="s2">map &lt;leader&gt;wl &lt;C-w&gt;l</span>
-</span><span id="1-85"><span class="s2">map &lt;leader&gt;wq &lt;C-w&gt;q</span>
-</span><span id="1-86">
-</span><span id="1-87"><span class="s2">&quot;</span><span class="w"> </span>New<span class="w"> </span>tab
-</span><span id="1-88">map<span class="w"> </span>te<span class="w"> </span>:tabedit&lt;Return&gt;
-</span><span id="1-89">
-</span><span id="1-90">
-</span><span id="1-91"><span class="s2">&quot; tab related</span>
-</span><span id="1-92"><span class="s2">nmap &lt;S-Tab&gt; :tabprev&lt;Return&gt;</span>
-</span><span id="1-93">
-</span><span id="1-94"><span class="s2">nnoremap &lt;leader&gt;sv :source </span><span class="nv">$MYVIMRC</span><span class="s2">&lt;CR&gt;</span>
-</span><span id="1-95"><span class="s2">&quot;</span><span class="w"> </span>this<span class="w"> </span>variable<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>enabled<span class="w"> </span><span class="k">for</span><span class="w"> </span>colors<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>applied<span class="w"> </span>properly
-</span><span id="1-96"><span class="nb">set</span><span class="w"> </span>termguicolors<span class="w"> </span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="s2">set encoding=utf-8</span>
+</span><span id="1-14"><span class="s2">scriptencoding utf-8</span>
+</span><span id="1-15">
+</span><span id="1-16">
+</span><span id="1-17"><span class="s2">filetype plugin indent on &quot;</span>Enabling<span class="w"> </span>Plugin<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>Indent
+</span><span id="1-18">syntax<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="s2">&quot;Turning Syntax on</span>
+</span><span id="1-19">
+</span><span id="1-20"><span class="s2">&quot;</span><span class="w"> </span>enables<span class="w"> </span>syntax<span class="w"> </span>highlighting
+</span><span id="1-21">syntax<span class="w"> </span>on
+</span><span id="1-22"><span class="s2">&quot; number of spaces in a &lt;Tab&gt;</span>
+</span><span id="1-23"><span class="s2">set tabstop=4</span>
+</span><span id="1-24"><span class="s2">set softtabstop=4</span>
+</span><span id="1-25"><span class="s2">set expandtab</span>
+</span><span id="1-26"><span class="s2">&quot;</span><span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>spaces<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>autoindents
+</span><span id="1-27"><span class="nb">set</span><span class="w"> </span><span class="nv">shiftwidth</span><span class="o">=</span><span class="m">4</span>
+</span><span id="1-28">
+</span><span id="1-29"><span class="s2">&quot; enable autoindents</span>
+</span><span id="1-30"><span class="s2">set smartindent</span>
+</span><span id="1-31"><span class="s2">&quot;</span><span class="w"> </span>adds<span class="w"> </span>line<span class="w"> </span>numbers
+</span><span id="1-32"><span class="nb">set</span><span class="w"> </span>number
+</span><span id="1-33"><span class="s2">&quot; columns used for the line number</span>
+</span><span id="1-34"><span class="s2">set numberwidth=4</span>
+</span><span id="1-35"><span class="s2">&quot;</span><span class="w"> </span>highlights<span class="w"> </span>the<span class="w"> </span>matched<span class="w"> </span>text<span class="w"> </span>pattern<span class="w"> </span>when<span class="w"> </span>searching
+</span><span id="1-36"><span class="nb">set</span><span class="w"> </span>incsearch
+</span><span id="1-37"><span class="nb">set</span><span class="w"> </span>hlsearch
+</span><span id="1-38"><span class="s2">&quot; open splits intuitively</span>
+</span><span id="1-39"><span class="s2">set splitbelow</span>
+</span><span id="1-40"><span class="s2">set splitright</span>
+</span><span id="1-41"><span class="s2">&quot;</span><span class="w"> </span>navigate<span class="w"> </span>buffers<span class="w"> </span>without<span class="w"> </span>losing<span class="w"> </span>unsaved<span class="w"> </span>work
+</span><span id="1-42"><span class="nb">set</span><span class="w"> </span>hidden
+</span><span id="1-43"><span class="s2">&quot; start scrolling when 8 lines from top or bottom</span>
+</span><span id="1-44"><span class="s2">set scrolloff=8</span>
+</span><span id="1-45"><span class="s2">&quot;</span><span class="w"> </span>Save<span class="w"> </span>undo<span class="w"> </span><span class="nb">history</span>
+</span><span id="1-46"><span class="nb">set</span><span class="w"> </span>undofile
+</span><span id="1-47"><span class="s2">&quot; Enable mouse support</span>
+</span><span id="1-48"><span class="s2">set mouse=a</span>
+</span><span id="1-49"><span class="s2">&quot;</span><span class="w"> </span><span class="k">case</span><span class="w"> </span>insensitive<span class="w"> </span>search<span class="w"> </span>unless<span class="w"> </span>capital<span class="w"> </span>letters<span class="w"> </span>are<span class="w"> </span>used
+</span><span id="1-50"><span class="nb">set</span><span class="w"> </span>ignorecase
+</span><span id="1-51"><span class="nb">set</span><span class="w"> </span>smartcase
+</span><span id="1-52"><span class="nb">set</span><span class="w"> </span>noswapfile
+</span><span id="1-53">
+</span><span id="1-54">
+</span><span id="1-55"><span class="nb">set</span><span class="w"> </span>cursorline
+</span><span id="1-56"><span class="s2">&quot; Set a ruler at column 80, see https://stackoverflow.com/q/2447109/6064933</span>
+</span><span id="1-57"><span class="s2">set colorcolumn=80</span>
+</span><span id="1-58">
+</span><span id="1-59">
+</span><span id="1-60"><span class="s2">set clipboard+=unnamed</span>
+</span><span id="1-61"><span class="s2">set clipboard+=unnamedplus</span>
+</span><span id="1-62"><span class="s2">set fileencoding=utf-8</span>
+</span><span id="1-63">
+</span><span id="1-64"><span class="s2">&quot;</span><span class="w"> </span>map<span class="w"> </span>jk<span class="w"> </span>to<span class="w"> </span>esc<span class="w"> </span>
+</span><span id="1-65"><span class="nb">let</span><span class="w"> </span><span class="nv">mapleader</span><span class="o">=</span><span class="s2">&quot;\&lt;space&gt;&quot;</span>
+</span><span id="1-66"><span class="nb">let</span><span class="w"> </span>g:mapleader<span class="o">=</span><span class="s2">&quot;\&lt;space&gt;&quot;</span>
+</span><span id="1-67">imap<span class="w"> </span>jk<span class="w"> </span>&lt;Esc&gt;<span class="w"> </span>
+</span><span id="1-68">imap<span class="w"> </span>kj<span class="w"> </span>&lt;Esc&gt;
+</span><span id="1-69">
+</span><span id="1-70"><span class="s2">&quot; near to SPC f e d in spacemacs</span>
+</span><span id="1-71"><span class="s2">nmap &lt;leader&gt;fed :e ~/.config/nvim/init.vim&lt;cr&gt;</span>
+</span><span id="1-72"><span class="s2">nmap &lt;leader&gt;fec :e ~/.config/nvim/coc-settings.json&lt;cr&gt;</span>
+</span><span id="1-73">
+</span><span id="1-74"><span class="s2">&quot;</span><span class="w"> </span>Split<span class="w"> </span>window
+</span><span id="1-75">nmap<span class="w"> </span>&lt;leader&gt;ws<span class="w"> </span>:split&lt;Return&gt;&lt;C-w&gt;w
+</span><span id="1-76">nmap<span class="w"> </span>&lt;leader&gt;wv<span class="w"> </span>:vsplit&lt;Return&gt;&lt;C-w&gt;w
+</span><span id="1-77">
+</span><span id="1-78"><span class="s2">&quot; Move window</span>
+</span><span id="1-79"><span class="s2">map &lt;leader&gt;wh &lt;C-w&gt;h</span>
+</span><span id="1-80"><span class="s2">map &lt;leader&gt;wk &lt;C-w&gt;k</span>
+</span><span id="1-81"><span class="s2">map &lt;leader&gt;wj &lt;C-w&gt;j</span>
+</span><span id="1-82"><span class="s2">map &lt;leader&gt;wl &lt;C-w&gt;l</span>
+</span><span id="1-83"><span class="s2">map &lt;leader&gt;wq &lt;C-w&gt;q</span>
+</span><span id="1-84">
+</span><span id="1-85"><span class="s2">&quot;</span><span class="w"> </span>New<span class="w"> </span>tab
+</span><span id="1-86">map<span class="w"> </span>te<span class="w"> </span>:tabedit&lt;Return&gt;
+</span><span id="1-87">
+</span><span id="1-88">
+</span><span id="1-89"><span class="s2">&quot; tab related</span>
+</span><span id="1-90"><span class="s2">nmap &lt;S-Tab&gt; :tabprev&lt;Return&gt;</span>
+</span><span id="1-91">
+</span><span id="1-92"><span class="s2">nnoremap &lt;leader&gt;sv :source </span><span class="nv">$MYVIMRC</span><span class="s2">&lt;CR&gt;</span>
+</span><span id="1-93"><span class="s2">&quot;</span><span class="w"> </span>this<span class="w"> </span>variable<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>enabled<span class="w"> </span><span class="k">for</span><span class="w"> </span>colors<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>applied<span class="w"> </span>properly
+</span><span id="1-94"><span class="nb">set</span><span class="w"> </span>termguicolors<span class="w"> </span>
+</span><span id="1-95">
+</span><span id="1-96">
 </span><span id="1-97">
-</span><span id="1-98">
-</span><span id="1-99">
-</span><span id="1-100"><span class="s2">&quot; if you want pure neovim change !1 -&gt; 1</span>
-</span><span id="1-101"><span class="s2">if !1 | finish | endif</span>
+</span><span id="1-98"><span class="s2">&quot; if you want pure neovim change !1 -&gt; 1</span>
+</span><span id="1-99"><span class="s2">if !1 | finish | endif</span>
+</span><span id="1-100">
+</span><span id="1-101">
 </span><span id="1-102">
-</span><span id="1-103">
-</span><span id="1-104">
-</span><span id="1-105"><span class="s2">lua &lt;&lt; EOF</span>
-</span><span id="1-106"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;left&gt;&#39;, &#39;&lt;C-w&gt;&lt;&#39;)</span>
-</span><span id="1-107"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;right&gt;&#39;, &#39;&lt;C-w&gt;&gt;&#39;)</span>
-</span><span id="1-108"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;up&gt;&#39;, &#39;&lt;C-w&gt;+&#39;)</span>
-</span><span id="1-109"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;down&gt;&#39;, &#39;&lt;C-w&gt;-&#39;)</span>
-</span><span id="1-110"><span class="s2">EOF</span>
+</span><span id="1-103"><span class="s2">lua &lt;&lt; EOF</span>
+</span><span id="1-104"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;left&gt;&#39;, &#39;&lt;C-w&gt;&lt;&#39;)</span>
+</span><span id="1-105"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;right&gt;&#39;, &#39;&lt;C-w&gt;&gt;&#39;)</span>
+</span><span id="1-106"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;up&gt;&#39;, &#39;&lt;C-w&gt;+&#39;)</span>
+</span><span id="1-107"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;C-w&gt;&lt;down&gt;&#39;, &#39;&lt;C-w&gt;-&#39;)</span>
+</span><span id="1-108"><span class="s2">EOF</span>
+</span><span id="1-109">
+</span><span id="1-110">
 </span><span id="1-111">
-</span><span id="1-112">
+</span><span id="1-112"><span class="s2">vnoremap &lt;leader&gt;y :OSCYankVisual&lt;CR&gt;</span>
 </span><span id="1-113">
-</span><span id="1-114"><span class="s2">vnoremap &lt;leader&gt;y :OSCYankVisual&lt;CR&gt;</span>
+</span><span id="1-114"><span class="s2">call plug#begin(&#39;~/.config/nvim/plugged&#39;)</span>
 </span><span id="1-115">
-</span><span id="1-116"><span class="s2">call plug#begin(&#39;~/.config/nvim/plugged&#39;)</span>
-</span><span id="1-117">
-</span><span id="1-118"><span class="s2">&quot;</span><span class="w"> </span>Plugin:<span class="w"> </span>Vimtex
-</span><span id="1-119">Plug<span class="w"> </span><span class="s1">&#39;lervag/vimtex&#39;</span>
-</span><span id="1-120">
-</span><span id="1-121"><span class="s2">&quot; Plugin: UI</span>
-</span><span id="1-122"><span class="s2">Plug &#39;nvim-lualine/lualine.nvim&#39;</span>
-</span><span id="1-123"><span class="s2">Plug &#39;lukas-reineke/indent-blankline.nvim&#39;</span>
-</span><span id="1-124">
-</span><span id="1-125"><span class="s2">&quot;</span><span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>icons<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>statusline<span class="w"> </span>choose<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>these
-</span><span id="1-126">Plug<span class="w"> </span><span class="s1">&#39;folke/tokyonight.nvim&#39;</span>,<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="s1">&#39;branch&#39;</span>:<span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span><span class="o">}</span>
-</span><span id="1-127">Plug<span class="w"> </span><span class="s1">&#39;kyazdani42/nvim-web-devicons&#39;</span>
-</span><span id="1-128">Plug<span class="w"> </span><span class="s1">&#39;kyazdani42/nvim-tree.lua&#39;</span>
-</span><span id="1-129">
-</span><span id="1-130">
-</span><span id="1-131"><span class="s2">&quot; Plugin: Editing</span>
-</span><span id="1-132"><span class="s2">Plug &#39;tpope/vim-surround&#39; &quot;</span><span class="w"> </span>example:<span class="w"> </span>cs<span class="s1">&#39;}</span>
-</span><span id="1-133"><span class="s1">&quot; Plug &#39;</span>tpope/vim-commentary<span class="s1">&#39; &quot; </span>
-</span><span id="1-134"><span class="s1">Plug &#39;</span>numToStr/Comment.nvim<span class="s1">&#39;</span>
+</span><span id="1-116"><span class="s2">&quot;</span><span class="w"> </span>Plugin:<span class="w"> </span>Vimtex
+</span><span id="1-117">Plug<span class="w"> </span><span class="s1">&#39;lervag/vimtex&#39;</span>
+</span><span id="1-118">
+</span><span id="1-119"><span class="s2">&quot; Plugin: UI</span>
+</span><span id="1-120"><span class="s2">Plug &#39;nvim-lualine/lualine.nvim&#39;</span>
+</span><span id="1-121"><span class="s2">Plug &#39;lukas-reineke/indent-blankline.nvim&#39;</span>
+</span><span id="1-122">
+</span><span id="1-123"><span class="s2">&quot;</span><span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>icons<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>statusline<span class="w"> </span>choose<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>these
+</span><span id="1-124">Plug<span class="w"> </span><span class="s1">&#39;folke/tokyonight.nvim&#39;</span>,<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="s1">&#39;branch&#39;</span>:<span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span><span class="o">}</span>
+</span><span id="1-125">Plug<span class="w"> </span><span class="s1">&#39;kyazdani42/nvim-web-devicons&#39;</span>
+</span><span id="1-126">Plug<span class="w"> </span><span class="s1">&#39;kyazdani42/nvim-tree.lua&#39;</span>
+</span><span id="1-127">
+</span><span id="1-128">
+</span><span id="1-129"><span class="s2">&quot; Plugin: Editing</span>
+</span><span id="1-130"><span class="s2">Plug &#39;tpope/vim-surround&#39; &quot;</span><span class="w"> </span>example:<span class="w"> </span>cs<span class="s1">&#39;}</span>
+</span><span id="1-131"><span class="s1">&quot; Plug &#39;</span>tpope/vim-commentary<span class="s1">&#39; &quot; </span>
+</span><span id="1-132"><span class="s1">Plug &#39;</span>numToStr/Comment.nvim<span class="s1">&#39;</span>
+</span><span id="1-133">
+</span><span id="1-134">
 </span><span id="1-135">
-</span><span id="1-136">
-</span><span id="1-137">
-</span><span id="1-138"><span class="s1">let g:coc_global_extensions = [&#39;</span>coc-json<span class="s1">&#39;, &#39;</span>coc-git<span class="s1">&#39;, &#39;</span>coc-pyright<span class="s1">&#39;, &#39;</span>coc-snippets<span class="s1">&#39;]</span>
-</span><span id="1-139"><span class="s1">let g:trigger_size = 0.5 * 1048576</span>
+</span><span id="1-136"><span class="s1">let g:coc_global_extensions = [&#39;</span>coc-json<span class="s1">&#39;, &#39;</span>coc-git<span class="s1">&#39;, &#39;</span>coc-pyright<span class="s1">&#39;, &#39;</span>coc-snippets<span class="s1">&#39;]</span>
+</span><span id="1-137"><span class="s1">let g:trigger_size = 0.5 * 1048576</span>
+</span><span id="1-138">
+</span><span id="1-139"><span class="s1">Plug &#39;</span>neoclide/coc.nvim<span class="s1">&#39;, {&#39;</span>branch<span class="s1">&#39;: &#39;</span>release<span class="s1">&#39;}</span>
 </span><span id="1-140">
-</span><span id="1-141"><span class="s1">Plug &#39;</span>neoclide/coc.nvim<span class="s1">&#39;, {&#39;</span>branch<span class="s1">&#39;: &#39;</span>release<span class="s1">&#39;}</span>
+</span><span id="1-141"><span class="s1">Plug &#39;</span>rodrigore/coc-tailwind-intellisense<span class="s1">&#39;, {&#39;</span><span class="k">do</span><span class="s1">&#39;: &#39;</span>npm<span class="w"> </span>install<span class="s1">&#39;}</span>
 </span><span id="1-142">
-</span><span id="1-143"><span class="s1">Plug &#39;</span>rodrigore/coc-tailwind-intellisense<span class="s1">&#39;, {&#39;</span><span class="k">do</span><span class="s1">&#39;: &#39;</span>npm<span class="w"> </span>install<span class="s1">&#39;}</span>
-</span><span id="1-144">
-</span><span id="1-145"><span class="s1">Plug &#39;</span>honza/vim-snippets<span class="s1">&#39;</span>
-</span><span id="1-146"><span class="s1">Plug &#39;</span>SirVer/ultisnips<span class="s1">&#39;</span>
-</span><span id="1-147"><span class="s1">let g:UltiSnipsSnippetDirectories=[&#39;</span>UltiSnips<span class="s1">&#39;]</span>
-</span><span id="1-148"><span class="s1">let g:UltiSnipsExpandTrigger=&quot;&lt;tab&gt;&quot;</span>
-</span><span id="1-149"><span class="s1">let g:UltiSnipsJumpForwardTrigger=&quot;&lt;c-j&gt;&quot;</span>
-</span><span id="1-150"><span class="s1">let g:UltiSnipsJumpBackwardTrigger=&quot;&lt;c-k&gt;&quot;</span>
-</span><span id="1-151"><span class="s1">&quot; If you want :UltiSnipsEdit to split your window.</span>
-</span><span id="1-152"><span class="s1">let g:UltiSnipsEditSplit=&quot;vertical&quot;</span>
+</span><span id="1-143"><span class="s1">Plug &#39;</span>honza/vim-snippets<span class="s1">&#39;</span>
+</span><span id="1-144"><span class="s1">Plug &#39;</span>SirVer/ultisnips<span class="s1">&#39;</span>
+</span><span id="1-145"><span class="s1">let g:UltiSnipsSnippetDirectories=[&#39;</span>UltiSnips<span class="s1">&#39;]</span>
+</span><span id="1-146"><span class="s1">let g:UltiSnipsExpandTrigger=&quot;&lt;tab&gt;&quot;</span>
+</span><span id="1-147"><span class="s1">let g:UltiSnipsJumpForwardTrigger=&quot;&lt;c-j&gt;&quot;</span>
+</span><span id="1-148"><span class="s1">let g:UltiSnipsJumpBackwardTrigger=&quot;&lt;c-k&gt;&quot;</span>
+</span><span id="1-149"><span class="s1">&quot; If you want :UltiSnipsEdit to split your window.</span>
+</span><span id="1-150"><span class="s1">let g:UltiSnipsEditSplit=&quot;vertical&quot;</span>
+</span><span id="1-151">
+</span><span id="1-152"><span class="s1">Plug &#39;</span>nvim-treesitter/nvim-treesitter<span class="s1">&#39;, {&#39;</span><span class="k">do</span><span class="s1">&#39;: &#39;</span>:TSUpdate<span class="s1">&#39;}</span>
 </span><span id="1-153">
-</span><span id="1-154"><span class="s1">Plug &#39;</span>nvim-treesitter/nvim-treesitter<span class="s1">&#39;, {&#39;</span><span class="k">do</span><span class="s1">&#39;: &#39;</span>:TSUpdate<span class="s1">&#39;}</span>
-</span><span id="1-155">
-</span><span id="1-156"><span class="s1">&quot; Telescope requires plenary to function</span>
-</span><span id="1-157"><span class="s1">Plug &#39;</span>nvim-lua/plenary.nvim<span class="s1">&#39;</span>
-</span><span id="1-158"><span class="s1">&quot; The main Telescope plugin</span>
-</span><span id="1-159"><span class="s1">Plug &#39;</span>nvim-telescope/telescope.nvim<span class="s1">&#39;</span>
-</span><span id="1-160"><span class="s1">&quot; An optional plugin recommended by Telescope docs</span>
-</span><span id="1-161"><span class="s1">Plug &#39;</span>nvim-telescope/telescope-fzf-native.nvim<span class="s1">&#39;, {&#39;</span><span class="k">do</span><span class="s1">&#39;: &#39;</span>make<span class="s1">&#39; }</span>
-</span><span id="1-162">
+</span><span id="1-154"><span class="s1">&quot; Telescope requires plenary to function</span>
+</span><span id="1-155"><span class="s1">Plug &#39;</span>nvim-lua/plenary.nvim<span class="s1">&#39;</span>
+</span><span id="1-156"><span class="s1">&quot; The main Telescope plugin</span>
+</span><span id="1-157"><span class="s1">Plug &#39;</span>nvim-telescope/telescope.nvim<span class="s1">&#39;</span>
+</span><span id="1-158"><span class="s1">&quot; An optional plugin recommended by Telescope docs</span>
+</span><span id="1-159"><span class="s1">Plug &#39;</span>nvim-telescope/telescope-fzf-native.nvim<span class="s1">&#39;, {&#39;</span><span class="k">do</span><span class="s1">&#39;: &#39;</span>make<span class="s1">&#39; }</span>
+</span><span id="1-160">
+</span><span id="1-161">
+</span><span id="1-162"><span class="s1">Plug &#39;</span>akinsho/toggleterm.nvim<span class="s1">&#39;, {&#39;</span>tag<span class="s1">&#39; : &#39;</span>*<span class="s1">&#39;}</span>
 </span><span id="1-163">
-</span><span id="1-164"><span class="s1">Plug &#39;</span>akinsho/toggleterm.nvim<span class="s1">&#39;, {&#39;</span>tag<span class="s1">&#39; : &#39;</span>*<span class="s1">&#39;}</span>
-</span><span id="1-165">
-</span><span id="1-166"><span class="s1">Plug &#39;</span>ojroques/vim-oscyank<span class="s1">&#39;</span>
-</span><span id="1-167"><span class="s1">Plug &#39;</span>christoomey/vim-tmux-navigator<span class="s1">&#39;</span>
-</span><span id="1-168"><span class="s1">Plug &#39;</span>akinsho/bufferline.nvim<span class="s1">&#39;, { &#39;</span>tag<span class="s1">&#39;: &#39;</span>v2.*<span class="s1">&#39; }</span>
-</span><span id="1-169"><span class="s1">Plug &#39;</span>goolord/alpha-nvim<span class="s1">&#39;</span>
+</span><span id="1-164"><span class="s1">Plug &#39;</span>ojroques/vim-oscyank<span class="s1">&#39;</span>
+</span><span id="1-165"><span class="s1">Plug &#39;</span>christoomey/vim-tmux-navigator<span class="s1">&#39;</span>
+</span><span id="1-166"><span class="s1">Plug &#39;</span>akinsho/bufferline.nvim<span class="s1">&#39;, { &#39;</span>tag<span class="s1">&#39;: &#39;</span>v2.*<span class="s1">&#39; }</span>
+</span><span id="1-167"><span class="s1">Plug &#39;</span>goolord/alpha-nvim<span class="s1">&#39;</span>
+</span><span id="1-168">
+</span><span id="1-169"><span class="s1">call plug#end()</span>
 </span><span id="1-170">
-</span><span id="1-171"><span class="s1">call plug#end()</span>
-</span><span id="1-172">
-</span><span id="1-173">
-</span><span id="1-174"><span class="s1">let g:tokyonight_colors = {</span>
-</span><span id="1-175"><span class="s1">  \ &#39;</span>hint<span class="s1">&#39;: &#39;</span>orange<span class="s1">&#39;,</span>
-</span><span id="1-176"><span class="s1">  \ &#39;</span>error<span class="s1">&#39;: &#39;</span><span class="c1">#ff0000&#39;</span>
-</span><span id="1-177"><span class="se">\ </span><span class="o">}</span>
-</span><span id="1-178">
-</span><span id="1-179">colorscheme<span class="w"> </span>tokyonight
-</span><span id="1-180"><span class="s2">&quot; Use this for dark color schemes</span>
-</span><span id="1-181">
-</span><span id="1-182"><span class="s2">&quot;</span><span class="w"> </span>coc<span class="w"> </span>config
-</span><span id="1-183"><span class="s2">&quot;</span>
-</span><span id="1-184"><span class="s2">set encoding=utf-8</span>
-</span><span id="1-185">
-</span><span id="1-186"><span class="s2">&quot;</span><span class="w"> </span>TextEdit<span class="w"> </span>might<span class="w"> </span>fail<span class="w"> </span><span class="k">if</span><span class="w"> </span>hidden<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>set.
-</span><span id="1-187"><span class="nb">set</span><span class="w"> </span>hidden
-</span><span id="1-188">
-</span><span id="1-189"><span class="s2">&quot; Some servers have issues with backup files, see #649.</span>
-</span><span id="1-190"><span class="s2">set nobackup</span>
-</span><span id="1-191"><span class="s2">set nowritebackup</span>
-</span><span id="1-192">
-</span><span id="1-193"><span class="s2">&quot;</span><span class="w"> </span>Give<span class="w"> </span>more<span class="w"> </span>space<span class="w"> </span><span class="k">for</span><span class="w"> </span>displaying<span class="w"> </span>messages.
-</span><span id="1-194"><span class="nb">set</span><span class="w"> </span><span class="nv">cmdheight</span><span class="o">=</span><span class="m">2</span>
-</span><span id="1-195">
-</span><span id="1-196"><span class="s2">&quot; Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable</span>
-</span><span id="1-197"><span class="s2">&quot;</span><span class="w"> </span>delays<span class="w"> </span>and<span class="w"> </span>poor<span class="w"> </span>user<span class="w"> </span>experience.
-</span><span id="1-198"><span class="nb">set</span><span class="w"> </span><span class="nv">updatetime</span><span class="o">=</span><span class="m">300</span>
-</span><span id="1-199">
-</span><span id="1-200"><span class="s2">&quot; Don&#39;t pass messages to |ins-completion-menu|.</span>
-</span><span id="1-201"><span class="s2">set shortmess+=c</span>
-</span><span id="1-202">
-</span><span id="1-203"><span class="s2">&quot;</span><span class="w"> </span>Always<span class="w"> </span>show<span class="w"> </span>the<span class="w"> </span>signcolumn,<span class="w"> </span>otherwise<span class="w"> </span>it<span class="w"> </span>would<span class="w"> </span><span class="nb">shift</span><span class="w"> </span>the<span class="w"> </span>text<span class="w"> </span>each<span class="w"> </span><span class="nb">time</span>
-</span><span id="1-204"><span class="s2">&quot; diagnostics appear/become resolved.</span>
-</span><span id="1-205"><span class="s2">if has(&quot;</span>nvim-0.5.0<span class="s2">&quot;) || has(&quot;</span>patch-8.1.1564<span class="s2">&quot;)</span>
-</span><span id="1-206"><span class="s2">  &quot;</span><span class="w"> </span>Recently<span class="w"> </span>vim<span class="w"> </span>can<span class="w"> </span>merge<span class="w"> </span>signcolumn<span class="w"> </span>and<span class="w"> </span>number<span class="w"> </span>column<span class="w"> </span>into<span class="w"> </span>one
+</span><span id="1-171">
+</span><span id="1-172"><span class="s1">let g:tokyonight_colors = {</span>
+</span><span id="1-173"><span class="s1">  \ &#39;</span>hint<span class="s1">&#39;: &#39;</span>orange<span class="s1">&#39;,</span>
+</span><span id="1-174"><span class="s1">  \ &#39;</span>error<span class="s1">&#39;: &#39;</span><span class="c1">#ff0000&#39;</span>
+</span><span id="1-175"><span class="se">\ </span><span class="o">}</span>
+</span><span id="1-176">
+</span><span id="1-177">colorscheme<span class="w"> </span>tokyonight
+</span><span id="1-178"><span class="s2">&quot; Use this for dark color schemes</span>
+</span><span id="1-179">
+</span><span id="1-180"><span class="s2">&quot;</span><span class="w"> </span>coc<span class="w"> </span>config
+</span><span id="1-181"><span class="s2">&quot;</span>
+</span><span id="1-182"><span class="s2">set encoding=utf-8</span>
+</span><span id="1-183">
+</span><span id="1-184"><span class="s2">&quot;</span><span class="w"> </span>TextEdit<span class="w"> </span>might<span class="w"> </span>fail<span class="w"> </span><span class="k">if</span><span class="w"> </span>hidden<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>set.
+</span><span id="1-185"><span class="nb">set</span><span class="w"> </span>hidden
+</span><span id="1-186">
+</span><span id="1-187"><span class="s2">&quot; Some servers have issues with backup files, see #649.</span>
+</span><span id="1-188"><span class="s2">set nobackup</span>
+</span><span id="1-189"><span class="s2">set nowritebackup</span>
+</span><span id="1-190">
+</span><span id="1-191"><span class="s2">&quot;</span><span class="w"> </span>Give<span class="w"> </span>more<span class="w"> </span>space<span class="w"> </span><span class="k">for</span><span class="w"> </span>displaying<span class="w"> </span>messages.
+</span><span id="1-192"><span class="nb">set</span><span class="w"> </span><span class="nv">cmdheight</span><span class="o">=</span><span class="m">2</span>
+</span><span id="1-193">
+</span><span id="1-194"><span class="s2">&quot; Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable</span>
+</span><span id="1-195"><span class="s2">&quot;</span><span class="w"> </span>delays<span class="w"> </span>and<span class="w"> </span>poor<span class="w"> </span>user<span class="w"> </span>experience.
+</span><span id="1-196"><span class="nb">set</span><span class="w"> </span><span class="nv">updatetime</span><span class="o">=</span><span class="m">300</span>
+</span><span id="1-197">
+</span><span id="1-198"><span class="s2">&quot; Don&#39;t pass messages to |ins-completion-menu|.</span>
+</span><span id="1-199"><span class="s2">set shortmess+=c</span>
+</span><span id="1-200">
+</span><span id="1-201"><span class="s2">&quot;</span><span class="w"> </span>Always<span class="w"> </span>show<span class="w"> </span>the<span class="w"> </span>signcolumn,<span class="w"> </span>otherwise<span class="w"> </span>it<span class="w"> </span>would<span class="w"> </span><span class="nb">shift</span><span class="w"> </span>the<span class="w"> </span>text<span class="w"> </span>each<span class="w"> </span><span class="nb">time</span>
+</span><span id="1-202"><span class="s2">&quot; diagnostics appear/become resolved.</span>
+</span><span id="1-203"><span class="s2">if has(&quot;</span>nvim-0.5.0<span class="s2">&quot;) || has(&quot;</span>patch-8.1.1564<span class="s2">&quot;)</span>
+</span><span id="1-204"><span class="s2">  &quot;</span><span class="w"> </span>Recently<span class="w"> </span>vim<span class="w"> </span>can<span class="w"> </span>merge<span class="w"> </span>signcolumn<span class="w"> </span>and<span class="w"> </span>number<span class="w"> </span>column<span class="w"> </span>into<span class="w"> </span>one
+</span><span id="1-205"><span class="w">  </span><span class="nb">set</span><span class="w"> </span><span class="nv">signcolumn</span><span class="o">=</span>yes:1
+</span><span id="1-206"><span class="k">else</span>
 </span><span id="1-207"><span class="w">  </span><span class="nb">set</span><span class="w"> </span><span class="nv">signcolumn</span><span class="o">=</span>yes:1
-</span><span id="1-208"><span class="k">else</span>
-</span><span id="1-209"><span class="w">  </span><span class="nb">set</span><span class="w"> </span><span class="nv">signcolumn</span><span class="o">=</span>yes:1
-</span><span id="1-210">endif
-</span><span id="1-211">
-</span><span id="1-212"><span class="s2">&quot; Use tab for trigger completion with characters ahead and navigate.</span>
-</span><span id="1-213"><span class="s2">&quot;</span><span class="w"> </span>NOTE:<span class="w"> </span>Use<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s1">&#39;:verbose imap &lt;tab&gt;&#39;</span><span class="w"> </span>to<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>tab<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>mapped<span class="w"> </span>by
-</span><span id="1-214"><span class="s2">&quot; other plugin before putting this into your config.</span>
-</span><span id="1-215"><span class="s2">inoremap &lt;silent&gt;&lt;expr&gt; &lt;TAB&gt;</span>
-</span><span id="1-216"><span class="s2">      \ pumvisible() ? &quot;</span><span class="se">\&lt;</span>C-n&gt;<span class="s2">&quot; :</span>
-</span><span id="1-217"><span class="s2">      \ &lt;SID&gt;check_back_space() ? &quot;</span><span class="se">\&lt;</span>TAB&gt;<span class="s2">&quot; :</span>
-</span><span id="1-218"><span class="s2">      \ coc#refresh()</span>
-</span><span id="1-219"><span class="s2">inoremap &lt;expr&gt;&lt;S-TAB&gt; pumvisible() ? &quot;</span><span class="se">\&lt;</span>C-p&gt;<span class="s2">&quot; : &quot;</span><span class="se">\&lt;</span>C-h&gt;<span class="s2">&quot;</span>
-</span><span id="1-220">
-</span><span id="1-221"><span class="s2">function! s:check_back_space() abort</span>
-</span><span id="1-222"><span class="s2">  let col = col(&#39;.&#39;) - 1</span>
-</span><span id="1-223"><span class="s2">  return !col || getline(&#39;.&#39;)[col - 1]  =~# &#39;\s&#39;</span>
-</span><span id="1-224"><span class="s2">endfunction</span>
-</span><span id="1-225">
-</span><span id="1-226"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span>&lt;c-space&gt;<span class="w"> </span>to<span class="w"> </span>trigger<span class="w"> </span>completion.
-</span><span id="1-227"><span class="k">if</span><span class="w"> </span>has<span class="o">(</span><span class="s1">&#39;nvim&#39;</span><span class="o">)</span>
-</span><span id="1-228"><span class="w">  </span>inoremap<span class="w"> </span>&lt;silent&gt;&lt;expr&gt;<span class="w"> </span>&lt;c-space&gt;<span class="w"> </span>coc#refresh<span class="o">()</span>
-</span><span id="1-229"><span class="k">else</span>
-</span><span id="1-230"><span class="w">  </span>inoremap<span class="w"> </span>&lt;silent&gt;&lt;expr&gt;<span class="w"> </span>&lt;c-@&gt;<span class="w"> </span>coc#refresh<span class="o">()</span>
-</span><span id="1-231">endif
-</span><span id="1-232">
-</span><span id="1-233"><span class="s2">&quot; Make &lt;CR&gt; auto-select the first completion item and notify coc.nvim to</span>
-</span><span id="1-234"><span class="s2">&quot;</span><span class="w"> </span>format<span class="w"> </span>on<span class="w"> </span>enter,<span class="w"> </span>&lt;cr&gt;<span class="w"> </span>could<span class="w"> </span>be<span class="w"> </span>remapped<span class="w"> </span>by<span class="w"> </span>other<span class="w"> </span>vim<span class="w"> </span>plugin
-</span><span id="1-235">inoremap<span class="w"> </span>&lt;silent&gt;&lt;expr&gt;<span class="w"> </span>&lt;cr&gt;<span class="w"> </span>pumvisible<span class="o">()</span><span class="w"> </span>?<span class="w"> </span>coc#_select_confirm<span class="o">()</span>
-</span><span id="1-236"><span class="w">                              </span><span class="se">\:</span><span class="w"> </span><span class="s2">&quot;\&lt;C-g&gt;u\&lt;CR&gt;\&lt;c-r&gt;=coc#on_enter()\&lt;CR&gt;&quot;</span>
-</span><span id="1-237">
-</span><span id="1-238"><span class="s2">&quot; Use `[g` and `]g` to navigate diagnostics</span>
-</span><span id="1-239"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span><span class="sb">`</span>:CocDiagnostics<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>diagnostics<span class="w"> </span>of<span class="w"> </span>current<span class="w"> </span>buffer<span class="w"> </span><span class="k">in</span><span class="w"> </span>location<span class="w"> </span>list.
-</span><span id="1-240">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">[</span>g<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-diagnostic-prev<span class="o">)</span>
-</span><span id="1-241">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">]</span>g<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-diagnostic-next<span class="o">)</span>
-</span><span id="1-242">
-</span><span id="1-243"><span class="s2">&quot; GoTo code navigation.</span>
-</span><span id="1-244"><span class="s2">nmap &lt;silent&gt; gd &lt;Plug&gt;(coc-definition)</span>
-</span><span id="1-245"><span class="s2">nmap &lt;silent&gt; gy &lt;Plug&gt;(coc-type-definition)</span>
-</span><span id="1-246"><span class="s2">nmap &lt;silent&gt; gi &lt;Plug&gt;(coc-implementation)</span>
-</span><span id="1-247"><span class="s2">nmap &lt;silent&gt; gr &lt;Plug&gt;(coc-references)</span>
-</span><span id="1-248">
-</span><span id="1-249"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span>K<span class="w"> </span>to<span class="w"> </span>show<span class="w"> </span>documentation<span class="w"> </span><span class="k">in</span><span class="w"> </span>preview<span class="w"> </span>window.
-</span><span id="1-250">nnoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>K<span class="w"> </span>:call<span class="w"> </span>&lt;SID&gt;show_documentation<span class="o">()</span>&lt;CR&gt;
-</span><span id="1-251">
-</span><span id="1-252"><span class="k">function</span>!<span class="w"> </span>s:show_documentation<span class="o">()</span>
-</span><span id="1-253"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>index<span class="o">([</span><span class="s1">&#39;vim&#39;</span>,<span class="s1">&#39;help&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="p">&amp;</span>filetype<span class="o">)</span><span class="w"> </span>&gt;<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">)</span>
-</span><span id="1-254"><span class="w">    </span>execute<span class="w"> </span><span class="s1">&#39;h &#39;</span>.expand<span class="o">(</span><span class="s1">&#39;&lt;cword&gt;&#39;</span><span class="o">)</span>
-</span><span id="1-255"><span class="w">  </span>elseif<span class="w"> </span><span class="o">(</span>coc#rpc#ready<span class="o">())</span>
-</span><span id="1-256"><span class="w">    </span>call<span class="w"> </span>CocActionAsync<span class="o">(</span><span class="s1">&#39;doHover&#39;</span><span class="o">)</span>
-</span><span id="1-257"><span class="w">  </span><span class="k">else</span>
-</span><span id="1-258"><span class="w">    </span>execute<span class="w"> </span><span class="s1">&#39;!&#39;</span><span class="w"> </span>.<span class="w"> </span><span class="p">&amp;</span>keywordprg<span class="w"> </span>.<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span>.<span class="w"> </span>expand<span class="o">(</span><span class="s1">&#39;&lt;cword&gt;&#39;</span><span class="o">)</span>
-</span><span id="1-259"><span class="w">  </span>endif
-</span><span id="1-260">endfunction
-</span><span id="1-261">
-</span><span id="1-262"><span class="s2">&quot; Highlight the symbol and its references when holding the cursor.</span>
-</span><span id="1-263"><span class="s2">autocmd CursorHold * silent call CocActionAsync(&#39;highlight&#39;)</span>
-</span><span id="1-264">
-</span><span id="1-265"><span class="s2">&quot;</span><span class="w"> </span>Symbol<span class="w"> </span>renaming.
-</span><span id="1-266">nmap<span class="w"> </span>&lt;leader&gt;rn<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-rename<span class="o">)</span>
-</span><span id="1-267">
-</span><span id="1-268"><span class="s2">&quot; Formatting selected code.</span>
-</span><span id="1-269"><span class="s2">xmap &lt;leader&gt;f  &lt;Plug&gt;(coc-format-selected)</span>
-</span><span id="1-270"><span class="s2">nmap &lt;leader&gt;f  &lt;Plug&gt;(coc-format-selected)</span>
-</span><span id="1-271">
-</span><span id="1-272"><span class="s2">augroup mygroup</span>
-</span><span id="1-273"><span class="s2">  autocmd!</span>
-</span><span id="1-274"><span class="s2">  &quot;</span><span class="w"> </span>Setup<span class="w"> </span>formatexpr<span class="w"> </span>specified<span class="w"> </span>filetype<span class="o">(</span>s<span class="o">)</span>.
-</span><span id="1-275"><span class="w">  </span>autocmd<span class="w"> </span>FileType<span class="w"> </span>typescript,json<span class="w"> </span>setl<span class="w"> </span><span class="nv">formatexpr</span><span class="o">=</span>CocAction<span class="o">(</span><span class="s1">&#39;formatSelected&#39;</span><span class="o">)</span>
-</span><span id="1-276"><span class="w">  </span><span class="s2">&quot; Update signature help on jump placeholder.</span>
-</span><span id="1-277"><span class="s2">  autocmd User CocJumpPlaceholder call CocActionAsync(&#39;showSignatureHelp&#39;)</span>
-</span><span id="1-278"><span class="s2">augroup end</span>
-</span><span id="1-279">
-</span><span id="1-280"><span class="s2">&quot;</span><span class="w"> </span>Applying<span class="w"> </span>codeAction<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>selected<span class="w"> </span>region.
-</span><span id="1-281"><span class="s2">&quot; Example: `&lt;leader&gt;aap` for current paragraph</span>
-</span><span id="1-282"><span class="s2">xmap &lt;leader&gt;a  &lt;Plug&gt;(coc-codeaction-selected)</span>
-</span><span id="1-283"><span class="s2">nmap &lt;leader&gt;a  &lt;Plug&gt;(coc-codeaction-selected)</span>
-</span><span id="1-284">
-</span><span id="1-285"><span class="s2">&quot;</span><span class="w"> </span>Remap<span class="w"> </span>keys<span class="w"> </span><span class="k">for</span><span class="w"> </span>applying<span class="w"> </span>codeAction<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>buffer.
-</span><span id="1-286">nmap<span class="w"> </span>&lt;leader&gt;ac<span class="w">  </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction<span class="o">)</span>
-</span><span id="1-287"><span class="s2">&quot; Apply AutoFix to problem on the current line.</span>
-</span><span id="1-288"><span class="s2">nmap &lt;leader&gt;qf  &lt;Plug&gt;(coc-fix-current)</span>
-</span><span id="1-289">
-</span><span id="1-290"><span class="s2">&quot;</span><span class="w"> </span>Run<span class="w"> </span>the<span class="w"> </span>Code<span class="w"> </span>Lens<span class="w"> </span>action<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>line.
-</span><span id="1-291">nmap<span class="w"> </span>&lt;leader&gt;cl<span class="w">  </span>&lt;Plug&gt;<span class="o">(</span>coc-codelens-action<span class="o">)</span>
-</span><span id="1-292">
-</span><span id="1-293"><span class="s2">&quot; Map function and class text objects</span>
-</span><span id="1-294"><span class="s2">&quot;</span><span class="w"> </span>NOTE:<span class="w"> </span>Requires<span class="w"> </span><span class="s1">&#39;textDocument.documentSymbol&#39;</span><span class="w"> </span>support<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>language<span class="w"> </span>server.
-</span><span id="1-295">xmap<span class="w"> </span><span class="k">if</span><span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-i<span class="o">)</span>
-</span><span id="1-296">omap<span class="w"> </span><span class="k">if</span><span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-i<span class="o">)</span>
-</span><span id="1-297">xmap<span class="w"> </span>af<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-a<span class="o">)</span>
-</span><span id="1-298">omap<span class="w"> </span>af<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-a<span class="o">)</span>
-</span><span id="1-299">xmap<span class="w"> </span>ic<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-i<span class="o">)</span>
-</span><span id="1-300">omap<span class="w"> </span>ic<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-i<span class="o">)</span>
-</span><span id="1-301">xmap<span class="w"> </span>ac<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-a<span class="o">)</span>
-</span><span id="1-302">omap<span class="w"> </span>ac<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-a<span class="o">)</span>
-</span><span id="1-303">
-</span><span id="1-304"><span class="s2">&quot; Remap &lt;C-f&gt; and &lt;C-b&gt; for scroll float windows/popups.</span>
-</span><span id="1-305"><span class="s2">if has(&#39;nvim-0.4.0&#39;) || has(&#39;patch-8.2.0750&#39;)</span>
-</span><span id="1-306"><span class="s2">  nnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-f&gt; coc#float#has_scroll() ? coc#float#scroll(1) : &quot;</span><span class="se">\&lt;</span>C-f&gt;<span class="s2">&quot;</span>
-</span><span id="1-307"><span class="s2">  nnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-b&gt; coc#float#has_scroll() ? coc#float#scroll(0) : &quot;</span><span class="se">\&lt;</span>C-b&gt;<span class="s2">&quot;</span>
-</span><span id="1-308"><span class="s2">  inoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-f&gt; coc#float#has_scroll() ? &quot;</span><span class="se">\&lt;</span>c-r&gt;<span class="o">=</span>coc#float#scroll<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="se">\&lt;</span>cr&gt;<span class="s2">&quot; : &quot;</span><span class="se">\&lt;</span>Right&gt;<span class="s2">&quot;</span>
-</span><span id="1-309"><span class="s2">  inoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-b&gt; coc#float#has_scroll() ? &quot;</span><span class="se">\&lt;</span>c-r&gt;<span class="o">=</span>coc#float#scroll<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="se">\&lt;</span>cr&gt;<span class="s2">&quot; : &quot;</span><span class="se">\&lt;</span>Left&gt;<span class="s2">&quot;</span>
-</span><span id="1-310"><span class="s2">  vnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-f&gt; coc#float#has_scroll() ? coc#float#scroll(1) : &quot;</span><span class="se">\&lt;</span>C-f&gt;<span class="s2">&quot;</span>
-</span><span id="1-311"><span class="s2">  vnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-b&gt; coc#float#has_scroll() ? coc#float#scroll(0) : &quot;</span><span class="se">\&lt;</span>C-b&gt;<span class="s2">&quot;</span>
-</span><span id="1-312"><span class="s2">endif</span>
-</span><span id="1-313">
-</span><span id="1-314"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span>CTRL-S<span class="w"> </span><span class="k">for</span><span class="w"> </span>selections<span class="w"> </span>ranges.
-</span><span id="1-315"><span class="s2">&quot; Requires &#39;textDocument/selectionRange&#39; support of language server.</span>
-</span><span id="1-316"><span class="s2">nmap &lt;silent&gt; &lt;C-s&gt; &lt;Plug&gt;(coc-range-select)</span>
-</span><span id="1-317"><span class="s2">xmap &lt;silent&gt; &lt;C-s&gt; &lt;Plug&gt;(coc-range-select)</span>
-</span><span id="1-318">
-</span><span id="1-319"><span class="s2">&quot;</span><span class="w"> </span>Add<span class="w"> </span><span class="sb">`</span>:Format<span class="sb">`</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>format<span class="w"> </span>current<span class="w"> </span>buffer.
-</span><span id="1-320">command!<span class="w"> </span>-nargs<span class="o">=</span><span class="m">0</span><span class="w"> </span>Format<span class="w"> </span>:call<span class="w"> </span>CocActionAsync<span class="o">(</span><span class="s1">&#39;format&#39;</span><span class="o">)</span>
-</span><span id="1-321">
-</span><span id="1-322"><span class="s2">&quot; Add `:Fold` command to fold current buffer.</span>
-</span><span id="1-323"><span class="s2">command! -nargs=? Fold :call     CocAction(&#39;fold&#39;, &lt;f-args&gt;)</span>
-</span><span id="1-324">
-</span><span id="1-325"><span class="s2">&quot;</span><span class="w"> </span>Add<span class="w"> </span><span class="sb">`</span>:OR<span class="sb">`</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>organize<span class="w"> </span>imports<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>buffer.
-</span><span id="1-326">command!<span class="w"> </span>-nargs<span class="o">=</span><span class="m">0</span><span class="w"> </span>OR<span class="w">   </span>:call<span class="w">     </span>CocActionAsync<span class="o">(</span><span class="s1">&#39;runCommand&#39;</span>,<span class="w"> </span><span class="s1">&#39;editor.action.organizeImport&#39;</span><span class="o">)</span>
-</span><span id="1-327">
-</span><span id="1-328"><span class="s2">&quot; Add (Neo)Vim&#39;s native statusline support.</span>
-</span><span id="1-329"><span class="s2">&quot;</span><span class="w"> </span>NOTE:<span class="w"> </span>Please<span class="w"> </span>see<span class="w"> </span><span class="sb">`</span>:h<span class="w"> </span>coc-status<span class="sb">`</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>integrations<span class="w"> </span>with<span class="w"> </span>external<span class="w"> </span>plugins<span class="w"> </span>that
-</span><span id="1-330"><span class="s2">&quot; provide custom statusline: lightline.vim, vim-airline.</span>
-</span><span id="1-331"><span class="s2">set statusline^=%{coc#status()}%{get(b:,&#39;coc_current_function&#39;,&#39;&#39;)}</span>
-</span><span id="1-332">
-</span><span id="1-333"><span class="s2">&quot;</span><span class="w"> </span>Mappings<span class="w"> </span><span class="k">for</span><span class="w"> </span>CoCList
-</span><span id="1-334"><span class="s2">&quot; Show all diagnostics.</span>
-</span><span id="1-335"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;a  :&lt;C-u&gt;CocList diagnostics&lt;cr&gt;</span>
-</span><span id="1-336"><span class="s2">&quot;</span><span class="w"> </span>Manage<span class="w"> </span>extensions.
-</span><span id="1-337">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;e<span class="w">  </span>:&lt;C-u&gt;CocList<span class="w"> </span>extensions&lt;cr&gt;
-</span><span id="1-338"><span class="s2">&quot; Show commands.</span>
-</span><span id="1-339"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;c  :&lt;C-u&gt;CocList commands&lt;cr&gt;</span>
-</span><span id="1-340"><span class="s2">&quot;</span><span class="w"> </span>Find<span class="w"> </span>symbol<span class="w"> </span>of<span class="w"> </span>current<span class="w"> </span>document.
-</span><span id="1-341">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;o<span class="w">  </span>:&lt;C-u&gt;CocList<span class="w"> </span>outline&lt;cr&gt;
-</span><span id="1-342"><span class="s2">&quot; Search workspace symbols.</span>
-</span><span id="1-343"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;s  :&lt;C-u&gt;CocList -I symbols&lt;cr&gt;</span>
-</span><span id="1-344"><span class="s2">&quot;</span><span class="w"> </span>Do<span class="w"> </span>default<span class="w"> </span>action<span class="w"> </span><span class="k">for</span><span class="w"> </span>next<span class="w"> </span>item.
-</span><span id="1-345">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;j<span class="w">  </span>:&lt;C-u&gt;CocNext&lt;CR&gt;
-</span><span id="1-346"><span class="s2">&quot; Do default action for previous item.</span>
-</span><span id="1-347"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;k  :&lt;C-u&gt;CocPrev&lt;CR&gt;</span>
-</span><span id="1-348"><span class="s2">&quot;</span><span class="w"> </span>Resume<span class="w"> </span>latest<span class="w"> </span>coc<span class="w"> </span>list.
-</span><span id="1-349">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;p<span class="w">  </span>:&lt;C-u&gt;CocListResume&lt;CR&gt;
-</span><span id="1-350">
-</span><span id="1-351">
-</span><span id="1-352">imap<span class="w"> </span>&lt;C-l&gt;<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-snippets-expand<span class="o">)</span>
-</span><span id="1-353"><span class="s2">&quot; Use &lt;C-j&gt; for select text for visual placeholder of snippet.</span>
-</span><span id="1-354"><span class="s2">vmap &lt;C-j&gt; &lt;Plug&gt;(coc-snippets-select)</span>
-</span><span id="1-355">
+</span><span id="1-208">endif
+</span><span id="1-209">
+</span><span id="1-210"><span class="s2">&quot; Use tab for trigger completion with characters ahead and navigate.</span>
+</span><span id="1-211"><span class="s2">&quot;</span><span class="w"> </span>NOTE:<span class="w"> </span>Use<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s1">&#39;:verbose imap &lt;tab&gt;&#39;</span><span class="w"> </span>to<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>tab<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>mapped<span class="w"> </span>by
+</span><span id="1-212"><span class="s2">&quot; other plugin before putting this into your config.</span>
+</span><span id="1-213"><span class="s2">inoremap &lt;silent&gt;&lt;expr&gt; &lt;TAB&gt;</span>
+</span><span id="1-214"><span class="s2">      \ pumvisible() ? &quot;</span><span class="se">\&lt;</span>C-n&gt;<span class="s2">&quot; :</span>
+</span><span id="1-215"><span class="s2">      \ &lt;SID&gt;check_back_space() ? &quot;</span><span class="se">\&lt;</span>TAB&gt;<span class="s2">&quot; :</span>
+</span><span id="1-216"><span class="s2">      \ coc#refresh()</span>
+</span><span id="1-217"><span class="s2">inoremap &lt;expr&gt;&lt;S-TAB&gt; pumvisible() ? &quot;</span><span class="se">\&lt;</span>C-p&gt;<span class="s2">&quot; : &quot;</span><span class="se">\&lt;</span>C-h&gt;<span class="s2">&quot;</span>
+</span><span id="1-218">
+</span><span id="1-219"><span class="s2">function! s:check_back_space() abort</span>
+</span><span id="1-220"><span class="s2">  let col = col(&#39;.&#39;) - 1</span>
+</span><span id="1-221"><span class="s2">  return !col || getline(&#39;.&#39;)[col - 1]  =~# &#39;\s&#39;</span>
+</span><span id="1-222"><span class="s2">endfunction</span>
+</span><span id="1-223">
+</span><span id="1-224"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span>&lt;c-space&gt;<span class="w"> </span>to<span class="w"> </span>trigger<span class="w"> </span>completion.
+</span><span id="1-225"><span class="k">if</span><span class="w"> </span>has<span class="o">(</span><span class="s1">&#39;nvim&#39;</span><span class="o">)</span>
+</span><span id="1-226"><span class="w">  </span>inoremap<span class="w"> </span>&lt;silent&gt;&lt;expr&gt;<span class="w"> </span>&lt;c-space&gt;<span class="w"> </span>coc#refresh<span class="o">()</span>
+</span><span id="1-227"><span class="k">else</span>
+</span><span id="1-228"><span class="w">  </span>inoremap<span class="w"> </span>&lt;silent&gt;&lt;expr&gt;<span class="w"> </span>&lt;c-@&gt;<span class="w"> </span>coc#refresh<span class="o">()</span>
+</span><span id="1-229">endif
+</span><span id="1-230">
+</span><span id="1-231"><span class="s2">&quot; Make &lt;CR&gt; auto-select the first completion item and notify coc.nvim to</span>
+</span><span id="1-232"><span class="s2">&quot;</span><span class="w"> </span>format<span class="w"> </span>on<span class="w"> </span>enter,<span class="w"> </span>&lt;cr&gt;<span class="w"> </span>could<span class="w"> </span>be<span class="w"> </span>remapped<span class="w"> </span>by<span class="w"> </span>other<span class="w"> </span>vim<span class="w"> </span>plugin
+</span><span id="1-233">inoremap<span class="w"> </span>&lt;silent&gt;&lt;expr&gt;<span class="w"> </span>&lt;cr&gt;<span class="w"> </span>pumvisible<span class="o">()</span><span class="w"> </span>?<span class="w"> </span>coc#_select_confirm<span class="o">()</span>
+</span><span id="1-234"><span class="w">                              </span><span class="se">\:</span><span class="w"> </span><span class="s2">&quot;\&lt;C-g&gt;u\&lt;CR&gt;\&lt;c-r&gt;=coc#on_enter()\&lt;CR&gt;&quot;</span>
+</span><span id="1-235">
+</span><span id="1-236"><span class="s2">&quot; Use `[g` and `]g` to navigate diagnostics</span>
+</span><span id="1-237"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span><span class="sb">`</span>:CocDiagnostics<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>diagnostics<span class="w"> </span>of<span class="w"> </span>current<span class="w"> </span>buffer<span class="w"> </span><span class="k">in</span><span class="w"> </span>location<span class="w"> </span>list.
+</span><span id="1-238">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">[</span>g<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-diagnostic-prev<span class="o">)</span>
+</span><span id="1-239">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">]</span>g<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-diagnostic-next<span class="o">)</span>
+</span><span id="1-240">
+</span><span id="1-241"><span class="s2">&quot; GoTo code navigation.</span>
+</span><span id="1-242"><span class="s2">nmap &lt;silent&gt; gd &lt;Plug&gt;(coc-definition)</span>
+</span><span id="1-243"><span class="s2">nmap &lt;silent&gt; gy &lt;Plug&gt;(coc-type-definition)</span>
+</span><span id="1-244"><span class="s2">nmap &lt;silent&gt; gi &lt;Plug&gt;(coc-implementation)</span>
+</span><span id="1-245"><span class="s2">nmap &lt;silent&gt; gr &lt;Plug&gt;(coc-references)</span>
+</span><span id="1-246">
+</span><span id="1-247"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span>K<span class="w"> </span>to<span class="w"> </span>show<span class="w"> </span>documentation<span class="w"> </span><span class="k">in</span><span class="w"> </span>preview<span class="w"> </span>window.
+</span><span id="1-248">nnoremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>K<span class="w"> </span>:call<span class="w"> </span>&lt;SID&gt;show_documentation<span class="o">()</span>&lt;CR&gt;
+</span><span id="1-249">
+</span><span id="1-250"><span class="k">function</span>!<span class="w"> </span>s:show_documentation<span class="o">()</span>
+</span><span id="1-251"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>index<span class="o">([</span><span class="s1">&#39;vim&#39;</span>,<span class="s1">&#39;help&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="p">&amp;</span>filetype<span class="o">)</span><span class="w"> </span>&gt;<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">)</span>
+</span><span id="1-252"><span class="w">    </span>execute<span class="w"> </span><span class="s1">&#39;h &#39;</span>.expand<span class="o">(</span><span class="s1">&#39;&lt;cword&gt;&#39;</span><span class="o">)</span>
+</span><span id="1-253"><span class="w">  </span>elseif<span class="w"> </span><span class="o">(</span>coc#rpc#ready<span class="o">())</span>
+</span><span id="1-254"><span class="w">    </span>call<span class="w"> </span>CocActionAsync<span class="o">(</span><span class="s1">&#39;doHover&#39;</span><span class="o">)</span>
+</span><span id="1-255"><span class="w">  </span><span class="k">else</span>
+</span><span id="1-256"><span class="w">    </span>execute<span class="w"> </span><span class="s1">&#39;!&#39;</span><span class="w"> </span>.<span class="w"> </span><span class="p">&amp;</span>keywordprg<span class="w"> </span>.<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span>.<span class="w"> </span>expand<span class="o">(</span><span class="s1">&#39;&lt;cword&gt;&#39;</span><span class="o">)</span>
+</span><span id="1-257"><span class="w">  </span>endif
+</span><span id="1-258">endfunction
+</span><span id="1-259">
+</span><span id="1-260"><span class="s2">&quot; Highlight the symbol and its references when holding the cursor.</span>
+</span><span id="1-261"><span class="s2">autocmd CursorHold * silent call CocActionAsync(&#39;highlight&#39;)</span>
+</span><span id="1-262">
+</span><span id="1-263"><span class="s2">&quot;</span><span class="w"> </span>Symbol<span class="w"> </span>renaming.
+</span><span id="1-264">nmap<span class="w"> </span>&lt;leader&gt;rn<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-rename<span class="o">)</span>
+</span><span id="1-265">
+</span><span id="1-266"><span class="s2">&quot; Formatting selected code.</span>
+</span><span id="1-267"><span class="s2">xmap &lt;leader&gt;f  &lt;Plug&gt;(coc-format-selected)</span>
+</span><span id="1-268"><span class="s2">nmap &lt;leader&gt;f  &lt;Plug&gt;(coc-format-selected)</span>
+</span><span id="1-269">
+</span><span id="1-270"><span class="s2">augroup mygroup</span>
+</span><span id="1-271"><span class="s2">  autocmd!</span>
+</span><span id="1-272"><span class="s2">  &quot;</span><span class="w"> </span>Setup<span class="w"> </span>formatexpr<span class="w"> </span>specified<span class="w"> </span>filetype<span class="o">(</span>s<span class="o">)</span>.
+</span><span id="1-273"><span class="w">  </span>autocmd<span class="w"> </span>FileType<span class="w"> </span>typescript,json<span class="w"> </span>setl<span class="w"> </span><span class="nv">formatexpr</span><span class="o">=</span>CocAction<span class="o">(</span><span class="s1">&#39;formatSelected&#39;</span><span class="o">)</span>
+</span><span id="1-274"><span class="w">  </span><span class="s2">&quot; Update signature help on jump placeholder.</span>
+</span><span id="1-275"><span class="s2">  autocmd User CocJumpPlaceholder call CocActionAsync(&#39;showSignatureHelp&#39;)</span>
+</span><span id="1-276"><span class="s2">augroup end</span>
+</span><span id="1-277">
+</span><span id="1-278"><span class="s2">&quot;</span><span class="w"> </span>Applying<span class="w"> </span>codeAction<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>selected<span class="w"> </span>region.
+</span><span id="1-279"><span class="s2">&quot; Example: `&lt;leader&gt;aap` for current paragraph</span>
+</span><span id="1-280"><span class="s2">xmap &lt;leader&gt;a  &lt;Plug&gt;(coc-codeaction-selected)</span>
+</span><span id="1-281"><span class="s2">nmap &lt;leader&gt;a  &lt;Plug&gt;(coc-codeaction-selected)</span>
+</span><span id="1-282">
+</span><span id="1-283"><span class="s2">&quot;</span><span class="w"> </span>Remap<span class="w"> </span>keys<span class="w"> </span><span class="k">for</span><span class="w"> </span>applying<span class="w"> </span>codeAction<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>buffer.
+</span><span id="1-284">nmap<span class="w"> </span>&lt;leader&gt;ac<span class="w">  </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction<span class="o">)</span>
+</span><span id="1-285"><span class="s2">&quot; Apply AutoFix to problem on the current line.</span>
+</span><span id="1-286"><span class="s2">nmap &lt;leader&gt;qf  &lt;Plug&gt;(coc-fix-current)</span>
+</span><span id="1-287">
+</span><span id="1-288"><span class="s2">&quot;</span><span class="w"> </span>Run<span class="w"> </span>the<span class="w"> </span>Code<span class="w"> </span>Lens<span class="w"> </span>action<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>line.
+</span><span id="1-289">nmap<span class="w"> </span>&lt;leader&gt;cl<span class="w">  </span>&lt;Plug&gt;<span class="o">(</span>coc-codelens-action<span class="o">)</span>
+</span><span id="1-290">
+</span><span id="1-291"><span class="s2">&quot; Map function and class text objects</span>
+</span><span id="1-292"><span class="s2">&quot;</span><span class="w"> </span>NOTE:<span class="w"> </span>Requires<span class="w"> </span><span class="s1">&#39;textDocument.documentSymbol&#39;</span><span class="w"> </span>support<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>language<span class="w"> </span>server.
+</span><span id="1-293">xmap<span class="w"> </span><span class="k">if</span><span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-i<span class="o">)</span>
+</span><span id="1-294">omap<span class="w"> </span><span class="k">if</span><span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-i<span class="o">)</span>
+</span><span id="1-295">xmap<span class="w"> </span>af<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-a<span class="o">)</span>
+</span><span id="1-296">omap<span class="w"> </span>af<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-funcobj-a<span class="o">)</span>
+</span><span id="1-297">xmap<span class="w"> </span>ic<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-i<span class="o">)</span>
+</span><span id="1-298">omap<span class="w"> </span>ic<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-i<span class="o">)</span>
+</span><span id="1-299">xmap<span class="w"> </span>ac<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-a<span class="o">)</span>
+</span><span id="1-300">omap<span class="w"> </span>ac<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-classobj-a<span class="o">)</span>
+</span><span id="1-301">
+</span><span id="1-302"><span class="s2">&quot; Remap &lt;C-f&gt; and &lt;C-b&gt; for scroll float windows/popups.</span>
+</span><span id="1-303"><span class="s2">if has(&#39;nvim-0.4.0&#39;) || has(&#39;patch-8.2.0750&#39;)</span>
+</span><span id="1-304"><span class="s2">  nnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-f&gt; coc#float#has_scroll() ? coc#float#scroll(1) : &quot;</span><span class="se">\&lt;</span>C-f&gt;<span class="s2">&quot;</span>
+</span><span id="1-305"><span class="s2">  nnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-b&gt; coc#float#has_scroll() ? coc#float#scroll(0) : &quot;</span><span class="se">\&lt;</span>C-b&gt;<span class="s2">&quot;</span>
+</span><span id="1-306"><span class="s2">  inoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-f&gt; coc#float#has_scroll() ? &quot;</span><span class="se">\&lt;</span>c-r&gt;<span class="o">=</span>coc#float#scroll<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="se">\&lt;</span>cr&gt;<span class="s2">&quot; : &quot;</span><span class="se">\&lt;</span>Right&gt;<span class="s2">&quot;</span>
+</span><span id="1-307"><span class="s2">  inoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-b&gt; coc#float#has_scroll() ? &quot;</span><span class="se">\&lt;</span>c-r&gt;<span class="o">=</span>coc#float#scroll<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="se">\&lt;</span>cr&gt;<span class="s2">&quot; : &quot;</span><span class="se">\&lt;</span>Left&gt;<span class="s2">&quot;</span>
+</span><span id="1-308"><span class="s2">  vnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-f&gt; coc#float#has_scroll() ? coc#float#scroll(1) : &quot;</span><span class="se">\&lt;</span>C-f&gt;<span class="s2">&quot;</span>
+</span><span id="1-309"><span class="s2">  vnoremap &lt;silent&gt;&lt;nowait&gt;&lt;expr&gt; &lt;C-b&gt; coc#float#has_scroll() ? coc#float#scroll(0) : &quot;</span><span class="se">\&lt;</span>C-b&gt;<span class="s2">&quot;</span>
+</span><span id="1-310"><span class="s2">endif</span>
+</span><span id="1-311">
+</span><span id="1-312"><span class="s2">&quot;</span><span class="w"> </span>Use<span class="w"> </span>CTRL-S<span class="w"> </span><span class="k">for</span><span class="w"> </span>selections<span class="w"> </span>ranges.
+</span><span id="1-313"><span class="s2">&quot; Requires &#39;textDocument/selectionRange&#39; support of language server.</span>
+</span><span id="1-314"><span class="s2">nmap &lt;silent&gt; &lt;C-s&gt; &lt;Plug&gt;(coc-range-select)</span>
+</span><span id="1-315"><span class="s2">xmap &lt;silent&gt; &lt;C-s&gt; &lt;Plug&gt;(coc-range-select)</span>
+</span><span id="1-316">
+</span><span id="1-317"><span class="s2">&quot;</span><span class="w"> </span>Add<span class="w"> </span><span class="sb">`</span>:Format<span class="sb">`</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>format<span class="w"> </span>current<span class="w"> </span>buffer.
+</span><span id="1-318">command!<span class="w"> </span>-nargs<span class="o">=</span><span class="m">0</span><span class="w"> </span>Format<span class="w"> </span>:call<span class="w"> </span>CocActionAsync<span class="o">(</span><span class="s1">&#39;format&#39;</span><span class="o">)</span>
+</span><span id="1-319">
+</span><span id="1-320"><span class="s2">&quot; Add `:Fold` command to fold current buffer.</span>
+</span><span id="1-321"><span class="s2">command! -nargs=? Fold :call     CocAction(&#39;fold&#39;, &lt;f-args&gt;)</span>
+</span><span id="1-322">
+</span><span id="1-323"><span class="s2">&quot;</span><span class="w"> </span>Add<span class="w"> </span><span class="sb">`</span>:OR<span class="sb">`</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>organize<span class="w"> </span>imports<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>buffer.
+</span><span id="1-324">command!<span class="w"> </span>-nargs<span class="o">=</span><span class="m">0</span><span class="w"> </span>OR<span class="w">   </span>:call<span class="w">     </span>CocActionAsync<span class="o">(</span><span class="s1">&#39;runCommand&#39;</span>,<span class="w"> </span><span class="s1">&#39;editor.action.organizeImport&#39;</span><span class="o">)</span>
+</span><span id="1-325">
+</span><span id="1-326"><span class="s2">&quot; Add (Neo)Vim&#39;s native statusline support.</span>
+</span><span id="1-327"><span class="s2">&quot;</span><span class="w"> </span>NOTE:<span class="w"> </span>Please<span class="w"> </span>see<span class="w"> </span><span class="sb">`</span>:h<span class="w"> </span>coc-status<span class="sb">`</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>integrations<span class="w"> </span>with<span class="w"> </span>external<span class="w"> </span>plugins<span class="w"> </span>that
+</span><span id="1-328"><span class="s2">&quot; provide custom statusline: lightline.vim, vim-airline.</span>
+</span><span id="1-329"><span class="s2">set statusline^=%{coc#status()}%{get(b:,&#39;coc_current_function&#39;,&#39;&#39;)}</span>
+</span><span id="1-330">
+</span><span id="1-331"><span class="s2">&quot;</span><span class="w"> </span>Mappings<span class="w"> </span><span class="k">for</span><span class="w"> </span>CoCList
+</span><span id="1-332"><span class="s2">&quot; Show all diagnostics.</span>
+</span><span id="1-333"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;a  :&lt;C-u&gt;CocList diagnostics&lt;cr&gt;</span>
+</span><span id="1-334"><span class="s2">&quot;</span><span class="w"> </span>Manage<span class="w"> </span>extensions.
+</span><span id="1-335">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;e<span class="w">  </span>:&lt;C-u&gt;CocList<span class="w"> </span>extensions&lt;cr&gt;
+</span><span id="1-336"><span class="s2">&quot; Show commands.</span>
+</span><span id="1-337"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;c  :&lt;C-u&gt;CocList commands&lt;cr&gt;</span>
+</span><span id="1-338"><span class="s2">&quot;</span><span class="w"> </span>Find<span class="w"> </span>symbol<span class="w"> </span>of<span class="w"> </span>current<span class="w"> </span>document.
+</span><span id="1-339">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;o<span class="w">  </span>:&lt;C-u&gt;CocList<span class="w"> </span>outline&lt;cr&gt;
+</span><span id="1-340"><span class="s2">&quot; Search workspace symbols.</span>
+</span><span id="1-341"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;s  :&lt;C-u&gt;CocList -I symbols&lt;cr&gt;</span>
+</span><span id="1-342"><span class="s2">&quot;</span><span class="w"> </span>Do<span class="w"> </span>default<span class="w"> </span>action<span class="w"> </span><span class="k">for</span><span class="w"> </span>next<span class="w"> </span>item.
+</span><span id="1-343">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;j<span class="w">  </span>:&lt;C-u&gt;CocNext&lt;CR&gt;
+</span><span id="1-344"><span class="s2">&quot; Do default action for previous item.</span>
+</span><span id="1-345"><span class="s2">nnoremap &lt;silent&gt;&lt;nowait&gt; &lt;space&gt;k  :&lt;C-u&gt;CocPrev&lt;CR&gt;</span>
+</span><span id="1-346"><span class="s2">&quot;</span><span class="w"> </span>Resume<span class="w"> </span>latest<span class="w"> </span>coc<span class="w"> </span>list.
+</span><span id="1-347">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;nowait&gt;<span class="w"> </span>&lt;space&gt;p<span class="w">  </span>:&lt;C-u&gt;CocListResume&lt;CR&gt;
+</span><span id="1-348">
+</span><span id="1-349">
+</span><span id="1-350">imap<span class="w"> </span>&lt;C-l&gt;<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-snippets-expand<span class="o">)</span>
+</span><span id="1-351"><span class="s2">&quot; Use &lt;C-j&gt; for select text for visual placeholder of snippet.</span>
+</span><span id="1-352"><span class="s2">vmap &lt;C-j&gt; &lt;Plug&gt;(coc-snippets-select)</span>
+</span><span id="1-353">
+</span><span id="1-354">
+</span><span id="1-355"><span class="s2">&quot;</span><span class="w"> </span><span class="o">==========</span><span class="w"> </span>coc<span class="w"> </span>pydocstring
 </span><span id="1-356">
-</span><span id="1-357"><span class="s2">&quot;</span><span class="w"> </span><span class="o">==========</span><span class="w"> </span>coc<span class="w"> </span>pydocstring
-</span><span id="1-358">
-</span><span id="1-359">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>ga<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction-line<span class="o">)</span>
-</span><span id="1-360">xmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>ga<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction-selected<span class="o">)</span>
-</span><span id="1-361">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>gA<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction<span class="o">)</span>
+</span><span id="1-357">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>ga<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction-line<span class="o">)</span>
+</span><span id="1-358">xmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>ga<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction-selected<span class="o">)</span>
+</span><span id="1-359">nmap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span>gA<span class="w"> </span>&lt;Plug&gt;<span class="o">(</span>coc-codeaction<span class="o">)</span>
+</span><span id="1-360">
+</span><span id="1-361"><span class="s2">&quot; ================ my configs</span>
 </span><span id="1-362">
-</span><span id="1-363"><span class="s2">&quot; ================ my configs</span>
-</span><span id="1-364">
-</span><span id="1-365"><span class="s2">&quot;</span><span class="w"> </span>reopen<span class="w"> </span>to<span class="w"> </span>last<span class="w"> </span>position
-</span><span id="1-366"><span class="k">if</span><span class="w"> </span>has<span class="o">(</span><span class="s2">&quot;autocmd&quot;</span><span class="o">)</span>
-</span><span id="1-367"><span class="w">  </span>au<span class="w"> </span>BufReadPost<span class="w"> </span>*<span class="w"> </span><span class="k">if</span><span class="w"> </span>line<span class="o">(</span><span class="s2">&quot;&#39;\&quot;&quot;</span><span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>line<span class="o">(</span><span class="s2">&quot;&#39;\&quot;&quot;</span><span class="o">)</span><span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span>line<span class="o">(</span><span class="s2">&quot;</span>$<span class="s2">&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>exe<span class="w"> </span><span class="s2">&quot;normal! g`\&quot;&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>endif
-</span><span id="1-368">endif
-</span><span id="1-369">
-</span><span id="1-370"><span class="s2">&quot; ======== nvim-tree config</span>
-</span><span id="1-371"><span class="s2">lua &lt;&lt; EOF</span>
-</span><span id="1-372"><span class="s2">require&#39;nvim-tree&#39;.setup {</span>
-</span><span id="1-373"><span class="s2">  sort_by = &quot;</span>case_sensitive<span class="s2">&quot;,</span>
-</span><span id="1-374"><span class="s2">  view = {</span>
-</span><span id="1-375"><span class="s2">    adaptive_size = true,</span>
-</span><span id="1-376"><span class="s2">    mappings = {</span>
-</span><span id="1-377"><span class="s2">      list = {</span>
-</span><span id="1-378"><span class="s2">        { key = &quot;</span>u<span class="s2">&quot;, action = &quot;</span>dir_up<span class="s2">&quot; },</span>
-</span><span id="1-379"><span class="s2">      },</span>
-</span><span id="1-380"><span class="s2">    },</span>
-</span><span id="1-381"><span class="s2">  },</span>
-</span><span id="1-382"><span class="s2">  renderer = {</span>
-</span><span id="1-383"><span class="s2">    group_empty = true,</span>
+</span><span id="1-363"><span class="s2">&quot;</span><span class="w"> </span>reopen<span class="w"> </span>to<span class="w"> </span>last<span class="w"> </span>position
+</span><span id="1-364"><span class="k">if</span><span class="w"> </span>has<span class="o">(</span><span class="s2">&quot;autocmd&quot;</span><span class="o">)</span>
+</span><span id="1-365"><span class="w">  </span>au<span class="w"> </span>BufReadPost<span class="w"> </span>*<span class="w"> </span><span class="k">if</span><span class="w"> </span>line<span class="o">(</span><span class="s2">&quot;&#39;\&quot;&quot;</span><span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>line<span class="o">(</span><span class="s2">&quot;&#39;\&quot;&quot;</span><span class="o">)</span><span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span>line<span class="o">(</span><span class="s2">&quot;</span>$<span class="s2">&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>exe<span class="w"> </span><span class="s2">&quot;normal! g`\&quot;&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>endif
+</span><span id="1-366">endif
+</span><span id="1-367">
+</span><span id="1-368"><span class="s2">&quot; ======== nvim-tree config</span>
+</span><span id="1-369"><span class="s2">lua &lt;&lt; EOF</span>
+</span><span id="1-370"><span class="s2">require&#39;nvim-tree&#39;.setup {</span>
+</span><span id="1-371"><span class="s2">  sort_by = &quot;</span>case_sensitive<span class="s2">&quot;,</span>
+</span><span id="1-372"><span class="s2">  view = {</span>
+</span><span id="1-373"><span class="s2">    adaptive_size = true,</span>
+</span><span id="1-374"><span class="s2">    mappings = {</span>
+</span><span id="1-375"><span class="s2">      list = {</span>
+</span><span id="1-376"><span class="s2">        { key = &quot;</span>u<span class="s2">&quot;, action = &quot;</span>dir_up<span class="s2">&quot; },</span>
+</span><span id="1-377"><span class="s2">      },</span>
+</span><span id="1-378"><span class="s2">    },</span>
+</span><span id="1-379"><span class="s2">  },</span>
+</span><span id="1-380"><span class="s2">  renderer = {</span>
+</span><span id="1-381"><span class="s2">    group_empty = true,</span>
+</span><span id="1-382"><span class="s2">  },</span>
+</span><span id="1-383"><span class="s2">  filters = {</span>
 </span><span id="1-384"><span class="s2">  },</span>
-</span><span id="1-385"><span class="s2">  filters = {</span>
-</span><span id="1-386"><span class="s2">  },</span>
-</span><span id="1-387"><span class="s2">}</span>
-</span><span id="1-388">
-</span><span id="1-389"><span class="s2">vim.keymap.set(&#39;&#39;, &#39;&lt;leader&gt;pt&#39;, &#39;:NvimTreeToggle&lt;CR&gt;&#39;, { noremap = true, silent = true })</span>
-</span><span id="1-390"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;r&#39;, &#39;:NvimTreeRefresh&lt;CR&gt;&#39;, {})</span>
-</span><span id="1-391"><span class="s2">EOF</span>
-</span><span id="1-392"><span class="s2">&quot;</span><span class="w"> </span>More<span class="w"> </span>available<span class="w"> </span>functions:
-</span><span id="1-393"><span class="s2">&quot; NvimTreeOpen</span>
-</span><span id="1-394"><span class="s2">&quot;</span><span class="w"> </span>NvimTreeClose
-</span><span id="1-395"><span class="s2">&quot; NvimTreeFocus</span>
-</span><span id="1-396"><span class="s2">&quot;</span><span class="w"> </span>NvimTreeFindFileToggle
-</span><span id="1-397"><span class="s2">&quot; NvimTreeResize</span>
-</span><span id="1-398"><span class="s2">&quot;</span><span class="w"> </span>NvimTreeCollapse
-</span><span id="1-399"><span class="s2">&quot; NvimTreeCollapseKeepBuffers</span>
-</span><span id="1-400">
-</span><span id="1-401"><span class="s2">&quot;</span><span class="w"> </span><span class="o">==========</span><span class="w"> </span>telescope<span class="w"> </span>config
-</span><span id="1-402">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="1-403"><span class="s">local builtin = require(&#39;telescope.builtin&#39;)</span>
-</span><span id="1-404"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;ff&#39;, builtin.find_files, {})</span>
-</span><span id="1-405"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;fg&#39;, builtin.live_grep, {})</span>
-</span><span id="1-406"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;fb&#39;, builtin.buffers, {})</span>
-</span><span id="1-407"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;fh&#39;, builtin.help_tags, {})</span>
-</span><span id="1-408"><span class="s">EOF</span>
-</span><span id="1-409"><span class="w"> </span>
-</span><span id="1-410">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;1<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">1</span>&lt;CR&gt;
-</span><span id="1-411">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;2<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">2</span>&lt;CR&gt;
-</span><span id="1-412">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;3<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">3</span>&lt;CR&gt;
-</span><span id="1-413">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;4<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">4</span>&lt;CR&gt;
-</span><span id="1-414">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;5<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">5</span>&lt;CR&gt;
-</span><span id="1-415">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;6<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">6</span>&lt;CR&gt;
-</span><span id="1-416">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;7<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">7</span>&lt;CR&gt;
-</span><span id="1-417">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;8<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">8</span>&lt;CR&gt;
-</span><span id="1-418">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;9<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">9</span>&lt;CR&gt;
-</span><span id="1-419">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;$<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span>-1&lt;CR&gt;
-</span><span id="1-420">
-</span><span id="1-421">
-</span><span id="1-422">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="1-423"><span class="s">require(&quot;bufferline&quot;).setup{}</span>
-</span><span id="1-424"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;Tab&gt;&#39;, &#39;&lt;Cmd&gt;BufferLineCycleNext&lt;CR&gt;&#39;, {})</span>
-</span><span id="1-425"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;S-Tab&gt;&#39;, &#39;&lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt;&#39;, {})</span>
-</span><span id="1-426"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;Space&gt;&lt;Right&gt;&#39;, &#39;&lt;Cmd&gt;BufferLineCloseRight&lt;CR&gt;&#39;, {})</span>
-</span><span id="1-427"><span class="s">-- see, to close current buffer: https://github.com/akinsho/bufferline.nvim/issues/513</span>
-</span><span id="1-428"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;Space&gt;q&#39;, &#39;&lt;Cmd&gt;:bp &lt;BAR&gt; bd #&lt;CR&gt;&#39;, {})</span>
-</span><span id="1-429"><span class="s">EOF</span>
+</span><span id="1-385"><span class="s2">}</span>
+</span><span id="1-386">
+</span><span id="1-387"><span class="s2">vim.keymap.set(&#39;&#39;, &#39;&lt;leader&gt;pt&#39;, &#39;:NvimTreeToggle&lt;CR&gt;&#39;, { noremap = true, silent = true })</span>
+</span><span id="1-388"><span class="s2">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;r&#39;, &#39;:NvimTreeRefresh&lt;CR&gt;&#39;, {})</span>
+</span><span id="1-389"><span class="s2">EOF</span>
+</span><span id="1-390"><span class="s2">&quot;</span><span class="w"> </span>More<span class="w"> </span>available<span class="w"> </span>functions:
+</span><span id="1-391"><span class="s2">&quot; NvimTreeOpen</span>
+</span><span id="1-392"><span class="s2">&quot;</span><span class="w"> </span>NvimTreeClose
+</span><span id="1-393"><span class="s2">&quot; NvimTreeFocus</span>
+</span><span id="1-394"><span class="s2">&quot;</span><span class="w"> </span>NvimTreeFindFileToggle
+</span><span id="1-395"><span class="s2">&quot; NvimTreeResize</span>
+</span><span id="1-396"><span class="s2">&quot;</span><span class="w"> </span>NvimTreeCollapse
+</span><span id="1-397"><span class="s2">&quot; NvimTreeCollapseKeepBuffers</span>
+</span><span id="1-398">
+</span><span id="1-399"><span class="s2">&quot;</span><span class="w"> </span><span class="o">==========</span><span class="w"> </span>telescope<span class="w"> </span>config
+</span><span id="1-400">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="1-401"><span class="s">local builtin = require(&#39;telescope.builtin&#39;)</span>
+</span><span id="1-402"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;ff&#39;, builtin.find_files, {})</span>
+</span><span id="1-403"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;fg&#39;, builtin.live_grep, {})</span>
+</span><span id="1-404"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;fb&#39;, builtin.buffers, {})</span>
+</span><span id="1-405"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;leader&gt;fh&#39;, builtin.help_tags, {})</span>
+</span><span id="1-406"><span class="s">EOF</span>
+</span><span id="1-407"><span class="w"> </span>
+</span><span id="1-408">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;1<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">1</span>&lt;CR&gt;
+</span><span id="1-409">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;2<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">2</span>&lt;CR&gt;
+</span><span id="1-410">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;3<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">3</span>&lt;CR&gt;
+</span><span id="1-411">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;4<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">4</span>&lt;CR&gt;
+</span><span id="1-412">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;5<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">5</span>&lt;CR&gt;
+</span><span id="1-413">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;6<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">6</span>&lt;CR&gt;
+</span><span id="1-414">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;7<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">7</span>&lt;CR&gt;
+</span><span id="1-415">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;8<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">8</span>&lt;CR&gt;
+</span><span id="1-416">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;9<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span><span class="m">9</span>&lt;CR&gt;
+</span><span id="1-417">nnoremap<span class="w"> </span>&lt;silent&gt;&lt;leader&gt;$<span class="w"> </span>&lt;Cmd&gt;BufferLineGoToBuffer<span class="w"> </span>-1&lt;CR&gt;
+</span><span id="1-418">
+</span><span id="1-419">
+</span><span id="1-420">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="1-421"><span class="s">require(&quot;bufferline&quot;).setup{}</span>
+</span><span id="1-422"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;Tab&gt;&#39;, &#39;&lt;Cmd&gt;BufferLineCycleNext&lt;CR&gt;&#39;, {})</span>
+</span><span id="1-423"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;S-Tab&gt;&#39;, &#39;&lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt;&#39;, {})</span>
+</span><span id="1-424"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;Space&gt;&lt;Right&gt;&#39;, &#39;&lt;Cmd&gt;BufferLineCloseRight&lt;CR&gt;&#39;, {})</span>
+</span><span id="1-425"><span class="s">-- see, to close current buffer: https://github.com/akinsho/bufferline.nvim/issues/513</span>
+</span><span id="1-426"><span class="s">vim.keymap.set(&#39;n&#39;, &#39;&lt;Space&gt;q&#39;, &#39;&lt;Cmd&gt;:bp &lt;BAR&gt; bd #&lt;CR&gt;&#39;, {})</span>
+</span><span id="1-427"><span class="s">EOF</span>
+</span><span id="1-428">
+</span><span id="1-429">
 </span><span id="1-430">
-</span><span id="1-431">
-</span><span id="1-432">
-</span><span id="1-433">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="1-434"><span class="s">require(&#39;lualine&#39;).setup{</span>
-</span><span id="1-435"><span class="s">  options = {</span>
-</span><span id="1-436"><span class="s">    theme = &#39;tokyonight&#39;</span>
-</span><span id="1-437"><span class="s">  }</span>
-</span><span id="1-438"><span class="s">}</span>
-</span><span id="1-439"><span class="s">EOF</span>
-</span><span id="1-440">
-</span><span id="1-441">
-</span><span id="1-442">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="1-443"><span class="s">require(&#39;alpha&#39;).setup(</span>
-</span><span id="1-444"><span class="s">    require&#39;alpha.themes.startify&#39;.config</span>
-</span><span id="1-445"><span class="s">)</span>
-</span><span id="1-446"><span class="s">EOF</span>
-</span><span id="1-447">
-</span><span id="1-448">
-</span><span id="1-449">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="1-450"><span class="s">require(&#39;Comment&#39;).setup()</span>
-</span><span id="1-451"><span class="s">EOF</span>
-</span><span id="1-452">
-</span><span id="1-453">
-</span><span id="1-454">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="1-455"><span class="s">require(&#39;toggleterm&#39;).setup{</span>
-</span><span id="1-456"><span class="s">    size = 20,</span>
-</span><span id="1-457"><span class="s">    open_mapping = [[&lt;C-\&gt;]],</span>
-</span><span id="1-458"><span class="s">    directin = &#39;float&#39;</span>
-</span><span id="1-459"><span class="s">}</span>
-</span><span id="1-460"><span class="s">EOF</span>
-</span><span id="1-461">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="1-462"><span class="s">function _G.set_terminal_keymaps()</span>
-</span><span id="1-463"><span class="s">  local opts = {buffer = 0}</span>
-</span><span id="1-464"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;esc&gt;&#39;, [[&lt;C-\&gt;&lt;C-n&gt;]], opts)</span>
-</span><span id="1-465"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;jk&#39;, [[&lt;C-\&gt;&lt;C-n&gt;]], opts)</span>
-</span><span id="1-466"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-h&gt;&#39;, [[&lt;Cmd&gt;wincmd h&lt;CR&gt;]], opts)</span>
-</span><span id="1-467"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-j&gt;&#39;, [[&lt;Cmd&gt;wincmd j&lt;CR&gt;]], opts)</span>
-</span><span id="1-468"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-k&gt;&#39;, [[&lt;Cmd&gt;wincmd k&lt;CR&gt;]], opts)</span>
-</span><span id="1-469"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-l&gt;&#39;, [[&lt;Cmd&gt;wincmd l&lt;CR&gt;]], opts)</span>
-</span><span id="1-470"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-w&gt;&#39;, [[&lt;C-\&gt;&lt;C-n&gt;&lt;C-w&gt;]], opts)</span>
-</span><span id="1-471"><span class="s">end</span>
-</span><span id="1-472"><span class="s">vim.cmd(&#39;autocmd! TermOpen term://* lua set_terminal_keymaps()&#39;)</span>
-</span><span id="1-473"><span class="s">EOF</span>
+</span><span id="1-431">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="1-432"><span class="s">require(&#39;lualine&#39;).setup{</span>
+</span><span id="1-433"><span class="s">  options = {</span>
+</span><span id="1-434"><span class="s">    theme = &#39;tokyonight&#39;</span>
+</span><span id="1-435"><span class="s">  }</span>
+</span><span id="1-436"><span class="s">}</span>
+</span><span id="1-437"><span class="s">EOF</span>
+</span><span id="1-438">
+</span><span id="1-439">
+</span><span id="1-440">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="1-441"><span class="s">require(&#39;alpha&#39;).setup(</span>
+</span><span id="1-442"><span class="s">    require&#39;alpha.themes.startify&#39;.config</span>
+</span><span id="1-443"><span class="s">)</span>
+</span><span id="1-444"><span class="s">EOF</span>
+</span><span id="1-445">
+</span><span id="1-446">
+</span><span id="1-447">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="1-448"><span class="s">require(&#39;Comment&#39;).setup()</span>
+</span><span id="1-449"><span class="s">EOF</span>
+</span><span id="1-450">
+</span><span id="1-451">
+</span><span id="1-452">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="1-453"><span class="s">require(&#39;toggleterm&#39;).setup{</span>
+</span><span id="1-454"><span class="s">    size = 20,</span>
+</span><span id="1-455"><span class="s">    open_mapping = [[&lt;C-\&gt;]],</span>
+</span><span id="1-456"><span class="s">    directin = &#39;float&#39;</span>
+</span><span id="1-457"><span class="s">}</span>
+</span><span id="1-458"><span class="s">EOF</span>
+</span><span id="1-459">lua<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="1-460"><span class="s">function _G.set_terminal_keymaps()</span>
+</span><span id="1-461"><span class="s">  local opts = {buffer = 0}</span>
+</span><span id="1-462"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;esc&gt;&#39;, [[&lt;C-\&gt;&lt;C-n&gt;]], opts)</span>
+</span><span id="1-463"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;jk&#39;, [[&lt;C-\&gt;&lt;C-n&gt;]], opts)</span>
+</span><span id="1-464"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-h&gt;&#39;, [[&lt;Cmd&gt;wincmd h&lt;CR&gt;]], opts)</span>
+</span><span id="1-465"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-j&gt;&#39;, [[&lt;Cmd&gt;wincmd j&lt;CR&gt;]], opts)</span>
+</span><span id="1-466"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-k&gt;&#39;, [[&lt;Cmd&gt;wincmd k&lt;CR&gt;]], opts)</span>
+</span><span id="1-467"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-l&gt;&#39;, [[&lt;Cmd&gt;wincmd l&lt;CR&gt;]], opts)</span>
+</span><span id="1-468"><span class="s">  vim.keymap.set(&#39;t&#39;, &#39;&lt;C-w&gt;&#39;, [[&lt;C-\&gt;&lt;C-n&gt;&lt;C-w&gt;]], opts)</span>
+</span><span id="1-469"><span class="s">end</span>
+</span><span id="1-470"><span class="s">vim.cmd(&#39;autocmd! TermOpen term://* lua set_terminal_keymaps()&#39;)</span>
+</span><span id="1-471"><span class="s">EOF</span>
 </span></pre></div>
 </div>
 </div>
@@ -1259,7 +1258,21 @@ html.dark {
 </span></pre></div>
 </div>
 </div>
-</details></section>
+</details><p>此外，init.nvim用的是 <a class="reference internal" href="#vim-plug" id="id6"><span>[vim-plug]</span></a> ,需要手动进行安装，参见 <a class="reference external" href="https://github.com/junegunn/vim-plug#installation">Install</a></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Unix, Linux</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux (Flatpak)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Windows(power shell)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;curl -fLo &quot;${XDG_DATA_HOME:-$HOME/.local/share}&quot;/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#39;</span>
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-fLo<span class="w"> </span>~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim<span class="w"> </span>--create-dirs<span class="w"> </span><span class="se">\</span>
+</span><span id="1-2"><span class="w"> </span>https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">iwr<span class="w"> </span>-useb<span class="w"> </span>https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<span class="w"> </span><span class="se">\|</span><span class="sb">`</span>
+</span><span id="1-2"><span class="w"> </span>ni<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>@<span class="o">(</span><span class="nv">$env</span>:XDG_DATA_HOME,<span class="w"> </span><span class="nv">$env</span>:LOCALAPPDATA<span class="k">)</span><span class="s2">[</span><span class="nv">$null</span><span class="s2"> -eq </span><span class="nv">$env</span><span class="s2">:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim&quot;</span><span class="w"> </span>-Force
+</span></pre></div>
+</div>
+</div></div>
+</section>
 <section id="neovim">
 <h2>安装Neovim<a class="headerlink" href="#neovim" title="此标题的永久链接">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
@@ -1276,12 +1289,16 @@ html.dark {
 <p><a class="reference external" href="https://github.com/folke/lazy.nvim">lazy.nvim</a></p>
 </div>
 <div class="citation" id="kickstart" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">kickstart</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/nvim-lua/kickstart.nvim">https://github.com/nvim-lua/kickstart.nvim</a></p>
+<span class="label"><span class="fn-bracket">[</span>kickstart<span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/nvim-lua/kickstart.nvim">kickstart</a></p>
 </div>
 <div class="citation" id="coc-nvim" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">coc.nvim</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/neoclide/coc.nvim">https://github.com/neoclide/coc.nvim</a></p>
+<p><a class="reference external" href="https://github.com/neoclide/coc.nvim">coc.vim</a></p>
+</div>
+<div class="citation" id="vim-plug" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">vim-plug</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/junegunn/vim-plug">junegunn/vim-plug</a></p>
 </div>
 </div>
 </section>
@@ -1343,6 +1360,7 @@ html.dark {
       <script src="../_static/sphinx_highlight.js"></script>
       <script src="../_static/clipboard.min.js"></script>
       <script src="../_static/copybutton.js"></script>
+      <script src="../_static/tabs.js"></script>
       <script src="../_static/design-tabs.js"></script>
       <script src="../_static/shibuya.js?v=2023.3.19"></script>
     
