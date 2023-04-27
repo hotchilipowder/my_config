@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Resources - My Dev Config</title>
-    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="prev" title="Sphinx 的常见使用技巧" href="sphinx.html" />
+      <title>&lt;no title&gt; - My Dev Config</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" />
   <script>
     const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const sessionTheme = sessionStorage['_theme']
@@ -50,7 +50,7 @@ html.dark {
   --sy-f-heading: Inter, var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Resources"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="&lt;no title&gt;"/>
 <meta name="twitter:card" content="summary"/></head>
 <body><div class="document"><div class="sy-head">
   <div class="sy-head-blur"></div>
@@ -85,9 +85,6 @@ html.dark {
         <i class="i-icon theme-icon"></i>
       </button>
       
-        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
-          <i class="i-icon outdent"></i>
-        </button>
     </div>
   </div>
 </div>
@@ -104,13 +101,13 @@ html.dark {
       <div class="sy-scrollbar p-6">
         <div class="globaltoc">
           <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx 的常见使用技巧</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
         </div>
@@ -121,16 +118,7 @@ html.dark {
     <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
       <i class="i-icon close"></i>
     </button>
-    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
-  <div class="localtoc">
-    <h3>目录</h3>
-    <ul>
-<li><a class="reference internal" href="#useful-github-for-my-dev">Useful github for my Dev</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
-</ul>
-
-
-  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
   <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
     <i class="i-icon github"></i>
@@ -149,7 +137,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/edit/master/docs/docs/resources.rst">Edit this page</a>
+  <a href="https://github.com/hotchilipowder/my_config/edit/master/docs/docs/cookiecutter.rst">Edit this page</a>
 </div><div id="ethical-ad-placement"></div>
     </div>
   </aside>
@@ -158,106 +146,13 @@ html.dark {
     <div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
         <article class="yue" role="main">
-          <section id="resources">
-<h1>Resources<a class="headerlink" href="#resources" title="此标题的永久链接">¶</a></h1>
-<section id="useful-github-for-my-dev">
-<h2>Useful github for my Dev<a class="headerlink" href="#useful-github-for-my-dev" title="此标题的永久链接">¶</a></h2>
-<p><a class="reference internal" href="#cookiecutterdjango" id="id1"><span>[cookiecutterdjango]</span></a> 可以被用来做的起手式，不过相比于传统的<code class="code docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">startproject</span> <span class="pre">xxx</span></code>。
-更多的优势目前还不太清晰。</p>
-<p><a class="reference internal" href="#scientific-python-cookiecutter" id="id2"><span>[scientific-python-cookiecutter]</span></a> 这是可以说是第一次体会到了使用<code class="code docutils literal notranslate"><span class="pre">cookiecutter</span></code>的优势。</p>
-<p><a class="reference internal" href="#proxy-poll" id="id3"><span>[proxy_poll]</span></a> : 这个代理池的项目看起来还行。</p>
-<p><a class="reference internal" href="#serverstatus" id="id4"><span>[ServerStatus]</span></a> : 基于这个项目，开发了 <a class="reference external" href="https://github.com/hotchilipowder/aiohttp_server_status">AiohttpServerStatus</a></p>
-<p><a class="reference internal" href="#django-react-tyadmin" id="id5"><span>[django-react-tyadmin]</span></a> : 这个项目可以被用来学习Django-restfull。</p>
-<p><a class="reference internal" href="#dds-django-dynamic-scrappper" id="id6"><span>[DDS-django-dynamic-scrappper]</span></a> : 一个有趣的爬虫项目</p>
-<p><a class="reference internal" href="#screenity" id="id7"><span>[screenity]</span></a> : 一个有趣的JS项目</p>
-<p><a class="reference internal" href="#pix2tex" id="id8"><span>[pix2tex]</span></a> : Pix2Tex</p>
-<p><a class="reference internal" href="#video-subtitle-extractor" id="id9"><span>[video-subtitle-extractor]</span></a> : 字幕提取</p>
-<p><a class="reference internal" href="#mobilepillowtablklite" id="id10"><span>[mobilePillowTablkLite]</span></a> : IOS 监控</p>
-<p><a class="reference internal" href="#docker-flare" id="id11"><span>[docker-flare]</span></a> : 个人主目录页</p>
-<p><a class="reference internal" href="#silverrainz" id="id12"><span>[silverRainZ]</span></a> : 使用restructtext做笔记</p>
-<p><a class="reference internal" href="#tmux" id="id13"><span>[tmux]</span></a> : oh-my-tmux， 有一点点复杂。</p>
-<p><a class="reference internal" href="#reinstall-tools" id="id14"><span>[Reinstall-Tools]</span></a> : 这个工具可以被用来做系统的重新安装，去掉腾讯云的监控程序等流氓软件。</p>
-<p>fnt</p>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="此标题的永久链接">¶</a></h2>
-<div role="list" class="citation-list">
-<div class="citation" id="reinstall-tools" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">Reinstall-Tools</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/leitbogioro/Tools">https://github.com/leitbogioro/Tools</a></p>
-</div>
-<div class="citation" id="tmux" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">tmux</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/gpakosz/.tmux">https://github.com/gpakosz/.tmux</a></p>
-</div>
-<div class="citation" id="silverrainz" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">silverRainZ</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/SilverRainZ/silverrainz.github.io">https://github.com/SilverRainZ/silverrainz.github.io</a></p>
-</div>
-<div class="citation" id="docker-flare" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">docker-flare</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/soulteary/docker-flare">https://github.com/soulteary/docker-flare</a></p>
-</div>
-<div class="citation" id="mobilepillowtablklite" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">mobilePillowTablkLite</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/Lakr233/mobilePillowTalkLite">https://github.com/Lakr233/mobilePillowTalkLite</a></p>
-</div>
-<div class="citation" id="video-subtitle-extractor" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">video-subtitle-extractor</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/YaoFANGUK/video-subtitle-extractor">https://github.com/YaoFANGUK/video-subtitle-extractor</a></p>
-</div>
-<div class="citation" id="pix2tex" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">pix2tex</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/lukas-blecher/LaTeX-OCR">https://github.com/lukas-blecher/LaTeX-OCR</a></p>
-</div>
-<div class="citation" id="screenity" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">screenity</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/alyssaxuu/screenity">https://github.com/alyssaxuu/screenity</a></p>
-</div>
-<div class="citation" id="dds-django-dynamic-scrappper" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">DDS-django-dynamic-scrappper</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/hotchilipowder/django-dynamic-scraper">https://github.com/hotchilipowder/django-dynamic-scraper</a></p>
-</div>
-<div class="citation" id="django-react-tyadmin" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">django-react-tyadmin</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/mtianyan/django-react-tyadmin">https://github.com/mtianyan/django-react-tyadmin</a></p>
-</div>
-<div class="citation" id="serverstatus" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">ServerStatus</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/hotchilipowder/ServerStatus">https://github.com/hotchilipowder/ServerStatus</a></p>
-</div>
-<div class="citation" id="proxy-poll" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">proxy_poll</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/jhao104/proxy_pool">https://github.com/jhao104/proxy_pool</a></p>
-</div>
-<div class="citation" id="scientific-python-cookiecutter" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">scientific-python-cookiecutter</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/NSLS-II/scientific-python-cookiecutter">https://github.com/NSLS-II/scientific-python-cookiecutter</a></p>
-</div>
-<div class="citation" id="cookiecutterdjango" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">cookiecutterdjango</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/cookiecutter/cookiecutter-django">https://github.com/cookiecutter/cookiecutter-django</a></p>
-</div>
-</div>
-</section>
-</section>
-
+          
         </article>
         
       </div>
       <div class="min-w-0 max-w-6xl px-6 pb-6 xl:pt-6 xl:px-12">
         <div class="navigation flex print:hidden">
-  <div class="navigation-prev">
-    <a href="sphinx.html">
-      <i class="i-icon chevron"></i>
-      <div class="page-info">
-        <span>Previous</span>
-        
-        <div class="title">Sphinx 的常见使用技巧</div>
-        
-      </div>
-    </a>
-  </div>
+  
   
 </div>
         

@@ -140,11 +140,11 @@ html.dark {
 <li><a class="reference internal" href="#sphinx-emoji">sphinx_emoji</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#interesting-links-for-sphinx-extensions">Interesting links for sphinx extensions</a></li>
-<li><a class="reference internal" href="#references">References</a><ul>
+<li><a class="reference internal" href="#interesting-links-for-sphinx-extensions">Interesting links for sphinx extensions</a><ul>
 <li><a class="reference internal" href="#groups-for-sphinx">Groups for sphinx</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 
 
@@ -398,8 +398,12 @@ Card Title</div>
 </section>
 <section id="interesting-links-for-sphinx-extensions">
 <h2>Interesting links for sphinx extensions<a class="headerlink" href="#interesting-links-for-sphinx-extensions" title="此标题的永久链接">¶</a></h2>
+<section id="groups-for-sphinx">
+<h3>Groups for sphinx<a class="headerlink" href="#groups-for-sphinx" title="此标题的永久链接">¶</a></h3>
 <p><a class="reference internal" href="#excutable-book" id="id5"><span>[excutable-book]</span></a></p>
 <p><a class="reference internal" href="#sphinx-contrib" id="id6"><span>[sphinx-contrib]</span></a></p>
+<p><a class="reference internal" href="#sympy" id="id7"><span>[sympy]</span></a> : 这个是当时找 math + dollar 发现的 github,</p>
+</section>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="此标题的永久链接">¶</a></h2>
@@ -408,10 +412,6 @@ Card Title</div>
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">MyST</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/executablebooks/MyST-Parser">https://github.com/executablebooks/MyST-Parser</a></p>
 </div>
-</div>
-<section id="groups-for-sphinx">
-<h3>Groups for sphinx<a class="headerlink" href="#groups-for-sphinx" title="此标题的永久链接">¶</a></h3>
-<div role="list" class="citation-list">
 <div class="citation" id="sphinx-contrib" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">sphinx-contrib</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/sphinx-contrib">https://github.com/sphinx-contrib</a></p>
@@ -420,8 +420,11 @@ Card Title</div>
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">excutable-book</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/executablebooks">https://github.com/executablebooks</a></p>
 </div>
+<div class="citation" id="sympy" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">sympy</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/sympy">https://github.com/sympy</a></p>
 </div>
-</section>
+</div>
 </section>
 </section>
 
@@ -482,6 +485,40 @@ Card Title</div>
       <script src="../_static/clipboard.min.js"></script>
       <script src="../_static/copybutton.js"></script>
       <script src="../_static/tabs.js"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hotchilipowder/my_config");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
       <script src="../_static/design-tabs.js"></script>
       <script src="../_static/shibuya.js?v=2023.3.19"></script>
     
