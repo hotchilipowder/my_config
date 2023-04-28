@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Cookiecutter - My Dev Config</title>
+      <title>Tikz Plot - My Dev Config</title>
     <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" />
   <script>
     const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -50,7 +50,7 @@ html.dark {
   --sy-f-heading: Inter, var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Cookiecutter"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Tikz Plot"/>
 <meta name="twitter:card" content="summary"/></head>
 <body><div class="document"><div class="sy-head">
   <div class="sy-head-blur"></div>
@@ -125,8 +125,8 @@ html.dark {
   <div class="localtoc">
     <h3>目录</h3>
     <ul>
-<li><a class="reference internal" href="#why-cookiecutter">Why Cookiecutter</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#why-tikz">Why Tikz</a></li>
+<li><a class="reference internal" href="#tikz-resources">Tikz resources</a></li>
 </ul>
 
 
@@ -149,7 +149,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/edit/master/docs/docs/cookiecutter.rst">Edit this page</a>
+  <a href="https://github.com/hotchilipowder/my_config/edit/master/docs/docs/tikz.rst">Edit this page</a>
 </div><div id="ethical-ad-placement"></div>
     </div>
   </aside>
@@ -158,27 +158,25 @@ html.dark {
     <div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
         <article class="yue" role="main">
-          <section id="cookiecutter">
-<h1>Cookiecutter<a class="headerlink" href="#cookiecutter" title="此标题的永久链接">¶</a></h1>
-<section id="why-cookiecutter">
-<h2>Why Cookiecutter<a class="headerlink" href="#why-cookiecutter" title="此标题的永久链接">¶</a></h2>
-<p>使用这个工具最开始是因为觉得自己写的很多的项目其实有共同的脚手架。
-使用了脚手架的项目相比build from scratch，确实更好用，因此尝试去看看别人的解决方案。</p>
-<p>当然，在不同的语言下，区别还是比较大的(在JS下，也许你应该选择 <code class="code docutils literal notranslate"><span class="pre">next</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">vite</span></code>而不是默认的 <code class="code docutils literal notranslate"><span class="pre">create-react-app</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">webpack</span></code>。如果你用 <a class="reference internal" href="#django" id="id1"><span>[Django]</span></a> , 其实本身使用 <code class="code docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">starprojects</span> <span class="pre">xxx</span></code>就是一种脚手架。
-但是由于库本身需要让新手和老手能区分开，所以很多的默认配置比较保守，或者不愿意修改。例如，我需要开启 <code class="code docutils literal notranslate"><span class="pre">ALLOWED_HOSTS</span> <span class="pre">=</span> <span class="pre">['*']</span>
-<span class="pre">`或者，我希望设置</span> <span class="pre">:code:`TIME_ZONE</span> <span class="pre">=</span> <span class="pre">'Asia/Shanghai'</span></code>都需要再进行配置，非常的麻烦。</p>
-<p>所以最后我选择的方案是使用 <a class="reference internal" href="#id3" id="id2"><span>[Cookiecutter]</span></a> 。</p>
+          <section id="tikz-plot">
+<h1>Tikz Plot<a class="headerlink" href="#tikz-plot" title="此标题的永久链接">¶</a></h1>
+<section id="why-tikz">
+<h2>Why Tikz<a class="headerlink" href="#why-tikz" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="#tikz" id="id1"><span>[Tikz]</span></a> 配合Latex确实是能够实现真正出版物级别的作图。
+好的作图确实能让人觉得research的档次得到提升。</p>
+<p>另外，由于使用了 <a class="reference internal" href="#tikz" id="id2"><span>[Tikz]</span></a> ，确实可以实现在图和文章浑然一体。</p>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="此标题的永久链接">¶</a></h2>
+<section id="tikz-resources">
+<h2>Tikz resources<a class="headerlink" href="#tikz-resources" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/xinychen/awesome-latex-drawing">https://github.com/xinychen/awesome-latex-drawing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/PetarV-/TikZ">https://github.com/PetarV-/TikZ</a></p></li>
+</ul>
 <div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Cookiecutter</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://cookiecutter.readthedocs.io/">https://cookiecutter.readthedocs.io/</a></p>
-</div>
-<div class="citation" id="django" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Django</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://www.djangoproject.com/">https://www.djangoproject.com/</a></p>
+<div class="citation" id="tikz" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Tikz<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p><a class="reference external" href="https://tikz.dev/">https://tikz.dev/</a></p>
 </div>
 </div>
 <div class="section" /></section>
