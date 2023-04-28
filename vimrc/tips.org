@@ -1,0 +1,4 @@
+** NERDTree
+
+   使用m来激活NERDTree Filesystem，然后a添加节点，d删除节点
+   Activate the NERDTree and navigate to the directory in which the new file should live. 

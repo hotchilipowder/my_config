@@ -1,0 +1,34 @@
+snippet pybname "input the header" b
+#!/usr/bin/env python3
+#-*- coding: utf-8 -*-
+"""
+@author: ${1:hotchilipowder}
+`!p
+import datetime
+import vim
+import os
+date_now = datetime.datetime.now().strftime('%Y/%m/%d')
+filename = os.path.basename(vim.current.buffer.name)
+snip.rv = f'''@file: {filename}
+@time: {date_now}'''
+`
+"""
+
+$0
+endsnippet
+
+snippet logger_d "fast logger with f-format"
+logger.debug(f'\{${1:your_information}\}')
+endsnippet
+
+snippet logger_i "fast logger with f-format"
+logger.info(f'\{${1:your_information}\}')
+endsnippet
+
+
+snippet django_model "django model" b
+class ${1:Model}(models.Model):
+	
+	def __str__(self, obj)->str:
+		return obj.id
+endsnippet

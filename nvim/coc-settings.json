@@ -1,0 +1,7 @@
+{
+  "snippets.ultisnips.pythonPrompt": false,
+  "snippets.textmateSnippetsRoots": ["~/.config/nvim/snippets/vscode-snips"],
+  "snippets.extends": {
+      "restructuredtext": ["restructuredtext"]
+  }
+}

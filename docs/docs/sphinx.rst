@@ -1,0 +1,320 @@
+=====================
+Sphinx Configuration
+=====================
+
+
+Why sphinx
+==========
+
+之前一直纠结了很久的文档生成器。包括
+核心的文档语言包括
+
++ markdown
++ rst
++ mdx
++ org
++ tex
+
+很显然如果想要简单，选用markdown即可。但是markdown的功能收到限制，因此需要进一步扩展起能力，就得往下。
+而mdx虽然很好，交互丰富，但是想来还是使用python更多，因此，最后还是选择了rst.
+不过还有包括 [MyST]_ 这种有趣的md扩展。
+
+
+常用的sphinx扩展
+================
+常用的设置
+
+.. code-block:: bash
+
+    pip install sphinx_design \
+                sphinx-copybutton \
+                sphinxcontrib-bibtex\
+                sphinxemoji
+
+
+
+.. code-block:: python
+
+    extensions=[
+        "sphinx_design",
+        "sphinx_copybutton",
+        "sphinxcontrib-bibtex"
+        "sphinxemoji.sphinxemoji",
+    ]
+
+    html_css_files = [
+     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    ]
+
+    bibtex_bibfiles = ['refs.bib']
+
+
+sphinx_design
+-------------
+
+sphinx_design 包括grid，card, dropdown, tab, badegs。
+
+
+Tabs using sphinx_design
+^^^^^^^^^^^^^^^^^^^^^^^^
+`Sphinx Design Tabs <https://sphinx-design.readthedocs.io/en/latest/tabs.html>`_
+
+.. code-block:: bash
+
+    .. tab-set::
+    
+        .. tab-item:: MacOS
+            :sync: key1
+    
+            MacOS
+    
+        .. tab-item:: linux
+            :sync: key2
+    
+            linux 
+    
+        .. tab-item:: windows
+            :sync: key3
+    
+            windows 
+
+.. tab-set::
+
+    .. tab-item:: Macos
+        :sync: key1
+
+        macos
+
+    .. tab-item:: linux
+        :sync: key2
+
+        linux 
+
+    .. tab-item:: windows
+        :sync: key3
+
+        windows 
+
+
+Tabs using sphinx_tabs
+^^^^^^^^^^^^^^^^^^^^^^
+`Sphinx Tab 文档 <https://sphinx-tabs.readthedocs.io/en/latest/#basic-tabs>`_
+
+.. tabs::
+
+   .. tab:: MacOS
+
+     MacOS 
+
+   .. tab:: Linux
+
+     Linux
+
+   .. tab::  Windows
+
+        Windows
+
+.. code-block:: bash
+
+    .. tabs::
+    
+       .. tab:: MacOS
+    
+         MacOS 
+    
+       .. tab:: Linux
+    
+         Linux
+    
+       .. tab::  Windows
+    
+            Windows
+
+
+Drop using sphinx_design
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`Sphinx Design Drop <https://sphinx-design.readthedocs.io/en/latest/dropdowns.html>`_
+
+.. code-block:: bash
+
+    .. dropdown:: Dropdown title
+
+        Dropdown content	
+
+
+.. dropdown:: Dropdown title
+
+    Dropdown content	
+
+
+Card using sphinx_design
+^^^^^^^^^^^^^^^^^^^^^^^^
+`Sphinx Design Card <https://sphinx-design.readthedocs.io/en/latest/cards.html>`_
+
+.. code-block:: bash
+
+    .. card:: Card Title
+    
+        Header
+        ^^^
+        Card content
+        +++
+        Footer
+
+
+
+.. card:: Card Title
+
+    Header
+    ^^^
+    Card content
+    +++
+    Footer
+
+
+Grid using sphinx design
+^^^^^^^^^^^^^^^^^^^^^^^^
+`Sphinx Design Grid <https://sphinx-design.readthedocs.io/en/latest/grids.html>`_
+
+.. code-block:: bash
+
+    .. grid:: 2
+        :gutter: 2 2 2 2 
+
+        .. grid-item-card::
+
+            A
+
+        .. grid-item-card::
+
+            B
+
+
+.. grid:: 2
+    :gutter: 2 2 2 2 
+
+    .. grid-item-card::
+
+        A
+
+    .. grid-item-card::
+
+        B
+
+
+Badges, Button, Icons using sphinx_design
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`Sphinx Design BBI <https://sphinx-design.readthedocs.io/en/latest/badges_buttons.html>`_
+
+
+Inline icon roles are available for the `GitHub octicon <https://primer.style/octicons/>`_, `Google Material Design Icons <https://fonts.google.com/icons>`_, or `FontAwesome <https://fontawesome.com/icons?d=gallery&m=free>`_ libraries.
+
+
++ octicon: :octicon:`logo-github;1em;sd-text-info` :code:`:octicon:\`logo-github;1em;sd-text-info\``
++ Google Material Design: :material-outlined:`g_translate` :code:`:material-outlined:\`g_translate\``
++ FontAwesome: :fab:`fa-brands fa-github-alt` :code:`:fab:\`fa-brands fa-github-alt\``
+
+
+
+
+:bdg:`plain badge`
+
+:bdg-primary:`primary`, :bdg-primary-line:`primary-line`
+
+:bdg-secondary:`secondary`, :bdg-secondary-line:`secondary-line`
+
+:bdg-success:`success`, :bdg-success-line:`success-line`
+
+:bdg-info:`info`, :bdg-info-line:`info-line`
+
+:bdg-warning:`warning`, :bdg-warning-line:`warning-line`
+
+:bdg-danger:`danger`, :bdg-danger-line:`danger-line`
+
+:bdg-light:`light`, :bdg-light-line:`light-line`
+
+:bdg-dark:`dark`, :bdg-dark-line:`dark-line`
+
+.. button-link:: https://hotchilipowder.github.io
+
+.. button-link:: https://hotchilipowder.github.io
+
+    Button text
+
+.. button-link:: https://hotchilipowder.github.io
+    :color: primary
+    :shadow:
+
+.. button-link:: https://hotchilipowder.github.io
+    :color: primary
+    :outline:
+
+.. button-link:: https://hotchilipowder.github.io
+    :color: secondary
+    :expand:
+
+sphinx_copybutton
+-----------------
+`Sphinx CopyButton <https://sphinx-copybutton.readthedocs.io/en/latest/>`_ 将会让代码可以被copy
+
+
+sphinx_emoji
+------------
+
+`Sphinx Emoji <https://sphinxemojicodes.readthedocs.io/en/stable/>`_
+
+
+Just use |:+1:|, :code:`|:+1:|`.
+
+当然，我也如同 \ `vim-snippets <https://github.com/honza/vim-snippets/blob/master/UltiSnips/rst.snippets#L265>`_\ ，实现了一个类似的版本，可以查询当前的emoji.
+
+
+sphinx comments
+---------------
+
+`sphinx-comments <https://github.com/executablebooks/sphinx-comments>`_
+
+因为这个代码是挂载在 \ :code:`sections = document.querySelectorAll("div.section");`\. 因此在需要评论的下方，加一个
+
+.. code-block:: bash
+
+    .. raw::html
+
+        <div class="section" />
+
+就可以启用这个插件了。
+
+
+
+
+
+Interesting links for sphinx extensions
+=======================================
+
+Groups for sphinx
+-----------------
+
+[excutable-book]_ 
+
+[sphinx-contrib]_ 
+
+[sympy]_ : 这个是当时找 math + dollar 发现的 github, 
+
+
+
+References
+==========
+
+
+.. [MyST] https://github.com/executablebooks/MyST-Parser
+
+.. [sphinx-contrib] https://github.com/sphinx-contrib
+
+.. [excutable-book] https://github.com/executablebooks
+
+.. [sympy] https://github.com/sympy
+
+
+.. raw:: html
+
+   <div class="section" />

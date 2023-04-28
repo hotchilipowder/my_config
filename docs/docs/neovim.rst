@@ -1,0 +1,244 @@
+====================
+Neovim Configuration
+====================
+
+
+Why Neovim instead of Vim
+=========================
+
+其实本人之前一直是使用\ :literal:`vim`\的，而后被\ :literal:`neovim`\的速度所吸引。
+在无痛切换到nvim之后，最后实在是忍不住切换到\ :literal:`init.lua`\。
+总体而言，比较讨厌写多个文件，喜欢使用\ :code:`<Space>fed`\去打开配置文件，然后复制粘贴即可。
+有许多关于使用plug文件夹和多个不同插件配置的方式，我个人不是很喜欢。所以我更喜欢\ `kickstart.nvim <https://github.com/nvim-lua/kickstart.nvim>`_\ 这样的方式。
+
+由于 [kickstart]_ 使用的 [lazy.nvim]_, 所以也就切换到了 [lazy.nvim]_ 
+
+具体的配置如下：
+
+
+.. dropdown:: ~/.config/nvim/init.lua
+
+    .. literalinclude:: ../../nvim/init.lua
+       :language: lua
+
+
+当然，由于老的配置使用 [coc.nvim]_ ,因此也存在一些老的配置，还算好用。另外，这个配置在 \ :literal:`Git`\版本比较低的场景下也比较实用。
+因为 [lazy.nvim]_\需要的版本还比较高。
+
+
+具体如下：
+
+.. dropdown:: ~/.config/nvim/init.vim
+
+    .. literalinclude:: ../../nvim/init.vim
+        :language: bash
+
+另外还有一个\ :literal:`~/.config/nvim/coc-settings.json`\ 文件需要注意:
+
+.. dropdown:: ~/.config/nvim/coc-settings.json
+
+    .. literalinclude:: ../../nvim/coc-settings.json
+        :language: bash
+
+此外，init.nvim用的是 [vim-plug]_ ,需要手动进行安装，参见 \ `Install <https://github.com/junegunn/vim-plug#installation>`_
+
+
+.. tabs::
+
+   .. tab:: Unix, Linux
+
+
+    .. code-block:: bash
+     
+      sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' 
+
+   .. tab:: Linux (Flatpak) 
+
+    .. code-block:: bash
+   
+       curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+   .. tab:: Windows(power shell) 
+
+    .. code-block:: bash
+        
+        iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \|`
+         ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+
+
+
+安装Neovim
+==========
+
+
+.. code-block:: bash
+
+    curl -OL https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    chmod u+x nvim.appimage
+    mv nvim.appimage nvim
+
+Awesom Neovim Plugins
+=====================
+
+vim-tmux-navigator
+------------------
+
+`vim-tmux-navigator <https://github.com/christoomey/vim-tmux-navigator>`_
+
+more config see  :doc:`tmux.rst <./tmux>` 
+
+
+
+bufferline.nvim
+---------------
+
+`bufferline.nvim <https://github.com/akinsho/bufferline.nvim>`_
+
+This is a very interesting plugin for the bufferline. 
+不过由于这个插件只开buffer，不好关闭（点击叉关闭对于纯键盘党而言太麻烦)，所以需要定义一个关闭的快捷键, 我定义为 \ :code:`<Space>q`\, see \ `close current buffer <https://github.com/akinsho/bufferline.nvim/issues/513>`_
+
+另外 \ :code:`<Space> + RightArrow`\ 可以实现关闭当前buffer右侧的buffer。这个也比较好用.
+
+.. code-block:: bash
+
+    'akinsho/bufferline.nvim',
+    version = "v3.*", 
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    keys={
+      {'<Tab>', '<Cmd>BufferLineCycleNext<CR>'},
+      {'<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {}},
+      {'<Space><Right>', '<Cmd>BufferLineCloseRight<CR>', {}},
+      {'<Space>q', '<Cmd>:bp <BAR> bd #<CR>', {}},
+      {'<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>'},
+      {'<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>'},
+      {'<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>'},
+      {'<leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>'},
+      {'<leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>'},
+      {'<leader>6', '<Cmd>BufferLineGoToBuffer 6<CR>'},
+      {'<leader>7', '<Cmd>BufferLineGoToBuffer 7<CR>'},
+      {'<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>'},
+      {'<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>'},
+      {'<leader>$', '<Cmd>BufferLineGoToBuffer -1<CR>'},
+    }
+
+alpha-nvim
+----------
+
+这个比较简单，就是开启后的欢迎页面.
+
+.. figure:: https://user-images.githubusercontent.com/24906808/133367667-0f73e9e1-ea75-46d1-8e1b-ff0ecfeafeb1.png
+    :alt: alpha-nvim start 
+
+
+tpope大佬系列
+--------------
+
+主要包括 
+    
++ `tpope/vim-surround <https://github.com/tpope/vim-surround>`_ : \ :code:`di<`\ for \ :code:`<xxx>`\
++ `tpope/vim-fugitive <https://github.com/tpope/vim-fugitive>`_ : \ :code:`:Git`\
++ `tpope/vim-rhubarb <https://github.com/tpope/vim-rhubarb>`_ : \ :code:`:GBrower`\
++ `tpope/vim-sleuth <https://github.com/tpope/vim-sleuth>`_ : Automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+
+
+之前还有一个 \ `vim-commentary <https://github.com/tpope/vim-commentary>`_\ , 不过我还是用 \ `Comment.nvim <https://github.com/numToStr/Comment.nvim>`_\ 替代了。我相信 \ :code:`lua is better than vimscript`\ (see \ `你们的vim配置都换成lua了吗？ <https://www.zhihu.com/question/445290918>`_\ .
+
+
+toggleterm.nvim
+---------------
+
+`toggleterm <thttps://github.com/akinsho/toggleterm.nvim>`_
+
+.. code-block:: bash
+
+    function _G.set_terminal_keymaps()
+      local opts = {buffer = 0}
+      vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+      vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+      vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+      vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+      vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+      vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+      vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+    end
+    
+    -- if you only want these mappings for toggle term use term://*toggleterm#* instead
+    vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+
+
+
+
+
+nvim-tree.lua
+-------------
+
+`nvim-tree.lua <https://github.com/nvim-tree/nvim-tree.lua>`_
+
+核心的配置: 
+
++ \ :code:`<space>pt`\ open tree
++ \ :code:`<space>r`\ refresh
++ \ :code:`r`\ rename 
++ \ :code:`a`\ add
+
+
+.. code-block:: bash
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    },
+    opts={
+      sort_by = "case_sensitive",
+      view = {
+        adaptive_size = true,
+        mappings = {
+          list = {
+            { key = "u", action = "dir_up" },
+          },
+        },
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+      },
+    },
+    keys = {
+      {'<leader>pt', ':NvimTreeToggle<CR>', mode=''},
+      {'<leader>r', ':NvimTreeRefresh<CR>', mode='n'}
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reference
+=========
+
+
+.. [lazy.nvim] `lazy.nvim <https://github.com/folke/lazy.nvim>`_
+
+.. [kickstart] `kickstart <https://github.com/nvim-lua/kickstart.nvim>`_
+
+.. [coc.nvim] `coc.vim <https://github.com/neoclide/coc.nvim>`_
+
+.. [vim-plug] `junegunn/vim-plug <https://github.com/junegunn/vim-plug>`_
+
+
+
+.. raw:: html
+
+   <div class="section" />
