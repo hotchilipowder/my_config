@@ -59,6 +59,8 @@ html_favicon = "_static/logo.svg"
 html_theme_options = {
     "logo_target": "/my_config",
     "github_url": "https://github.com/hotchilipowder/my_config",
+    'light_logo': "_static/my_config.png",
+    "dark_logo": "_static/my_config_dark.png",
     "nav_links": [
     ]
 }
