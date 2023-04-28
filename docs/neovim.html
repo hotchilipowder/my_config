@@ -110,6 +110,8 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx 的常见使用技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
@@ -127,6 +129,15 @@ html.dark {
     <ul>
 <li><a class="reference internal" href="#why-neovim-instead-of-vim">Why Neovim instead of Vim</a></li>
 <li><a class="reference internal" href="#neovim">安装Neovim</a></li>
+<li><a class="reference internal" href="#awesom-neovim-plugins">Awesom Neovim Plugins</a><ul>
+<li><a class="reference internal" href="#vim-tmux-navigator">vim-tmux-navigator</a></li>
+<li><a class="reference internal" href="#bufferline-nvim">bufferline.nvim</a></li>
+<li><a class="reference internal" href="#alpha-nvim">alpha-nvim</a></li>
+<li><a class="reference internal" href="#tpope">tpope大佬系列</a></li>
+<li><a class="reference internal" href="#toggleterm-nvim">toggleterm.nvim</a></li>
+<li><a class="reference internal" href="#nvim-tree-lua">nvim-tree.lua</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 
@@ -1280,6 +1291,118 @@ html.dark {
 </span><span id="1-3">mv<span class="w"> </span>nvim.appimage<span class="w"> </span>nvim
 </span></pre></div>
 </div>
+</section>
+<section id="awesom-neovim-plugins">
+<h2>Awesom Neovim Plugins<a class="headerlink" href="#awesom-neovim-plugins" title="此标题的永久链接">¶</a></h2>
+<section id="vim-tmux-navigator">
+<h3>vim-tmux-navigator<a class="headerlink" href="#vim-tmux-navigator" title="此标题的永久链接">¶</a></h3>
+<p><a class="reference external" href="https://github.com/christoomey/vim-tmux-navigator">vim-tmux-navigator</a></p>
+<p>more config see  <a class="reference internal" href="tmux.html"><span class="doc">tmux.rst</span></a></p>
+</section>
+<section id="bufferline-nvim">
+<h3>bufferline.nvim<a class="headerlink" href="#bufferline-nvim" title="此标题的永久链接">¶</a></h3>
+<p><a class="reference external" href="https://github.com/akinsho/bufferline.nvim">bufferline.nvim</a></p>
+<p>This is a very interesting plugin for the bufferline.
+不过由于这个插件只开buffer，不好关闭（点击叉关闭对于纯键盘党而言太麻烦)，所以需要定义一个关闭的快捷键, 我定义为 <code class="code docutils literal notranslate"><span class="pre">&lt;Space&gt;q</span></code>, see <a class="reference external" href="https://github.com/akinsho/bufferline.nvim/issues/513">close current buffer</a></p>
+<p>另外 <code class="code docutils literal notranslate"><span class="pre">&lt;Space&gt;</span> <span class="pre">+</span> <span class="pre">RightArrow</span></code>可以实现关闭当前buffer右侧的buffer。这个也比较好用.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="s1">&#39;akinsho/bufferline.nvim&#39;</span>,
+</span><span id="1-2"><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v3.*&quot;</span>,
+</span><span id="1-3"><span class="nv">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;nvim-tree/nvim-web-devicons&#39;</span>,
+</span><span id="1-4"><span class="nv">keys</span><span class="o">={</span>
+</span><span id="1-5"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;Tab&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCycleNext&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-6"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;S-Tab&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
+</span><span id="1-7"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;Space&gt;&lt;Right&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCloseRight&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
+</span><span id="1-8"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;Space&gt;q&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;:bp &lt;BAR&gt; bd #&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
+</span><span id="1-9"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;1&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 1&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-10"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;2&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 2&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-11"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;3&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 3&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-12"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;4&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 4&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-13"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;5&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 5&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-14"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;6&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 6&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-15"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;7&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 7&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-16"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;8&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 8&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-17"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;9&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 9&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-18"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;$&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer -1&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-19"><span class="o">}</span>
+</span></pre></div>
+</div>
+</section>
+<section id="alpha-nvim">
+<h3>alpha-nvim<a class="headerlink" href="#alpha-nvim" title="此标题的永久链接">¶</a></h3>
+<p>这个比较简单，就是开启后的欢迎页面.</p>
+<figure class="align-default">
+<img alt="alpha-nvim start" src="https://user-images.githubusercontent.com/24906808/133367667-0f73e9e1-ea75-46d1-8e1b-ff0ecfeafeb1.png" />
+</figure>
+</section>
+<section id="tpope">
+<h3>tpope大佬系列<a class="headerlink" href="#tpope" title="此标题的永久链接">¶</a></h3>
+<p>主要包括</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tpope/vim-surround">tpope/vim-surround</a> : <code class="code docutils literal notranslate"><span class="pre">di&lt;</span></code>for <code class="code docutils literal notranslate"><span class="pre">&lt;xxx&gt;</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/tpope/vim-fugitive">tpope/vim-fugitive</a> : <code class="code docutils literal notranslate"><span class="pre">:Git</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/tpope/vim-rhubarb">tpope/vim-rhubarb</a> : <code class="code docutils literal notranslate"><span class="pre">:GBrower</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/tpope/vim-sleuth">tpope/vim-sleuth</a> : Automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file</p></li>
+</ul>
+<p>之前还有一个 <a class="reference external" href="https://github.com/tpope/vim-commentary">vim-commentary</a>, 不过我还是用 <a class="reference external" href="https://github.com/numToStr/Comment.nvim">Comment.nvim</a>替代了。我相信 <code class="code docutils literal notranslate"><span class="pre">lua</span> <span class="pre">is</span> <span class="pre">better</span> <span class="pre">than</span> <span class="pre">vimscript</span></code>(see <a class="reference external" href="https://www.zhihu.com/question/445290918">你们的vim配置都换成lua了吗？</a>.</p>
+</section>
+<section id="toggleterm-nvim">
+<h3>toggleterm.nvim<a class="headerlink" href="#toggleterm-nvim" title="此标题的永久链接">¶</a></h3>
+<p><a class="reference external" href="thttps://github.com/akinsho/toggleterm.nvim">toggleterm</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">function</span><span class="w"> </span>_G.set_terminal_keymaps<span class="o">()</span>
+</span><span id="1-2"><span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">}</span>
+</span><span id="1-3"><span class="w">  </span>vim.keymap.set<span class="o">(</span><span class="s1">&#39;t&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;esc&gt;&#39;</span>,<span class="w"> </span><span class="o">[[</span>&lt;C-<span class="se">\&gt;</span>&lt;C-n&gt;<span class="o">]]</span>,<span class="w"> </span>opts<span class="o">)</span>
+</span><span id="1-4"><span class="w">  </span>vim.keymap.set<span class="o">(</span><span class="s1">&#39;t&#39;</span>,<span class="w"> </span><span class="s1">&#39;jk&#39;</span>,<span class="w"> </span><span class="o">[[</span>&lt;C-<span class="se">\&gt;</span>&lt;C-n&gt;<span class="o">]]</span>,<span class="w"> </span>opts<span class="o">)</span>
+</span><span id="1-5"><span class="w">  </span>vim.keymap.set<span class="o">(</span><span class="s1">&#39;t&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;C-h&gt;&#39;</span>,<span class="w"> </span><span class="o">[[</span>&lt;Cmd&gt;wincmd<span class="w"> </span>h&lt;CR&gt;<span class="o">]]</span>,<span class="w"> </span>opts<span class="o">)</span>
+</span><span id="1-6"><span class="w">  </span>vim.keymap.set<span class="o">(</span><span class="s1">&#39;t&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;C-j&gt;&#39;</span>,<span class="w"> </span><span class="o">[[</span>&lt;Cmd&gt;wincmd<span class="w"> </span>j&lt;CR&gt;<span class="o">]]</span>,<span class="w"> </span>opts<span class="o">)</span>
+</span><span id="1-7"><span class="w">  </span>vim.keymap.set<span class="o">(</span><span class="s1">&#39;t&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;C-k&gt;&#39;</span>,<span class="w"> </span><span class="o">[[</span>&lt;Cmd&gt;wincmd<span class="w"> </span>k&lt;CR&gt;<span class="o">]]</span>,<span class="w"> </span>opts<span class="o">)</span>
+</span><span id="1-8"><span class="w">  </span>vim.keymap.set<span class="o">(</span><span class="s1">&#39;t&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;C-l&gt;&#39;</span>,<span class="w"> </span><span class="o">[[</span>&lt;Cmd&gt;wincmd<span class="w"> </span>l&lt;CR&gt;<span class="o">]]</span>,<span class="w"> </span>opts<span class="o">)</span>
+</span><span id="1-9"><span class="w">  </span>vim.keymap.set<span class="o">(</span><span class="s1">&#39;t&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;C-w&gt;&#39;</span>,<span class="w"> </span><span class="o">[[</span>&lt;C-<span class="se">\&gt;</span>&lt;C-n&gt;&lt;C-w&gt;<span class="o">]]</span>,<span class="w"> </span>opts<span class="o">)</span>
+</span><span id="1-10">end
+</span><span id="1-11">
+</span><span id="1-12">--<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>only<span class="w"> </span>want<span class="w"> </span>these<span class="w"> </span>mappings<span class="w"> </span><span class="k">for</span><span class="w"> </span>toggle<span class="w"> </span>term<span class="w"> </span>use<span class="w"> </span>term://*toggleterm#*<span class="w"> </span>instead
+</span><span id="1-13">vim.cmd<span class="o">(</span><span class="s1">&#39;autocmd! TermOpen term://* lua set_terminal_keymaps()&#39;</span><span class="o">)</span>
+</span></pre></div>
+</div>
+</section>
+<section id="nvim-tree-lua">
+<h3>nvim-tree.lua<a class="headerlink" href="#nvim-tree-lua" title="此标题的永久链接">¶</a></h3>
+<p><a class="reference external" href="https://github.com/nvim-tree/nvim-tree.lua">nvim-tree.lua</a></p>
+<p>核心的配置:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">&lt;space&gt;pt</span></code>open tree</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&lt;space&gt;r</span></code>refresh</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">r</span></code>rename</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">a</span></code>add</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">{</span>
+</span><span id="1-2"><span class="w">  </span><span class="s1">&#39;nvim-tree/nvim-tree.lua&#39;</span>,
+</span><span id="1-3"><span class="w">  </span><span class="nv">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span id="1-4"><span class="w">    </span><span class="s1">&#39;nvim-tree/nvim-web-devicons&#39;</span>
+</span><span id="1-5"><span class="w">  </span><span class="o">}</span>,
+</span><span id="1-6"><span class="w">  </span><span class="nv">opts</span><span class="o">={</span>
+</span><span id="1-7"><span class="w">    </span><span class="nv">sort_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;case_sensitive&quot;</span>,
+</span><span id="1-8"><span class="w">    </span><span class="nv">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span id="1-9"><span class="w">      </span><span class="nv">adaptive_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>true,
+</span><span id="1-10"><span class="w">      </span><span class="nv">mappings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span id="1-11"><span class="w">        </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span id="1-12"><span class="w">          </span><span class="o">{</span><span class="w"> </span><span class="nv">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;u&quot;</span>,<span class="w"> </span><span class="nv">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dir_up&quot;</span><span class="w"> </span><span class="o">}</span>,
+</span><span id="1-13"><span class="w">        </span><span class="o">}</span>,
+</span><span id="1-14"><span class="w">      </span><span class="o">}</span>,
+</span><span id="1-15"><span class="w">    </span><span class="o">}</span>,
+</span><span id="1-16"><span class="w">    </span><span class="nv">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span id="1-17"><span class="w">      </span><span class="nv">group_empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>true,
+</span><span id="1-18"><span class="w">    </span><span class="o">}</span>,
+</span><span id="1-19"><span class="w">    </span><span class="nv">filters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span id="1-20"><span class="w">    </span><span class="o">}</span>,
+</span><span id="1-21"><span class="w">  </span><span class="o">}</span>,
+</span><span id="1-22"><span class="w">  </span><span class="nv">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span id="1-23"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;pt&#39;</span>,<span class="w"> </span><span class="s1">&#39;:NvimTreeToggle&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">}</span>,
+</span><span id="1-24"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;r&#39;</span>,<span class="w"> </span><span class="s1">&#39;:NvimTreeRefresh&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="o">}</span>
+</span><span id="1-25"><span class="w">  </span><span class="o">}</span>
+</span><span id="1-26"><span class="o">}</span>
+</span></pre></div>
+</div>
+</section>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="此标题的永久链接">¶</a></h2>
