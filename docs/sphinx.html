@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Sphinx 的常见使用技巧 - My Dev Config</title>
-    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Cookiecutter" href="cookiecutter.html" /><link rel="prev" title="Snippets System" href="snippets.html" />
+      <title>Sphinx Configuration - My Dev Config</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Awesome Git" href="git.html" /><link rel="prev" title="Snippets System" href="snippets.html" />
   <script>
     const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const sessionTheme = sessionStorage['_theme']
@@ -50,7 +50,7 @@ html.dark {
   --sy-f-heading: Inter, var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Sphinx 的常见使用技巧"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Sphinx Configuration"/>
 <meta name="twitter:card" content="summary"/></head>
 <body><div class="document"><div class="sy-head">
   <div class="sy-head-blur"></div>
@@ -109,7 +109,8 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx 的常见使用技巧</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
@@ -128,7 +129,7 @@ html.dark {
     <h3>目录</h3>
     <ul>
 <li><a class="reference internal" href="#why-sphinx">Why sphinx</a></li>
-<li><a class="reference internal" href="#id2">常用的sphinx扩展</a><ul>
+<li><a class="reference internal" href="#sphinx">常用的sphinx扩展</a><ul>
 <li><a class="reference internal" href="#sphinx-design">sphinx_design</a><ul>
 <li><a class="reference internal" href="#tabs-using-sphinx-design">Tabs using sphinx_design</a></li>
 <li><a class="reference internal" href="#tabs-using-sphinx-tabs">Tabs using sphinx_tabs</a></li>
@@ -179,8 +180,8 @@ html.dark {
     <div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
         <article class="yue" role="main">
-          <section id="sphinx">
-<h1>Sphinx 的常见使用技巧<a class="headerlink" href="#sphinx" title="此标题的永久链接">¶</a></h1>
+          <section id="sphinx-configuration">
+<h1>Sphinx Configuration<a class="headerlink" href="#sphinx-configuration" title="此标题的永久链接">¶</a></h1>
 <section id="why-sphinx">
 <h2>Why sphinx<a class="headerlink" href="#why-sphinx" title="此标题的永久链接">¶</a></h2>
 <p>之前一直纠结了很久的文档生成器。包括
@@ -196,8 +197,8 @@ html.dark {
 而mdx虽然很好，交互丰富，但是想来还是使用python更多，因此，最后还是选择了rst.
 不过还有包括 <a class="reference internal" href="#myst" id="id1"><span>[MyST]</span></a> 这种有趣的md扩展。</p>
 </section>
-<section id="id2">
-<h2>常用的sphinx扩展<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<section id="sphinx">
+<h2>常用的sphinx扩展<a class="headerlink" href="#sphinx" title="此标题的永久链接">¶</a></h2>
 <p>常用的设置</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">pip<span class="w"> </span>install<span class="w"> </span>sphinx_design<span class="w"> </span><span class="se">\</span>
 </span><span id="1-2"><span class="w">            </span>sphinx-copybutton<span class="w"> </span><span class="se">\</span>
@@ -414,9 +415,9 @@ Card Title</div>
 <h2>Interesting links for sphinx extensions<a class="headerlink" href="#interesting-links-for-sphinx-extensions" title="此标题的永久链接">¶</a></h2>
 <section id="groups-for-sphinx">
 <h3>Groups for sphinx<a class="headerlink" href="#groups-for-sphinx" title="此标题的永久链接">¶</a></h3>
-<p><a class="reference internal" href="#excutable-book" id="id6"><span>[excutable-book]</span></a></p>
-<p><a class="reference internal" href="#sphinx-contrib" id="id7"><span>[sphinx-contrib]</span></a></p>
-<p><a class="reference internal" href="#sympy" id="id8"><span>[sympy]</span></a> : 这个是当时找 math + dollar 发现的 github,</p>
+<p><a class="reference internal" href="#excutable-book" id="id5"><span>[excutable-book]</span></a></p>
+<p><a class="reference internal" href="#sphinx-contrib" id="id6"><span>[sphinx-contrib]</span></a></p>
+<p><a class="reference internal" href="#sympy" id="id7"><span>[sympy]</span></a> : 这个是当时找 math + dollar 发现的 github,</p>
 </section>
 </section>
 <section id="references">
@@ -427,15 +428,15 @@ Card Title</div>
 <p><a class="reference external" href="https://github.com/executablebooks/MyST-Parser">https://github.com/executablebooks/MyST-Parser</a></p>
 </div>
 <div class="citation" id="sphinx-contrib" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">sphinx-contrib</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">sphinx-contrib</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/sphinx-contrib">https://github.com/sphinx-contrib</a></p>
 </div>
 <div class="citation" id="excutable-book" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">excutable-book</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">excutable-book</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/executablebooks">https://github.com/executablebooks</a></p>
 </div>
 <div class="citation" id="sympy" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">sympy</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">sympy</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/sympy">https://github.com/sympy</a></p>
 </div>
 </div>
@@ -459,10 +460,10 @@ Card Title</div>
     </a>
   </div>
   <div class="navigation-next">
-    <a href="cookiecutter.html">
+    <a href="git.html">
       <div class="page-info">
         <span>Next</span>
-        <div class="title">Cookiecutter</div>
+        <div class="title">Awesome Git</div>
       </div>
       <i class="i-icon chevron"></i>
     </a>
