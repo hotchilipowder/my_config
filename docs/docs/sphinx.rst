@@ -285,6 +285,27 @@ sphinx comments
 就可以启用这个插件了。
 
 
+Sphinx with Latex
+=================
+
+首先，由于文档很多时候是包括中文的，因此选用 \ :code:`xelatex`\ 而不是 \ :code:`pdflatex`\。然后倒入 \ :code:`ctex`\
+.
+
+最简单的设置如下:
+
+.. code-block:: bash
+
+    latex_engine = 'xelatex'
+    latex_elements = {
+      'preamble': r'''
+    \addto\captionsenglish{\renewcommand{\chaptername}{}}
+    \usepackage[UTF8, scheme = plain]{ctex}
+    ''',
+    }
+
+然后使用 \ :code:`make latexpdf`\
+
+
 
 
 

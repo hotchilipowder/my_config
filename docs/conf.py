@@ -76,3 +76,13 @@ html_context = {
 html_css_files = [
  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
+
+
+
+latex_engine = 'xelatex'
+latex_elements = {
+  'preamble': r'''
+\addto\captionsenglish{\renewcommand{\chaptername}{}}
+\usepackage[UTF8, scheme = plain]{ctex}
+''',
+}

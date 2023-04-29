@@ -5,7 +5,7 @@
 "|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
 "
 "
-" author: h12345jack
+" author: hotchilipowder
 "
 " ======== General setting 
 set encoding=utf-8
@@ -157,4 +157,3 @@ map <leader>wk <C-w>k
 map <leader>wj <C-w>j
 map <leader>wl <C-w>l
 map <leader>wq <C-w>q
-map <leader>pt :NERDTreeToggle<CR>

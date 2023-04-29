@@ -174,7 +174,6 @@ require('lazy').setup({
       open_mapping = [[<c-\>]],
     },
   },
-  -- nvim tree
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -184,11 +183,6 @@ require('lazy').setup({
       sort_by = "case_sensitive",
       view = {
         adaptive_size = true,
-        mappings = {
-          list = {
-            { key = "u", action = "dir_up" },
-          },
-        },
       },
       renderer = {
         group_empty = true,
@@ -219,7 +213,6 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 
@@ -229,7 +222,6 @@ require('lazy').setup({
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/nvim-cmp',
-
 
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
@@ -252,8 +244,9 @@ require('lazy').setup({
   },
 
 
-  {'simrat39/symbols-outline.nvim'},
-
+  {
+    'simrat39/symbols-outline.nvim'
+  },
   -- Useful plugin to show you pending keybinds.
   { 
     'folke/which-key.nvim', 
@@ -272,7 +265,6 @@ require('lazy').setup({
       },
     },
   },
-
   { -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
@@ -293,7 +285,6 @@ require('lazy').setup({
       },
     },
   },
-
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
@@ -303,11 +294,12 @@ require('lazy').setup({
       show_trailing_blankline_indent = false,
     },
   },
-
-
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
-
+  { 
+    'nvim-telescope/telescope.nvim', 
+    version = '*', 
+    dependencies = { 'nvim-lua/plenary.nvim' } 
+  },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
@@ -320,7 +312,6 @@ require('lazy').setup({
       return vim.fn.executable 'make' == 1
     end,
   },
-
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
