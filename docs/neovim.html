@@ -137,6 +137,9 @@ html.dark {
 <li><a class="reference internal" href="#tpope">tpope大佬系列</a></li>
 <li><a class="reference internal" href="#toggleterm-nvim">toggleterm.nvim</a></li>
 <li><a class="reference internal" href="#nvim-tree-lua">nvim-tree.lua</a></li>
+<li><a class="reference internal" href="#symbols-outline">Symbols-outline</a></li>
+<li><a class="reference internal" href="#which-key">Which-key</a></li>
+<li><a class="reference internal" href="#gitsigns-nvim">gitsigns.nvim</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#reference">Reference</a></li>
@@ -1325,25 +1328,30 @@ html.dark {
 <p>This is a very interesting plugin for the bufferline.
 不过由于这个插件只开buffer，不好关闭（点击叉关闭对于纯键盘党而言太麻烦)，所以需要定义一个关闭的快捷键, 我定义为 <code class="code docutils literal notranslate"><span class="pre">&lt;Space&gt;q</span></code>, see <a class="reference external" href="https://github.com/akinsho/bufferline.nvim/issues/513">close current buffer</a></p>
 <p>另外 <code class="code docutils literal notranslate"><span class="pre">&lt;Space&gt;</span> <span class="pre">+</span> <span class="pre">RightArrow</span></code>可以实现关闭当前buffer右侧的buffer。这个也比较好用.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="s1">&#39;akinsho/bufferline.nvim&#39;</span>,
-</span><span id="1-2"><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v3.*&quot;</span>,
-</span><span id="1-3"><span class="nv">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;nvim-tree/nvim-web-devicons&#39;</span>,
-</span><span id="1-4"><span class="nv">keys</span><span class="o">={</span>
-</span><span id="1-5"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;Tab&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCycleNext&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-6"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;S-Tab&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
-</span><span id="1-7"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;Space&gt;&lt;Right&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCloseRight&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
-</span><span id="1-8"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;Space&gt;q&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;:bp &lt;BAR&gt; bd #&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
-</span><span id="1-9"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;1&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 1&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-10"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;2&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 2&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-11"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;3&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 3&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-12"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;4&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 4&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-13"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;5&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 5&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-14"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;6&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 6&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-15"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;7&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 7&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-16"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;8&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 8&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-17"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;9&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 9&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-18"><span class="w">  </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;$&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer -1&lt;CR&gt;&#39;</span><span class="o">}</span>,
-</span><span id="1-19"><span class="o">}</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">{</span>
+</span><span id="1-2"><span class="w">  </span><span class="s1">&#39;akinsho/bufferline.nvim&#39;</span>,
+</span><span id="1-3"><span class="w">  </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v3.*&quot;</span>,
+</span><span id="1-4"><span class="w">  </span><span class="nv">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;nvim-tree/nvim-web-devicons&#39;</span>,
+</span><span id="1-5"><span class="w">  </span><span class="nv">keys</span><span class="o">={</span>
+</span><span id="1-6"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;Tab&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCycleNext&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-7"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;S-Tab&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
+</span><span id="1-8"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;Space&gt;&lt;Right&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineCloseRight&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
+</span><span id="1-9"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;Space&gt;q&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;:bp &lt;BAR&gt; bd #&lt;CR&gt;&#39;</span>,<span class="w"> </span><span class="o">{}}</span>,
+</span><span id="1-10"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;1&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 1&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-11"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;2&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 2&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-12"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;3&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 3&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-13"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;4&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 4&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-14"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;5&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 5&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-15"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;6&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 6&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-16"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;7&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 7&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-17"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;8&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 8&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-18"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;9&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer 9&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-19"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;leader&gt;$&#39;</span>,<span class="w"> </span><span class="s1">&#39;&lt;Cmd&gt;BufferLineGoToBuffer -1&lt;CR&gt;&#39;</span><span class="o">}</span>,
+</span><span id="1-20"><span class="w">  </span><span class="o">}</span>
+</span><span id="1-21"><span class="w">  </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="o">()</span>
+</span><span id="1-22"><span class="w">    </span>require<span class="o">(</span><span class="s2">&quot;bufferline&quot;</span><span class="o">)</span>.setup<span class="o">()</span>
+</span><span id="1-23"><span class="w">  </span>end,
+</span><span id="1-24"><span class="o">}</span>,
 </span></pre></div>
 </div>
 </section>
@@ -1422,6 +1430,62 @@ html.dark {
 </span><span id="1-26"><span class="o">}</span>
 </span></pre></div>
 </div>
+</section>
+<section id="symbols-outline">
+<h3>Symbols-outline<a class="headerlink" href="#symbols-outline" title="此标题的永久链接">¶</a></h3>
+<p><a class="reference external" href="https://github.com/simrat39/symbols-outline.nvim">Symbols-outline</a></p>
+<p>核心的命令包括:</p>
+<div class="table-wrapper colwidths-given docutils container" id="id14">
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Symbols-outline Commands</span><a class="headerlink" href="#id14" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Commonds</p></th>
+<th class="head"><p>Meannings</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">SymbolsOutline</span></code></p></td>
+<td><p>Toggle symbols outline</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">SymbolsOutlineOpen</span></code></p></td>
+<td><p>Open symbols outline</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">SymbolsOutlineClose</span></code></p></td>
+<td><p>Close symbols outline</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="which-key">
+<h3>Which-key<a class="headerlink" href="#which-key" title="此标题的永久链接">¶</a></h3>
+<p><a class="reference external" href="https://github.com/folke/which-key.nvim">Which-key.nvim</a></p>
+<p>这个插件用来看当前的快捷键的后续，比较类似emcas里面的很多。
+配置如下，主要需要设置vim.o.timeoutlen = 500.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">{</span>
+</span><span id="1-2"><span class="w">  </span><span class="s1">&#39;folke/which-key.nvim&#39;</span>,
+</span><span id="1-3"><span class="w">  </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span>,
+</span><span id="1-4"><span class="w">  </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="o">()</span>
+</span><span id="1-5"><span class="w">    </span>vim.o.timeout<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="1-6"><span class="w">    </span>vim.o.timeoutlen<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span>
+</span><span id="1-7"><span class="w">    </span>require<span class="o">(</span><span class="s2">&quot;which-key&quot;</span><span class="o">)</span>.setup<span class="o">({</span>
+</span><span id="1-8"><span class="w">      </span>--<span class="w"> </span>your<span class="w"> </span>configuration<span class="w"> </span>comes<span class="w"> </span>here
+</span><span id="1-9"><span class="w">      </span>--<span class="w"> </span>or<span class="w"> </span>leave<span class="w"> </span>it<span class="w"> </span>empty<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>settings
+</span><span id="1-10"><span class="w">      </span>--<span class="w"> </span>refer<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>configuration<span class="w"> </span>section<span class="w"> </span>below
+</span><span id="1-11"><span class="w">    </span><span class="o">})</span>
+</span><span id="1-12"><span class="w">  </span>end,
+</span><span id="1-13"><span class="o">}</span>,
+</span></pre></div>
+</div>
+</section>
+<section id="gitsigns-nvim">
+<h3>gitsigns.nvim<a class="headerlink" href="#gitsigns-nvim" title="此标题的永久链接">¶</a></h3>
+<p><a class="reference external" href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></p>
+<p>这个插件带来的好处就是能看到改动。还是比较实用的。</p>
 </section>
 </section>
 <section id="reference">
