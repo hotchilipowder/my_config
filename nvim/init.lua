@@ -8,6 +8,8 @@ vim.g.maplocalleader = ' '
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
+--
+vim.wo.foldmethod = 'manual'
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -142,7 +144,10 @@ require('lazy').setup({
       {'<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>'},
       {'<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>'},
       {'<leader>$', '<Cmd>BufferLineGoToBuffer -1<CR>'},
-    }
+    },
+    config = function()
+      require("bufferline").setup()
+    end,
   },
   {
     'goolord/alpha-nvim',
@@ -195,62 +200,25 @@ require('lazy').setup({
       {'<leader>r', ':NvimTreeRefresh<CR>', mode='n'}
     }
   },
-
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
-  { -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
-    },
-  },
-  { -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = { 
-      'neovim/nvim-lspconfig',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      'hrsh7th/nvim-cmp',
-
-      'hrsh7th/cmp-vsnip',
-      'hrsh7th/vim-vsnip',
-      
-      'honza/vim-snippets',
-      {
-        'SirVer/ultisnips',
-        config = function()
-
-          vim.g.UltiSnipsSnippetDirectories = {'UltiSnips'}
-          vim.g.UltiSnipsExpandTrigger="<tab>"
-          vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
-          vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
-          vim.g.UltiSnipsEditSplit="vertical"
-        end,
-        lazy=false
-      },
-      'quangnguyen30192/cmp-nvim-ultisnips'
-    },
-  },
-
-
   {
-    'simrat39/symbols-outline.nvim'
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      require("symbols-outline").setup()
+    end,
   },
   -- Useful plugin to show you pending keybinds.
   { 
     'folke/which-key.nvim', 
-    opts = {} 
+    opts = {} ,
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
   },
   { -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -294,6 +262,59 @@ require('lazy').setup({
       show_trailing_blankline_indent = false,
     },
   },
+
+  -- NOTE: This is where your plugins related to LSP can be installed.
+  --  The configuration is done below. Search for lspconfig to find it below.
+  { -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Useful status updates for LSP
+      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+      { 'j-hui/fidget.nvim', opts = {} },
+
+      -- Additional lua configuration, makes nvim stuff amazing!
+      'folke/neodev.nvim',
+    },
+  },
+  { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    dependencies = { 
+      'neovim/nvim-lspconfig',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/nvim-cmp',
+
+      'hrsh7th/cmp-vsnip',
+      {
+        'hrsh7th/vim-vsnip',
+        config = function()
+          vim.g.vsnip_snippet_dir= vim.fn.fnamemodify(vim.fn.expand('~/.config/nvim/vsnip_snippets'), ':p:h')
+        end
+      },
+      {
+        'SirVer/ultisnips',
+        dependencies = { 'honza/vim-snippets' },
+        config = function()
+          vim.g.UltiSnipsSnippetDirectories = {'UltiSnips'}
+          vim.g.ultisnips_python_style = 'numpy'
+          vim.g.UltiSnipsExpandTrigger="<tab>"
+          vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
+          vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
+          vim.g.UltiSnipsEditSplit="vertical"
+        end,
+        lazy=false
+      },
+      'quangnguyen30192/cmp-nvim-ultisnips'
+    },
+  },
+
+
   -- Fuzzy Finder (files, lsp, etc)
   { 
     'nvim-telescope/telescope.nvim', 
@@ -325,7 +346,6 @@ require('lazy').setup({
 
 
 
-vim.g.vsnip_snippet_dir= vim.fn.fnamemodify(vim.fn.expand('~/.config/nvim/vsnip_snippets'), ':p:h')
 
 
 
@@ -571,9 +591,8 @@ vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>')
 vim.keymap.set('v', '<leader>y', '<Cmd>:OSCYankVisual<CR>')
 
 
-require('bufferline').setup()
+-- require('bufferline').setup()
 
-require("symbols-outline").setup()
 
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
