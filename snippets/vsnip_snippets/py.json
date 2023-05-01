@@ -1,13 +1,7 @@
-python
-------
-
-.. dropdown:: [pytornado_begin]  pytornado_begin"
-
-   .. code-block:: json
-
-        {
-          "prefix": "pytornado_begin",
-          "body": [
+{
+    "pytornado_begin": {
+        "prefix": "pytornado_begin",
+        "body": [
             "#!/usr/bin/env python",
             "",
             "import os",
@@ -51,18 +45,11 @@ python
             "    http_server.start(0)  # forks one process per cpu",
             "    tornado.ioloop.IOLoop.current().start()",
             ""
-          ]
-        }
-
-    
-
-.. dropdown:: [pydjango_setup]  pydjango_setup"
-
-   .. code-block:: json
-
-        {
-          "prefix": "pydjango_setup",
-          "body": [
+        ]
+    },
+    "pydjango_setup": {
+        "prefix": "pydjango_setup",
+        "body": [
             "import os",
             "import sys",
             "BASE_DIR =os.path.abspath(__file__)",
@@ -75,18 +62,11 @@ python
             "import django",
             "django.setup()",
             ""
-          ]
-        }
-
-    
-
-.. dropdown:: [jupyterbegin]  jupyterbegin"
-
-   .. code-block:: json
-
-        {
-          "prefix": "jupyterbegin",
-          "body": [
+        ]
+    },
+    "jupyterbegin": {
+        "prefix": "jupyterbegin",
+        "body": [
             "import os",
             "import re",
             "import sys",
@@ -128,18 +108,11 @@ python
             "sns.set_style(\"white\")",
             "sns.set_style({'font.family': 'sans-serif'})",
             "sns.set_style({'font.sans-serif': [\"Helvetica\"]})"
-          ]
-        }
-
-    
-
-.. dropdown:: [pydjango_simple]  pydjango_simple"
-
-   .. code-block:: json
-
-        {
-          "prefix": "pydjango_simple",
-          "body": [
+        ]
+    },
+    "pydjango_simple": {
+        "prefix": "pydjango_simple",
+        "body": [
             "import os",
             "import sys",
             "",
@@ -188,18 +161,11 @@ python
             "",
             "",
             "## writing views, creating settings, and running management commands"
-          ]
-        }
-
-    
-
-.. dropdown:: [pyloggerbegin]  pyloggerbegin"
-
-   .. code-block:: json
-
-        {
-          "prefix": "pyloggerbegin",
-          "body": [
+        ]
+    },
+    "pyloggerbegin": {
+        "prefix": "pyloggerbegin",
+        "body": [
             "import logging",
             "# https://docs.python.org/3/howto/logging.html#logging-advanced-tutorial",
             "",
@@ -229,18 +195,11 @@ python
             "logger.warning('warn message')",
             "logger.error('error message')",
             "logger.critical('critical message')"
-          ]
-        }
-
-    
-
-.. dropdown:: [pyaiohttp]  pyaiohttp"
-
-   .. code-block:: json
-
-        {
-          "prefix": "pyaiohttp",
-          "body": [
+        ]
+    },
+    "pyaiohttp": {
+        "prefix": "pyaiohttp",
+        "body": [
             "from aiohttp import web",
             "",
             "async def handler(request):",
@@ -251,18 +210,11 @@ python
             "",
             "if __name__ == '__main__':",
             "    web.run_app(app)"
-          ]
-        }
-
-    
-
-.. dropdown:: [pytorchtemplate]  pytorchtemplate"
-
-   .. code-block:: json
-
-        {
-          "prefix": "pytorchtemplate",
-          "body": [
+        ]
+    },
+    "pytorchtemplate": {
+        "prefix": "pytorchtemplate",
+        "body": [
             "import os",
             "import re",
             "import sys",
@@ -425,18 +377,11 @@ python
             "if __name__ == \"__main__\":",
             "    main()",
             ""
-          ]
-        }
-
-    
-
-.. dropdown:: [pylib]  pylib"
-
-   .. code-block:: json
-
-        {
-          "prefix": "pylib",
-          "body": [
+        ]
+    },
+    "pylib": {
+        "prefix": "pylib",
+        "body": [
             "import os",
             "import re",
             "import sys",
@@ -476,91 +421,6 @@ python
             "    main()",
             "",
             ""
-          ]
-        }
-
-    
-latex
------
-
-.. dropdown:: [beamer_only_fig]  beamer_only_fig"
-
-   .. code-block:: json
-
-        {
-          "prefix": "beamer_only_fig",
-          "body": [
-            "\\begin{frame}{xxx}",
-            "    \\begin{tikzpicture}[remember picture,overlay]",
-            "    \\node[anchor=center] (a) at ($(current page.center) + (0, 0cm)$)",
-            "    {",
-            "            \\includegraphics[width=\\linewidth]{figure/xxx}",
-            "    };",
-            "    \\node[below left=of a.south, xshift=0.5\\linewidth, yshift=1.3cm] {xxx};",
-            "\\end{tikzpicture}",
-            "",
-            "\\end{frame}"
-          ]
-        }
-
-    
-
-.. dropdown:: [beamer_img]  beamer_img"
-
-   .. code-block:: json
-
-        {
-          "prefix": "beamer_img",
-          "body": [
-            "\\begin{tikzpicture}[remember picture,overlay,]",
-            "    \\node[anchor=center] (a) at ($(current page.center)+(0, -1cm)$)",
-            "    {",
-            "        \\includegraphics[width=0.8\\linewidth]{./figure/graphsage.png}",
-            "    };",
-            "    \\node[below left=of a.south, xshift=0.5\\linewidth, yshift=1.3cm] {\\tinycite[NIPS2018]{hamilton2017inductive}};",
-            "",
-            "\\end{tikzpicture}"
-          ]
-        }
-
-    
-restructuredtext
-----------------
-
-.. dropdown:: [ablog_img_new]  ablog_img_new"
-
-   .. code-block:: json
-
-        {
-          "prefix": "ablog_img_new",
-          "body": [
-            ".. figure:: ./assets/$1",
-            "    :width: 80%",
-            "",
-            "    $2"
-          ]
-        }
-
-    
-
-.. dropdown:: [ablog_begin]  ablog_begin"
-
-   .. code-block:: json
-
-        {
-          "prefix": "ablog_begin",
-          "body": [
-            ".. post:: $CURRENT_MONTH_NAME_SHORT, $CURRENT_DATE, $CURRENT_YEAR",
-            "   :tags: ICT, PhD",
-            "   :category: PhD",
-            "   :author: hotchilipowder",
-            "   :location: Beijing",
-            "   :language: zh",
-            "",
-            "=======================",
-            "$1",
-            "======================="
-          ]
-        }
-
-    
+        ]
+    }
+}

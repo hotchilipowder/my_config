@@ -18,7 +18,7 @@ import urllib.request
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 VSTEMPLATE_DIR = os.path.join(BASE_DIR, 'vscode-snips', 'raws')
-VSOUTPUT_DIR = os.path.join(BASE_DIR, 'vscode-snips', 'vsnip_snippets')
+VSOUTPUT_DIR = os.path.join(BASE_DIR, 'vscode-snips', '..', 'vsnip_snippets')
 ULOUTPUT_DIR = os.path.join(BASE_DIR, 'UltiSnips')
 PROJECT_DIR = os.path.join(BASE_DIR, '..')
 DOCOUPUT_DIR = os.path.join(PROJECT_DIR, 'docs', 'docs')
@@ -101,7 +101,7 @@ def make_a_vssnippt_to_rst(k: str, v: dict):
 def make_vssnippet_to_rst():
     rst_path = os.path.join(DOCOUPUT_DIR, '_vs-snippet.rst')
     res_f = open(rst_path, 'w')
-    for affix in vs_affix_dict.values():
+    for prefix, affix in vs_affix_dict.items():
         fpath = os.path.join(VSOUTPUT_DIR, f'{affix}.json')
         if not os.path.exists(fpath):
             continue
@@ -112,6 +112,11 @@ def make_vssnippet_to_rst():
             for k, v in jd.items():
                 res = make_a_vssnippt_to_rst(k, v)
                 res_f.write(res + '\n')
+        
+        import shutil
+        dst_path = os.path.join(VSOUTPUT_DIR, f'{prefix}.json')
+        shutil.copy(fpath, dst_path)
+
 
 def make_ultisnippet_to_rst():
     rst_path = os.path.join(DOCOUPUT_DIR, '_ultisnippet.rst')
@@ -126,7 +131,7 @@ def make_ultisnippet_to_rst():
 
         with open(fpath) as f:
             content = f.read()
-            pattern = r"snippet\s+(\w+)\s+\"(.*?)\"\s+.*\n([\s\S]*?)\nendsnippet"
+            pattern = r"snippet\s+(\w+)\s+\"(.*?)\"\s+.*\n(.*?)\nendsnippet"
             print(content)
             for prefix, desc, code  in re.findall(pattern, content):
                 codes = ""
@@ -180,8 +185,8 @@ def make_gitignore_snippets():
 
 
 def main():
-    # list_raws()
-    # make_vssnippet_to_rst()
+    list_raws()
+    make_vssnippet_to_rst()
     make_ultisnippet_to_rst()
     # make_emoji_ultisnippets()
 

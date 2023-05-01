@@ -102,25 +102,30 @@ This is a very interesting plugin for the bufferline.
 
 .. code-block:: bash
 
-    'akinsho/bufferline.nvim',
-    version = "v3.*", 
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    keys={
-      {'<Tab>', '<Cmd>BufferLineCycleNext<CR>'},
-      {'<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {}},
-      {'<Space><Right>', '<Cmd>BufferLineCloseRight<CR>', {}},
-      {'<Space>q', '<Cmd>:bp <BAR> bd #<CR>', {}},
-      {'<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>'},
-      {'<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>'},
-      {'<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>'},
-      {'<leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>'},
-      {'<leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>'},
-      {'<leader>6', '<Cmd>BufferLineGoToBuffer 6<CR>'},
-      {'<leader>7', '<Cmd>BufferLineGoToBuffer 7<CR>'},
-      {'<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>'},
-      {'<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>'},
-      {'<leader>$', '<Cmd>BufferLineGoToBuffer -1<CR>'},
-    }
+    {
+      'akinsho/bufferline.nvim',
+      version = "v3.*", 
+      dependencies = 'nvim-tree/nvim-web-devicons',
+      keys={
+        {'<Tab>', '<Cmd>BufferLineCycleNext<CR>'},
+        {'<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {}},
+        {'<Space><Right>', '<Cmd>BufferLineCloseRight<CR>', {}},
+        {'<Space>q', '<Cmd>:bp <BAR> bd #<CR>', {}},
+        {'<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>'},
+        {'<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>'},
+        {'<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>'},
+        {'<leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>'},
+        {'<leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>'},
+        {'<leader>6', '<Cmd>BufferLineGoToBuffer 6<CR>'},
+        {'<leader>7', '<Cmd>BufferLineGoToBuffer 7<CR>'},
+        {'<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>'},
+        {'<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>'},
+        {'<leader>$', '<Cmd>BufferLineGoToBuffer -1<CR>'},
+      }
+      config = function()
+        require("bufferline").setup()
+      end,
+    },
 
 alpha-nvim
 ----------
@@ -167,10 +172,6 @@ toggleterm.nvim
     vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 
-
-
-
-
 nvim-tree.lua
 -------------
 
@@ -212,6 +213,63 @@ nvim-tree.lua
       {'<leader>r', ':NvimTreeRefresh<CR>', mode='n'}
     }
   }
+
+
+Symbols-outline
+---------------
+
+\ `Symbols-outline <https://github.com/simrat39/symbols-outline.nvim>`_
+
+核心的命令包括:
+
+.. list-table:: Symbols-outline Commands
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Commonds 
+     - Meannings
+   * - \ :code:`SymbolsOutline`\ 
+     - Toggle symbols outline
+   * - \ :code:`SymbolsOutlineOpen`\
+     - Open symbols outline
+   * - \ :code:`SymbolsOutlineClose`\
+     - Close symbols outline
+
+Which-key
+---------
+
+\ `Which-key.nvim <https://github.com/folke/which-key.nvim>`_
+
+这个插件用来看当前的快捷键的后续，比较类似emcas里面的很多。
+配置如下，主要需要设置vim.o.timeoutlen = 500.
+
+.. code-block:: bash
+
+  { 
+    'folke/which-key.nvim', 
+    opts = {} ,
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  },
+  
+
+gitsigns.nvim
+-------------
+
+\ `gitsigns.nvim <https://github.com/lewis6991/gitsigns.nvim>`_
+
+这个插件带来的好处就是能看到改动。还是比较实用的。
+
+
+
+
 
 
 

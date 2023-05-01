@@ -1,0 +1,26 @@
+{
+    "ablog_img_new": {
+        "prefix": "ablog_img_new",
+        "body": [
+            ".. figure:: ./assets/$1",
+            "    :width: 80%",
+            "",
+            "    $2"
+        ]
+    },
+    "ablog_begin": {
+        "prefix": "ablog_begin",
+        "body": [
+            ".. post:: $CURRENT_MONTH_NAME_SHORT, $CURRENT_DATE, $CURRENT_YEAR",
+            "   :tags: ICT, PhD",
+            "   :category: PhD",
+            "   :author: hotchilipowder",
+            "   :location: Beijing",
+            "   :language: zh",
+            "",
+            "=======================",
+            "$1",
+            "======================="
+        ]
+    }
+}
