@@ -53,7 +53,14 @@ The basic useful for my tmux with neovim is `vim-tmux-navigator <https://github.
 
      .. code-block:: bash
      
+
          Plug 'christoomey/vim-tmux-navigator',
+
+        let g:tmux_navigator_no_mappings = 1
+        noremap <silent> {Left-Mapping} :<C-U>TmuxNavigateLeft<cr>
+        noremap <silent> {Down-Mapping} :<C-U>TmuxNavigateDown<cr>
+        noremap <silent> {Up-Mapping} :<C-U>TmuxNavigateUp<cr>
+        noremap <silent> {Right-Mapping} :<C-U>TmuxNavigateRight<cr>
      
      
 
