@@ -2,6 +2,37 @@
 Neovim Configuration
 ====================
 
+Install
+==========
+
+
+.. tabs::
+
+   .. tab::  Linux (AppImage)
+
+    .. code-block:: bash
+
+      curl -OL https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+      chmod u+x nvim.appimage
+      mv nvim.appimage nvim
+
+   .. tab:: MacOS (homebrew)
+
+    .. code-block:: bash
+    
+      brew install neovim 
+
+   .. tab:: MacOS (Pre-built archives)
+
+    .. code-block:: bash
+    
+      curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
+      tar xzf nvim-macos.tar.gz
+      ./nvim-macos/bin/nvim
+
+   .. tab:: Others 
+
+      see \ `install neovim <https://github.com/neovim/neovim/wiki/Installing-Neovim>`_
 
 Why Neovim instead of Vim
 =========================
@@ -68,15 +99,6 @@ Why Neovim instead of Vim
 
 
 
-安装Neovim
-==========
-
-
-.. code-block:: bash
-
-    curl -OL https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-    chmod u+x nvim.appimage
-    mv nvim.appimage nvim
 
 Awesom Neovim Plugins
 =====================
@@ -177,6 +199,8 @@ nvim-tree.lua
 
 `nvim-tree.lua <https://github.com/nvim-tree/nvim-tree.lua>`_
 
+其实最早我用的是 \ `nerdtree <https://github.com/preservim/nerdtree>`_ ，但是 \ `开发者退休了 <https://github.com/preservim/nerdtree/issues/1280>`_. （很感谢他的付出）
+
 核心的配置: 
 
 + \ :code:`<space>pt`\ open tree
@@ -196,16 +220,15 @@ nvim-tree.lua
       sort_by = "case_sensitive",
       view = {
         adaptive_size = true,
-        mappings = {
-          list = {
-            { key = "u", action = "dir_up" },
-          },
-        },
       },
       renderer = {
         group_empty = true,
       },
+      git = {
+        ignore = false
+      },
       filters = {
+        dotfiles = false,
       },
     },
     keys = {
@@ -214,6 +237,9 @@ nvim-tree.lua
     }
   }
 
+
+.. attention::
+  hey!
 
 Symbols-outline
 ---------------

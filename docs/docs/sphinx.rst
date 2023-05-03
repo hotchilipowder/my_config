@@ -20,8 +20,8 @@ Why sphinx
 不过还有包括 [MyST]_ 这种有趣的md扩展。
 
 
-常用的sphinx扩展
-================
+Install 常用的sphinx扩展
+================================
 常用的设置
 
 .. code-block:: bash
@@ -29,6 +29,7 @@ Why sphinx
     pip install sphinx_design \
                 sphinx-copybutton \
                 sphinxcontrib-bibtex\
+                sphinx-comments \
                 sphinxemoji
 
 
@@ -38,7 +39,8 @@ Why sphinx
     extensions=[
         "sphinx_design",
         "sphinx_copybutton",
-        "sphinxcontrib-bibtex"
+        "sphinxcontrib-bibtex",
+        "sphinx_comments",
         "sphinxemoji.sphinxemoji",
     ]
 

@@ -192,7 +192,11 @@ require('lazy').setup({
       renderer = {
         group_empty = true,
       },
+      git = {
+        ignore = false
+      },
       filters = {
+        dotfiles = false,
       },
     },
     keys = {
@@ -203,7 +207,11 @@ require('lazy').setup({
   {
     'simrat39/symbols-outline.nvim',
     config = function()
-      require("symbols-outline").setup()
+      require("symbols-outline").setup({
+        auto_unfold_hover = false,
+        autofold_depth = 1,
+        show_numbers = true
+      })
     end,
   },
   -- Useful plugin to show you pending keybinds.
@@ -314,6 +322,24 @@ require('lazy').setup({
     },
   },
 
+  -- https://www.lazyvim.org/plugins/lsp#null-lsnvim
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = { "mason.nvim" },
+    opts = function()
+      local nls = require("null-ls")
+      return {
+        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+        sources = {
+          nls.builtins.formatting.fish_indent,
+          nls.builtins.diagnostics.fish,
+          nls.builtins.formatting.stylua,
+          nls.builtins.formatting.shfmt,
+          -- nls.builtins.diagnostics.flake8,
+        },
+      }
+    end,
+  },
 
   -- Fuzzy Finder (files, lsp, etc)
   { 
@@ -588,6 +614,7 @@ cmp.setup {
 
 
 vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>')
+vim.cmd('map <Leader>lF :lua vim.lsp.buf.format()<CR>')
 vim.keymap.set('v', '<leader>y', '<Cmd>:OSCYankVisual<CR>')
 
 

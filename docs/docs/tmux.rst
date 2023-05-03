@@ -2,6 +2,62 @@
 Tmux Configuration
 ==================
 
+Install Tmux
+============
+
+
+.. tabs::
+
+   .. tab:: MacOS
+        
+     .. code-block:: bash
+
+         brew install tmux
+
+
+   .. tab:: Linux (APT)
+
+     .. code-block:: bash
+
+         apt install tmux
+
+   .. tab::  Linux (Source)
+    
+        First, please keep \ :code:`~/.local/bin`\ in the \ :code:`PATH`\, then \ :code:`make && make install`\ in the \ :code:`tmp/`\ dir.
+
+        .. code-block:: bash
+
+            mkdir tmp
+            cd tmp/
+            curl -OL https://invisible-island.net/datafiles/release/ncurses.tar.gz
+            tar -xvf ncurses.tar.gz
+            
+            LOC=$(curl -s https://api.github.com/repos/libevent/libevent/releases/latest | grep "browser_download_url"|  awk '{ print $2 }' | awk -F '[\"\"]' '{print $2}' | grep tar.gz$ ) ; curl -OLl  $LOC
+            
+            LOC=$(curl -s https://api.github.com/repos/tmux/tmux/releases/latest | grep "browser_download_url" | awk '{ print $2 }' | awk -F '[\"\"]' '{print $2}'); curl -OL $LOC
+            
+            # install libevent
+            mkdir $HOME/.local
+            cd $HOME/tmp
+            tar -zxf libevent*.tar.gz
+            cd libevent-*/
+            ./configure --prefix=$HOME/.local --enable-shared
+            make && make install
+            
+            cd $HOME/tmp
+            tar -zxf ncurses*.tar.gz
+            cd ncurses*/
+            ./configure --prefix=$HOME/.local --with-shared --with-termlib --enable-pc-files --with-pkg-config-libdir=$HOME/.local/lib/pkgconfig
+            make && make install
+            
+            # install tmux
+            cd $HOME/tmp
+            tar -zxf tmux-*.tar.gz
+            cd tmux-*/
+            PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig ./configure --prefix=$HOME/.local
+            make && make install
+
+
 
 Why tmux instead of Zellij
 ==========================
@@ -56,60 +112,4 @@ The basic useful for my tmux with neovim is `vim-tmux-navigator <https://github.
          Plug 'christoomey/vim-tmux-navigator',
      
      
-
-Install Tmux
-============
-
-
-.. tabs::
-
-   .. tab:: MacOS
-        
-     .. code-block:: bash
-
-         brew install tmux
-
-
-   .. tab:: Linux with APT
-
-     .. code-block:: bash
-
-         apt install tmux
-
-   .. tab::  Linux from source
-    
-        First, please keep \ :code:`~/.local/bin`\ in the \ :code:`PATH`\, then \ :code:`make && make install`\ in the \ :code:`tmp/`\ dir.
-
-        .. code-block:: bash
-
-            mkdir tmp
-            cd tmp/
-            curl -OL https://invisible-island.net/datafiles/release/ncurses.tar.gz
-            tar -xvf ncurses.tar.gz
-            
-            LOC=$(curl -s https://api.github.com/repos/libevent/libevent/releases/latest | grep "browser_download_url"|  awk '{ print $2 }' | awk -F '[\"\"]' '{print $2}' | grep tar.gz$ ) ; curl -OLl  $LOC
-            
-            LOC=$(curl -s https://api.github.com/repos/tmux/tmux/releases/latest | grep "browser_download_url" | awk '{ print $2 }' | awk -F '[\"\"]' '{print $2}'); curl -OL $LOC
-            
-            # install libevent
-            mkdir $HOME/.local
-            cd $HOME/tmp
-            tar -zxf libevent*.tar.gz
-            cd libevent-*/
-            ./configure --prefix=$HOME/.local --enable-shared
-            make && make install
-            
-            cd $HOME/tmp
-            tar -zxf ncurses*.tar.gz
-            cd ncurses*/
-            ./configure --prefix=$HOME/.local --with-shared --with-termlib --enable-pc-files --with-pkg-config-libdir=$HOME/.local/lib/pkgconfig
-            make && make install
-            
-            # install tmux
-            cd $HOME/tmp
-            tar -zxf tmux-*.tar.gz
-            cd tmux-*/
-            PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig ./configure --prefix=$HOME/.local
-            make && make install
-
 

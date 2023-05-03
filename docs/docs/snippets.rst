@@ -2,6 +2,15 @@
 Snippets System
 ===============
 
+Sync from github
+================
+
+.. code-block:: bash
+
+    cd ~/.config/nvim/
+
+    curl https://codeload.github.com/hotchilipowder/my_config/tar.gz/main | tar -xz --strip=2 my_config-main/snippets/ 
+
 Introduction
 ============
 
@@ -82,13 +91,6 @@ see `python.snippets <https://github.com/honza/vim-snippets/blob/master/UltiSnip
 
 
 
-
-Sync from github
-================
-
-.. code-block:: bash
-
-    curl https://codeload.github.com/hotchilipowder/my_config/tar.gz/main | tar -xz --strip=2 my_config-main/snippets/ 
 
 
 

@@ -2,6 +2,39 @@
 Awesome Git
 ===========
 
+
+Install
+=======
+
+
+.. tabs::
+
+   .. tab:: MacOS
+
+     MacOS 
+
+   .. tab:: Linux (Apt)
+
+      .. code-block:: bash
+      
+         apt install git-all
+
+   .. tab:: Linux (From source)
+      
+      see \ `this link <https://mirrors.edge.kernel.org/pub/software/scm/git/>`_  for recent release.
+
+      .. code-block:: bash
+      
+         apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
+
+         cd tmp
+         curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.5.tar.gz
+         tar -xvf git-2.38.5.tar.gz
+         ./configure --prefix=$HOME/.local
+         make && make install
+      
+
+
 Common git skill
 ================
 
@@ -48,7 +81,7 @@ Delete all history
 
 这个需求比较常见，因为有些commit history确实不想让人看到，很愚蠢
 
-.. code-block:: bash
+   .. code-block:: bash
 
    git checkout --orphan latest_branch
    git add .
