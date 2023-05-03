@@ -129,7 +129,7 @@ html.dark {
     <h3>目录</h3>
     <ul>
 <li><a class="reference internal" href="#why-sphinx">Why sphinx</a></li>
-<li><a class="reference internal" href="#sphinx">常用的sphinx扩展</a><ul>
+<li><a class="reference internal" href="#install-sphinx">Install 常用的sphinx扩展</a><ul>
 <li><a class="reference internal" href="#sphinx-design">sphinx_design</a><ul>
 <li><a class="reference internal" href="#tabs-using-sphinx-design">Tabs using sphinx_design</a></li>
 <li><a class="reference internal" href="#tabs-using-sphinx-tabs">Tabs using sphinx_tabs</a></li>
@@ -198,27 +198,29 @@ html.dark {
 而mdx虽然很好，交互丰富，但是想来还是使用python更多，因此，最后还是选择了rst.
 不过还有包括 <a class="reference internal" href="#myst" id="id1"><span>[MyST]</span></a> 这种有趣的md扩展。</p>
 </section>
-<section id="sphinx">
-<h2>常用的sphinx扩展<a class="headerlink" href="#sphinx" title="此标题的永久链接">¶</a></h2>
+<section id="install-sphinx">
+<h2>Install 常用的sphinx扩展<a class="headerlink" href="#install-sphinx" title="此标题的永久链接">¶</a></h2>
 <p>常用的设置</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">pip<span class="w"> </span>install<span class="w"> </span>sphinx_design<span class="w"> </span><span class="se">\</span>
 </span><span id="1-2"><span class="w">            </span>sphinx-copybutton<span class="w"> </span><span class="se">\</span>
 </span><span id="1-3"><span class="w">            </span>sphinxcontrib-bibtex<span class="se">\</span>
-</span><span id="1-4"><span class="w">            </span>sphinxemoji
+</span><span id="1-4"><span class="w">            </span>sphinx-comments<span class="w"> </span><span class="se">\</span>
+</span><span id="1-5"><span class="w">            </span>sphinxemoji
 </span></pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">extensions</span><span class="o">=</span><span class="p">[</span>
 </span><span id="1-2">    <span class="s2">&quot;sphinx_design&quot;</span><span class="p">,</span>
 </span><span id="1-3">    <span class="s2">&quot;sphinx_copybutton&quot;</span><span class="p">,</span>
-</span><span id="1-4">    <span class="s2">&quot;sphinxcontrib-bibtex&quot;</span>
-</span><span id="1-5">    <span class="s2">&quot;sphinxemoji.sphinxemoji&quot;</span><span class="p">,</span>
-</span><span id="1-6"><span class="p">]</span>
-</span><span id="1-7">
-</span><span id="1-8"><span class="n">html_css_files</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="1-9"> <span class="s2">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css&quot;</span>
-</span><span id="1-10"><span class="p">]</span>
-</span><span id="1-11">
-</span><span id="1-12"><span class="n">bibtex_bibfiles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;refs.bib&#39;</span><span class="p">]</span>
+</span><span id="1-4">    <span class="s2">&quot;sphinxcontrib-bibtex&quot;</span><span class="p">,</span>
+</span><span id="1-5">    <span class="s2">&quot;sphinx_comments&quot;</span><span class="p">,</span>
+</span><span id="1-6">    <span class="s2">&quot;sphinxemoji.sphinxemoji&quot;</span><span class="p">,</span>
+</span><span id="1-7"><span class="p">]</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="n">html_css_files</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="1-10"> <span class="s2">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css&quot;</span>
+</span><span id="1-11"><span class="p">]</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="n">bibtex_bibfiles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;refs.bib&#39;</span><span class="p">]</span>
 </span></pre></div>
 </div>
 <section id="sphinx-design">

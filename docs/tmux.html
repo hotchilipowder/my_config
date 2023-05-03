@@ -128,9 +128,9 @@ html.dark {
   <div class="localtoc">
     <h3>目录</h3>
     <ul>
+<li><a class="reference internal" href="#install-tmux">Install Tmux</a></li>
 <li><a class="reference internal" href="#why-tmux-instead-of-zellij">Why tmux instead of Zellij</a></li>
 <li><a class="reference internal" href="#tmux-with-neovim">Tmux with Neovim</a></li>
-<li><a class="reference internal" href="#install-tmux">Install Tmux</a></li>
 </ul>
 
 
@@ -164,6 +164,49 @@ html.dark {
         <article class="yue" role="main">
           <section id="tmux-configuration">
 <h1>Tmux Configuration<a class="headerlink" href="#tmux-configuration" title="此标题的永久链接">¶</a></h1>
+<section id="install-tmux">
+<h2>Install Tmux<a class="headerlink" href="#install-tmux" title="此标题的永久链接">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux (APT)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Linux (Source)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">brew<span class="w"> </span>install<span class="w"> </span>tmux
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">apt<span class="w"> </span>install<span class="w"> </span>tmux
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>First, please keep <code class="code docutils literal notranslate"><span class="pre">~/.local/bin</span></code>in the <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>, then <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">install</span></code>in the <code class="code docutils literal notranslate"><span class="pre">tmp/</span></code>dir.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">mkdir<span class="w"> </span>tmp
+</span><span id="1-2"><span class="nb">cd</span><span class="w"> </span>tmp/
+</span><span id="1-3">curl<span class="w"> </span>-OL<span class="w"> </span>https://invisible-island.net/datafiles/release/ncurses.tar.gz
+</span><span id="1-4">tar<span class="w"> </span>-xvf<span class="w"> </span>ncurses.tar.gz
+</span><span id="1-5">
+</span><span id="1-6"><span class="nv">LOC</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/libevent/libevent/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;browser_download_url&quot;</span><span class="p">|</span><span class="w">  </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;[\&quot;\&quot;]&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>tar.gz$<span class="w"> </span><span class="k">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>curl<span class="w"> </span>-OLl<span class="w">  </span><span class="nv">$LOC</span>
+</span><span id="1-7">
+</span><span id="1-8"><span class="nv">LOC</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/tmux/tmux/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;browser_download_url&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;[\&quot;\&quot;]&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span>curl<span class="w"> </span>-OL<span class="w"> </span><span class="nv">$LOC</span>
+</span><span id="1-9">
+</span><span id="1-10"><span class="c1"># install libevent</span>
+</span><span id="1-11">mkdir<span class="w"> </span><span class="nv">$HOME</span>/.local
+</span><span id="1-12"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
+</span><span id="1-13">tar<span class="w"> </span>-zxf<span class="w"> </span>libevent*.tar.gz
+</span><span id="1-14"><span class="nb">cd</span><span class="w"> </span>libevent-*/
+</span><span id="1-15">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local<span class="w"> </span>--enable-shared
+</span><span id="1-16">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+</span><span id="1-17">
+</span><span id="1-18"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
+</span><span id="1-19">tar<span class="w"> </span>-zxf<span class="w"> </span>ncurses*.tar.gz
+</span><span id="1-20"><span class="nb">cd</span><span class="w"> </span>ncurses*/
+</span><span id="1-21">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local<span class="w"> </span>--with-shared<span class="w"> </span>--with-termlib<span class="w"> </span>--enable-pc-files<span class="w"> </span>--with-pkg-config-libdir<span class="o">=</span><span class="nv">$HOME</span>/.local/lib/pkgconfig
+</span><span id="1-22">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+</span><span id="1-23">
+</span><span id="1-24"><span class="c1"># install tmux</span>
+</span><span id="1-25"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
+</span><span id="1-26">tar<span class="w"> </span>-zxf<span class="w"> </span>tmux-*.tar.gz
+</span><span id="1-27"><span class="nb">cd</span><span class="w"> </span>tmux-*/
+</span><span id="1-28"><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.local/lib/pkgconfig<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
+</span><span id="1-29">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+</span></pre></div>
+</div>
+</div></div>
+</section>
 <section id="why-tmux-instead-of-zellij">
 <h2>Why tmux instead of Zellij<a class="headerlink" href="#why-tmux-instead-of-zellij" title="此标题的永久链接">¶</a></h2>
 <p>其实我还真的挺喜欢<code class="docutils literal notranslate"><span class="pre">Rust</span></code>的，但是对于<code class="docutils literal notranslate"><span class="pre">Zellij</span></code>的使用体验确实不太好。
@@ -241,7 +284,7 @@ html.dark {
 </ul>
 </div>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Lazy.nvim</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Plug</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">{</span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Lazy.nvim</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Plug</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">{</span>
 </span><span id="1-2"><span class="w">  </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
 </span><span id="1-3"><span class="w">  </span><span class="nv">keys</span><span class="o">={</span>
 </span><span id="1-4"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;C-h&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;:&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;&#39;</span><span class="o">}</span>,
@@ -252,56 +295,13 @@ html.dark {
 </span><span id="1-9"><span class="o">}</span>,
 </span></pre></div>
 </div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="w"> </span>Plug<span class="w"> </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="w"> </span>Plug<span class="w"> </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
 </span><span id="1-2">
 </span><span id="1-3"><span class="nb">let</span><span class="w"> </span>g:tmux_navigator_no_mappings<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 </span><span id="1-4">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Left-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;
 </span><span id="1-5">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Down-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateDown&lt;cr&gt;
 </span><span id="1-6">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Up-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateUp&lt;cr&gt;
 </span><span id="1-7">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Right-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateRight&lt;cr&gt;
-</span></pre></div>
-</div>
-</div></div>
-</section>
-<section id="install-tmux">
-<h2>Install Tmux<a class="headerlink" href="#install-tmux" title="此标题的永久链接">¶</a></h2>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Linux with APT</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Linux from source</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">brew<span class="w"> </span>install<span class="w"> </span>tmux
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">apt<span class="w"> </span>install<span class="w"> </span>tmux
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><p>First, please keep <code class="code docutils literal notranslate"><span class="pre">~/.local/bin</span></code>in the <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>, then <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">install</span></code>in the <code class="code docutils literal notranslate"><span class="pre">tmp/</span></code>dir.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">mkdir<span class="w"> </span>tmp
-</span><span id="1-2"><span class="nb">cd</span><span class="w"> </span>tmp/
-</span><span id="1-3">curl<span class="w"> </span>-OL<span class="w"> </span>https://invisible-island.net/datafiles/release/ncurses.tar.gz
-</span><span id="1-4">tar<span class="w"> </span>-xvf<span class="w"> </span>ncurses.tar.gz
-</span><span id="1-5">
-</span><span id="1-6"><span class="nv">LOC</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/libevent/libevent/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;browser_download_url&quot;</span><span class="p">|</span><span class="w">  </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;[\&quot;\&quot;]&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>tar.gz$<span class="w"> </span><span class="k">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>curl<span class="w"> </span>-OLl<span class="w">  </span><span class="nv">$LOC</span>
-</span><span id="1-7">
-</span><span id="1-8"><span class="nv">LOC</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/tmux/tmux/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;browser_download_url&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;[\&quot;\&quot;]&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span>curl<span class="w"> </span>-OL<span class="w"> </span><span class="nv">$LOC</span>
-</span><span id="1-9">
-</span><span id="1-10"><span class="c1"># install libevent</span>
-</span><span id="1-11">mkdir<span class="w"> </span><span class="nv">$HOME</span>/.local
-</span><span id="1-12"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
-</span><span id="1-13">tar<span class="w"> </span>-zxf<span class="w"> </span>libevent*.tar.gz
-</span><span id="1-14"><span class="nb">cd</span><span class="w"> </span>libevent-*/
-</span><span id="1-15">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local<span class="w"> </span>--enable-shared
-</span><span id="1-16">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-</span><span id="1-17">
-</span><span id="1-18"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
-</span><span id="1-19">tar<span class="w"> </span>-zxf<span class="w"> </span>ncurses*.tar.gz
-</span><span id="1-20"><span class="nb">cd</span><span class="w"> </span>ncurses*/
-</span><span id="1-21">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local<span class="w"> </span>--with-shared<span class="w"> </span>--with-termlib<span class="w"> </span>--enable-pc-files<span class="w"> </span>--with-pkg-config-libdir<span class="o">=</span><span class="nv">$HOME</span>/.local/lib/pkgconfig
-</span><span id="1-22">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-</span><span id="1-23">
-</span><span id="1-24"><span class="c1"># install tmux</span>
-</span><span id="1-25"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
-</span><span id="1-26">tar<span class="w"> </span>-zxf<span class="w"> </span>tmux-*.tar.gz
-</span><span id="1-27"><span class="nb">cd</span><span class="w"> </span>tmux-*/
-</span><span id="1-28"><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.local/lib/pkgconfig<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
-</span><span id="1-29">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
 </span></pre></div>
 </div>
 </div></div>
