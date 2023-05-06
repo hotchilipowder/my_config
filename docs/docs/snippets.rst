@@ -21,7 +21,36 @@ Introduction
 更多的参考资料也包括: [#Supercharged-Latex]_。
 
 
-当然，如果你用 [#vim-snippets]_ 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).
+
+
+
+
+
+Ultisnipets
+===========
+
+Just use \ :code:`UltiSnipsEdit`\
+
+
+.. attention::
+    特别的，当我们写python的时候，可能需要用到一些Rst的snippets。我们可以用 \ :code:`UltiSnipsAddFiletypes python.rst`\。这个功能很重要，然而 \ `it cannot provide a command like :UltiSnipsAddFiletypes <https://github.com/neoclide/coc-snippets/issues/121>`_ in coc.nvim. 建议还是换官方吧...
+
+.. include:: ./_ultisnippet.rst
+
+
+Vsnip
+=====
+Just use \ :code:`VsniptOpenEdit`\
+
+.. include:: _vs-snippet.rst
+
+
+vim-snippets 简要记录
+=====================
+
+如果你用 [#vim-snippets]_ 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).
+
+
 
 Rst
 ---
@@ -92,21 +121,6 @@ see `python.snippets <https://github.com/honza/vim-snippets/blob/master/UltiSnip
 
 
 
-
-
-Vsnip
-=====
-Just use \ :code:`VsniptOpenEdit`\
-
-.. include:: _vs-snippet.rst
-
-
-Ultisnipets
-===========
-
-Just use \ :code:`UltiSnipsEdit`\
-
-.. include:: ./_ultisnippet.rst
 
 
 References

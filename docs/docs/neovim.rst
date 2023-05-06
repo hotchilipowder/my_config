@@ -100,6 +100,7 @@ Why Neovim instead of Vim
 
 
 
+
 Awesom Neovim Plugins
 =====================
 
@@ -297,10 +298,10 @@ gitsigns.nvim
 
 
 
+Why not coc.nvim
+================
 
-
-
-
+事实上，我原来也是用coc.nvim， 但是部分功能的缺失(see :doc:`snippets`，外加开发者对功能的补足不感兴趣，使我转向了。
 
 
 
