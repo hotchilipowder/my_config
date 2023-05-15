@@ -83,11 +83,11 @@ Delete all history
 
    .. code-block:: bash
 
-   git checkout --orphan latest_branch
-   git add .
-   git commit -m "Update"
-   git branch -D main
-   git branch -m main
+      git checkout --orphan latest_branch
+      git add .
+      git commit -m "Update"
+      git branch -D main
+      git branch -m main
 
 
 
