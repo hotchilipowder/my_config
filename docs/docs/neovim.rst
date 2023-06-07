@@ -111,6 +111,8 @@ vim-tmux-navigator
 
 more config see  :doc:`tmux.rst <./tmux>` 
 
+这里之前有
+
 
 
 bufferline.nvim
@@ -293,6 +295,46 @@ gitsigns.nvim
 \ `gitsigns.nvim <https://github.com/lewis6991/gitsigns.nvim>`_
 
 这个插件带来的好处就是能看到改动。还是比较实用的。
+
+
+null-ls
+-------
+
+这个插件可以带来很多格式化的帮助，基本上来说非常的重要。
+
+关于配置方面，主要是以下的配置, 更多的信息查看 \ `BUILTINS.md <https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md>`_
+
+.. code-block:: lua
+
+   {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = { "mason.nvim" },
+    opts = function()
+      local null_ls = require("null-ls")
+      return {
+        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+        sources = {
+          -- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.shfmt,
+          -- python
+          null_ls.builtins.formatting.autopep8,
+          null_ls.builtins.diagnostics.flake8,
+          -- js
+          null_ls.builtins.code_actions.eslint,
+          -- rust
+          null_ls.builtins.formatting.rustfmt
+        },
+      }
+    end,
+  },
+
+
+
+.. attention::
+  关于如何配置，选中的文本进行格式化，我本来以为需要配置 \ :code:`range_formatting`\, 但是根据 \ `这里的解释 <https://www.reddit.com/r/neovim/comments/zv91wz/comment/j1ot75x/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button>`，可以直接用 \ :code:`vim.lsp.buf.format`\. 
+
+
 
 
 

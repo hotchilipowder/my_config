@@ -67,8 +67,6 @@ vim.keymap.set('', '<leader>wk', '<C-w>k')
 vim.keymap.set('', '<leader>wj', '<C-w>j')
 vim.keymap.set('', '<leader>wl', '<C-w>l')
 vim.keymap.set('', '<leader>wq', '<C-w>q')
-vim.keymap.set('', 'te', ':tabedit<Return>')
-
 
 -- this code is from old config, and translated by chatgpt
 _G.buf_read_post = function()
@@ -115,9 +113,15 @@ require('lazy').setup({
   'lervag/vimtex',
   {
     'ojroques/vim-oscyank',
+    config = function()
+      vim.keymap.set('v', '<leader>y', '<Cmd>:OSCYankVisual<CR>')
+    end
   },
   {
     'christoomey/vim-tmux-navigator',
+     config = function()
+      vim.g.tmux_navigator_no_mappings = 1
+    end,
     keys={
       {'<C-h>', ':<C-U>TmuxNavigateLeft<cr>'},
       {'<C-j>', ':<C-U>TmuxNavigateDown<cr>'},
@@ -315,6 +319,7 @@ require('lazy').setup({
           vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
           vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
           vim.g.UltiSnipsEditSplit="vertical"
+          vim.cmd('UltiSnipsAddFiletypes python.django')
         end,
         lazy=false
       },
@@ -327,15 +332,20 @@ require('lazy').setup({
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "mason.nvim" },
     opts = function()
-      local nls = require("null-ls")
+      local null_ls = require("null-ls")
       return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
         sources = {
-          nls.builtins.formatting.fish_indent,
-          nls.builtins.diagnostics.fish,
-          nls.builtins.formatting.stylua,
-          nls.builtins.formatting.shfmt,
-          -- nls.builtins.diagnostics.flake8,
+          -- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.shfmt,
+          -- python
+          null_ls.builtins.formatting.autopep8,
+          null_ls.builtins.diagnostics.flake8,
+          -- js
+          null_ls.builtins.code_actions.eslint,
+          -- rust
+          null_ls.builtins.formatting.rustfmt
         },
       }
     end,
@@ -532,6 +542,8 @@ local on_attach = function(_, bufnr)
   -- end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
+ 
+  vim.keymap.set('v', '<leader>f', vim.lsp.buf.format)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
@@ -610,14 +622,6 @@ cmp.setup {
 }
 
 
--- some stuffs for running nvim
-
-
-vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>')
-vim.cmd('map <Leader>lF :lua vim.lsp.buf.format()<CR>')
-vim.keymap.set('v', '<leader>y', '<Cmd>:OSCYankVisual<CR>')
-
-
 -- require('bufferline').setup()
 
 
@@ -635,7 +639,6 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-vim.cmd('UltiSnipsAddFiletypes python.django')
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`

@@ -13,8 +13,7 @@ Docker
 
 
 Install Docker
-**************
-
+---------------
 
 
 .. tabs::
@@ -56,12 +55,24 @@ Install Docker
         sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 
+Frp dockers
+-----------
+
+
+
+
+
+
+
+
+
+
 PVE
 ===
 
 
 PVE IPv6 Issues
-***************
+---------------
 
 这个问题主要是PVE的使用下，IPv6一直无法正常使用。
 首先，我的网路的入口是一个路由器，这个路由器会分发一个ipv6的地址。
