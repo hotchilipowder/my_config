@@ -81,18 +81,36 @@ Delete all history
 
 这个需求比较常见，因为有些commit history确实不想让人看到，很愚蠢
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      git checkout --orphan latest_branch
-      git add .
-      git commit -m "Update"
-      git branch -D main
-      git branch -m main
-
-
+   git checkout --orphan latest_branch
+   git add .
+   git commit -m "Update"
+   git branch -D main
+   git branch -m main
 
 
 Lazygit
 =======
 
 `Lazygit <https://github.com/jesseduffield/lazygit>`_ is a simple terminal UI for git commands.
+
+MacOS osxkeychain
+=================
+
+Mac 上清除 git osxkeychain 保存的登录名密码
+
+.. code-block:: bash
+
+   git config --local --unset credential.helper
+   git config --global --unset credential.helper
+   git config --system --unset credential.helper
+
+但是还有进一步删除这个文件下的配置, more detail see \ `this link <https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config>`_
+
+.. code-block:: bash
+
+   git config --show-origin --get credential.helper
+
+
+
