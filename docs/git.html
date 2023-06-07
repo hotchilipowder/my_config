@@ -221,15 +221,13 @@ html.dark {
 <section id="delete-all-history">
 <h3>Delete all history<a class="headerlink" href="#delete-all-history" title="此标题的永久链接">¶</a></h3>
 <p>这个需求比较常见，因为有些commit history确实不想让人看到，很愚蠢</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">git<span class="w"> </span>checkout<span class="w"> </span>--orphan<span class="w"> </span>latest_branch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">git<span class="w"> </span>checkout<span class="w"> </span>--orphan<span class="w"> </span>latest_branch
 </span><span id="1-2">git<span class="w"> </span>add<span class="w"> </span>.
 </span><span id="1-3">git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update&quot;</span>
 </span><span id="1-4">git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>main
 </span><span id="1-5">git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>main
 </span></pre></div>
 </div>
-</div></blockquote>
 </section>
 </section>
 <section id="lazygit">
