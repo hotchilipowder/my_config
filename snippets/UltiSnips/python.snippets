@@ -30,7 +30,7 @@ endsnippet
 snippet django_model "django model" b
 class ${1:Model}(models.Model):
 	
-	def __str__(self, obj)->str:
+	def __str__(self, obj) -> str:
 		return obj.id
 endsnippet
 
@@ -47,7 +47,7 @@ content = response.read()
 endsnippet
 	
 
-snippet matplotlib_style1 "matplotlib plot style1"
+snippet file_matplotlib_style1 "matplotlib plot style1"
 import matplotlib
 import matplotlib.pyplot as plt
 import scienceplots # see https://github.com/garrettj403/SciencePlots
@@ -64,4 +64,38 @@ params = {
 matplotlib.rcParams.update(params)
 
 endsnippet
+
+
+
+
+snippet file_logger "Just place this code as logger.py"
+import logging
+# https://docs.python.org/3/howto/logging.html#logging-advanced-tutorial
+
+def get_logger(name, log_fpath=None):
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
+
+    # create console handler and set level to debug
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+
+    fpath = log_fpath if log_fpath else f'./logs/{name}.log'
+    fh = logging.FileHandler(fpath)
+    fh.setLevel(logging.INFO)
+
+    # create formatter
+    formatter = logging.Formatter(
+        '%(asctime)s %(levelname)s [%(filename)s:%(lineno)d] %(message)s')
+
+    # add formatter to ch
+    ch.setFormatter(formatter)
+    fh.setFormatter(formatter)
+
+    # add handler to logger
+    logger.addHandler(ch)
+    logger.addHandler(fh)
+    return logger
+endsnippet
+	
 	
