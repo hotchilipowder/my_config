@@ -1,0 +1,998 @@
+
+  <!DOCTYPE html>
+<html lang="zh" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dockers - My Dev Config</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Snippets System" href="snippets.html" /><link rel="prev" title="Tmux Configuration" href="tmux.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=5d7d6ab7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Dockers"/>
+<meta name="twitter:card" content="summary"/></head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="/my_config">
+      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" />
+      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" />
+      <strong>My Dev Config</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_action.html">Github Action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#install">Install</a><ul>
+<li><a class="reference internal" href="#install-docker-compose">Install docker-compose</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li><a class="reference internal" href="#proxy-settings">Proxy Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docker-composes">Docker-composes</a><ul>
+<li><a class="reference internal" href="#frp">frp</a><ul>
+<li><a class="reference internal" href="#frpc">frpc</a></li>
+<li><a class="reference internal" href="#frps">frps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#server-status">server_status</a></li>
+<li><a class="reference internal" href="#server-status-rust">server_status_rust</a></li>
+<li><a class="reference internal" href="#rathole">rathole</a><ul>
+<li><a class="reference internal" href="#rathole-client">rathole client</a></li>
+<li><a class="reference internal" href="#rathole-server">rathole server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adhomeguard">Adhomeguard</a></li>
+<li><a class="reference internal" href="#aria-filebrowser">Aria filebrowser</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>hotchilipowder/my_config</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/docker.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ul class="flex-1">
+      
+      
+      <li><a href="../index.html">My Dev Config</a><span>/</span></li>
+      
+      <li><strong>Dockers</strong></li>
+      
+      
+    </ul>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="dockers">
+<h1>Dockers<a class="headerlink" href="#dockers" title="Link to this heading">¶</a></h1>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">MacOS</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>可以使用别的安装方式，但是最简单的还是</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>install-docker.sh
+</span><span id="1-2">sh<span class="w"> </span>install-docker.sh
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>我尝试过Docker-desktop, 只能说体验很差，经常斯基。
+改用了 <a class="reference external" href="https://orbstack.dev/">orbstack</a> , 世界一下就变美好了。</p>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>Windows</p>
+</div></div>
+<section id="install-docker-compose">
+<h3>Install docker-compose<a class="headerlink" href="#install-docker-compose" title="Link to this heading">¶</a></h3>
+<p>refer to <a class="reference external" href="https://docs.docker.com/compose/install/standalone/">https://docs.docker.com/compose/install/standalone/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-SL<span class="w"> </span>https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64<span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/docker-compose
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading">¶</a></h2>
+<section id="proxy-settings">
+<h3>Proxy Settings<a class="headerlink" href="#proxy-settings" title="Link to this heading">¶</a></h3>
+<p>按照文档说明，如果你想要 <code class="code docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code>的时候使用proxy。</p>
+<p>see <a class="reference external" href="https://docs.docker.com/config/daemon/#configure-the-docker-daemon">Docker daemon configuration</a></p>
+<p>see <a class="reference external" href="https://docs.docker.com/network/proxy/#configure-the-docker-client">Configure Docker to use a proxy server</a></p>
+</section>
+</section>
+<section id="docker-composes">
+<h2>Docker-composes<a class="headerlink" href="#docker-composes" title="Link to this heading">¶</a></h2>
+<p>关于docker-compose，我个人是更支持的，因为不用每次都从头跑docker命令，很多时候还会忘记，写一个 <code class="code docutils literal notranslate"><span class="pre">run_docker.sh</span></code>也没必要，还不如直接写 <code class="code docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">-d</span> <span class="pre">--build</span></code>多么简单方便。</p>
+<p>可以考虑从 <a class="reference external" href="https://github.com/fatedier/frp/releases">fatedier/frp</a> 这个页面查看当前的版本号和OS操作系统的名字。
+例如,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">ENV<span class="w"> </span>FRP_VERSION<span class="w"> </span><span class="m">0</span>.49.0
+</span><span id="1-2">ENV<span class="w"> </span>OS<span class="w"> </span>linux_arm64
+</span></pre></div>
+</div>
+<section id="frp">
+<h3>frp<a class="headerlink" href="#frp" title="Link to this heading">¶</a></h3>
+<p>frp主要包括客户端的 <code class="code docutils literal notranslate"><span class="pre">frpc</span></code>和 服务端的 <code class="code docutils literal notranslate"><span class="pre">frps</span></code>, 其主要是实现内网穿透的工具。这里是他的项目链接 <a class="reference external" href="https://github.com/fatedier/frp">frp/github</a></p>
+<p>虽然有一些<a class="reference external" href="https://hub.docker.com/r/snowdreamtech/frps">frp的docker</a>, 但是有时候更新不是很及时。所以自己写了一个简单的，查看如下。</p>
+<section id="frpc">
+<h4>frpc<a class="headerlink" href="#frpc" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/frp/frpc/Dockerfile
+</span><span id="1-2">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/frp/frpc/docker-compose.yml
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">Dockerfile</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">FROM alpine:latest
+</span><span id="1-2">ENV FRP_VERSION 0.49.0
+</span><span id="1-3">ENV OS linux_arm64
+</span><span id="1-4">
+</span><span id="1-5">RUN apk update \
+</span><span id="1-6"> &amp;&amp; apk add --no-cache curl
+</span><span id="1-7">RUN cd /root \
+</span><span id="1-8">    &amp;&amp; curl -OL https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_${OS}.tar.gz \
+</span><span id="1-9">    &amp;&amp; tar zxvf frp_${FRP_VERSION}_${OS}.tar.gz \
+</span><span id="1-10">    &amp;&amp;  cd frp_${FRP_VERSION}_${OS}/ \
+</span><span id="1-11">    &amp;&amp;  cp frpc /usr/bin/  \
+</span><span id="1-12">    &amp;&amp;  cd /root \
+</span><span id="1-13">    &amp;&amp;  rm frp_${FRP_VERSION}_${OS}.tar.gz \
+</span><span id="1-14">    &amp;&amp;  rm -rf frp_${FRP_VERSION}_${OS}/
+</span><span id="1-15">ENTRYPOINT /usr/bin/frpc -c /etc/frp/frpc.ini
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+</span><span id="1-2"><span class="n">services</span><span class="p">:</span>
+</span><span id="1-3">  <span class="n">frpc</span><span class="p">:</span>
+</span><span id="1-4">     <span class="n">image</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">frpc</span>
+</span><span id="1-5">     <span class="n">build</span><span class="p">:</span>
+</span><span id="1-6">       <span class="n">context</span><span class="p">:</span> <span class="o">.</span>
+</span><span id="1-7">     <span class="n">network_mode</span><span class="p">:</span> <span class="n">host</span>
+</span><span id="1-8">     <span class="n">volumes</span><span class="p">:</span>
+</span><span id="1-9">         <span class="o">-</span> <span class="o">./</span><span class="n">frpc</span><span class="o">.</span><span class="n">ini</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">frp</span><span class="o">/</span><span class="n">frpc</span><span class="o">.</span><span class="n">ini</span>
+</span><span id="1-10">     <span class="n">restart</span><span class="p">:</span> <span class="n">unless</span><span class="o">-</span><span class="n">stopped</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="frps">
+<h4>frps<a class="headerlink" href="#frps" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/frp/frps/Dockerfile
+</span><span id="1-2">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/frp/frps/docker-compose.yml
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">Dockerfile</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">FROM alpine:latest
+</span><span id="1-2">ENV FRP_VERSION 0.45.0
+</span><span id="1-3">ENV OS linux_arm64
+</span><span id="1-4">
+</span><span id="1-5">RUN apk update \
+</span><span id="1-6"> &amp;&amp; apk add --no-cache curl
+</span><span id="1-7">RUN cd /root \
+</span><span id="1-8">    &amp;&amp; curl -OL https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_${OS}.tar.gz \
+</span><span id="1-9">    &amp;&amp; tar zxvf frp_${FRP_VERSION}_${OS}.tar.gz \
+</span><span id="1-10">    &amp;&amp;  cd frp_${FRP_VERSION}_${OS}/ \
+</span><span id="1-11">    &amp;&amp;  cp frps /usr/bin/  \
+</span><span id="1-12">    &amp;&amp;  cd /root \
+</span><span id="1-13">    &amp;&amp;  rm frp_${FRP_VERSION}_${OS}.tar.gz \
+</span><span id="1-14">    &amp;&amp;  rm -rf frp_${FRP_VERSION}_${OS}/
+</span><span id="1-15">ENTRYPOINT /usr/bin/frps -c /etc/frp/frps.ini
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+</span><span id="1-2"><span class="n">services</span><span class="p">:</span>
+</span><span id="1-3">  <span class="n">frps</span><span class="p">:</span>
+</span><span id="1-4">    <span class="n">image</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">frps</span>
+</span><span id="1-5">    <span class="n">build</span><span class="p">:</span>
+</span><span id="1-6">      <span class="n">context</span><span class="p">:</span> <span class="o">.</span>
+</span><span id="1-7">    <span class="n">network_mode</span><span class="p">:</span> <span class="n">host</span>
+</span><span id="1-8">    <span class="n">volumes</span><span class="p">:</span>
+</span><span id="1-9">      <span class="o">-</span> <span class="o">./</span><span class="n">frps</span><span class="o">.</span><span class="n">ini</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">frp</span><span class="o">/</span><span class="n">frps</span><span class="o">.</span><span class="n">ini</span>
+</span><span id="1-10">    <span class="n">restart</span><span class="p">:</span> <span class="n">unless</span><span class="o">-</span><span class="n">stopped</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+</section>
+<section id="server-status">
+<h3>server_status<a class="headerlink" href="#server-status" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/server_status/Dockerfile
+</span><span id="1-2">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/server_status/docker-compose.yml
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">Dockerfile</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">FROM</span> <span class="n">ubuntu</span><span class="p">:</span><span class="n">bionic</span><span class="o">-</span><span class="mi">20200112</span> <span class="k">as</span> <span class="n">builder</span>
+</span><span id="1-2"><span class="n">MAINTAINER</span> <span class="n">Stille</span> <span class="o">&lt;</span><span class="n">stille</span><span class="nd">@ioiox</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="n">ENV</span> <span class="n">VERSION</span> <span class="mf">2.0</span>
+</span><span id="1-5"><span class="n">WORKDIR</span> <span class="o">/</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="n">COPY</span> <span class="o">.</span> <span class="o">/</span>
+</span><span id="1-8"><span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> \
+</span><span id="1-9">    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">wget</span> <span class="o">&amp;&amp;</span> \
+</span><span id="1-10">    <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;/bin/echo -e &quot;1</span><span class="se">\n\n</span><span class="s1">n</span><span class="se">\n</span><span class="s1">&quot; | ./status.sh&#39;</span> <span class="o">&amp;&amp;</span> \
+</span><span id="1-11">    <span class="n">cp</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">web</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">ServerStatus</span><span class="o">/</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="n">FROM</span> <span class="n">nginx</span><span class="p">:</span><span class="mf">1.17.8</span>
+</span><span id="1-14"><span class="n">MAINTAINER</span> <span class="n">Stille</span> <span class="o">&lt;</span><span class="n">stille</span><span class="nd">@ioiox</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+</span><span id="1-15">
+</span><span id="1-16"><span class="n">COPY</span> <span class="o">--</span><span class="n">from</span><span class="o">=</span><span class="n">builder</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">ServerStatus</span><span class="o">/</span><span class="n">server</span> <span class="o">/</span><span class="n">ServerStatus</span><span class="o">/</span><span class="n">server</span><span class="o">/</span>
+</span><span id="1-17"><span class="n">COPY</span> <span class="o">--</span><span class="n">from</span><span class="o">=</span><span class="n">builder</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">ServerStatus</span><span class="o">/</span><span class="n">web</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">html</span><span class="o">/</span>
+</span><span id="1-18">
+</span><span id="1-19"><span class="n">EXPOSE</span> <span class="mi">80</span> <span class="mi">35601</span>
+</span><span id="1-20">
+</span><span id="1-21"><span class="n">CMD</span> <span class="n">sh</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;/etc/init.d/nginx start &amp;&amp; /ServerStatus/server/sergate --config=/ServerStatus/server/config.json --web-dir=/usr/share/nginx/html&#39;</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+</span><span id="1-2"><span class="n">services</span><span class="p">:</span>
+</span><span id="1-3">  <span class="n">server_status</span><span class="p">:</span>
+</span><span id="1-4">    <span class="n">image</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">server_status</span>
+</span><span id="1-5">    <span class="n">build</span><span class="p">:</span>
+</span><span id="1-6">      <span class="n">context</span><span class="p">:</span> <span class="o">.</span>
+</span><span id="1-7">    <span class="n">volumes</span><span class="p">:</span>
+</span><span id="1-8">      <span class="o">-</span> <span class="o">./</span><span class="n">config</span><span class="o">.</span><span class="n">json</span><span class="p">:</span><span class="o">/</span><span class="n">ServerStatus</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">config</span><span class="o">.</span><span class="n">json</span>
+</span><span id="1-9">    <span class="n">ports</span><span class="p">:</span>
+</span><span id="1-10">      <span class="o">-</span> <span class="mi">32011</span><span class="p">:</span><span class="mi">80</span>
+</span><span id="1-11">      <span class="o">-</span> <span class="mi">35601</span><span class="p">:</span><span class="mi">35601</span>
+</span><span id="1-12">    <span class="n">restart</span><span class="p">:</span> <span class="n">unless</span><span class="o">-</span><span class="n">stopped</span>
+</span><span id="1-13">    <span class="n">tty</span><span class="p">:</span> <span class="n">true</span>
+</span><span id="1-14">    <span class="n">logging</span><span class="p">:</span>
+</span><span id="1-15">      <span class="n">driver</span><span class="p">:</span> <span class="s2">&quot;json-file&quot;</span>
+</span><span id="1-16">      <span class="n">options</span><span class="p">:</span>
+</span><span id="1-17">        <span class="nb">max</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="s2">&quot;10m&quot;</span>
+</span><span id="1-18">        <span class="nb">max</span><span class="o">-</span><span class="n">file</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="server-status-rust">
+<h3>server_status_rust<a class="headerlink" href="#server-status-rust" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/server_status_rust/Dockerfile
+</span><span id="1-2">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/server_status_rust/docker-compose.yml
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="n">services</span><span class="p">:</span>
+</span><span id="1-4">  <span class="n">stat_server</span><span class="p">:</span>
+</span><span id="1-5">    <span class="n">image</span><span class="p">:</span> <span class="n">idoge</span><span class="o">/</span><span class="n">stat_server</span><span class="p">:</span><span class="n">latest</span>
+</span><span id="1-6">    <span class="n">container_name</span><span class="p">:</span> <span class="n">stat_server</span>
+</span><span id="1-7">    <span class="n">restart</span><span class="p">:</span> <span class="n">unless</span><span class="o">-</span><span class="n">stopped</span>
+</span><span id="1-8">    <span class="n">volumes</span><span class="p">:</span>
+</span><span id="1-9">      <span class="o">-</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">localtime</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">localtime</span><span class="p">:</span><span class="n">ro</span>
+</span><span id="1-10">      <span class="o">-</span> <span class="o">./</span><span class="n">config</span><span class="o">.</span><span class="n">toml</span><span class="p">:</span><span class="o">/</span><span class="n">config</span><span class="o">.</span><span class="n">toml</span>
+</span><span id="1-11">      <span class="o">-</span> <span class="o">./</span><span class="n">stats</span><span class="o">.</span><span class="n">json</span><span class="p">:</span><span class="o">/</span><span class="n">stats</span><span class="o">.</span><span class="n">json</span>
+</span><span id="1-12">    <span class="n">ports</span><span class="p">:</span>
+</span><span id="1-13">      <span class="o">-</span> <span class="mi">32012</span><span class="p">:</span><span class="mi">8080</span>
+</span><span id="1-14">      <span class="o">-</span> <span class="mi">29394</span><span class="p">:</span><span class="mi">9394</span>
+</span><span id="1-15">
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="rathole">
+<h3>rathole<a class="headerlink" href="#rathole" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/rapiz1/rathole/releases/latest">Github</a></p>
+<section id="rathole-client">
+<h4>rathole client<a class="headerlink" href="#rathole-client" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/client/Dockerfile
+</span><span id="1-2">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/client/docker-compose.yml
+</span><span id="1-3">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/client/client.toml
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">Dockerfile</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">FROM alpine:latest
+</span><span id="1-2">
+</span><span id="1-3">ENV FILENAME rathole-x86_64-unknown-linux-musl.zip
+</span><span id="1-4">
+</span><span id="1-5">RUN apk update \
+</span><span id="1-6"> &amp;&amp; apk add --no-cache curl zip
+</span><span id="1-7">RUN cd /root \
+</span><span id="1-8">    &amp;&amp; curl -OL https://github.com/rapiz1/rathole/releases/latest/download/${FILENAME} \
+</span><span id="1-9">    &amp;&amp; unzip ${FILENAME} \
+</span><span id="1-10">    &amp;&amp; mv rathole /usr/bin/  \
+</span><span id="1-11">    &amp;&amp; cd /root \
+</span><span id="1-12">    &amp;&amp; rm ${FILENAME}
+</span><span id="1-13">ENTRYPOINT /usr/bin/rathole /etc/rathole/client.toml
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+</span><span id="1-2"><span class="n">services</span><span class="p">:</span>
+</span><span id="1-3">  <span class="n">rathole</span><span class="o">-</span><span class="n">client</span><span class="p">:</span>
+</span><span id="1-4">     <span class="n">image</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">rathole</span>
+</span><span id="1-5">     <span class="n">build</span><span class="p">:</span>
+</span><span id="1-6">       <span class="n">context</span><span class="p">:</span> <span class="o">.</span>
+</span><span id="1-7">     <span class="n">network_mode</span><span class="p">:</span> <span class="n">host</span>
+</span><span id="1-8">     <span class="n">volumes</span><span class="p">:</span>
+</span><span id="1-9">         <span class="o">-</span> <span class="o">./</span><span class="n">client</span><span class="o">.</span><span class="n">toml</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rathole</span><span class="o">/</span><span class="n">client</span><span class="o">.</span><span class="n">toml</span>
+</span><span id="1-10">     <span class="n">restart</span><span class="p">:</span> <span class="n">unless</span><span class="o">-</span><span class="n">stopped</span>
+</span><span id="1-11">     <span class="n">tty</span><span class="p">:</span> <span class="n">true</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">client.toml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># client.toml</span>
+</span><span id="1-2"><span class="p">[</span><span class="n">client</span><span class="p">]</span>
+</span><span id="1-3"><span class="n">remote_addr</span> <span class="o">=</span> <span class="s2">&quot;myserver.com:2333&quot;</span> <span class="c1"># The address of the server. The port must be the same with the port in `server.bind_addr`</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">my_nas_ssh</span><span class="p">]</span>
+</span><span id="1-6"><span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;use_a_secret_that_only_you_know&quot;</span> <span class="c1"># Must be the same with the server to pass the validation</span>
+</span><span id="1-7"><span class="n">local_addr</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:22&quot;</span> <span class="c1"># The address of the service that needs to be forwarded</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="rathole-server">
+<h4>rathole server<a class="headerlink" href="#rathole-server" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/server/Dockerfile
+</span><span id="1-2">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/server/docker-compose.yml
+</span><span id="1-3">curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/server/server.toml
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">Dockerfile</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">FROM alpine:latest
+</span><span id="1-2">
+</span><span id="1-3">ENV FILENAME rathole-x86_64-unknown-linux-musl.zip
+</span><span id="1-4">
+</span><span id="1-5">RUN apk update \
+</span><span id="1-6"> &amp;&amp; apk add --no-cache curl zip
+</span><span id="1-7">RUN cd /root \
+</span><span id="1-8">    &amp;&amp; curl -OL https://github.com/rapiz1/rathole/releases/latest/download/${FILENAME} \
+</span><span id="1-9">    &amp;&amp; unzip ${FILENAME} \
+</span><span id="1-10">    &amp;&amp; mv rathole /usr/bin/  \
+</span><span id="1-11">    &amp;&amp; cd /root \
+</span><span id="1-12">    &amp;&amp; rm ${FILENAME}
+</span><span id="1-13">ENTRYPOINT /usr/bin/rathole /etc/rathole/server.toml
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+</span><span id="1-2"><span class="n">services</span><span class="p">:</span>
+</span><span id="1-3">  <span class="n">rathole</span><span class="o">-</span><span class="n">server</span><span class="p">:</span>
+</span><span id="1-4">     <span class="n">image</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">rathole</span>
+</span><span id="1-5">     <span class="n">build</span><span class="p">:</span>
+</span><span id="1-6">       <span class="n">context</span><span class="p">:</span> <span class="o">.</span>
+</span><span id="1-7">     <span class="n">network_mode</span><span class="p">:</span> <span class="n">host</span>
+</span><span id="1-8">     <span class="n">volumes</span><span class="p">:</span>
+</span><span id="1-9">         <span class="o">-</span> <span class="o">./</span><span class="n">server</span><span class="o">.</span><span class="n">toml</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rathole</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">toml</span>
+</span><span id="1-10">     <span class="n">restart</span><span class="p">:</span> <span class="n">unless</span><span class="o">-</span><span class="n">stopped</span>
+</span><span id="1-11">     <span class="n">tty</span><span class="p">:</span> <span class="n">true</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">server.toml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># server.toml</span>
+</span><span id="1-2"><span class="p">[</span><span class="n">server</span><span class="p">]</span>
+</span><span id="1-3"><span class="n">bind_addr</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0:2333&quot;</span> <span class="c1"># `2333` 配置了服务端监听客户端连接的端口</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="p">[</span><span class="n">server</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">my_nas_ssh</span><span class="p">]</span>
+</span><span id="1-6"><span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;use_a_secret_that_only_you_know&quot;</span> <span class="c1"># 用于验证的 token</span>
+</span><span id="1-7"><span class="n">bind_addr</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0:5202&quot;</span> <span class="c1"># `5202` 配置了将 `my_nas_ssh` 暴露给互联网的端口</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+</section>
+<section id="adhomeguard">
+<h3>Adhomeguard<a class="headerlink" href="#adhomeguard" title="Link to this heading">¶</a></h3>
+<p>这个服务主要是用来改进dns服务。
+可以去广告，并且通过多个dns的整合和缓存，加速。</p>
+<p>一些有用的链接：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Cats-Team/AdRules">Cats-Team/AdRules</a></p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">version</span><span class="p">:</span> <span class="s1">&#39;3.7&#39;</span>
+</span><span id="1-2"><span class="n">services</span><span class="p">:</span>
+</span><span id="1-3">  <span class="n">adguardhome</span><span class="p">:</span>  <span class="c1"># 服务名称</span>
+</span><span id="1-4">    <span class="n">container_name</span><span class="p">:</span> <span class="n">adguardhome</span>  <span class="c1"># 容器名称</span>
+</span><span id="1-5">    <span class="n">image</span><span class="p">:</span> <span class="n">adguard</span><span class="o">/</span><span class="n">adguardhome</span><span class="p">:</span><span class="n">latest</span>
+</span><span id="1-6">    <span class="n">restart</span><span class="p">:</span> <span class="n">always</span>
+</span><span id="1-7">    <span class="c1"># network_mode: host</span>
+</span><span id="1-8">    <span class="n">environment</span><span class="p">:</span>
+</span><span id="1-9">      <span class="n">TZ</span><span class="p">:</span> <span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span>
+</span><span id="1-10">    <span class="n">volumes</span><span class="p">:</span>
+</span><span id="1-11">      <span class="o">-</span> <span class="s2">&quot;./conf:/opt/adguardhome/conf&quot;</span>
+</span><span id="1-12">      <span class="o">-</span> <span class="s2">&quot;./data:/opt/adguardhome/work/data&quot;</span>
+</span><span id="1-13">    <span class="n">ports</span><span class="p">:</span>
+</span><span id="1-14">      <span class="o">-</span> <span class="mi">53</span><span class="p">:</span><span class="mi">53</span><span class="o">/</span><span class="n">tcp</span>
+</span><span id="1-15">      <span class="o">-</span> <span class="mi">53</span><span class="p">:</span><span class="mi">53</span><span class="o">/</span><span class="n">udp</span>
+</span><span id="1-16">      <span class="o">-</span> <span class="mi">84</span><span class="p">:</span><span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>
+</span><span id="1-17">      <span class="o">-</span> <span class="mi">3000</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">tcp</span>
+</span><span id="1-18">      <span class="o">-</span> <span class="mi">67</span><span class="p">:</span><span class="mi">67</span><span class="o">/</span><span class="n">udp</span>
+</span><span id="1-19">      <span class="o">-</span> <span class="mi">68</span><span class="p">:</span><span class="mi">68</span><span class="o">/</span><span class="n">tcp</span>
+</span><span id="1-20">      <span class="o">-</span> <span class="mi">68</span><span class="p">:</span><span class="mi">68</span><span class="o">/</span><span class="n">udp</span>
+</span><span id="1-21">      <span class="o">-</span> <span class="mi">444</span><span class="p">:</span><span class="mi">443</span><span class="o">/</span><span class="n">tcp</span>
+</span><span id="1-22">      <span class="o">-</span> <span class="mi">853</span><span class="p">:</span><span class="mi">853</span><span class="o">/</span><span class="n">tcp</span> 
+</span></pre></div>
+</div>
+</div>
+</details><p>配置文件, 这个可以帮助快速设置一些常见的过滤器, 放在 <code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>对应的文件夹下面的 <code class="code docutils literal notranslate"><span class="pre">conf</span></code>目录下:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">AdGuardHome.yaml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">http:
+</span><span id="1-2">  pprof:
+</span><span id="1-3">    port: 6060
+</span><span id="1-4">    enabled: false
+</span><span id="1-5">  address: 0.0.0.0:3000
+</span><span id="1-6">  session_ttl: 720h
+</span><span id="1-7">users:
+</span><span id="1-8">  - name: admin
+</span><span id="1-9">    password: xxx 
+</span><span id="1-10">auth_attempts: 5
+</span><span id="1-11">block_auth_min: 15
+</span><span id="1-12">http_proxy: &quot;&quot;
+</span><span id="1-13">language: zh-cn
+</span><span id="1-14">theme: auto
+</span><span id="1-15">dns:
+</span><span id="1-16">  bind_hosts:
+</span><span id="1-17">    - 0.0.0.0
+</span><span id="1-18">  port: 53
+</span><span id="1-19">  anonymize_client_ip: false
+</span><span id="1-20">  ratelimit: 20
+</span><span id="1-21">  ratelimit_whitelist: []
+</span><span id="1-22">  refuse_any: true
+</span><span id="1-23">  upstream_dns:
+</span><span id="1-24">    - tls://dns.alidns.com
+</span><span id="1-25">    - https://dns.alidns.com/dns-query
+</span><span id="1-26">    - 223.5.5.5
+</span><span id="1-27">    - 119.29.29.29
+</span><span id="1-28">    - 114.114.114.114
+</span><span id="1-29">  upstream_dns_file: &quot;&quot;
+</span><span id="1-30">  bootstrap_dns:
+</span><span id="1-31">    - 223.5.5.5
+</span><span id="1-32">  fallback_dns:
+</span><span id="1-33">    - 223.5.5.5
+</span><span id="1-34">    - 119.29.29.29
+</span><span id="1-35">    - 114.114.114.114
+</span><span id="1-36">  all_servers: false
+</span><span id="1-37">  fastest_addr: false
+</span><span id="1-38">  fastest_timeout: 1s
+</span><span id="1-39">  allowed_clients: []
+</span><span id="1-40">  disallowed_clients: []
+</span><span id="1-41">  blocked_hosts:
+</span><span id="1-42">    - version.bind
+</span><span id="1-43">    - id.server
+</span><span id="1-44">    - hostname.bind
+</span><span id="1-45">  trusted_proxies:
+</span><span id="1-46">    - 127.0.0.0/8
+</span><span id="1-47">    - ::1/128
+</span><span id="1-48">  cache_size: 4194304
+</span><span id="1-49">  cache_ttl_min: 0
+</span><span id="1-50">  cache_ttl_max: 0
+</span><span id="1-51">  cache_optimistic: false
+</span><span id="1-52">  bogus_nxdomain: []
+</span><span id="1-53">  aaaa_disabled: false
+</span><span id="1-54">  enable_dnssec: false
+</span><span id="1-55">  edns_client_subnet:
+</span><span id="1-56">    custom_ip: &quot;&quot;
+</span><span id="1-57">    enabled: false
+</span><span id="1-58">    use_custom: false
+</span><span id="1-59">  max_goroutines: 300
+</span><span id="1-60">  handle_ddr: true
+</span><span id="1-61">  ipset: []
+</span><span id="1-62">  ipset_file: &quot;&quot;
+</span><span id="1-63">  bootstrap_prefer_ipv6: false
+</span><span id="1-64">  upstream_timeout: 10s
+</span><span id="1-65">  private_networks: []
+</span><span id="1-66">  use_private_ptr_resolvers: true
+</span><span id="1-67">  local_ptr_upstreams: []
+</span><span id="1-68">  use_dns64: false
+</span><span id="1-69">  dns64_prefixes: []
+</span><span id="1-70">  serve_http3: false
+</span><span id="1-71">  use_http3_upstreams: false
+</span><span id="1-72">tls:
+</span><span id="1-73">  enabled: false
+</span><span id="1-74">  server_name: &quot;&quot;
+</span><span id="1-75">  force_https: false
+</span><span id="1-76">  port_https: 443
+</span><span id="1-77">  port_dns_over_tls: 853
+</span><span id="1-78">  port_dns_over_quic: 784
+</span><span id="1-79">  port_dnscrypt: 0
+</span><span id="1-80">  dnscrypt_config_file: &quot;&quot;
+</span><span id="1-81">  allow_unencrypted_doh: false
+</span><span id="1-82">  certificate_chain: &quot;&quot;
+</span><span id="1-83">  private_key: &quot;&quot;
+</span><span id="1-84">  certificate_path: &quot;&quot;
+</span><span id="1-85">  private_key_path: &quot;&quot;
+</span><span id="1-86">  strict_sni_check: false
+</span><span id="1-87">querylog:
+</span><span id="1-88">  ignored: []
+</span><span id="1-89">  interval: 24h
+</span><span id="1-90">  size_memory: 1000
+</span><span id="1-91">  enabled: true
+</span><span id="1-92">  file_enabled: true
+</span><span id="1-93">statistics:
+</span><span id="1-94">  ignored: []
+</span><span id="1-95">  interval: 24h
+</span><span id="1-96">  enabled: true
+</span><span id="1-97">filters:
+</span><span id="1-98">  - enabled: true
+</span><span id="1-99">    url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+</span><span id="1-100">    name: AdGuard Simplified Domain Names filter
+</span><span id="1-101">    id: 1
+</span><span id="1-102">  - enabled: true
+</span><span id="1-103">    url: https://adaway.org/hosts.txt
+</span><span id="1-104">    name: AdAway
+</span><span id="1-105">    id: 2
+</span><span id="1-106">  - enabled: true
+</span><span id="1-107">    url: https://easylist-downloads.adblockplus.org/easyprivacy.txt
+</span><span id="1-108">    name: easyprivacy隐私
+</span><span id="1-109">    id: 1633345725
+</span><span id="1-110">  - enabled: true
+</span><span id="1-111">    url: https://www.i-dont-care-about-cookies.eu/abp/
+</span><span id="1-112">    name: I don&#39;t care about cookies
+</span><span id="1-113">    id: 1633345726
+</span><span id="1-114">  - enabled: true
+</span><span id="1-115">    url: https://easylist-downloads.adblockplus.org/easylistchina.txt
+</span><span id="1-116">    name: easylistchina
+</span><span id="1-117">    id: 1633345727
+</span><span id="1-118">  - enabled: true
+</span><span id="1-119">    url: https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
+</span><span id="1-120">    name: CJX’s Annoyance List
+</span><span id="1-121">    id: 1637754807
+</span><span id="1-122">  - enabled: true
+</span><span id="1-123">    url: https://easylist-downloads.adblockplus.org/easylist.txt
+</span><span id="1-124">    name: EasyList
+</span><span id="1-125">    id: 1698895129
+</span><span id="1-126">whitelist_filters: []
+</span><span id="1-127">user_rules: []
+</span><span id="1-128">dhcp:
+</span><span id="1-129">  enabled: false
+</span><span id="1-130">  interface_name: &quot;&quot;
+</span><span id="1-131">  local_domain_name: lan
+</span><span id="1-132">  dhcpv4:
+</span><span id="1-133">    gateway_ip: &quot;&quot;
+</span><span id="1-134">    subnet_mask: &quot;&quot;
+</span><span id="1-135">    range_start: &quot;&quot;
+</span><span id="1-136">    range_end: &quot;&quot;
+</span><span id="1-137">    lease_duration: 86400
+</span><span id="1-138">    icmp_timeout_msec: 1000
+</span><span id="1-139">    options: []
+</span><span id="1-140">  dhcpv6:
+</span><span id="1-141">    range_start: &quot;&quot;
+</span><span id="1-142">    lease_duration: 86400
+</span><span id="1-143">    ra_slaac_only: false
+</span><span id="1-144">    ra_allow_slaac: false
+</span><span id="1-145">filtering:
+</span><span id="1-146">  blocking_ipv4: &quot;&quot;
+</span><span id="1-147">  blocking_ipv6: &quot;&quot;
+</span><span id="1-148">  blocked_services:
+</span><span id="1-149">    schedule:
+</span><span id="1-150">      time_zone: Asia/Shanghai
+</span><span id="1-151">    ids: []
+</span><span id="1-152">  protection_disabled_until: null
+</span><span id="1-153">  safe_search:
+</span><span id="1-154">    enabled: false
+</span><span id="1-155">    bing: true
+</span><span id="1-156">    duckduckgo: true
+</span><span id="1-157">    google: true
+</span><span id="1-158">    pixabay: true
+</span><span id="1-159">    yandex: true
+</span><span id="1-160">    youtube: true
+</span><span id="1-161">  blocking_mode: default
+</span><span id="1-162">  parental_block_host: family-block.dns.adguard.com
+</span><span id="1-163">  safebrowsing_block_host: standard-block.dns.adguard.com
+</span><span id="1-164">  rewrites: []
+</span><span id="1-165">  safebrowsing_cache_size: 1048576
+</span><span id="1-166">  safesearch_cache_size: 1048576
+</span><span id="1-167">  parental_cache_size: 1048576
+</span><span id="1-168">  cache_time: 30
+</span><span id="1-169">  filters_update_interval: 24
+</span><span id="1-170">  blocked_response_ttl: 10
+</span><span id="1-171">  filtering_enabled: true
+</span><span id="1-172">  parental_enabled: false
+</span><span id="1-173">  safebrowsing_enabled: false
+</span><span id="1-174">  protection_enabled: true
+</span><span id="1-175">clients:
+</span><span id="1-176">  runtime_sources:
+</span><span id="1-177">    whois: true
+</span><span id="1-178">    arp: true
+</span><span id="1-179">    rdns: true
+</span><span id="1-180">    dhcp: true
+</span><span id="1-181">    hosts: true
+</span><span id="1-182">  persistent: []
+</span><span id="1-183">log:
+</span><span id="1-184">  file: &quot;&quot;
+</span><span id="1-185">  max_backups: 0
+</span><span id="1-186">  max_size: 100
+</span><span id="1-187">  max_age: 3
+</span><span id="1-188">  compress: false
+</span><span id="1-189">  local_time: false
+</span><span id="1-190">  verbose: false
+</span><span id="1-191">os:
+</span><span id="1-192">  group: &quot;&quot;
+</span><span id="1-193">  user: &quot;&quot;
+</span><span id="1-194">  rlimit_nofile: 0
+</span><span id="1-195">schema_version: 27
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="aria-filebrowser">
+<h3>Aria filebrowser<a class="headerlink" href="#aria-filebrowser" title="Link to this heading">¶</a></h3>
+<p>这个是设置的aria-pro和filebrowser</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">docker-compose.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">version: &quot;3.8&quot;
+</span><span id="1-2">
+</span><span id="1-3">services:
+</span><span id="1-4">  filebrowser:
+</span><span id="1-5">    image: hurlenko/filebrowser
+</span><span id="1-6">    user: &quot;${UID}:${GID}&quot;
+</span><span id="1-7">    ports:
+</span><span id="1-8">      - 44443:8080
+</span><span id="1-9">    volumes:
+</span><span id="1-10">      - ${PWD}/filebrowser_config:/config
+</span><span id="1-11">      - ${PWD}/aria2-downloads:/data
+</span><span id="1-12">      - /root/ssl:/ssl
+</span><span id="1-13">    environment:
+</span><span id="1-14">      - FB_BASEURL=/filebrowser
+</span><span id="1-15">    restart: always
+</span><span id="1-16">
+</span><span id="1-17">  Aria2-Pro:
+</span><span id="1-18">    container_name: aria2-pro
+</span><span id="1-19">    image: p3terx/aria2-pro
+</span><span id="1-20">    environment:
+</span><span id="1-21">      - PUID=65534
+</span><span id="1-22">      - PGID=65534
+</span><span id="1-23">      - UMASK_SET=022
+</span><span id="1-24">      - RPC_PORT=6800
+</span><span id="1-25">      - LISTEN_PORT=6888
+</span><span id="1-26">      - DISK_CACHE=64M
+</span><span id="1-27">      - IPV6_MODE=true
+</span><span id="1-28">      - UPDATE_TRACKERS=true
+</span><span id="1-29">      - CUSTOM_TRACKER_URL=
+</span><span id="1-30">      - TZ=Asia/Shanghai
+</span><span id="1-31">      - RPC_SECRET=bytedance
+</span><span id="1-32">      - RPC_SECURE=true
+</span><span id="1-33">      - RPC_CERTIFICATE=/ssl/us-45.xxx.xxx/us-45.xxx.xxx.cer
+</span><span id="1-34">      - RPC_PRIVATE_KEY=/ssl/us-45.xxx.xxx/us-45.xxx.xxx.key
+</span><span id="1-35">    volumes:
+</span><span id="1-36">      - ${PWD}/aria2-config:/config
+</span><span id="1-37">      - ${PWD}/aria2-downloads:/downloads
+</span><span id="1-38">      - /root/ssl:/ssl
+</span><span id="1-39"># If you use host network mode, then no port mapping is required.
+</span><span id="1-40"># This is the easiest way to use IPv6 networks.
+</span><span id="1-41">    network_mode: host
+</span><span id="1-42">#    network_mode: bridge
+</span><span id="1-43">#    ports:
+</span><span id="1-44">#      - 6800:6800
+</span><span id="1-45">#      - 6888:6888
+</span><span id="1-46">#      - 6888:6888/udp
+</span><span id="1-47">    restart: unless-stopped
+</span><span id="1-48"># Since Aria2 will continue to generate logs, limit the log size to 1M to prevent your hard disk from running out of space.
+</span><span id="1-49">    logging:
+</span><span id="1-50">      driver: json-file
+</span><span id="1-51">      options:
+</span><span id="1-52">        max-size: 1m
+</span><span id="1-53">
+</span><span id="1-54"># AriaNg is just a static web page, usually you only need to deploy on a single host.
+</span><span id="1-55">  AriaNg:
+</span><span id="1-56">    container_name: ariang
+</span><span id="1-57">    image: p3terx/ariang
+</span><span id="1-58">    command: --port 6880 --ipv6
+</span><span id="1-59">    network_mode: host
+</span><span id="1-60">#    network_mode: bridge
+</span><span id="1-61">#    ports:
+</span><span id="1-62">#      - 6880:6880
+</span><span id="1-63">    restart: unless-stopped
+</span><span id="1-64">    logging:
+</span><span id="1-65">      driver: json-file
+</span><span id="1-66">      options:
+</span><span id="1-67">        max-size: 1m
+</span></pre></div>
+</div>
+</div>
+</details></section>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="tmux.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Tmux Configuration</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="snippets.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Snippets System</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub"><i class="i-icon github"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="../_static/documentation_options.js?v=5b8091a7"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hotchilipowder/my_config");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+      <script src="../_static/design-tabs.js?v=36754332"></script>
+      <script src="../_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

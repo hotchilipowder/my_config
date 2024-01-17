@@ -1,0 +1,489 @@
+
+  <!DOCTYPE html>
+<html lang="zh" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>HomeLab Configurations - My Dev Config</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Tikz Plot" href="tikz.html" /><link rel="prev" title="Cookiecutter" href="cookiecutter.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=5d7d6ab7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="HomeLab Configurations"/>
+<meta name="twitter:card" content="summary"/></head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="/my_config">
+      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" />
+      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" />
+      <strong>My Dev Config</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_action.html">Github Action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HomeLab Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#configurations-for-u200">Configurations For u200</a><ul>
+<li><a class="reference internal" href="#install-basic-developments">Install Basic Developments</a><ul>
+<li><a class="reference internal" href="#docker-compose">docker-compose</a></li>
+<li><a class="reference internal" href="#htop">htop</a></li>
+<li><a class="reference internal" href="#python3-12">Python3.12</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docker">Docker</a><ul>
+<li><a class="reference internal" href="#install-docker">Install Docker</a></li>
+<li><a class="reference internal" href="#frp-dockers">Frp dockers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pve">PVE</a><ul>
+<li><a class="reference internal" href="#pve-ipv6-issues">PVE IPv6 Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#research-server">Research Server</a><ul>
+<li><a class="reference internal" href="#id2">&#32593;&#32476;&#25509;&#20837;</a></li>
+<li><a class="reference internal" href="#pytorch">Pytorch&#23433;&#35013;</a></li>
+<li><a class="reference internal" href="#nodejs-install">Nodejs Install</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>hotchilipowder/my_config</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/homelab.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ul class="flex-1">
+      
+      
+      <li><a href="../index.html">My Dev Config</a><span>/</span></li>
+      
+      <li><strong>HomeLab Configurations</strong></li>
+      
+      
+    </ul>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="homelab-configurations">
+<h1>HomeLab Configurations<a class="headerlink" href="#homelab-configurations" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="#homelab" id="id1"><span>[HomeLab]</span></a> 是一个比较好的环境，可以跑一些docker和linux，服务于自己。我主要是采用pve进行虚拟化。
+其中软件上有不少的坑，都记录在这里，方便查阅。</p>
+</section>
+<section id="configurations-for-u200">
+<h2>Configurations For u200<a class="headerlink" href="#configurations-for-u200" title="Link to this heading">¶</a></h2>
+<section id="install-basic-developments">
+<h3>Install Basic Developments<a class="headerlink" href="#install-basic-developments" title="Link to this heading">¶</a></h3>
+<section id="docker-compose">
+<h4>docker-compose<a class="headerlink" href="#docker-compose" title="Link to this heading">¶</a></h4>
+<p>Just see <a class="reference external" href="https://docs.docker.com/compose/install/standalone/">https://docs.docker.com/compose/install/standalone/</a> and use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-SL<span class="w"> </span>https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64<span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/docker-compose
+</span><span id="1-2">chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
+</span></pre></div>
+</div>
+<p>and just use following links for <code class="code docutils literal notranslate"><span class="pre">/usr/bin/docker-compose</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/bin/docker-compose<span class="w"> </span>/usr/bin/docker-compose
+</span></pre></div>
+</div>
+</section>
+<section id="htop">
+<h4>htop<a class="headerlink" href="#htop" title="Link to this heading">¶</a></h4>
+<p>Download from <a class="reference external" href="https://github.com/htop-dev/htop/releases/download/3.2.2/htop-3.2.2.tar.xz">https://github.com/htop-dev/htop/releases/download/3.2.2/htop-3.2.2.tar.xz</a>
+Then, <code class="code docutils literal notranslate"><span class="pre">./configure;make;make</span> <span class="pre">install</span></code></p>
+</section>
+<section id="python3-12">
+<h4>Python3.12<a class="headerlink" href="#python3-12" title="Link to this heading">¶</a></h4>
+<p>Dependecy:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">apt-get<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>gdb<span class="w"> </span>lcov<span class="w"> </span>pkg-config<span class="w"> </span><span class="se">\</span>
+</span><span id="1-2"><span class="w">  </span>libbz2-dev<span class="w"> </span>libffi-dev<span class="w"> </span>libgdbm-dev<span class="w"> </span>libgdbm-compat-dev<span class="w"> </span>liblzma-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="1-3"><span class="w">  </span>libncurses5-dev<span class="w"> </span>libreadline6-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>libssl-dev<span class="w"> </span><span class="se">\</span>
+</span><span id="1-4"><span class="w">  </span>lzma<span class="w"> </span>lzma-dev<span class="w"> </span>tk-dev<span class="w"> </span>uuid-dev<span class="w"> </span>zlib1g-dev
+</span></pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-OL<span class="w"> </span>https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tar.xz
+</span><span id="1-2">tar<span class="w"> </span>-xvf<span class="w"> </span>Python-3.12.0
+</span><span id="1-3">
+</span><span id="1-4">./configure<span class="w"> </span>--enable-optimizations<span class="w"> </span>--with-lto
+</span><span id="1-5">make
+</span><span id="1-6">make<span class="w"> </span>install
+</span></pre></div>
+</div>
+<p>References:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://devguide.python.org/getting-started/setup-building/#linux">https://devguide.python.org/getting-started/setup-building/#linux</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/downloads/release/python-3120/">https://www.python.org/downloads/release/python-3120/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading">¶</a></h2>
+<section id="install-docker">
+<h3>Install Docker<a class="headerlink" href="#install-docker" title="Link to this heading">¶</a></h3>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux (Using getdocker)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Linux (Using apt)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>docker
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
+</span><span id="1-2">sh<span class="w"> </span>get-docker.sh
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>See  <a class="reference external" href="https://docs.docker.com/engine/install/">Linux Install</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>docker<span class="w"> </span>docker-engine<span class="w"> </span>docker.io<span class="w"> </span>containerd<span class="w"> </span>runc
+</span><span id="1-2">sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="1-3">sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+</span><span id="1-4"><span class="w">    </span>ca-certificates<span class="w"> </span><span class="se">\</span>
+</span><span id="1-5"><span class="w">    </span>curl<span class="w"> </span><span class="se">\</span>
+</span><span id="1-6"><span class="w">    </span>gnupg
+</span><span id="1-7">sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
+</span><span id="1-8">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/debian/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.gpg
+</span><span id="1-9">sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.gpg
+</span><span id="1-10"><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
+</span><span id="1-11"><span class="w">  </span><span class="s2">&quot;deb [arch=&quot;</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2">&quot; signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \</span>
+</span><span id="1-12"><span class="s2">  &quot;</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VERSION_CODENAME</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot; stable&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="1-13">sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</span><span id="1-14">sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin
+</span></pre></div>
+</div>
+</div></div>
+</section>
+<section id="frp-dockers">
+<h3>Frp dockers<a class="headerlink" href="#frp-dockers" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="pve">
+<h2>PVE<a class="headerlink" href="#pve" title="Link to this heading">¶</a></h2>
+<section id="pve-ipv6-issues">
+<h3>PVE IPv6 Issues<a class="headerlink" href="#pve-ipv6-issues" title="Link to this heading">¶</a></h3>
+<p>这个问题主要是PVE的使用下，IPv6一直无法正常使用。
+首先，我的网路的入口是一个路由器，这个路由器会分发一个ipv6的地址。
+但是在使用了PVE后，无法再分配对应的IPv6到各个虚拟机。
+事实上，我当时无法获取ipv6地址的问题是PVE7.0之后的一个问题。
+See <a class="reference external" href="https://www.haiyun.me/archives/1416.html">Proxmox网桥通过SLAAC配置公网ipv6地址 - 海运的博客</a></p>
+<p>Proxmox安装后默认没有通过SLAAC配置公网ipv6地址，使用debian/ubuntu的方法配置ipv6提示错误不支持的方法auto。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">iface<span class="w"> </span>vmbr0<span class="w"> </span>inet6<span class="w"> </span>auto
+</span></pre></div>
+</div>
+<p>原来Proxmox使用的是ifupdown2，非debian/ubuntu使用ifupdown。
+查看内核也已经开启ipv6自动配置：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">cat<span class="w"> </span>/proc/sys/net/ipv6/conf/vmbr0/accept_ra
+</span><span id="1-2"><span class="m">1</span>
+</span><span id="1-3">cat<span class="w"> </span>/proc/sys/net/ipv6/conf/vmbr0/autoconf
+</span><span id="1-4"><span class="m">1</span>
+</span><span id="1-5">cat<span class="w"> </span>/proc/sys/net/ipv6/conf/vmbr0/forwarding
+</span><span id="1-6"><span class="m">1</span>
+</span></pre></div>
+</div>
+<p>需要将accept_ra值改成2才能自动配置SLAAC ipv6地址：
+在<code class="code docutils literal notranslate"><span class="pre">/etc/sysctl.conf</span></code>文件末添加</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">net.ipv6.conf.all.accept_ra<span class="o">=</span><span class="m">2</span>
+</span><span id="1-2">net.ipv6.conf.default.accept_ra<span class="o">=</span><span class="m">2</span>
+</span><span id="1-3">net.ipv6.conf.vmbr0.accept_ra<span class="o">=</span><span class="m">2</span>
+</span><span id="1-4">net.ipv6.conf.all.autoconf<span class="o">=</span><span class="m">1</span>
+</span><span id="1-5">net.ipv6.conf.default.autoconf<span class="o">=</span><span class="m">1</span>
+</span><span id="1-6">net.ipv6.conf.vmbr0.autoconf<span class="o">=</span><span class="m">1</span>
+</span></pre></div>
+</div>
+<p>然后ipv6的地址就有了。</p>
+<p>这个时候<code class="code docutils literal notranslate"><span class="pre">/etc/network/interface</span></code>的配置为:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nb">source</span><span class="w"> </span>/etc/network/interfaces.d/*
+</span><span id="1-2">auto<span class="w"> </span>lo
+</span><span id="1-3">iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
+</span><span id="1-4">
+</span><span id="1-5">iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>manual
+</span><span id="1-6">
+</span><span id="1-7">auto<span class="w"> </span>vmbr0
+</span><span id="1-8">iface<span class="w"> </span>vmbr0<span class="w"> </span>inet<span class="w"> </span>static
+</span><span id="1-9"><span class="w">   </span>address<span class="w"> </span><span class="m">192</span>.168.123.86/24
+</span><span id="1-10"><span class="w">   </span>gateway<span class="w"> </span><span class="m">192</span>.168.123.1
+</span><span id="1-11"><span class="w">   </span>bridge-ports<span class="w"> </span>enp1s0
+</span><span id="1-12"><span class="w">   </span>bridge-stp<span class="w"> </span>off
+</span><span id="1-13"><span class="w">   </span>bridge-fd<span class="w"> </span><span class="m">0</span>
+</span><span id="1-14">iface<span class="w"> </span>vmbr0<span class="w"> </span>inet6<span class="w"> </span>auto
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="research-server">
+<h2>Research Server<a class="headerlink" href="#research-server" title="Link to this heading">¶</a></h2>
+<section id="id2">
+<h3>网络接入<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>通常而言，内部服务器都是不连入互联网的，为了保证其内网的安全。
+因此我们通常通过代理的方式连出，假设我们的代理为 <code class="code docutils literal notranslate"><span class="pre">http://192.168.1.1</span></code></p>
+<p>我们可以在 <code class="code docutils literal notranslate"><span class="pre">~/.bashrc</span></code>文件中添加如下配置，联入互联网</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos">1</span><span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">all_proxy</span><span class="o">=</span>http://192.168.1.1:1081
+</span><span id="1-2"><span class="linenos">2</span><span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span>http://192.168.1.1:1081
+</span><span id="1-3"><span class="linenos">3</span><span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span>http://192.168.1.1:1081
+</span><span id="1-4"><span class="linenos">4</span><span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.local/bin:<span class="nv">$PATH</span>
+</span><span id="1-5"><span class="linenos">5</span><span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.local/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+</span><span id="1-6"><span class="linenos">6</span><span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">MANPATH</span><span class="o">=</span><span class="nv">$HOME</span>/.local/share/man:<span class="nv">$MANPATH</span>
+</span></pre></div>
+</div>
+</section>
+<section id="pytorch">
+<h3>Pytorch安装<a class="headerlink" href="#pytorch" title="Link to this heading">¶</a></h3>
+<p>由于pytorch使用较多，下面的示例安装pytorch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">channels:
+</span><span id="1-2"><span class="w">  </span>-<span class="w"> </span>defaults
+</span><span id="1-3">show_channel_urls:<span class="w"> </span><span class="nb">true</span>
+</span><span id="1-4">default_channels:
+</span><span id="1-5"><span class="w">  </span>-<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+</span><span id="1-6"><span class="w">  </span>-<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+</span><span id="1-7"><span class="w">  </span>-<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+</span><span id="1-8">custom_channels:
+</span><span id="1-9"><span class="w">  </span>conda-forge:<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span><span id="1-10"><span class="w">  </span>msys2:<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span><span id="1-11"><span class="w">  </span>bioconda:<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span><span id="1-12"><span class="w">  </span>menpo:<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span><span id="1-13"><span class="w">  </span>pytorch:<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span><span id="1-14"><span class="w">  </span>simpleitk:<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span><span id="1-15">proxy_servers:
+</span><span id="1-16"><span class="w">  </span>http:<span class="w"> </span>http://192.168.1.1:1081
+</span><span id="1-17"><span class="w">  </span>https:<span class="w"> </span>http://192.168.1.1:1081
+</span></pre></div>
+</div>
+</section>
+<section id="nodejs-install">
+<h3>Nodejs Install<a class="headerlink" href="#nodejs-install" title="Link to this heading">¶</a></h3>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">download/release</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">编译</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>see <a class="reference external" href="https://nodejs.org/download/release/">https://nodejs.org/download/release/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos">1</span>curl<span class="w"> </span>-OL<span class="w"> </span>https://nodejs.org/download/release/latest-v16.x/node-v16.14.0-linux-x64.tar.gz
+</span><span id="1-2"><span class="linenos">2</span>tar<span class="w"> </span>-xvf<span class="w"> </span>node-*
+</span><span id="1-3"><span class="linenos">3</span>mv<span class="w"> </span>node-*/<span class="w"> </span>~/.local
+</span><span id="1-4"><span class="linenos">4</span>rm<span class="w"> </span>node-*
+</span><span id="1-5"><span class="linenos">5</span>pip3<span class="w"> </span>install<span class="w"> </span>neovim
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>just download from <a class="reference external" href="https://nodejs.org/en/download">https://nodejs.org/en/download</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos">1</span><span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span>~/.local
+</span><span id="1-2"><span class="linenos">2</span><span class="w"> </span>make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+</span></pre></div>
+</div>
+</div></div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="homelab" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HomeLab</a><span class="fn-bracket">]</span></span>
+<p>a laboratory of (usually slightly outdated) awesome in the domicile. See <a class="reference external" href="https://icyleaf.com/2022/02/how-to-homelab-part-0">https://icyleaf.com/2022/02/how-to-homelab-part-0</a></p>
+</div>
+</div>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="cookiecutter.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Cookiecutter</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="tikz.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Tikz Plot</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub"><i class="i-icon github"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="../_static/documentation_options.js?v=5b8091a7"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hotchilipowder/my_config");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+      <script src="../_static/design-tabs.js?v=36754332"></script>
+      <script src="../_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
