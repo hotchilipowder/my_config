@@ -34,6 +34,7 @@ Install
 
       see \ `install neovim <https://github.com/neovim/neovim/wiki/Installing-Neovim>`_
 
+
 Why Neovim instead of Vim
 =========================
 
@@ -53,56 +54,10 @@ Why Neovim instead of Vim
        :language: lua
 
 
-当然，由于老的配置使用 [coc.nvim]_ ,因此也存在一些老的配置，还算好用。另外，这个配置在 \ :literal:`Git`\版本比较低的场景下也比较实用。
-因为 [lazy.nvim]_\需要的版本还比较高。
 
 
-具体如下：
-
-.. dropdown:: ~/.config/nvim/init.vim
-
-    .. literalinclude:: ../../nvim/init.vim
-        :language: bash
-
-另外还有一个\ :literal:`~/.config/nvim/coc-settings.json`\ 文件需要注意:
-
-.. dropdown:: ~/.config/nvim/coc-settings.json
-
-    .. literalinclude:: ../../nvim/coc-settings.json
-        :language: bash
-
-此外，init.nvim用的是 [vim-plug]_ ,需要手动进行安装，参见 \ `Install <https://github.com/junegunn/vim-plug#installation>`_
-
-
-.. tabs::
-
-   .. tab:: Unix, Linux
-
-
-    .. code-block:: bash
-     
-      sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' 
-
-   .. tab:: Linux (Flatpak) 
-
-    .. code-block:: bash
-   
-       curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-   .. tab:: Windows(power shell) 
-
-    .. code-block:: bash
-        
-        iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \|`
-         ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
-
-
-
-
-
-Awesom Neovim Plugins
-=====================
+Awesome Neovim Plugins
+======================
 
 vim-tmux-navigator
 ------------------
@@ -357,10 +312,6 @@ Reference
 .. [lazy.nvim] `lazy.nvim <https://github.com/folke/lazy.nvim>`_
 
 .. [kickstart] `kickstart <https://github.com/nvim-lua/kickstart.nvim>`_
-
-.. [coc.nvim] `coc.vim <https://github.com/neoclide/coc.nvim>`_
-
-.. [vim-plug] `junegunn/vim-plug <https://github.com/junegunn/vim-plug>`_
 
 
 
