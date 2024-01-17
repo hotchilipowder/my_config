@@ -1,5 +1,5 @@
 =============
-Github Action
+Github Issues 
 =============
 
 Introduction
@@ -42,5 +42,36 @@ Permission to x denied to github-actions[bot]
 
 
 .. image:: https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&w=1280&q=100
+
+
+
+My Github Issues
+================
+
+由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 \ :code:`user.username`\ 和 \ :code:`user.email`\ ，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码
+
+
+.. code-block:: bash
+
+   git config --local user.username "hotchilipowder"
+   git config --local user.email "h12345jack@gmail.com"
+   git config --local credential.helper cache
+
+具体这些字段将会被写入到 \ :code:`project_xxx/.git/config`\中，
+
+例如：
+
+.. code-block:: bash
+
+   [user]
+   	username = hotchilipowder
+   	email = h12345jack@gmail.com
+   [credential]
+   	helper = cache
+   
+
+
+
+
 
 
