@@ -1,0 +1,11 @@
+version: "3"
+services:
+  rathole-client:
+     image: my-rathole
+     build:
+       context: .
+     network_mode: host
+     volumes:
+         - ./client.toml:/etc/rathole/client.toml
+     restart: unless-stopped
+     tty: true

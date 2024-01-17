@@ -1,0 +1,134 @@
+
+global !p
+
+from vimsnippets import display_width;
+from vimsnippets import complete
+
+endglobal
+snippet h2 "Description" b
+$1
+######################################
+
+$2
+endsnippet
+
+
+snippet codeblock "Description" b
+.. code-block:: ${1:type}
+  :linenos:
+  ${2:code}
+
+endsnippet
+
+
+snippet list "Description" b
+* ${1:this} 
+
+* ${2:this}
+
+* ${3:this}
+endsnippet
+
+snippet ref: "Description" b
+:ref:\`${1:this}\`
+
+endsnippet
+
+
+snippet xref "Description" b
+:xref:\`$1\`
+endsnippet
+
+
+snippet test "Description" b
+${1:${VISUAL:test}}
+endsnippet
+
+snippet ablog_new "ablog new" b
+`!p snip.rv = display_width(t[1])*'='`
+${1:${VISUAL:Chapter name}}
+`!p snip.rv = display_width(t[1])*'='`
+
+$0
+endsnippet
+
+snippet ablognote_new "ablog new" b
+`!v strftime("%Y-%m-%d")` ${1:${VISUAL:Section name}}
+`!p snip.rv = 11 * '*' + display_width(t[1])*'*'`
+
+$0
+endsnippet
+
+
+snippet  csv-table "Description" b
+.. csv-table:: ${1:${VISUAL:title caption}}
+   :header: "$2", "$3", "$4"
+   :widths: 15, 10, 30
+
+   $5
+
+endsnippet
+
+snippet sphinx_tab "the tabs in sphinx-tabs" b
+
+.. tabs::
+
+   .. tab:: ${1:MacOS}
+
+     MacOS 
+
+   .. tab:: ${2:Linux}
+
+     Linux
+
+   .. tab:: ${3: Windows}
+
+	 Windows
+
+endsnippet
+
+
+snippet sphinx_drop "description" b
+.. dropdown:: Dropdown title
+
+    Dropdown content	
+
+endsnippet
+
+snippet sphinx_link "link in rst" i
+`!p
+snip.rv = "\ "`\`${1} <${2}>\`_`!p
+`$0
+endsnippet
+
+
+snippet sphinx_list_table "description"
+.. list-table:: Title
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Heading row 1, column 1
+     - Heading row 1, column 2
+     - Heading row 1, column 3
+   * - Row 1, column 1
+     - Row 1, column 2
+     - Row 1, column 3
+   * - Row 2, column 1
+     - Row 2, column 2
+     - Row 2, column 3
+endsnippet
+
+
+snippet ablog_new_article "ablog new article"
+.. post:: `!p import datetime; snip.rv=datetime.datetime.now().strftime("%b, %d, %Y")`
+   :tags: ICT, PhD
+   :category: PhD
+   :author: hotchilipowder
+   :location: Beijing
+   :language: zh
+
+============
+`!p import datetime; snip.rv=datetime.datetime.now().strftime("%Y-%m")` 记录
+============
+
+endsnippet

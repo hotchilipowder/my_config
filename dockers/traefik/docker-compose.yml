@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik:v2.10
+    # Enables the web UI and tells Traefik to listen to docker
+    command: 
+      - --api=true
+      - --api.insecure=true
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --providers.file.directory=/confs
+      - --providers.file.watch=true
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
+    ports:
+      # The HTTP port
+      - "80:80"
+      - "443:443"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./configuration:/configuration
+    # labels:
+    #   - traefik.http.routers.traefik-dashboard.entrypoints=http
+    #   - traefik.http.routers.traefik-dashboard.rule=Host(`traefik.lab.io`)
+    #   - traefik.http.routers.traefik-dashboard.service=dashboard@internal"
+    #   - traefik.http.routers.traefik-dashboard-api.entrypoints=http"
+    #   - traefik.http.routers.traefik-dashboard-api.rule=Host(`traefik.console.lab.io`) && PathPrefix(`/api`)"
+    #   - traefik.http.routers.traefik-dashboard-api.service=api@internal"
+    #
+
+
+  whoami:
+    # 展示ip地址的容器
+    image: traefik/whoami
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.whoami.rule=PathPrefix(`/whoami`)
+      - traefik.http.routers.whoami.entrypoints=websecure,web
+      - traefik.http.routers.whoami.tls=true
+

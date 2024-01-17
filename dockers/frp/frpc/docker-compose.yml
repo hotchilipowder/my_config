@@ -1,0 +1,10 @@
+version: "3"
+services:
+  frpc:
+     image: my-frpc
+     build:
+       context: .
+     network_mode: host
+     volumes:
+         - ./frpc.ini:/etc/frp/frpc.ini
+     restart: unless-stopped

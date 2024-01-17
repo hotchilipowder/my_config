@@ -1,0 +1,77 @@
+{
+    "Note begin": {
+        "prefix": "nb",
+        "body": [
+            "\\documentclass[11pt]{ctexart}",
+            "\\usepackage[margin=2cm,a4paper]{geometry}",
+            "\\usepackage{amsfonts,amssymb}",
+            "\\usepackage{float}",
+            "\\usepackage[breaklinks]{hyperref}",
+            "\\usepackage{xcolor}",
+            "\\usepackage{graphicx}",
+            "\\usepackage{fancyvrb}",
+            "\\usepackage{booktabs}",
+            "\\usepackage{tabularx}",
+            "\\usepackage{tabu}",
+            "\\usepackage{amsmath}",
+            "\\usepackage{listings}",
+            "\\usepackage{fontspec}",
+            "\\newfontfamily\\menlo{Menlo}",
+            "\\title{$1}",
+            "\\author{\u9ec4\u4fca\u6770}",
+            "\\begin{document}",
+            "\\maketitle",
+            "",
+            "\\end{document}"
+        ],
+        "description": "begin a new notebook file"
+    },
+    "Code begin": {
+        "prefix": "code",
+        "body": [
+            "\\begin{lstlisting}[language={python}, numbers=left,numberstyle=\\tiny\\menlo,basicstyle=\\small\\menlo]",
+            "$1",
+            "\\end{lstlisting}"
+        ],
+        "description": "begin a code block"
+    },
+    "Equation with align": {
+        "prefix": "equ",
+        "body": [
+            "\\begin{equation}",
+            "    \\begin{aligned}",
+            "$1",
+            "    \\end{aligned}",
+            "\\end{equation}"
+        ],
+        "description": "begin an equation with align"
+    },
+    "beamer_img": {
+        "prefix": "beamer_img",
+        "body": [
+            "\\begin{tikzpicture}[remember picture,overlay,]",
+            "    \\node[anchor=center] (a) at ($(current page.center)+(0, -1cm)$)",
+            "    {",
+            "        \\includegraphics[width=0.8\\linewidth]{./figure/graphsage.png}",
+            "    };",
+            "    \\node[below left=of a.south, xshift=0.5\\linewidth, yshift=1.3cm] {\\tinycite[NIPS2018]{hamilton2017inductive}};",
+            "",
+            "\\end{tikzpicture}"
+        ]
+    },
+    "beamer_only_fig": {
+        "prefix": "beamer_only_fig",
+        "body": [
+            "\\begin{frame}{xxx}",
+            "    \\begin{tikzpicture}[remember picture,overlay]",
+            "    \\node[anchor=center] (a) at ($(current page.center) + (0, 0cm)$)",
+            "    {",
+            "            \\includegraphics[width=\\linewidth]{figure/xxx}",
+            "    };",
+            "    \\node[below left=of a.south, xshift=0.5\\linewidth, yshift=1.3cm] {xxx};",
+            "\\end{tikzpicture}",
+            "",
+            "\\end{frame}"
+        ]
+    }
+}
