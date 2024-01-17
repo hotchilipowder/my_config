@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Github Action - My Dev Config</title>
+      <title>Github Issues - My Dev Config</title>
     <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Cookiecutter" href="cookiecutter.html" /><link rel="prev" title="Awesome Git" href="git.html" />
 
   <script>
@@ -26,7 +26,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Github Action"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Github Issues"/>
 <meta name="twitter:card" content="summary"/></head>
 <body><div class="document"><div class="sy-head">
   <div class="sy-head-blur"></div>
@@ -81,7 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Github Action</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Github Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
@@ -109,6 +109,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#permission-to-x-denied-to-github-actions-bot">Permission to x denied to github-actions[bot]</a></li>
+<li><a class="reference internal" href="#my-github-issues">My Github Issues</a></li>
 </ul>
 
   </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
@@ -148,7 +149,7 @@
       
       <li><a href="../index.html">My Dev Config</a><span>/</span></li>
       
-      <li><strong>Github Action</strong></li>
+      <li><strong>Github Issues</strong></li>
       
       
     </ul>
@@ -163,8 +164,8 @@
     <div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="github-action">
-<h1>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h1>
+          <section id="github-issues">
+<h1>Github Issues<a class="headerlink" href="#github-issues" title="Link to this heading">¶</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>首先，github action 已经成为了软件开发领域不可获取的部分。</p>
@@ -230,6 +231,24 @@
 <h2>Permission to x denied to github-actions[bot]<a class="headerlink" href="#permission-to-x-denied-to-github-actions-bot" title="Link to this heading">¶</a></h2>
 <p>遇到“Permission to &quot;x&quot; denied to github-actions[bot].”问题，按照下面的方法进行处理, see <a class="reference external" href="https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot">this link</a></p>
 <img alt="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" src="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" />
+</section>
+<section id="my-github-issues">
+<h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
+<p>由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 <code class="code docutils literal notranslate"><span class="pre">user.username</span></code>和 <code class="code docutils literal notranslate"><span class="pre">user.email</span></code>，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.username<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
+</span><span id="1-2">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
+</span><span id="1-3">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.helper<span class="w"> </span>cache
+</span></pre></div>
+</div>
+<p>具体这些字段将会被写入到 <code class="code docutils literal notranslate"><span class="pre">project_xxx/.git/config</span></code>中，</p>
+<p>例如：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">[</span>user<span class="o">]</span>
+</span><span id="1-2"><span class="w">     </span><span class="nv">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hotchilipowder
+</span><span id="1-3"><span class="w">     </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>h12345jack@gmail.com
+</span><span id="1-4"><span class="o">[</span>credential<span class="o">]</span>
+</span><span id="1-5"><span class="w">     </span><span class="nv">helper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cache
+</span></pre></div>
+</div>
 </section>
 </section>
 
