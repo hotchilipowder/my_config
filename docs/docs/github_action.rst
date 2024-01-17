@@ -2,7 +2,7 @@
 Github Issues 
 =============
 
-Introduction
+Github Action
 ============
 
 首先，github action 已经成为了软件开发领域不可获取的部分。
@@ -11,9 +11,7 @@ Introduction
 
 首先，需要创建 \ :code:`.github/workflow/xxx.yml`\ 目录文件。
 
-
-Actions I used
-==============
+下面是我在用的一些 |:github:| action
 
 
 My config
@@ -33,10 +31,12 @@ My config
 
 * push html to github page
 
+My Github Issues
+================
 
 
 Permission to x denied to github-actions[bot]
-=============================================
+---------------------------------------------
 
 遇到“Permission to "x" denied to github-actions[bot].”问题，按照下面的方法进行处理, see \ `this link <https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot>`_
 
@@ -45,8 +45,9 @@ Permission to x denied to github-actions[bot]
 
 
 
-My Github Issues
-================
+Github Save username and password
+---------------------------------
+
 
 由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 \ :code:`user.username`\ 和 \ :code:`user.email`\ ，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码
 
@@ -69,9 +70,4 @@ My Github Issues
    [credential]
    	helper = cache
    
-
-
-
-
-
 
