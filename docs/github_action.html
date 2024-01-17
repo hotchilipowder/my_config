@@ -103,13 +103,15 @@
   <div class="localtoc">
     <h3>该页内容</h3>
     <ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#actions-i-used">Actions I used</a><ul>
+<li><a class="reference internal" href="#github-action">Github Action</a><ul>
 <li><a class="reference internal" href="#my-config">My config</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#my-github-issues">My Github Issues</a><ul>
 <li><a class="reference internal" href="#permission-to-x-denied-to-github-actions-bot">Permission to x denied to github-actions[bot]</a></li>
-<li><a class="reference internal" href="#my-github-issues">My Github Issues</a></li>
+<li><a class="reference internal" href="#github-save-username-and-password">Github Save username and password</a></li>
+</ul>
+</li>
 </ul>
 
   </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
@@ -166,14 +168,12 @@
         <article class="yue" role="main">
           <section id="github-issues">
 <h1>Github Issues<a class="headerlink" href="#github-issues" title="Link to this heading">¶</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<section id="github-action">
+<h2>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h2>
 <p>首先，github action 已经成为了软件开发领域不可获取的部分。</p>
 <p>关于 <a class="reference external" href="https://docs.github.com/zh/actions">Github Action</a> 文档学习,</p>
 <p>首先，需要创建 <code class="code docutils literal notranslate"><span class="pre">.github/workflow/xxx.yml</span></code>目录文件。</p>
-</section>
-<section id="actions-i-used">
-<h2>Actions I used<a class="headerlink" href="#actions-i-used" title="Link to this heading">¶</a></h2>
+<p>下面是我在用的一些 <a href="#id2"><span class="problematic" id="id3">|:github:|</span></a> action</p>
 <section id="my-config">
 <h3>My config<a class="headerlink" href="#my-config" title="Link to this heading">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -227,13 +227,15 @@
 </ul>
 </section>
 </section>
+<section id="my-github-issues">
+<h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
 <section id="permission-to-x-denied-to-github-actions-bot">
-<h2>Permission to x denied to github-actions[bot]<a class="headerlink" href="#permission-to-x-denied-to-github-actions-bot" title="Link to this heading">¶</a></h2>
+<h3>Permission to x denied to github-actions[bot]<a class="headerlink" href="#permission-to-x-denied-to-github-actions-bot" title="Link to this heading">¶</a></h3>
 <p>遇到“Permission to &quot;x&quot; denied to github-actions[bot].”问题，按照下面的方法进行处理, see <a class="reference external" href="https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot">this link</a></p>
 <img alt="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" src="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" />
 </section>
-<section id="my-github-issues">
-<h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
+<section id="github-save-username-and-password">
+<h3>Github Save username and password<a class="headerlink" href="#github-save-username-and-password" title="Link to this heading">¶</a></h3>
 <p>由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 <code class="code docutils literal notranslate"><span class="pre">user.username</span></code>和 <code class="code docutils literal notranslate"><span class="pre">user.email</span></code>，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.username<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
 </span><span id="1-2">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
@@ -249,6 +251,7 @@
 </span><span id="1-5"><span class="w">     </span><span class="nv">helper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cache
 </span></pre></div>
 </div>
+</section>
 </section>
 </section>
 
