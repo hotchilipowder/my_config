@@ -105,7 +105,7 @@
     <ul>
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#why-neovim-instead-of-vim">Why Neovim instead of Vim</a></li>
-<li><a class="reference internal" href="#awesom-neovim-plugins">Awesom Neovim Plugins</a><ul>
+<li><a class="reference internal" href="#awesome-neovim-plugins">Awesome Neovim Plugins</a><ul>
 <li><a class="reference internal" href="#vim-tmux-navigator">vim-tmux-navigator</a></li>
 <li><a class="reference internal" href="#bufferline-nvim">bufferline.nvim</a></li>
 <li><a class="reference internal" href="#alpha-nvim">alpha-nvim</a></li>
@@ -863,43 +863,9 @@
 </span></pre></div>
 </div>
 </div>
-</details><p>当然，由于老的配置使用 <a class="reference internal" href="#coc-nvim" id="id4"><span>[coc.nvim]</span></a> ,因此也存在一些老的配置，还算好用。另外，这个配置在 <code class="docutils literal notranslate"><span class="pre">Git</span></code>版本比较低的场景下也比较实用。
-因为 <a class="reference internal" href="#lazy-nvim" id="id5"><span>[lazy.nvim]</span></a>需要的版本还比较高。</p>
-<p>具体如下：</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-~/.config/nvim/init.vim<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-</div>
-</details><p>另外还有一个<code class="docutils literal notranslate"><span class="pre">~/.config/nvim/coc-settings.json</span></code>文件需要注意:</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-~/.config/nvim/coc-settings.json<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-</div>
-</details><p>此外，init.nvim用的是 <a class="reference internal" href="#vim-plug" id="id6"><span>[vim-plug]</span></a> ,需要手动进行安装，参见 <a class="reference external" href="https://github.com/junegunn/vim-plug#installation">Install</a></p>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Unix, Linux</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Linux (Flatpak)</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Windows(power shell)</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;curl -fLo &quot;${XDG_DATA_HOME:-$HOME/.local/share}&quot;/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#39;</span>
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">curl<span class="w"> </span>-fLo<span class="w"> </span>~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim<span class="w"> </span>--create-dirs<span class="w"> </span><span class="se">\</span>
-</span><span id="1-2"><span class="w"> </span>https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">iwr<span class="w"> </span>-useb<span class="w"> </span>https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<span class="w"> </span><span class="se">\|</span><span class="sb">`</span>
-</span><span id="1-2"><span class="w"> </span>ni<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>@<span class="o">(</span><span class="nv">$env</span>:XDG_DATA_HOME,<span class="w"> </span><span class="nv">$env</span>:LOCALAPPDATA<span class="k">)</span><span class="s2">[</span><span class="nv">$null</span><span class="s2"> -eq </span><span class="nv">$env</span><span class="s2">:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim&quot;</span><span class="w"> </span>-Force
-</span></pre></div>
-</div>
-</div></div>
-</section>
-<section id="awesom-neovim-plugins">
-<h2>Awesom Neovim Plugins<a class="headerlink" href="#awesom-neovim-plugins" title="Link to this heading">¶</a></h2>
+</details></section>
+<section id="awesome-neovim-plugins">
+<h2>Awesome Neovim Plugins<a class="headerlink" href="#awesome-neovim-plugins" title="Link to this heading">¶</a></h2>
 <section id="vim-tmux-navigator">
 <h3>vim-tmux-navigator<a class="headerlink" href="#vim-tmux-navigator" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://github.com/christoomey/vim-tmux-navigator">vim-tmux-navigator</a></p>
@@ -1023,9 +989,9 @@
 <h3>Symbols-outline<a class="headerlink" href="#symbols-outline" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://github.com/simrat39/symbols-outline.nvim">Symbols-outline</a></p>
 <p>核心的命令包括:</p>
-<div class="table-wrapper colwidths-given docutils container" id="id17">
-<table class="docutils align-default" id="id17">
-<caption><span class="caption-text">Symbols-outline Commands</span><a class="headerlink" href="#id17" title="Link to this table">¶</a></caption>
+<div class="table-wrapper colwidths-given docutils container" id="id13">
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Symbols-outline Commands</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1123,14 +1089,6 @@
 <div class="citation" id="kickstart" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>kickstart<span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/nvim-lua/kickstart.nvim">kickstart</a></p>
-</div>
-<div class="citation" id="coc-nvim" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">coc.nvim</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/neoclide/coc.nvim">coc.vim</a></p>
-</div>
-<div class="citation" id="vim-plug" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">vim-plug</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/junegunn/vim-plug">junegunn/vim-plug</a></p>
 </div>
 </div>
 <div class="section" /></section>
