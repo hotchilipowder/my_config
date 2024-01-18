@@ -25,7 +25,6 @@ Welcome to My Dev Config's documentation!
    docs/snippets.rst
    docs/sphinx.rst
    docs/git.rst
-   docs/github_action.rst
    docs/cookiecutter.rst
    docs/homelab.rst
    docs/tikz.rst
