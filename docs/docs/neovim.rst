@@ -47,13 +47,16 @@ Why Neovim instead of Vim
 
 具体的配置如下：
 
+.. code-block:: bash
+
+   curl -SL https://raw.githubusercontent.com/hotchilipowder/my_config/main/nvim/init.lua -o ~/.config/nvim/init.lua
+  
+
 
 .. dropdown:: ~/.config/nvim/init.lua
 
     .. literalinclude:: ../../nvim/init.lua
        :language: lua
-
-
 
 
 Awesome Neovim Plugins

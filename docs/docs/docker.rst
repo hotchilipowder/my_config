@@ -16,6 +16,9 @@ Install
      
         curl -fsSL https://get.docker.com -o install-docker.sh
         sh install-docker.sh
+
+        curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+        chmod +x /usr/local/bin/docker-compose
      
 
    .. tab:: MacOS
@@ -25,7 +28,7 @@ Install
 
    .. tab::  Windows
 
-    Windows
+      Windows
 
 
 Install docker-compose
