@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  adguardhome:  # 服务名称
+    container_name: adguardhome  # 容器名称
+    image: adguard/adguardhome:latest
+    restart: always
+    # network_mode: host
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - "./conf:/opt/adguardhome/conf"
+      - "./data:/opt/adguardhome/work/data"
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 84:80/tcp
+      - 3000:3000/tcp
+      - 67:67/udp
+      - 68:68/tcp
+      - 68:68/udp
+      - 444:443/tcp
+      - 853:853/tcp 

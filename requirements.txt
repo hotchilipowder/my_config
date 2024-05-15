@@ -1,0 +1,15 @@
+sphinx
+sphinx-copybutton
+sphinx-tabs
+sphinx_design
+shibuya
+
+sphinxemoji
+sphinx-comments
+
+myst-parser
+sphinxcontrib-mermaid
+
+aiohttp
+
+

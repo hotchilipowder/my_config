@@ -1,0 +1,182 @@
+{
+  "log": {
+    "loglevel": "warning",
+    "dnsLog": false
+  },
+  "dns": {
+     "hosts": {
+      "domain:googleapis.cn": "googleapis.com",
+      "dns.google": "8.8.8.8"
+    },
+    "servers": [
+      "https://dns.google/dns-query",
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "geosite:geolocation-!cn"
+        ],
+        "skipFallback": true,
+        "queryStrategy": "UseIPv4"
+      },
+      {
+        "address": "119.29.29.29",
+        "domains": [
+          "geosite:cn"
+        ],
+        "expectIPs": [
+          "geoip:cn"
+        ]
+      },
+      "192.168.123.1"
+    ],
+    "queryStrategy": "UseIPv4"
+  },
+  "inbounds": [
+    {
+      "tag": "all-in",
+      "port": 12345,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "network": "tcp,udp",
+        "followRedirect": true
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls",  "quic"]
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tproxy": "tproxy"
+        }
+      }
+    },
+    {
+      "tag": "http-in-1086",
+      "protocol": "http",
+      "listen": "0.0.0.0",
+      "port": 1085,
+      "settings": {
+        "network": "tcp,udp"
+      }
+    },
+    {
+      "tag": "http-in-1085",
+      "protocol": "http",
+      "listen": "0.0.0.0",
+      "port": 1085,
+      "settings": {
+        "network": "tcp,udp"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "mark": 255
+        }
+      }
+    },
+    // proxy here
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      }
+    },
+    {
+      "tag": "dns-out",
+      "protocol": "dns",
+      "streamSettings": {
+        "sockopt": {
+          "mark": 255
+        }
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "mph",
+    "rules": [
+      {
+        "type": "field",
+        "domain": ["geosite:category-ads-all"],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["http-in-1085"],
+        "outboundTag": "proxy"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["http-in-1086"],
+        "outboundTag": "proxy-2"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["all-in"],
+        "port": 53,
+        "outboundTag": "dns-out"
+      },
+      {
+	"type": "field",
+	"ip":[
+	  "geoip:private",
+	  "geoip:cn",
+	  "223.5.5.5",
+	  "119.29.29.29",
+	  "114.114.114.114"
+	],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
+	  "plex.direct",
+	  "domain:sciencedirect.com",
+	  "domain:edu.cn",
+	  "domain:acm.org",
+	  "domain:ieee.org",
+	  "geosite:cn",
+	  "geosite:tld-cn",
+          "geosite:icloud",
+          "geosite:category-games@cn"
+	],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "ip": ["8.8.8.8", "1.1.1.1"],
+        "outboundTag": "proxy"
+      },
+      {
+        "type": "field",
+        "domain": [
+	  "domian:chatgpt.com",
+	  "domian:oaistatic.com",
+	  "domian:oaiusercontent.com",
+	  "domian:openai.com",
+	  "full:chat.openai.com.cdn.cloudflare.net",
+	  "full:openaiapi-site.azureedge.net",
+	  "full:openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net",
+	  "full:openaicomproductionae4b.blob.core.windows.net",
+	  "full:production-openaicom-storage.azureedge.net"
+	],
+        "outboundTag": "proxy"
+      },
+      {
+        "type": "field",
+        "domain": ["geosite:geolocation-!cn"],
+        "outboundTag": "proxy"
+      }
+    ]
+  }
+}

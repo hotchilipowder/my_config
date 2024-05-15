@@ -1,0 +1,110 @@
+snippet pybname "input the header" b
+#!/usr/bin/env python3
+#-*- coding: utf-8 -*-
+"""
+@author: ${1:huangjunjie}
+`!p
+import datetime
+import vim
+import os
+date_now = datetime.datetime.now().strftime('%Y/%m/%d')
+filename = os.path.basename(vim.current.buffer.name)
+snip.rv = f'''@file: {filename}
+@time: {date_now}'''
+`
+"""
+
+$0
+endsnippet
+
+
+snippet logger_d "fast logger with f-format"
+logger.debug(f'\{${1:your_information}\}')
+endsnippet
+
+snippet logger_i "fast logger with f-format"
+logger.info(f'\{${1:your_information}\}')
+endsnippet
+
+
+snippet django_model "django model" b
+class ${1:Model}(models.Model):
+	
+	def __str__(self, obj) -> str:
+		return obj.id
+endsnippet
+
+
+snippet ds_django_model "import model to do sth"
+os.environ['DJANGO_SETTINGS_MODULE'] = '${1:modules}.settings'
+os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = 'True'
+import django
+django.setup()
+endsnippet
+    
+
+
+snippet urllib_request "description"
+import urllib.request
+
+url = '${1:VISUAL}'
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
+req = urllib.request.Request(url, headers=headers)
+response = urllib.request.urlopen(req)
+content = response.read()
+
+endsnippet
+	
+
+snippet file_matplotlib_style1 "matplotlib plot style1"
+import matplotlib
+import matplotlib.pyplot as plt
+import scienceplots # see https://github.com/garrettj403/SciencePlots
+plt.style.context('science')
+
+params = {
+    'font.family': "serif",
+    'font.serif': "Times New Roman",
+    'text.usetex': True,
+    'font.size': 16,
+    'image.cmap':'Set3'
+}
+
+matplotlib.rcParams.update(params)
+
+endsnippet
+
+
+
+
+snippet file_logger "Just place this code as logger.py"
+import logging
+# https://docs.python.org/3/howto/logging.html#logging-advanced-tutorial
+
+def get_logger(name, log_fpath=None):
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
+
+    # create console handler and set level to debug
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+
+    fpath = log_fpath if log_fpath else f'./logs/{name}.log'
+    fh = logging.FileHandler(fpath)
+    fh.setLevel(logging.INFO)
+
+    # create formatter
+    formatter = logging.Formatter(
+        '%(asctime)s %(levelname)s [%(filename)s:%(lineno)d] %(message)s')
+
+    # add formatter to ch
+    ch.setFormatter(formatter)
+    fh.setFormatter(formatter)
+
+    # add handler to logger
+    logger.addHandler(ch)
+    logger.addHandler(fh)
+    return logger
+endsnippet
+	
+	

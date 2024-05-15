@@ -1,0 +1,47 @@
+networks:
+  xray_macvlan:
+    name: xray_macvlan
+    driver: macvlan
+    driver_opts:
+      parent: enp1s0
+    ipam:
+      config:
+        - subnet: "192.168.123.0/24" # 改成你的局域网的CIDR地址块
+          gateway: "192.168.123.1"
+  traefik_default:
+    external: true
+
+services:
+  xray:
+    container_name: xray_docker
+    cap_add:
+      - NET_ADMIN
+    image: xray_docker
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: >
+      sh -c "chmod +x /root/xray.sh &&
+            /root/xray.sh &&
+             /root/xray --config /root/config.json"
+    restart: always
+    dns: 192.168.123.1
+    volumes:
+      - ./config.json:/root/config.json # 注意冒号前面改成你的clash配置文件的路径
+      - ./:/root/code
+    tty: true
+    networks: 
+      xray_macvlan:
+        ipv4_address: 192.168.123.45
+
+  xray_exporter:
+    container_name: xray_exporter
+    image: xray_docker
+    # command: "sleep 10000"
+    command: "/root/v2ray-exporter --v2ray-endpoint 'xray:10085'"
+    tty: true
+    ports:
+      - 9550:9550
+    networks: 
+      - xray_macvlan
+      - traefik_default

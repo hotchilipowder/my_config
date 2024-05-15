@@ -1,0 +1,212 @@
+===========
+Awesome Git
+===========
+
+
+
+
+Install
+=======
+
+
+.. tabs::
+
+   .. tab:: MacOS
+
+     MacOS 
+
+   .. tab:: Linux (Apt)
+
+      .. code-block:: bash
+      
+         apt install git-all
+
+   .. tab:: Linux (From source)
+      
+      see \ `this link <https://mirrors.edge.kernel.org/pub/software/scm/git/>`_  for recent release.
+
+      .. code-block:: bash
+      
+         apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
+
+         cd tmp
+         curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.5.tar.gz
+         tar -xvf git-2.38.5.tar.gz
+         ./configure --prefix=$HOME/.local
+         make && make install
+
+Proxy
+=====
+
+Just set following cmdline:
+
+.. code-block:: bash
+
+   git config --global http.proxy http://xxx
+   git config --global https.proxy http://xxx
+
+
+      
+
+
+Common git skill
+================
+
+关于git学习的资料，可以查看 \ `git教程 <https://www.liaoxuefeng.com/wiki/896043488029600>`_\ 
+
+Set git proxy
+-------------
+
+
+.. code-block:: bash
+
+   git config --global http.proxy xxx
+   git config --global https.proxy xxx
+
+
+
+
+Change history user.name and user.email
+--------------------------------------
+
+这个需求我主要是多设备没设置user.name 或者 user.email导致有一些奇怪的用户出现在git history里面了。
+
+.. code-block:: bash
+
+   #!/bin/sh
+   git filter-branch --env-filter '
+   OLD_EMAIL="you@example.com"
+   CORRECT_NAME="hotchilipowder"
+   CORRECT_EMAIL="h12345jack@gmail.com"
+   if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+   then
+       export GIT_COMMITTER_NAME="$CORRECT_NAME"
+       export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+   fi
+   if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+   then
+       export GIT_AUTHOR_NAME="$CORRECT_NAME"
+       export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+   fi
+   ' --tag-name-filter cat -- --branches --tags
+
+当然，为了避免这些，最好还是设置一下 user.name和user.email.
+
+.. code-block:: bash
+
+   git config --local user.name "hotchilipowder"
+   git config --local user.email "h12345jack@gmail.com"
+
+
+
+Delete all history
+------------------
+
+
+这个需求比较常见，因为有些commit history确实不想让人看到，很愚蠢
+
+.. code-block:: bash
+
+   git checkout --orphan latest_branch
+   git add .
+   git commit -m "Update"
+   git branch -D main
+   git branch -m main
+
+
+Lazygit
+=======
+
+`Lazygit <https://github.com/jesseduffield/lazygit>`_ is a simple terminal UI for git commands.
+
+MacOS osxkeychain
+=================
+
+Mac 上清除 git osxkeychain 保存的登录名密码
+
+.. code-block:: bash
+
+   git config --local --unset credential.helper
+   git config --global --unset credential.helper
+   git config --system --unset credential.helper
+
+但是还有进一步删除这个文件下的配置, more detail see \ `this link <https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config>`_
+
+.. code-block:: bash
+
+   git config --show-origin --get credential.helper
+
+
+Github Action
+============
+
+首先，github action 已经成为了软件开发领域不可获取的部分。
+
+关于 \ `Github Action <https://docs.github.com/zh/actions>`_ 文档学习,
+
+首先，需要创建 \ :code:`.github/workflow/xxx.yml`\ 目录文件。
+
+下面是我在用的一些 Github Action
+
+
+My config
+---------
+
+\ `Github Link <https://github.com/hotchilipowder/my_config>`_
+
+.. dropdown:: \ :code:`mkdocs.yml`\
+
+   .. literalinclude:: ../../github_action/my_config/mkdocs.yml
+
+
+
+本项目使用的github，其主要包括以下功能：
+
+* 安装依赖+构建文档 
+
+* Make snippsts to rst
+
+* push html to github page
+  
+
+My Github Issues
+================
+
+
+Permission to x denied to github-actions[bot]
+---------------------------------------------
+
+遇到“Permission to "x" denied to github-actions[bot].”问题，按照下面的方法进行处理, see \ `this link <https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot>`_
+
+
+.. image:: https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&w=1280&q=100
+
+
+
+Github Save username and password
+---------------------------------
+
+
+由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 \ :code:`user.username`\ 和 \ :code:`user.email`\ ，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码
+
+
+.. code-block:: bash
+
+   git config --local user.username "hotchilipowder"
+   git config --local user.email "h12345jack@gmail.com"
+   git config --local credential.helper cache
+
+具体这些字段将会被写入到 \ :code:`project_xxx/.git/config`\中，
+
+例如：
+
+.. code-block:: bash
+
+   [user]
+   	username = hotchilipowder
+   	email = h12345jack@gmail.com
+   [credential]
+   	helper = cache
+   
+
+
