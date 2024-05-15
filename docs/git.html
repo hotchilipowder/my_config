@@ -1,0 +1,469 @@
+
+  <!DOCTYPE html>
+<html lang="zh" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Awesome Git - My Dev Config</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Cookiecutter" href="cookiecutter.html" /><link rel="prev" title="Sphinx Configuration" href="sphinx.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=9379660d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Awesome Git"/>
+<meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="/my_config">
+      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" />
+      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" />
+      <strong>My Dev Config</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+        
+<form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-socials flex items-center">
+    <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+      <i class="i-simpleicons github"></i>
+    </a>
+</div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+data-aria-auto="切换到亮色模式"
+data-aria-light="切换到暗色模式"
+data-aria-dark="切换到自动模式">
+<i class="i-lucide theme-icon"></i>
+</button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Awesome Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#proxy">Proxy</a></li>
+<li><a class="reference internal" href="#common-git-skill">Common git skill</a><ul>
+<li><a class="reference internal" href="#set-git-proxy">Set git proxy</a></li>
+<li><a class="reference internal" href="#change-history-user-name-and-user-email">Change history user.name and user.email</a></li>
+<li><a class="reference internal" href="#delete-all-history">Delete all history</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lazygit">Lazygit</a></li>
+<li><a class="reference internal" href="#macos-osxkeychain">MacOS osxkeychain</a></li>
+<li><a class="reference internal" href="#github-action">Github Action</a><ul>
+<li><a class="reference internal" href="#my-config">My config</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#my-github-issues">My Github Issues</a><ul>
+<li><a class="reference internal" href="#permission-to-x-denied-to-github-actions-bot">Permission to x denied to github-actions[bot]</a></li>
+<li><a class="reference internal" href="#github-save-username-and-password">Github Save username and password</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-simpleicons github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>hotchilipowder/my_config</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-lucide star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-lucide git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/git.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">My Dev Config</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Awesome Git</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="awesome-git">
+<h1>Awesome Git<a class="headerlink" href="#awesome-git" title="Link to this heading">¶</a></h1>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux (Apt)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Linux (From source)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>MacOS</p>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>git-all
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>see <a class="reference external" href="https://mirrors.edge.kernel.org/pub/software/scm/git/">this link</a>  for recent release.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt-get<span class="w"> </span>install<span class="w"> </span>dh-autoreconf<span class="w"> </span>libcurl4-gnutls-dev<span class="w"> </span>libexpat1-dev<span class="w"> </span>gettext<span class="w"> </span>libz-dev<span class="w"> </span>libssl-dev
+</span><span data-line="2">
+</span><span data-line="3"><span class="nb">cd</span><span class="w"> </span>tmp
+</span><span data-line="4">curl<span class="w"> </span>-OL<span class="w"> </span>https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.5.tar.gz
+</span><span data-line="5">tar<span class="w"> </span>-xvf<span class="w"> </span>git-2.38.5.tar.gz
+</span><span data-line="6">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
+</span><span data-line="7">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+</span></pre></div>
+</div>
+</div></div>
+</section>
+<section id="proxy">
+<h2>Proxy<a class="headerlink" href="#proxy" title="Link to this heading">¶</a></h2>
+<p>Just set following cmdline:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>http://xxx
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>http://xxx
+</span></pre></div>
+</div>
+</section>
+<section id="common-git-skill">
+<h2>Common git skill<a class="headerlink" href="#common-git-skill" title="Link to this heading">¶</a></h2>
+<p>关于git学习的资料，可以查看 <a class="reference external" href="https://www.liaoxuefeng.com/wiki/896043488029600">git教程</a></p>
+<section id="set-git-proxy">
+<h3>Set git proxy<a class="headerlink" href="#set-git-proxy" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>xxx
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>xxx
+</span></pre></div>
+</div>
+</section>
+<section id="change-history-user-name-and-user-email">
+<h3>Change history user.name and user.email<a class="headerlink" href="#change-history-user-name-and-user-email" title="Link to this heading">¶</a></h3>
+<p>这个需求我主要是多设备没设置user.name 或者 user.email导致有一些奇怪的用户出现在git history里面了。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="ch">#!/bin/sh</span>
+</span><span data-line="2">git<span class="w"> </span>filter-branch<span class="w"> </span>--env-filter<span class="w"> </span><span class="s1">&#39;</span>
+</span><span data-line="3"><span class="s1">OLD_EMAIL=&quot;you@example.com&quot;</span>
+</span><span data-line="4"><span class="s1">CORRECT_NAME=&quot;hotchilipowder&quot;</span>
+</span><span data-line="5"><span class="s1">CORRECT_EMAIL=&quot;h12345jack@gmail.com&quot;</span>
+</span><span data-line="6"><span class="s1">if [ &quot;$GIT_COMMITTER_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span>
+</span><span data-line="7"><span class="s1">then</span>
+</span><span data-line="8"><span class="s1">    export GIT_COMMITTER_NAME=&quot;$CORRECT_NAME&quot;</span>
+</span><span data-line="9"><span class="s1">    export GIT_COMMITTER_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
+</span><span data-line="10"><span class="s1">fi</span>
+</span><span data-line="11"><span class="s1">if [ &quot;$GIT_AUTHOR_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span>
+</span><span data-line="12"><span class="s1">then</span>
+</span><span data-line="13"><span class="s1">    export GIT_AUTHOR_NAME=&quot;$CORRECT_NAME&quot;</span>
+</span><span data-line="14"><span class="s1">    export GIT_AUTHOR_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
+</span><span data-line="15"><span class="s1">fi</span>
+</span><span data-line="16"><span class="s1">&#39;</span><span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--branches<span class="w"> </span>--tags
+</span></pre></div>
+</div>
+<p>当然，为了避免这些，最好还是设置一下 user.name和user.email.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="delete-all-history">
+<h3>Delete all history<a class="headerlink" href="#delete-all-history" title="Link to this heading">¶</a></h3>
+<p>这个需求比较常见，因为有些commit history确实不想让人看到，很愚蠢</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>checkout<span class="w"> </span>--orphan<span class="w"> </span>latest_branch
+</span><span data-line="2">git<span class="w"> </span>add<span class="w"> </span>.
+</span><span data-line="3">git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update&quot;</span>
+</span><span data-line="4">git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>main
+</span><span data-line="5">git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>main
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="lazygit">
+<h2>Lazygit<a class="headerlink" href="#lazygit" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/jesseduffield/lazygit">Lazygit</a> is a simple terminal UI for git commands.</p>
+</section>
+<section id="macos-osxkeychain">
+<h2>MacOS osxkeychain<a class="headerlink" href="#macos-osxkeychain" title="Link to this heading">¶</a></h2>
+<p>Mac 上清除 git osxkeychain 保存的登录名密码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+<p>但是还有进一步删除这个文件下的配置, more detail see <a class="reference external" href="https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config">this link</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>--get<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+</section>
+<section id="github-action">
+<h2>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h2>
+<p>首先，github action 已经成为了软件开发领域不可获取的部分。</p>
+<p>关于 <a class="reference external" href="https://docs.github.com/zh/actions">Github Action</a> 文档学习,</p>
+<p>首先，需要创建 <code class="code docutils literal notranslate"><span class="pre">.github/workflow/xxx.yml</span></code>目录文件。</p>
+<p>下面是我在用的一些 Github Action</p>
+<section id="my-config">
+<h3>My config<a class="headerlink" href="#my-config" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/hotchilipowder/my_config">Github Link</a></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<code class="code docutils literal notranslate"><span class="pre">mkdocs.yml</span></code><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">name: GitHub Pages
+</span><span data-line="2">
+</span><span data-line="3">on:
+</span><span data-line="4">  push:
+</span><span data-line="5">    branches:
+</span><span data-line="6">      - main  # Set a branch name to trigger deployment
+</span><span data-line="7">jobs:
+</span><span data-line="8">  publish:
+</span><span data-line="9">    name: Deploy Site
+</span><span data-line="10">    runs-on: ubuntu-22.04
+</span><span data-line="11">    environment: github-pages
+</span><span data-line="12">    steps:
+</span><span data-line="13">      - name: Checkout Repo
+</span><span data-line="14">        uses: actions/checkout@v3
+</span><span data-line="15">
+</span><span data-line="16">      - name: Install 
+</span><span data-line="17">        shell: bash
+</span><span data-line="18">        run: |
+</span><span data-line="19">          pip install -r requirements.txt
+</span><span data-line="20">          sphinx-build -b html docs build
+</span><span data-line="21">
+</span><span data-line="22">      - name: Make snippets to rst
+</span><span data-line="23">        shell: bash
+</span><span data-line="24">        working-directory: snippets
+</span><span data-line="25">        run: |
+</span><span data-line="26">          python3 snippets.py
+</span><span data-line="27">
+</span><span data-line="28">      - name: Deploy Website
+</span><span data-line="29">        uses: peaceiris/actions-gh-pages@v3
+</span><span data-line="30">        with:
+</span><span data-line="31">          github_token: ${{ secrets.GITHUB_TOKEN }}
+</span><span data-line="32">          publish_dir: ./build
+</span><span data-line="33">    
+</span></pre></div>
+</div>
+</div>
+</details><p>本项目使用的github，其主要包括以下功能：</p>
+<ul class="simple">
+<li><p>安装依赖+构建文档</p></li>
+<li><p>Make snippsts to rst</p></li>
+<li><p>push html to github page</p></li>
+</ul>
+</section>
+</section>
+<section id="my-github-issues">
+<h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
+<section id="permission-to-x-denied-to-github-actions-bot">
+<h3>Permission to x denied to github-actions[bot]<a class="headerlink" href="#permission-to-x-denied-to-github-actions-bot" title="Link to this heading">¶</a></h3>
+<p>遇到“Permission to &quot;x&quot; denied to github-actions[bot].”问题，按照下面的方法进行处理, see <a class="reference external" href="https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot">this link</a></p>
+<img alt="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" src="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" />
+</section>
+<section id="github-save-username-and-password">
+<h3>Github Save username and password<a class="headerlink" href="#github-save-username-and-password" title="Link to this heading">¶</a></h3>
+<p>由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 <code class="code docutils literal notranslate"><span class="pre">user.name</span></code>和 <code class="code docutils literal notranslate"><span class="pre">user.email</span></code>，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.helper<span class="w"> </span>cache
+</span></pre></div>
+</div>
+<p>具体这些字段将会被写入到 <code class="code docutils literal notranslate"><span class="pre">project_xxx/.git/config</span></code>中，</p>
+<p>例如：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">[</span>user<span class="o">]</span>
+</span><span data-line="2"><span class="w">     </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hotchilipowder
+</span><span data-line="3"><span class="w">     </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>h12345jack@gmail.com
+</span><span data-line="4"><span class="o">[</span>credential<span class="o">]</span>
+</span><span data-line="5"><span class="w">     </span><span class="nv">helper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cache
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+        <button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>回到顶部</span>
+</button>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="sphinx.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Sphinx Configuration</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="cookiecutter.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Cookiecutter</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub"><i class="i-simpleicons github"></i></a>
+</div>
+    </div>
+  </div>
+</footer></div>
+      <script src="../_static/documentation_options.js?v=5b8091a7"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hotchilipowder/my_config");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+      <script src="../_static/design-tabs.js?v=36754332"></script>
+      <script src="../_static/shibuya.js?v=5f0e4c24"></script>
+    
+</body>
+</html>

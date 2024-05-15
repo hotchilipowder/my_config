@@ -1,0 +1,659 @@
+
+  <!DOCTYPE html>
+<html lang="zh" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Sphinx Configuration - My Dev Config</title>
+    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Awesome Git" href="git.html" /><link rel="prev" title="Snippets System" href="snippets.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=9379660d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Sphinx Configuration"/>
+<meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="/my_config">
+      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" />
+      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" />
+      <strong>My Dev Config</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+        
+<form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-socials flex items-center">
+    <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+      <i class="i-simpleicons github"></i>
+    </a>
+</div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+data-aria-auto="切换到亮色模式"
+data-aria-light="切换到暗色模式"
+data-aria-dark="切换到自动模式">
+<i class="i-lucide theme-icon"></i>
+</button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#why-sphinx">Why sphinx</a></li>
+<li><a class="reference internal" href="#install-sphinx">Install &#24120;&#29992;&#30340;sphinx&#25193;&#23637;</a><ul>
+<li><a class="reference internal" href="#myst-parser">MyST-Parser</a></li>
+<li><a class="reference internal" href="#sphinxcontrib-mermaid">sphinxcontrib-mermaid</a></li>
+<li><a class="reference internal" href="#sphinx-design">sphinx_design</a><ul>
+<li><a class="reference internal" href="#tabs-using-sphinx-design">Tabs using sphinx_design</a></li>
+<li><a class="reference internal" href="#tabs-using-sphinx-tabs">Tabs using sphinx_tabs</a></li>
+<li><a class="reference internal" href="#drop-using-sphinx-design">Drop using sphinx_design</a></li>
+<li><a class="reference internal" href="#card-using-sphinx-design">Card using sphinx_design</a></li>
+<li><a class="reference internal" href="#grid-using-sphinx-design">Grid using sphinx design</a></li>
+<li><a class="reference internal" href="#badges-button-icons-using-sphinx-design">Badges, Button, Icons using sphinx_design</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sphinx-copybutton">sphinx_copybutton</a></li>
+<li><a class="reference internal" href="#sphinx-emoji">sphinx_emoji</a></li>
+<li><a class="reference internal" href="#sphinx-comments">sphinx comments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sphinx-with-latex">Sphinx with Latex</a></li>
+<li><a class="reference internal" href="#interesting-links-for-sphinx-extensions">Interesting links for sphinx extensions</a><ul>
+<li><a class="reference internal" href="#groups-for-sphinx">Groups for sphinx</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-simpleicons github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>hotchilipowder/my_config</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-lucide star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-lucide git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/sphinx.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">My Dev Config</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Sphinx Configuration</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="sphinx-configuration">
+<h1>Sphinx Configuration<a class="headerlink" href="#sphinx-configuration" title="Link to this heading">¶</a></h1>
+<section id="why-sphinx">
+<h2>Why sphinx<a class="headerlink" href="#why-sphinx" title="Link to this heading">¶</a></h2>
+<p>之前一直纠结了很久的文档生成器。包括
+核心的文档语言包括</p>
+<ul class="simple">
+<li><p>markdown</p></li>
+<li><p>rst</p></li>
+<li><p>mdx</p></li>
+<li><p>org</p></li>
+<li><p>tex</p></li>
+</ul>
+<p>很显然如果想要简单，选用markdown即可。但是markdown的功能收到限制，因此需要进一步扩展起能力，就得往下。
+而mdx虽然很好，交互丰富，但是想来还是使用python更多，因此，最后还是选择了rst.
+不过还有包括 <a class="reference internal" href="#myst" id="id1"><span>[MyST]</span></a> 这种有趣的md扩展。</p>
+</section>
+<section id="install-sphinx">
+<h2>Install 常用的sphinx扩展<a class="headerlink" href="#install-sphinx" title="Link to this heading">¶</a></h2>
+<p>常用的设置</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">pip<span class="w"> </span>install<span class="w"> </span>myst-parser<span class="w"> </span><span class="se">\</span>
+</span><span data-line="2"><span class="w">            </span>sphinxcontrib-mermaid<span class="w"> </span><span class="se">\</span>
+</span><span data-line="3"><span class="w">            </span>sphinx_design<span class="w"> </span><span class="se">\</span>
+</span><span data-line="4"><span class="w">            </span>sphinx-copybutton<span class="w"> </span><span class="se">\</span>
+</span><span data-line="5"><span class="w">            </span>sphinxcontrib-bibtex<span class="se">\</span>
+</span><span data-line="6"><span class="w">            </span>sphinx-comments<span class="w"> </span><span class="se">\</span>
+</span><span data-line="7"><span class="w">            </span>sphinxemoji
+</span></pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">extensions</span><span class="o">=</span><span class="p">[</span>
+</span><span data-line="2">    <span class="s2">&quot;myst_parser&quot;</span><span class="p">,</span>
+</span><span data-line="3">    <span class="s2">&quot;sphinx_design&quot;</span><span class="p">,</span>
+</span><span data-line="4">    <span class="s2">&quot;sphinx_copybutton&quot;</span><span class="p">,</span>
+</span><span data-line="5">    <span class="s2">&quot;sphinxcontrib.bibtex&quot;</span><span class="p">,</span>
+</span><span data-line="6">    <span class="s2">&quot;sphinx_comments&quot;</span><span class="p">,</span>
+</span><span data-line="7">    <span class="s2">&quot;sphinxcontrib.mermaid&quot;</span><span class="p">,</span>
+</span><span data-line="8">    <span class="s2">&quot;sphinxemoji.sphinxemoji&quot;</span><span class="p">,</span>
+</span><span data-line="9"><span class="p">]</span>
+</span><span data-line="10">
+</span><span data-line="11"><span class="n">html_css_files</span> <span class="o">=</span> <span class="p">[</span>
+</span><span data-line="12"> <span class="s2">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css&quot;</span>
+</span><span data-line="13"><span class="p">]</span>
+</span><span data-line="14">
+</span><span data-line="15"><span class="n">bibtex_bibfiles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;refs.bib&#39;</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<section id="myst-parser">
+<h3>MyST-Parser<a class="headerlink" href="#myst-parser" title="Link to this heading">¶</a></h3>
+<p>为了支持直接写markdown, 可以引入这个包.</p>
+<p>更多的信息查看这个文档. <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">myst-parser</a></p>
+</section>
+<section id="sphinxcontrib-mermaid">
+<h3>sphinxcontrib-mermaid<a class="headerlink" href="#sphinxcontrib-mermaid" title="Link to this heading">¶</a></h3>
+<p>由于在 <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">MyST-Parser</a> 介绍了关于这个 <a class="reference external" href="https://mermaid.js.org/">mermaid</a>, 感觉非常好用。</p>
+<p>更多的文档，请查看 <a class="reference external" href="https://mermaid.js.org/intro/">https://mermaid.js.org/intro/</a></p>
+<p>例如，生成一个简单的pie图</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span data-line="1">.. mermaid::
+</span><span data-line="2">
+</span><span data-line="3">   pie title Pets adopted by volunteers
+</span><span data-line="4">     &quot;Dogs&quot; : 386
+</span><span data-line="5">     &quot;Cats&quot; : 85
+</span><span data-line="6">     &quot;Rats&quot; : 15
+</span></pre></div>
+</div>
+<div class="mermaid">
+            pie title Pets adopted by volunteers
+  &quot;Dogs&quot; : 386
+  &quot;Cats&quot; : 85
+  &quot;Rats&quot; : 15
+        </div><p>而且这个sphinx的扩展包也支持主题配置，有点6的，具体使用就是在原始的文档中的代码前面加上 <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">mermaid::</span></code>的directive就可以了</p>
+<p>例如,代码如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">%%<span class="o">{</span>
+</span><span data-line="2"><span class="w">  </span>init:<span class="w"> </span><span class="o">{</span>
+</span><span data-line="3"><span class="w">    </span><span class="s1">&#39;theme&#39;</span>:<span class="w"> </span><span class="s1">&#39;base&#39;</span>,
+</span><span data-line="4"><span class="w">    </span><span class="s1">&#39;themeVariables&#39;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span data-line="5"><span class="w">      </span><span class="s1">&#39;primaryColor&#39;</span>:<span class="w"> </span><span class="s1">&#39;#BB2528&#39;</span>,
+</span><span data-line="6"><span class="w">      </span><span class="s1">&#39;primaryTextColor&#39;</span>:<span class="w"> </span><span class="s1">&#39;#fff&#39;</span>,
+</span><span data-line="7"><span class="w">      </span><span class="s1">&#39;primaryBorderColor&#39;</span>:<span class="w"> </span><span class="s1">&#39;#7C0000&#39;</span>,
+</span><span data-line="8"><span class="w">      </span><span class="s1">&#39;lineColor&#39;</span>:<span class="w"> </span><span class="s1">&#39;#F8B229&#39;</span>,
+</span><span data-line="9"><span class="w">      </span><span class="s1">&#39;secondaryColor&#39;</span>:<span class="w"> </span><span class="s1">&#39;#006100&#39;</span>,
+</span><span data-line="10"><span class="w">      </span><span class="s1">&#39;tertiaryColor&#39;</span>:<span class="w"> </span><span class="s1">&#39;#fff&#39;</span>
+</span><span data-line="11"><span class="w">    </span><span class="o">}</span>
+</span><span data-line="12"><span class="w">  </span><span class="o">}</span>
+</span><span data-line="13"><span class="o">}</span>%%
+</span><span data-line="14"><span class="w">        </span>graph<span class="w"> </span>TD
+</span><span data-line="15"><span class="w">          </span>A<span class="o">[</span>Christmas<span class="o">]</span><span class="w"> </span>--&gt;<span class="p">|</span>Get<span class="w"> </span>money<span class="p">|</span><span class="w"> </span>B<span class="o">(</span>Go<span class="w"> </span>shopping<span class="o">)</span>
+</span><span data-line="16"><span class="w">          </span>B<span class="w"> </span>--&gt;<span class="w"> </span>C<span class="o">{</span>Let<span class="w"> </span>me<span class="w"> </span>think<span class="o">}</span>
+</span><span data-line="17"><span class="w">          </span>B<span class="w"> </span>--&gt;<span class="w"> </span>G<span class="o">[</span>/Another/<span class="o">]</span>
+</span><span data-line="18"><span class="w">          </span><span class="nv">C</span><span class="w"> </span><span class="o">==</span>&gt;<span class="p">|</span>One<span class="p">|</span><span class="w"> </span>D<span class="o">[</span>Laptop<span class="o">]</span>
+</span><span data-line="19"><span class="w">          </span>C<span class="w"> </span>--&gt;<span class="p">|</span>Two<span class="p">|</span><span class="w"> </span>E<span class="o">[</span>iPhone<span class="o">]</span>
+</span><span data-line="20"><span class="w">          </span>C<span class="w"> </span>--&gt;<span class="p">|</span>Three<span class="p">|</span><span class="w"> </span>F<span class="o">[</span>fa:fa-car<span class="w"> </span>Car<span class="o">]</span>
+</span><span data-line="21"><span class="w">          </span>subgraph<span class="w"> </span>section
+</span><span data-line="22"><span class="w">            </span>C
+</span><span data-line="23"><span class="w">            </span>D
+</span><span data-line="24"><span class="w">            </span>E
+</span><span data-line="25"><span class="w">            </span>F
+</span><span data-line="26"><span class="w">            </span>G
+</span><span data-line="27"><span class="w">          </span>end
+</span></pre></div>
+</div>
+<div class="mermaid">
+            %%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#BB2528',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#7C0000',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#006100',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+        graph TD
+          A[Christmas] --&gt;|Get money| B(Go shopping)
+          B --&gt; C{Let me think}
+          B --&gt; G[/Another/]
+          C ==&gt;|One| D[Laptop]
+          C --&gt;|Two| E[iPhone]
+          C --&gt;|Three| F[fa:fa-car Car]
+          subgraph section
+            C
+            D
+            E
+            F
+            G
+          end
+        </div></section>
+<section id="sphinx-design">
+<h3>sphinx_design<a class="headerlink" href="#sphinx-design" title="Link to this heading">¶</a></h3>
+<p>sphinx_design 包括grid，card, dropdown, tab, badegs。</p>
+<section id="tabs-using-sphinx-design">
+<h4>Tabs using sphinx_design<a class="headerlink" href="#tabs-using-sphinx-design" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://sphinx-design.readthedocs.io/en/latest/tabs.html">Sphinx Design Tabs</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">..<span class="w"> </span>tab-set::
+</span><span data-line="2">
+</span><span data-line="3"><span class="w">    </span>..<span class="w"> </span>tab-item::<span class="w"> </span>MacOS
+</span><span data-line="4"><span class="w">        </span>:sync:<span class="w"> </span>key1
+</span><span data-line="5">
+</span><span data-line="6"><span class="w">        </span>MacOS
+</span><span data-line="7">
+</span><span data-line="8"><span class="w">    </span>..<span class="w"> </span>tab-item::<span class="w"> </span>linux
+</span><span data-line="9"><span class="w">        </span>:sync:<span class="w"> </span>key2
+</span><span data-line="10">
+</span><span data-line="11"><span class="w">        </span>linux
+</span><span data-line="12">
+</span><span data-line="13"><span class="w">    </span>..<span class="w"> </span>tab-item::<span class="w"> </span>windows
+</span><span data-line="14"><span class="w">        </span>:sync:<span class="w"> </span>key3
+</span><span data-line="15">
+</span><span data-line="16"><span class="w">        </span>windows
+</span></pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key1" for="sd-tab-item-0">
+Macos</label><div class="sd-tab-content docutils">
+<p>macos</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key2" for="sd-tab-item-1">
+linux</label><div class="sd-tab-content docutils">
+<p>linux</p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key3" for="sd-tab-item-2">
+windows</label><div class="sd-tab-content docutils">
+<p>windows</p>
+</div>
+</div>
+</section>
+<section id="tabs-using-sphinx-tabs">
+<h4>Tabs using sphinx_tabs<a class="headerlink" href="#tabs-using-sphinx-tabs" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://sphinx-tabs.readthedocs.io/en/latest/#basic-tabs">Sphinx Tab 文档</a></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>MacOS</p>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Linux</p>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>Windows</p>
+</div></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">..<span class="w"> </span>tabs::
+</span><span data-line="2">
+</span><span data-line="3"><span class="w">   </span>..<span class="w"> </span>tab::<span class="w"> </span>MacOS
+</span><span data-line="4">
+</span><span data-line="5"><span class="w">     </span>MacOS
+</span><span data-line="6">
+</span><span data-line="7"><span class="w">   </span>..<span class="w"> </span>tab::<span class="w"> </span>Linux
+</span><span data-line="8">
+</span><span data-line="9"><span class="w">     </span>Linux
+</span><span data-line="10">
+</span><span data-line="11"><span class="w">   </span>..<span class="w"> </span>tab::<span class="w">  </span>Windows
+</span><span data-line="12">
+</span><span data-line="13"><span class="w">        </span>Windows
+</span></pre></div>
+</div>
+</section>
+<section id="drop-using-sphinx-design">
+<h4>Drop using sphinx_design<a class="headerlink" href="#drop-using-sphinx-design" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://sphinx-design.readthedocs.io/en/latest/dropdowns.html">Sphinx Design Drop</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">..<span class="w"> </span>dropdown::<span class="w"> </span>Dropdown<span class="w"> </span>title
+</span><span data-line="2">
+</span><span data-line="3"><span class="w">    </span>Dropdown<span class="w"> </span>content
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Dropdown title<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Dropdown content</p>
+</div>
+</details></section>
+<section id="card-using-sphinx-design">
+<h4>Card using sphinx_design<a class="headerlink" href="#card-using-sphinx-design" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://sphinx-design.readthedocs.io/en/latest/cards.html">Sphinx Design Card</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">..<span class="w"> </span>card::<span class="w"> </span>Card<span class="w"> </span>Title
+</span><span data-line="2">
+</span><span data-line="3"><span class="w">    </span>Header
+</span><span data-line="4"><span class="w">    </span>^^^
+</span><span data-line="5"><span class="w">    </span>Card<span class="w"> </span>content
+</span><span data-line="6"><span class="w">    </span>+++
+</span><span data-line="7"><span class="w">    </span>Footer
+</span></pre></div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Header</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Card Title</div>
+<p class="sd-card-text">Card content</p>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Footer</p>
+</div>
+</div>
+</section>
+<section id="grid-using-sphinx-design">
+<h4>Grid using sphinx design<a class="headerlink" href="#grid-using-sphinx-design" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://sphinx-design.readthedocs.io/en/latest/grids.html">Sphinx Design Grid</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">..<span class="w"> </span>grid::<span class="w"> </span><span class="m">2</span>
+</span><span data-line="2"><span class="w">    </span>:gutter:<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="w">    </span>..<span class="w"> </span>grid-item-card::
+</span><span data-line="5">
+</span><span data-line="6"><span class="w">        </span>A
+</span><span data-line="7">
+</span><span data-line="8"><span class="w">    </span>..<span class="w"> </span>grid-item-card::
+</span><span data-line="9">
+</span><span data-line="10"><span class="w">        </span>B
+</span></pre></div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">A</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">B</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="badges-button-icons-using-sphinx-design">
+<h4>Badges, Button, Icons using sphinx_design<a class="headerlink" href="#badges-button-icons-using-sphinx-design" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://sphinx-design.readthedocs.io/en/latest/badges_buttons.html">Sphinx Design BBI</a></p>
+<p>Inline icon roles are available for the <a class="reference external" href="https://primer.style/octicons/">GitHub octicon</a>, <a class="reference external" href="https://fonts.google.com/icons">Google Material Design Icons</a>, or <a class="reference external" href="https://fontawesome.com/icons?d=gallery&amp;m=free">FontAwesome</a> libraries.</p>
+<ul class="simple">
+<li><p>octicon: <svg version="1.1" width="2.812em" height="1.0em" class="sd-octicon sd-octicon-logo-github sd-text-info" viewBox="0 0 45 16" aria-hidden="true"><path fill-rule="evenodd" d="M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 00-.146-.18zM42.23 9.84c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61h-2.1c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"></path></svg> <code class="code docutils literal notranslate"><span class="pre">:octicon:`logo-github;1em;sd-text-info`</span></code></p></li>
+<li><p>Google Material Design: <svg version="4.0.0.63c5cb3" width="1.0em" height="1.0em" class="sd-material-icon sd-material-icon-g_translate" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M20 5h-9.12L10 2H4c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h7l1 3h8c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zM7.17 14.59c-2.25 0-4.09-1.83-4.09-4.09s1.83-4.09 4.09-4.09c1.04 0 1.99.37 2.74 1.07l.07.06-1.23 1.18-.06-.05c-.29-.27-.78-.59-1.52-.59-1.31 0-2.38 1.09-2.38 2.42s1.07 2.42 2.38 2.42c1.37 0 1.96-.87 2.12-1.46H7.08V9.91h3.95l.01.07c.04.21.05.4.05.61 0 2.35-1.61 4-3.92 4zm6.03-1.71c.33.6.74 1.18 1.19 1.7l-.54.53-.65-2.23zm.77-.76h-.99l-.31-1.04h3.99s-.34 1.31-1.56 2.74c-.52-.62-.89-1.23-1.13-1.7zM21 20c0 .55-.45 1-1 1h-7l2-2-.81-2.77.92-.92L17.79 18l.73-.73-2.71-2.68c.9-1.03 1.6-2.25 1.92-3.51H19v-1.04h-3.64V9h-1.04v1.04h-1.96L11.18 6H20c.55 0 1 .45 1 1v13z"></path></svg> <code class="code docutils literal notranslate"><span class="pre">:material-outlined:`g_translate`</span></code></p></li>
+<li><p>FontAwesome: <span class="fab fa-fa-brands fa-github-alt"></span> <code class="code docutils literal notranslate"><span class="pre">:fab:`fa-brands</span> <span class="pre">fa-github-alt`</span></code></p></li>
+</ul>
+<p><span class="sd-sphinx-override sd-badge">plain badge</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">primary</span>, <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">primary-line</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">secondary</span>, <span class="sd-sphinx-override sd-badge sd-outline-secondary sd-text-secondary">secondary-line</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">success</span>, <span class="sd-sphinx-override sd-badge sd-outline-success sd-text-success">success-line</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">info</span>, <span class="sd-sphinx-override sd-badge sd-outline-info sd-text-info">info-line</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-warning sd-bg-text-warning">warning</span>, <span class="sd-sphinx-override sd-badge sd-outline-warning sd-text-warning">warning-line</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-danger sd-bg-text-danger">danger</span>, <span class="sd-sphinx-override sd-badge sd-outline-danger sd-text-danger">danger-line</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-light sd-bg-text-light">light</span>, <span class="sd-sphinx-override sd-badge sd-outline-light sd-text-light">light-line</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">dark</span>, <span class="sd-sphinx-override sd-badge sd-outline-dark sd-text-dark">dark-line</span></p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap reference external" href="https://hotchilipowder.github.io"><span>https://hotchilipowder.github.io</span></a></p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap reference external" href="https://hotchilipowder.github.io"><span>Button text</span></a></p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary sd-shadow-sm reference external" href="https://hotchilipowder.github.io"><span>https://hotchilipowder.github.io</span></a></p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external" href="https://hotchilipowder.github.io"><span>https://hotchilipowder.github.io</span></a></p>
+<p><span class="sd-d-grid"><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-secondary reference external" href="https://hotchilipowder.github.io"><span>https://hotchilipowder.github.io</span></a></span></p>
+</section>
+</section>
+<section id="sphinx-copybutton">
+<h3>sphinx_copybutton<a class="headerlink" href="#sphinx-copybutton" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://sphinx-copybutton.readthedocs.io/en/latest/">Sphinx CopyButton</a> 将会让代码可以被copy</p>
+</section>
+<section id="sphinx-emoji">
+<h3>sphinx_emoji<a class="headerlink" href="#sphinx-emoji" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://sphinxemojicodes.readthedocs.io/en/stable/">Sphinx Emoji</a></p>
+<p>当然，我也如同 <a class="reference external" href="https://github.com/honza/vim-snippets/blob/master/UltiSnips/rst.snippets#L265">vim-snippets</a>，实现了一个类似的版本，可以查询当前的emoji.</p>
+</section>
+<section id="sphinx-comments">
+<h3>sphinx comments<a class="headerlink" href="#sphinx-comments" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/executablebooks/sphinx-comments">sphinx-comments</a></p>
+<p>因为这个代码是挂载在 <code class="code docutils literal notranslate"><span class="pre">sections</span> <span class="pre">=</span> <span class="pre">document.querySelectorAll(&quot;div.section&quot;);</span></code>. 因此在需要评论的下方，加一个</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">..<span class="w"> </span>raw::html
+</span><span data-line="2">
+</span><span data-line="3"><span class="w">    </span>&lt;div<span class="w"> </span><span class="nv">class</span><span class="o">=</span><span class="s2">&quot;section&quot;</span><span class="w"> </span>/&gt;
+</span></pre></div>
+</div>
+<p>就可以启用这个插件了。</p>
+</section>
+</section>
+<section id="sphinx-with-latex">
+<h2>Sphinx with Latex<a class="headerlink" href="#sphinx-with-latex" title="Link to this heading">¶</a></h2>
+<p>首先，由于文档很多时候是包括中文的，因此选用 <code class="code docutils literal notranslate"><span class="pre">xelatex</span></code>而不是 <code class="code docutils literal notranslate"><span class="pre">pdflatex</span></code>。然后倒入 <code class="code docutils literal notranslate"><span class="pre">ctex</span></code>.</p>
+<p>最简单的设置如下:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nv">latex_engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;xelatex&#39;</span>
+</span><span data-line="2"><span class="nv">latex_elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+</span><span data-line="3"><span class="w">  </span><span class="s1">&#39;preamble&#39;</span>:<span class="w"> </span>r<span class="s1">&#39;&#39;&#39;</span>
+</span><span data-line="4"><span class="s1">\addto\captionsenglish{\renewcommand{\chaptername}{}}</span>
+</span><span data-line="5"><span class="s1">\usepackage[UTF8, scheme = plain]{ctex}</span>
+</span><span data-line="6"><span class="s1">&#39;&#39;&#39;</span>,
+</span><span data-line="7"><span class="o">}</span>
+</span></pre></div>
+</div>
+<p>然后使用 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">latexpdf</span></code></p>
+</section>
+<section id="interesting-links-for-sphinx-extensions">
+<h2>Interesting links for sphinx extensions<a class="headerlink" href="#interesting-links-for-sphinx-extensions" title="Link to this heading">¶</a></h2>
+<section id="groups-for-sphinx">
+<h3>Groups for sphinx<a class="headerlink" href="#groups-for-sphinx" title="Link to this heading">¶</a></h3>
+<p><a class="reference internal" href="#excutable-book" id="id6"><span>[excutable-book]</span></a></p>
+<p><a class="reference internal" href="#sphinx-contrib" id="id7"><span>[sphinx-contrib]</span></a></p>
+<p><a class="reference internal" href="#sympy" id="id8"><span>[sympy]</span></a> : 这个是当时找 math + dollar 发现的 github,</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="myst" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">MyST</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/executablebooks/MyST-Parser">https://github.com/executablebooks/MyST-Parser</a></p>
+</div>
+<div class="citation" id="sphinx-contrib" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">sphinx-contrib</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/sphinx-contrib">https://github.com/sphinx-contrib</a></p>
+</div>
+<div class="citation" id="excutable-book" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">excutable-book</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/executablebooks">https://github.com/executablebooks</a></p>
+</div>
+<div class="citation" id="sympy" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">sympy</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/sympy">https://github.com/sympy</a></p>
+</div>
+</div>
+<div class="section" /></section>
+</section>
+
+        </article>
+        <button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>回到顶部</span>
+</button>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="snippets.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Snippets System</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="git.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Awesome Git</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub"><i class="i-simpleicons github"></i></a>
+</div>
+    </div>
+  </div>
+</footer></div>
+      <script src="../_static/documentation_options.js?v=5b8091a7"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hotchilipowder/my_config");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+      <script src="../_static/design-tabs.js?v=36754332"></script>
+      <script src="../_static/shibuya.js?v=5f0e4c24"></script>
+      <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+      <script>mermaid.initialize({startOnLoad:true});</script>
+    
+</body>
+</html>
