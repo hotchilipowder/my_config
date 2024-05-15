@@ -187,12 +187,12 @@ Github Save username and password
 ---------------------------------
 
 
-由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 \ :code:`user.username`\ 和 \ :code:`user.email`\ ，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码
+由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 \ :code:`user.name`\ 和 \ :code:`user.email`\ ，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码
 
 
 .. code-block:: bash
 
-   git config --local user.username "hotchilipowder"
+   git config --local user.name "hotchilipowder"
    git config --local user.email "h12345jack@gmail.com"
    git config --local credential.helper cache
 
@@ -203,7 +203,7 @@ Github Save username and password
 .. code-block:: bash
 
    [user]
-   	username = hotchilipowder
+   	name = hotchilipowder
    	email = h12345jack@gmail.com
    [credential]
    	helper = cache
