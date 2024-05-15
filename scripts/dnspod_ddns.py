@@ -16,6 +16,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--domain', '-d', default=DOMAIN, help='Domain')
 parser.add_argument('--sub_domain', '-s', default='xxx', help='Subdomain, default: xxx')
 parser.add_argument('--record_type', '-t', default='AAAA', help='Record Type, e.g., AAAA(default), A')
+parser.add_argument('--local_ip_type', '-lt', default=None, help='Use local IPV4 or IPV6, default: None')
 args = parser.parse_args()
 
 logger = logging.getLogger(__name__)
@@ -46,6 +47,22 @@ def get_public_ipv4():
     return content
 
 
+def get_local_ipv4():
+    cmdline = "ip a | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v '172*'| head -n 1"
+    res = subprocess.run(cmdline, shell=True, capture_output=True)
+    ip = res.stdout.decode('utf8').strip()
+    logger.warning(ip)
+    return ip
+
+
+def get_local_ipv6():
+    cmdline = 'ip a | grep inet6 | grep -v "::1" | grep -Eo "([a-f0-9:]+:+)+[a-f0-9]+" | head -n 1'
+    res = subprocess.run(cmdline, shell=True, capture_output=True)
+    ip = res.stdout.decode('utf8').strip()
+    logger.warning(ip)
+    return ip
+
+
 class DNSPod(object):
     """DNSPod ddns application."""
 
@@ -65,13 +82,18 @@ class DNSPod(object):
         if params is None:
             params = self._params
         public_ip = None
-        if params['record_type'] == 'AAAA':
-            public_ip = get_public_ipv6()
-        elif params['record_type'] == 'A':
-            public_ip = get_public_ipv4()
+        if args.local_ip_type is None:
+            if params['record_type'] == 'AAAA':
+                public_ip = get_public_ipv6()
+            elif params['record_type'] == 'A':
+                public_ip = get_public_ipv4()
+        elif args.local_ip_type == 'A':
+            public_ip = get_local_ipv4()
+        elif args.local_ip_type == 'AAAA':
+            public_ip = get_local_ipv6()
         if public_ip is None:
-            logger.error('IP unknown')
-            return
+           logger.error('IP unknown')
+           return
         # get record_id of sub_domain
         record_list = self.get_record_list(params)
         if record_list['code'] == '10' or record_list['code'] == '26':
@@ -80,14 +102,19 @@ class DNSPod(object):
             remote_ip = public_ip
         elif record_list['code'] == '1':
             # get record id
-            record_id = record_list['record_id']
             remote_ip = record_list['ip_value']
+            if remote_ip == public_ip:
+                logger.warning('same ip: ' + remote_ip)
+                return -1
+            else:
+                logger.warning(record_list)
+                params['record_id'] = record_list['record_id']
+                res = self.ddns(params, public_ip)
+                logger.warning(res)
         else:
             logger.error('Update not work')
             logger.error(record_list)
             return -1
-        params['record_id'] = record_id
-
         current_ip = remote_ip
         logger.warning('current_ip: ' + current_ip)
 
@@ -104,6 +131,7 @@ class DNSPod(object):
         code = jd['status']['code']
         record_id = jd['records'][0]['id'] if code == '1' else ""
         ip_value = jd['records'][0]['value'] if code == '1' else ""
+        logger.warning('query_record')
         logger.warning(jd)
         return dict(code=code, record_id=record_id, ip_value=ip_value)
 
@@ -116,10 +144,10 @@ class DNSPod(object):
         params['value'] = ip
         record_create_url = 'https://dnsapi.cn/Record.Create'
         r = self.post_data(record_create_url, data=params)
-        logger.warning('create new record %s.%s with IP %s' % (params['sub_domain'], params['domain'], ip))
         jd = json.loads(r)
         assert jd['status']['code'] == '1'
         record_id = jd['record']['id']
+        logger.warning('create_record')
         logger.warning(jd)
         return record_id
 
@@ -127,11 +155,14 @@ class DNSPod(object):
         """Update ddns ip.
         https://www.dnspod.cn/docs/records.html#dns
         """
+        logger.warning(ip)
+        logger.warning(params)
         params['value'] = ip
         ddns_url = 'https://dnsapi.cn/Record.Ddns'
         r = self.post_data(ddns_url, data=params)
         jd = json.loads(r)
-        logger.info('status: %s, reason: %s' % (r.status_code, r.reason))
+        logger.warning('update_ddns')
+        logger.warning(jd)
         return jd['status']['code'] == '1'
 
 
@@ -149,5 +180,9 @@ def main():
     dnspod.run()
 
 
+def test():
+    get_local_ipv4()
+
 if __name__ == "__main__":
     main()
+

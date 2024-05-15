@@ -312,11 +312,15 @@ Nodejs Install
 
      just download from \ `https://nodejs.org/en/download <https://nodejs.org/en/download>`_
 
+     根据 \ `Build takes so long <https://github.com/orgs/nodejs/discussions/43451>`_ , 可以发现，还是要使用多核编译，但是仍然非常慢！
+
+
+
      .. code-block:: bash
        :linenos:
        
         ./configure --prefix=~/.local
-        make && make install
+        make -j 4 && make install
      
 
 MISC
