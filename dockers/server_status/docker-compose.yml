@@ -1,0 +1,18 @@
+version: "3"
+services:
+  server_status:
+    image: my-server_status
+    build:
+      context: .
+    volumes:
+      - ./config.json:/ServerStatus/server/config.json
+    ports:
+      - 32011:80
+      - 35601:35601
+    restart: unless-stopped
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
