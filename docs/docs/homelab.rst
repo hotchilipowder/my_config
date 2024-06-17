@@ -55,6 +55,17 @@ Configurations For u200
 Install Basic Developments
 --------------------------
 
+
+autojump
+^^^^^^^^
+
+之前一直用 \ `autojump <https://github.com/wting/autojump>`_ , 但是似乎已经没有人在维护了，并且发现了一个 rust写的替代产品 \ `zoxide <https://github.com/ajeetdsouza/zoxide>`_ ，遂转到这个。
+
+安装
+
+
+
+
 docker-compose
 ^^^^^^^^^^^^^^
 

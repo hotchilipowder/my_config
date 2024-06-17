@@ -61,32 +61,14 @@ Miscellaneous
 Proxy Settings
 --------------
 
+这个问题在 \ `SJTUG（上海交通大学 Linux 用户组）发布公告称已下架 Docker Hub 镜像 <https://t.me/lychee_wood/36286>`_ 后更加致命， 再看了  `如何为终端、docker 和容器设置代理 | Moralok <https://www.moralok.com/2023/06/13/how-to-configure-proxy-for-terminal-docker-and-container/>`_ 的博客描述后，感觉有了以下认识：
+
 按照文档说明，如果你想要 \ :code:`docker-compose up`\ 或者 \ :code:`docker build`\ 的时候使用proxy。
 
 see \ `Docker daemon configuration <https://docs.docker.com/config/daemon/#configure-the-docker-daemon>`_
-
-具体来说就是编辑 \ :code:`~/.docker/config.json`\ 文件
-
-
-.. code-block:: bash
-
-   {
-     "proxies": {
-       "default": {
-         "httpProxy": "http://xxx:3128",
-         "httpsProxy": "https://xxx:3129",
-         "noProxy": "*.cn,*.edu.cn,127.0.0.0/8,172.0.0.0/8,10.0.0.8/8"
-       }
-     }
-   }
-
-
-如果你想要docker跑在proxy下面，
-
-see \ `Configure Docker to use a proxy server <https://docs.docker.com/network/proxy/#configure-the-docker-client>`_
-
 see \ `Configure daemon with systemd <https://docs.docker.com/config/daemon/systemd/>`_
 
+具体来说就是
 编辑 \ :code:`/etc/docker/daemon.json`\
 
 .. code-block:: bash
@@ -99,12 +81,33 @@ see \ `Configure daemon with systemd <https://docs.docker.com/config/daemon/syst
        }
      ],
      "proxies": {
-       "http-proxy": "http://x:1085",
-       "https-proxy": "http://x:1085",
+       "http-proxy": "http://xxx",
+       "https-proxy": "http://xxx",
        "no-proxy": "*.cn,*.edu.cn,127.0.0.0/8,172.0.0.0/8,10.0.0.0/8"
      }
    }
 
+
+
+
+
+如果你想要docker跑在proxy下面，
+
+see \ `Configure Docker to use a proxy server <https://docs.docker.com/network/proxy/#configure-the-docker-client>`_
+
+
+编辑 \ :code:`~/.docker/config.json`\ 文件
+.. code-block:: bash
+
+   {
+     "proxies": {
+       "default": {
+         "httpProxy": "http://xxx",
+         "httpsProxy": "http://xxx",
+         "noProxy": "*.cn,*.edu.cn,127.0.0.0/8,172.0.0.0/8,10.0.0.8/8"
+       }
+     }
+   }
 
 
 
