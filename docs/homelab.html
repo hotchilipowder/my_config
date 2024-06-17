@@ -1,20 +1,15 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>HomeLab Configurations - My Dev Config</title>
-    <link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Neovim Configuration" href="neovim.html" /><link rel="prev" title="Welcome to My Dev Config&#39;s documentation!" href="../index.html" />
-
-  <script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>HomeLab Configurations - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Neovim Configuration" href="neovim.html" /><link rel="prev" title="Welcome to My Dev Config&#39;s documentation!" href="../index.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
-    setColorMode(sessionStorage._theme||"auto");
-  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=aecf457f" />
-    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=9379660d" />
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=d3bb9062" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,39 +24,31 @@
     <meta property="og:type" content="website"/><meta property="og:title" content="HomeLab Configurations"/>
 <meta name="twitter:card" content="summary"/>
   </head>
-<body><div class="document"><div class="sy-head">
+<body><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
-    <a class="sy-head-brand mr-4" href="/my_config">
-      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" />
-      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" />
+    <a class="sy-head-brand" href="/my_config">
+      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" loading="lazy" />
       <strong>My Dev Config</strong>
     </a>
-    <div class="sy-head-links" id="NavLinks">
-      <nav class="sy-head-nav"></nav>
-      <div class="sy-head-extra flex items-center print:hidden">
-        
-<form class="searchbox flex items-center" action="../search.html" method="get">
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
   <input type="text" name="q" placeholder="搜索" />
   <kbd>/</kbd>
-</form>
-        
-        
-        <div class="sy-head-socials flex items-center">
+</form><div class="sy-head-socials flex items-center">
     <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
       <i class="i-simpleicons github"></i>
     </a>
-</div>
-      </div>
+</div></div>
     </div>
-    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
-      <button class="js-theme theme-switch flex items-center"
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
 data-aria-auto="切换到亮色模式"
 data-aria-light="切换到暗色模式"
 data-aria-dark="切换到自动模式">
 <i class="i-lucide theme-icon"></i>
-</button>
-      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
         <div class="hamburger">
           <span class="hamburger_1"></span>
           <span class="hamburger_2 -translate-x-2"></span>
@@ -91,19 +78,14 @@ data-aria-dark="切换到自动模式">
 </ul>
 
         </div>
-      </div>
-      
-    </div>
+      </div></div>
   </aside>
   <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
   <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
     <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
       <i class="i-lucide close"></i>
     </button>
-    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
-  <div class="localtoc">
-    <h3>该页内容</h3>
-    <ul>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#ddns">DDNS</a></li>
 <li><a class="reference internal" href="#configurations-for-macos">Configurations For MacOS</a><ul>
@@ -112,6 +94,7 @@ data-aria-dark="切换到自动模式">
 </li>
 <li><a class="reference internal" href="#configurations-for-u200">Configurations For u200</a><ul>
 <li><a class="reference internal" href="#install-basic-developments">Install Basic Developments</a><ul>
+<li><a class="reference internal" href="#autojump">autojump</a></li>
 <li><a class="reference internal" href="#docker-compose">docker-compose</a></li>
 <li><a class="reference internal" href="#htop">htop</a></li>
 <li><a class="reference internal" href="#python3-12">Python3.12</a></li>
@@ -129,7 +112,7 @@ data-aria-dark="切换到自动模式">
 </ul>
 </li>
 <li><a class="reference internal" href="#research-server">Research Server</a><ul>
-<li><a class="reference internal" href="#id3">&#32593;&#32476;&#25509;&#20837;</a></li>
+<li><a class="reference internal" href="#id4">&#32593;&#32476;&#25509;&#20837;</a></li>
 <li><a class="reference internal" href="#pytorch">Pytorch&#23433;&#35013;</a></li>
 <li><a class="reference internal" href="#nodejs-install">Nodejs Install</a></li>
 </ul>
@@ -140,8 +123,7 @@ data-aria-dark="切换到自动模式">
 </li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
-
-  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+</div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
   <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
     <i class="i-simpleicons github"></i>
@@ -161,34 +143,24 @@ data-aria-dark="切换到自动模式">
   </span>
 </a><div class="edit-this-page">
   <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/homelab.rst">编辑此页面</a>
-</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
-    </div>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
-  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
-    <div class="sy-breadcrumbs" role="navigation">
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6"><div class="sy-breadcrumbs" role="navigation">
   <div class="sy-breadcrumbs-inner flex items-center">
     <div class="md:hidden mr-3">
       <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
         <i class="i-lucide menu"></i>
       </button>
     </div>
-    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
-      
-      
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a itemprop="item" href="../index.html"><span itemprop="name">My Dev Config</span></a>
         <span>/</span>
         <meta itemprop="position" content="1" />
-      </li>
-      
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <strong itemprop="name">HomeLab Configurations</strong>
         <meta itemprop="position" content="2" />
-      </li>
-      
-      
-    </ol>
+      </li></ol>
     <div class="xl:hidden ml-1">
       <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
         aria-expanded="false">
@@ -196,8 +168,7 @@ data-aria-dark="切换到自动模式">
       </button>
     </div>
   </div>
-</div>
-    <div class="flex flex-col break-words justify-between">
+</div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
           <section id="homelab-configurations">
@@ -235,6 +206,11 @@ data-aria-dark="切换到自动模式">
 <h2>Configurations For u200<a class="headerlink" href="#configurations-for-u200" title="Link to this heading">¶</a></h2>
 <section id="install-basic-developments">
 <h3>Install Basic Developments<a class="headerlink" href="#install-basic-developments" title="Link to this heading">¶</a></h3>
+<section id="autojump">
+<h4>autojump<a class="headerlink" href="#autojump" title="Link to this heading">¶</a></h4>
+<p>之前一直用 <a class="reference external" href="https://github.com/wting/autojump">autojump</a> , 但是似乎已经没有人在维护了，并且发现了一个 rust写的替代产品 <a class="reference external" href="https://github.com/ajeetdsouza/zoxide">zoxide</a> ，遂转到这个。</p>
+<p>安装</p>
+</section>
 <section id="docker-compose">
 <h4>docker-compose<a class="headerlink" href="#docker-compose" title="Link to this heading">¶</a></h4>
 <p>Just see <a class="reference external" href="https://docs.docker.com/compose/install/standalone/">https://docs.docker.com/compose/install/standalone/</a> and use</p>
@@ -368,8 +344,8 @@ See <a class="reference external" href="https://www.haiyun.me/archives/1416.html
 </section>
 <section id="research-server">
 <h2>Research Server<a class="headerlink" href="#research-server" title="Link to this heading">¶</a></h2>
-<section id="id3">
-<h3>网络接入<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="id4">
+<h3>网络接入<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>通常而言，内部服务器都是不连入互联网的，为了保证其内网的安全。
 因此我们通常通过代理的方式连出，假设我们的代理为 <code class="code docutils literal notranslate"><span class="pre">http://192.168.1.1</span></code></p>
 <p>我们可以在 <code class="code docutils literal notranslate"><span class="pre">~/.bashrc</span></code>文件中添加如下配置，联入互联网</p>
@@ -456,27 +432,18 @@ See <a class="reference external" href="https://www.haiyun.me/archives/1416.html
 </section>
 </section>
 
-        </article>
-        <button class="back-to-top" type="button">
+        </article><button class="back-to-top" type="button">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
   </svg>
   <span>回到顶部</span>
-</button>
-        
-        <div class="navigation flex print:hidden">
-  <div class="navigation-prev">
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
     <a href="../index.html">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>上一章</span>
-        
-        <div class="title">首页</div>
-        
-      </div>
+        <span>上一章</span><div class="title">首页</div></div>
     </a>
-  </div>
-  <div class="navigation-next">
+  </div><div class="navigation-next">
     <a href="neovim.html">
       <div class="page-info">
         <span>下一章</span>
@@ -484,16 +451,12 @@ See <a class="reference external" href="https://www.haiyun.me/archives/1416.html
       </div>
       <i class="i-lucide chevron-right"></i>
     </a>
-  </div>
-</div>
-        
-      </div>
+  </div></div></div>
     </div>
   </main>
 </div>
 <footer class="sy-foot">
   <div class="sy-foot-inner sy-container mx-auto">
-    
     <div class="sy-foot-reserved md:flex justify-between items-center">
       <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
   
@@ -506,11 +469,10 @@ See <a class="reference external" href="https://www.haiyun.me/archives/1416.html
   </p>
 </div>
       <div class="sy-foot-socials">
-  <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub"><i class="i-simpleicons github"></i></a>
-</div>
+<a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub"><i class="i-simpleicons github"></i></a></div>
     </div>
   </div>
-</footer></div>
+</footer>
       <script src="../_static/documentation_options.js?v=5b8091a7"></script>
       <script src="../_static/doctools.js?v=9a2dae69"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -551,8 +513,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-      <script src="../_static/design-tabs.js?v=36754332"></script>
-      <script src="../_static/shibuya.js?v=5f0e4c24"></script>
-    
-</body>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=3cc430e2"></script></body>
 </html>
