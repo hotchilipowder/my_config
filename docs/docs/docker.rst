@@ -66,6 +66,7 @@ Proxy Settings
 按照文档说明，如果你想要 \ :code:`docker-compose up`\ 或者 \ :code:`docker build`\ 的时候使用proxy。
 
 see \ `Docker daemon configuration <https://docs.docker.com/config/daemon/#configure-the-docker-daemon>`_
+
 see \ `Configure daemon with systemd <https://docs.docker.com/config/daemon/systemd/>`_
 
 具体来说就是
@@ -97,6 +98,7 @@ see \ `Configure Docker to use a proxy server <https://docs.docker.com/network/p
 
 
 编辑 \ :code:`~/.docker/config.json`\ 文件
+
 .. code-block:: bash
 
    {
