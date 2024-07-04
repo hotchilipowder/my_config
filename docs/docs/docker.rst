@@ -91,7 +91,7 @@ see \ `Configure daemon with systemd <https://docs.docker.com/config/daemon/syst
 
 
 
-如果你想要docker跑在proxy下面，
+如果你想要docker跑在proxy下面，这里的意思是docker内部的网络是跑在proxy下面
 
 see \ `Configure Docker to use a proxy server <https://docs.docker.com/network/proxy/#configure-the-docker-client>`_
 
