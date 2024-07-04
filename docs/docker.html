@@ -202,8 +202,8 @@ data-aria-dark="切换到自动模式">
 <h3>Proxy Settings<a class="headerlink" href="#proxy-settings" title="Link to this heading">¶</a></h3>
 <p>这个问题在 <a class="reference external" href="https://t.me/lychee_wood/36286">SJTUG（上海交通大学 Linux 用户组）发布公告称已下架 Docker Hub 镜像</a> 后更加致命， 再看了  <a class="reference external" href="https://www.moralok.com/2023/06/13/how-to-configure-proxy-for-terminal-docker-and-container/">如何为终端、docker 和容器设置代理 | Moralok</a> 的博客描述后，感觉有了以下认识：</p>
 <p>按照文档说明，如果你想要 <code class="code docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code>的时候使用proxy。</p>
-<p>see <a class="reference external" href="https://docs.docker.com/config/daemon/#configure-the-docker-daemon">Docker daemon configuration</a>
-see <a class="reference external" href="https://docs.docker.com/config/daemon/systemd/">Configure daemon with systemd</a></p>
+<p>see <a class="reference external" href="https://docs.docker.com/config/daemon/#configure-the-docker-daemon">Docker daemon configuration</a></p>
+<p>see <a class="reference external" href="https://docs.docker.com/config/daemon/systemd/">Configure daemon with systemd</a></p>
 <p>具体来说就是
 编辑 <code class="code docutils literal notranslate"><span class="pre">/etc/docker/daemon.json</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">{</span>
@@ -223,25 +223,18 @@ see <a class="reference external" href="https://docs.docker.com/config/daemon/sy
 </div>
 <p>如果你想要docker跑在proxy下面，这里的意思是docker内部的网络是跑在proxy下面</p>
 <p>see <a class="reference external" href="https://docs.docker.com/network/proxy/#configure-the-docker-client">Configure Docker to use a proxy server</a></p>
-<p>编辑 <code class="code docutils literal notranslate"><span class="pre">~/.docker/config.json</span></code>文件
-.. code-block:: bash</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>&quot;proxies&quot;: {</dt><dd><dl class="simple">
-<dt>&quot;default&quot;: {</dt><dd><p>&quot;httpProxy&quot;: &quot;<a class="reference external" href="http://xxx">http://xxx</a>&quot;,
-&quot;httpsProxy&quot;: &quot;<a class="reference external" href="http://xxx">http://xxx</a>&quot;,
-&quot;noProxy&quot;: &quot;<em>.cn,</em>.edu.cn,127.0.0.0/8,172.0.0.0/8,10.0.0.8/8&quot;</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
+<p>编辑 <code class="code docutils literal notranslate"><span class="pre">~/.docker/config.json</span></code>文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">{</span>
+</span><span data-line="2"><span class="w">  </span><span class="s2">&quot;proxies&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span data-line="3"><span class="w">    </span><span class="s2">&quot;default&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span data-line="4"><span class="w">      </span><span class="s2">&quot;httpProxy&quot;</span>:<span class="w"> </span><span class="s2">&quot;http://xxx&quot;</span>,
+</span><span data-line="5"><span class="w">      </span><span class="s2">&quot;httpsProxy&quot;</span>:<span class="w"> </span><span class="s2">&quot;http://xxx&quot;</span>,
+</span><span data-line="6"><span class="w">      </span><span class="s2">&quot;noProxy&quot;</span>:<span class="w"> </span><span class="s2">&quot;*.cn,*.edu.cn,127.0.0.0/8,172.0.0.0/8,10.0.0.8/8&quot;</span>
+</span><span data-line="7"><span class="w">    </span><span class="o">}</span>
+</span><span data-line="8"><span class="w">  </span><span class="o">}</span>
+</span><span data-line="9"><span class="o">}</span>
+</span></pre></div>
+</div>
 </section>
 </section>
 <section id="docker-composes">
