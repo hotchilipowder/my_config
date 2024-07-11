@@ -1,0 +1,26 @@
+networks:
+  xray_macvlan:
+    external: true
+  traefik_default:
+    external: true
+
+services:
+  sbox:
+    container_name: sbox_docker
+    cap_add:
+      - NET_ADMIN
+    image: sbox_docker
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: /root/sing-box run --config /root/config.json
+    restart: always
+    dns: 192.168.123.1
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ./config.json:/root/config.json
+    tty: true
+    networks:
+      xray_macvlan:
+        ipv4_address: 192.168.123.25
