@@ -173,6 +173,20 @@ My Github Issues
 ================
 
 
+
+How to change default editor into vim
+-------------------------------------
+
+不太习惯使用 nano, 默认的nano比较难搞，改成 \ :code:`vim`\
+
+.. code-block:: bash
+
+   git config --global core.editor vim
+
+
+
+
+
 Permission to x denied to github-actions[bot]
 ---------------------------------------------
 
