@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>HomeLab Configurations - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Neovim Configuration" href="neovim.html" /><link rel="prev" title="Welcome to My Dev Config&#39;s documentation!" href="../index.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>HomeLab - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Cookiecutter" href="cookiecutter.html" /><link rel="prev" title="Sphinx" href="sphinx.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -21,7 +21,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="HomeLab Configurations"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="HomeLab"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -63,13 +63,12 @@ data-aria-dark="切换到自动模式">
       <div class="sy-scrollbar p-6">
         <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">HomeLab Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tmux.html">Tmux Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim and Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
@@ -157,7 +156,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">HomeLab Configurations</strong>
+        <strong itemprop="name">HomeLab</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -170,11 +169,11 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="homelab-configurations">
-<h1>HomeLab Configurations<a class="headerlink" href="#homelab-configurations" title="Link to this heading">¶</a></h1>
+          <section id="homelab">
+<h1>HomeLab<a class="headerlink" href="#homelab" title="Link to this heading">¶</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="#homelab" id="id1"><span>[HomeLab]</span></a> 是一个比较好的环境，可以跑一些docker和linux，服务于自己。我主要是采用pve进行虚拟化。
+<p><a class="reference internal" href="#id5" id="id1"><span>[HomeLab]</span></a> 是一个比较好的环境，可以跑一些docker和linux，服务于自己。我主要是采用pve进行虚拟化。
 其中软件上有不少的坑，都记录在这里，方便查阅。</p>
 </section>
 <section id="ddns">
@@ -423,7 +422,7 @@ See <a class="reference external" href="https://www.haiyun.me/archives/1416.html
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
 <div role="list" class="citation-list">
-<div class="citation" id="homelab" role="doc-biblioentry">
+<div class="citation" id="id5" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HomeLab</a><span class="fn-bracket">]</span></span>
 <p>a laboratory of (usually slightly outdated) awesome in the domicile. See <a class="reference external" href="https://icyleaf.com/2022/02/how-to-homelab-part-0">https://icyleaf.com/2022/02/how-to-homelab-part-0</a></p>
 </div>
@@ -437,16 +436,16 @@ See <a class="reference external" href="https://www.haiyun.me/archives/1416.html
   </svg>
   <span>回到顶部</span>
 </button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="../index.html">
+    <a href="sphinx.html">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>上一章</span><div class="title">首页</div></div>
+        <span>上一章</span><div class="title">Sphinx</div></div>
     </a>
   </div><div class="navigation-next">
-    <a href="neovim.html">
+    <a href="cookiecutter.html">
       <div class="page-info">
         <span>下一章</span>
-        <div class="title">Neovim Configuration</div>
+        <div class="title">Cookiecutter</div>
       </div>
       <i class="i-lucide chevron-right"></i>
     </a>
