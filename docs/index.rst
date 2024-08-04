@@ -19,13 +19,12 @@ Welcome to My Dev Config's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   docs/homelab.rst
    docs/neovim.rst
-   docs/tmux.rst
+   docs/git.rst
    docs/docker.rst
    docs/snippets.rst
    docs/sphinx.rst
-   docs/git.rst
+   docs/homelab.rst
    docs/cookiecutter.rst
    docs/tikz.rst
    docs/vps.md

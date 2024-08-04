@@ -1,5 +1,5 @@
 ======================
-HomeLab Configurations
+HomeLab 
 ======================
 
 Introduction
