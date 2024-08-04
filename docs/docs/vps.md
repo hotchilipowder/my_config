@@ -38,3 +38,28 @@
    up ip -6 route add default via 2403:71c0:2000:0000:0000:0000:0000:0001
 ```
 
+### Local Machine
+
+对于Ubuntu, 设置网络的方式和Debian有所区别。
+
+```bash
+network:
+    ethernets:
+        enp10s0:
+            dhcp4: true
+            addresses:
+            - 192.168.123.x1/24
+            nameservers:
+                addresses:
+                - 1.1.1.1
+                - 192.168.123.x2
+                search: []
+            routes:
+            -   to: default
+                via: 192.168.123.x2
+    version: 2
+    wifis: {}
+```
+
+```
+

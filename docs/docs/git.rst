@@ -224,3 +224,34 @@ Github Save username and password
    
 
 
+Github CheatSheet
+-----------------
+
+.. list-table:: Title
+   :widths: 50 25 25
+   :header-rows: 1
+
+   * - Command
+     - Meaning
+     - Note
+   * - \ :code:`git config --global core.editor "vim"`\
+     - 修改编辑器
+     - 
+   * - Row 2, column 1
+     - Row 2, column 2
+     - Row 2, column 3
+
+.. tabs::
+
+   .. tab:: MacOS
+
+     MacOS 
+
+   .. tab:: Linux
+
+     Linux
+
+   .. tab::  Windows
+
+    Windows
+
