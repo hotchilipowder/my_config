@@ -7,7 +7,8 @@ Welcome to My Dev Config's documentation!
 =========================================
 
 
-鄙人不才，主要的技术栈是 |python| :fab:`fa-brands fa-python` + |TS|:fab:`fa-brands fa-ts`/|JS| :fab:`fa-brands fa-js`。当然,也对 |Rust| :fab:`fa-brands fa-rust` 颇有兴趣 |:smiley:| 。
+鄙人不才，主要的技术栈是 |python| :fab:`fa-brands fa-python` + |TS|:fab:`fa-brands fa-ts`/|JS| :fab:`fa-brands fa-js`。
+当然,也对 |Rust| :fab:`fa-brands fa-rust` 颇有兴趣 |:smiley:| 。
 
 
 当然，这两个语言比较高级，因此离底层偏远，但是大名鼎鼎的\ `OpenAI' ChatGPT也主要采用Python <https://openai.com/blog/march-20-chatgpt-outage>`_\ 。
