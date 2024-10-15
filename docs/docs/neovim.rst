@@ -90,6 +90,54 @@ Install Tmux
             PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig ./configure --prefix=$HOME/.local
             make && make install
 
+
+Why Neovim instead of Vim
+=========================
+
+其实本人之前一直是使用\ :literal:`vim`\的，而后被\ :literal:`neovim`\的速度所吸引。
+在无痛切换到nvim之后，最后实在是忍不住切换到\ :literal:`init.lua`\。
+总体而言，比较讨厌写多个文件，喜欢使用\ :code:`<Space>fed`\去打开配置文件，然后复制粘贴即可。
+
+有许多关于使用plug文件夹和多个不同插件配置的方式，我个人不是很喜欢。
+我更喜欢\ `kickstart.nvim <https://github.com/nvim-lua/kickstart.nvim>`_\ 这样的方式。
+
+由于 [kickstart]_ 使用的 [lazy.nvim]_, 所以也就切换到了 [lazy.nvim]_ 
+
+具体的配置如下：
+
+.. code-block:: bash
+
+   mkdir -p ~/.config/nvim
+   curl -SL https://raw.githubusercontent.com/hotchilipowder/my_config/main/nvim/init.lua -o ~/.config/nvim/init.lua
+  
+
+.. dropdown:: ~/.config/nvim/init.lua
+
+    .. literalinclude:: ../../nvim/init.lua
+       :language: lua
+
+Why tmux instead of Zellij
+==========================
+
+其实我还真的挺喜欢\ :literal:`Rust`\的，但是对于\ :literal:`Zellij`\的使用体验确实不太好。
+所以最后还是选用了\ :literal:`tmux`\.
+
+具体的启用包括复制下面的config到\ :code:`~/.tmux.conf`\,然后\ :code:`tmux source-file .tmux.conf`\即可。
+
+.. code-block:: bash
+
+  curl -SL https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/tmux/.tmux.conf -o ~/.tmux.conf
+  tmux source-file ~/.tmux.conf
+
+
+
+
+
+.. dropdown:: \ :code:`~/.tmux.conf`\
+
+    .. literalinclude:: ../../tmux/.tmux.conf
+       :language: bash
+
 Tmux with Neovim
 ================
 
@@ -138,42 +186,7 @@ The basic useful for my tmux with neovim is `vim-tmux-navigator <https://github.
      
 
 
-Why Neovim instead of Vim
-=========================
 
-其实本人之前一直是使用\ :literal:`vim`\的，而后被\ :literal:`neovim`\的速度所吸引。
-在无痛切换到nvim之后，最后实在是忍不住切换到\ :literal:`init.lua`\。
-总体而言，比较讨厌写多个文件，喜欢使用\ :code:`<Space>fed`\去打开配置文件，然后复制粘贴即可。
-有许多关于使用plug文件夹和多个不同插件配置的方式，我个人不是很喜欢。所以我更喜欢\ `kickstart.nvim <https://github.com/nvim-lua/kickstart.nvim>`_\ 这样的方式。
-
-由于 [kickstart]_ 使用的 [lazy.nvim]_, 所以也就切换到了 [lazy.nvim]_ 
-
-具体的配置如下：
-
-.. code-block:: bash
-
-   mkdir -p ~/.config/nvim
-   curl -SL https://raw.githubusercontent.com/hotchilipowder/my_config/main/nvim/init.lua -o ~/.config/nvim/init.lua
-  
-
-
-.. dropdown:: ~/.config/nvim/init.lua
-
-    .. literalinclude:: ../../nvim/init.lua
-       :language: lua
-
-Why tmux instead of Zellij
-==========================
-
-其实我还真的挺喜欢\ :literal:`Rust`\的，但是对于\ :literal:`Zellij`\的使用体验确实不太好。
-所以最后还是选用了\ :literal:`tmux`\.
-
-具体的启用包括复制下面的config到\ :code:`~/.tmux.conf`\,然后\ :code:`tmux source-file .tmux.conf`\即可。
-
-.. dropdown:: \ :code:`~/.tmux.conf`\
-
-    .. literalinclude:: ../../tmux/.tmux.conf
-       :language: bash
 
 
 
@@ -409,6 +422,38 @@ null-ls
 
 .. attention::
   关于如何配置，选中的文本进行格式化，我本来以为需要配置 \ :code:`range_formatting`\, 但是根据 \ `这里的解释 <https://www.reddit.com/r/neovim/comments/zv91wz/comment/j1ot75x/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button>`_，可以直接用 \ :code:`vim.lsp.buf.format`\. 
+
+Neovim Fonts
+============
+
+在配置了上述的一些插件后，由于字体的nerd原因，所以需要安装一些必要的字体，才能正确的现实图标。
+
+\ `nerdfonts <https://www.nerdfonts.com/font-downloads>`_ 列出了目前可用的常见字体。
+
+操作如下：
+
+
+.. tabs::
+
+   .. tab:: MacOS-brew
+
+     brew install font-fantasque-sans-mono-nerd-font
+
+     # 如果想要其他的字体，直接尝试安装，如果失败了，brew会给出建议，这不用担心。
+
+
+   .. tab:: Linux
+
+     Linux
+
+   .. tab::  Windows
+
+      NA
+
+
+
+
+
 
 
 

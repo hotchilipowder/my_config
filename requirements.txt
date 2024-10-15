@@ -13,3 +13,6 @@ sphinxcontrib-mermaid
 aiohttp
 
 
+# for crypto config files in github
+cryptography
+

@@ -11,7 +11,20 @@ This is my dotfiles
         git clone https://github.com/hotchilipowder/my_config.git
 
 
-
 More information see \ `docs <https://github.com/hotchilipowder/my_config>`_
+
+
+Docs
+====
+
+For development, you can have a dev environment to get the docs.
+
+.. code-block:: bash
+
+   virtualenv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   sphinx-autobuild docs build --host 0
+
 
 
