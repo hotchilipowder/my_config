@@ -423,6 +423,72 @@ Sphinx with Latex
 然后使用 \ :code:`make latexpdf`\
 
 
+修改为单个页面的pdf
+-------------------
+
+关于定制化单个页面，如何实现latex的有效编译，需要查看手册: \ `Latex customization <https://www.sphinx-doc.org/en/master/latex.html>`_
+
+例如:
+
+.. code-block:: python
+
+    latex_engine = 'xelatex'
+    latex_elements = {
+        'passoptionstopackages': r'''
+    \PassOptionsToPackage{svgnames}{xcolor}
+    ''',
+        'pointsize': '12pt',
+        'fontpkg': r'''
+    \setmainfont{Georgia}
+    ''',
+        'maketitle': r'''
+        \date{Fall 2024}
+        \maketitle
+    ''',
+        'tableofcontents': "",
+        'preamble': r'''
+    \usepackage{xeCJK}
+    \usepackage{hyperref}
+    \usepackage{url}
+    \raggedbottom  % 避免章节之间产生多余的空白页
+    
+    \setlength{\parskip}{5pt}    % 段落之间空格
+    ''',
+        'sphinxsetup': r'''
+        TitleColor=DarkGoldenrod
+    ''',
+        'printindex': r'\footnotesize\raggedright\printindex',
+    }
+    latex_show_urls = 'footnote'
+    
+    latex_documents = [
+    ('project1/index', 'project1.tex', 'Title 1', 'Author 1', 'howto'),
+    ]
+    
+    latex_additional_files = ["iclr2024_conference.sty"]
+
+
+特别需要指出的，如果改成了 \ :code:`howto`\ 那么对应的是 article类。
+如果是默认的会是 \ :code:`Manual`\。
+
+
+
+多个配置文件对于不同的页面
+--------------------------
+
+
+例如，我们的某个教学项目，包括教程、练习题和代码手册等。
+但是上述的单个页面的 \ :code:`conf.py`\ 比较难满足这种需求，因为tex的预加载可能存在差异。
+这个时候最好的方式便是分不同的 \ :code:`conf.py`\ , 然后进行处理。
+
+例如，我们可以创建一个 \ :code:`confs/projects/conf.py`\ 
+
+然后使用 \ :code:`make latexpdf`\ 的时候指定配置文件 
+
+.. code-block:: bash
+
+    make latexpdf SPHINXOPTS="-c ./confs/projects" 
+
 
 
 

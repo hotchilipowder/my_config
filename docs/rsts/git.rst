@@ -11,10 +11,6 @@ Install
 
 .. tabs::
 
-   .. tab:: MacOS
-
-     MacOS 
-
    .. tab:: Linux (Apt)
 
       .. code-block:: bash
@@ -35,6 +31,11 @@ Install
          ./configure --prefix=$HOME/.local
          make && make install
 
+   .. tab:: MacOS
+
+     brew install git 
+
+
 Proxy
 =====
 
@@ -46,23 +47,10 @@ Just set following cmdline:
    git config --global https.proxy http://xxx
 
 
-      
-
-
 Common git skill
 ================
 
 关于git学习的资料，可以查看 \ `git教程 <https://www.liaoxuefeng.com/wiki/896043488029600>`_\ 
-
-Set git proxy
--------------
-
-
-.. code-block:: bash
-
-   git config --global http.proxy xxx
-   git config --global https.proxy xxx
-
 
 
 
@@ -119,26 +107,13 @@ Lazygit
 
 `Lazygit <https://github.com/jesseduffield/lazygit>`_ is a simple terminal UI for git commands.
 
-MacOS osxkeychain
-=================
 
-Mac 上清除 git osxkeychain 保存的登录名密码
 
-.. code-block:: bash
 
-   git config --local --unset credential.helper
-   git config --global --unset credential.helper
-   git config --system --unset credential.helper
-
-但是还有进一步删除这个文件下的配置, more detail see \ `this link <https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config>`_
-
-.. code-block:: bash
-
-   git config --show-origin --get credential.helper
 
 
 Github Action
-============
+=============
 
 首先，github action 已经成为了软件开发领域不可获取的部分。
 
@@ -167,11 +142,29 @@ My config
 * Make snippsts to rst
 
 * push html to github page
+
+
   
 
 My Github Issues
 ================
 
+MacOS osxkeychain
+-----------------
+
+Mac 上清除 git osxkeychain 保存的登录名密码
+
+.. code-block:: bash
+
+   git config --local --unset credential.helper
+   git config --global --unset credential.helper
+   git config --system --unset credential.helper
+
+但是还有进一步删除这个文件下的配置, more detail see \ `this link <https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config>`_
+
+.. code-block:: bash
+
+   git config --show-origin --get credential.helper
 
 
 How to change default editor into vim
@@ -182,8 +175,6 @@ How to change default editor into vim
 .. code-block:: bash
 
    git config --global core.editor vim
-
-
 
 
 
@@ -240,18 +231,4 @@ Github CheatSheet
    * - Row 2, column 1
      - Row 2, column 2
      - Row 2, column 3
-
-.. tabs::
-
-   .. tab:: MacOS
-
-     MacOS 
-
-   .. tab:: Linux
-
-     Linux
-
-   .. tab::  Windows
-
-    Windows
 

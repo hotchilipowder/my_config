@@ -20,16 +20,16 @@ Welcome to My Dev Config's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   docs/neovim.rst
-   docs/git.rst
-   docs/docker.rst
-   docs/snippets.rst
-   docs/sphinx.rst
-   docs/homelab.rst
-   docs/cookiecutter.rst
-   docs/tikz.rst
-   docs/vps.md
-   docs/resources.rst
+   rsts/neovim.rst
+   rsts/git.rst
+   rsts/docker.rst
+   rsts/snippets.rst
+   rsts/sphinx.rst
+   rsts/homelab.rst
+   rsts/cookiecutter.rst
+   rsts/tikz.rst
+   mds/vps.md
+   rsts/resources.rst
 
 
 Indices and tables
