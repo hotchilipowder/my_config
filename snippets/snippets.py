@@ -21,7 +21,7 @@ VSTEMPLATE_DIR = os.path.join(BASE_DIR, 'vscode-snips', 'raws')
 VSOUTPUT_DIR = os.path.join(BASE_DIR, 'vscode-snips', '..', 'vsnip_snippets')
 ULOUTPUT_DIR = os.path.join(BASE_DIR, 'UltiSnips')
 PROJECT_DIR = os.path.join(BASE_DIR, '..')
-DOCOUPUT_DIR = os.path.join(PROJECT_DIR, 'docs', 'docs')
+DOCOUPUT_DIR = os.path.join(PROJECT_DIR, 'docs', 'rsts')
 
 # vs_affix_dict, you can add more
 vs_affix_dict = {
