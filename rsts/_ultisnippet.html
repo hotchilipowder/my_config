@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Tikz Plot - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Vps Configs" href="vps.html" /><link rel="prev" title="Cookiecutter" href="cookiecutter.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>python - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -20,7 +20,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Tikz Plot"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="python"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -61,7 +61,7 @@ data-aria-dark="切换到自动模式">
     <div class="sy-lside-inner md:sticky">
       <div class="sy-scrollbar p-6">
         <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim and Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
@@ -69,8 +69,8 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
@@ -84,8 +84,9 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#why-tikz">Why Tikz</a></li>
-<li><a class="reference internal" href="#tikz-resources">Tikz resources</a></li>
+<li><a class="reference internal" href="#">python</a></li>
+<li><a class="reference internal" href="#latex">latex</a></li>
+<li><a class="reference internal" href="#restructuredtext">restructuredtext</a></li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -106,7 +107,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/tikz.rst">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/rsts/_ultisnippet.rst">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -122,7 +123,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Tikz Plot</strong>
+        <strong itemprop="name">python</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -135,51 +136,57 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="tikz-plot">
-<h1>Tikz Plot<a class="headerlink" href="#tikz-plot" title="Link to this heading">¶</a></h1>
-<section id="why-tikz">
-<h2>Why Tikz<a class="headerlink" href="#why-tikz" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="#tikz" id="id1"><span>[Tikz]</span></a> 配合Latex确实是能够实现真正出版物级别的作图。
-好的作图确实能让人觉得research的档次得到提升。</p>
-<p>另外，由于使用了 <a class="reference internal" href="#tikz" id="id2"><span>[Tikz]</span></a> ，确实可以实现在图和文章浑然一体。</p>
+          <section id="python">
+<h1>python<a class="headerlink" href="#python" title="Link to this heading">¶</a></h1>
 </section>
-<section id="tikz-resources">
-<h2>Tikz resources<a class="headerlink" href="#tikz-resources" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/xinychen/awesome-latex-drawing">https://github.com/xinychen/awesome-latex-drawing</a></p></li>
-<li><p><a class="reference external" href="https://github.com/PetarV-/TikZ">https://github.com/PetarV-/TikZ</a></p></li>
-<li><p><a class="reference external" href="https://github.com/mkofinas/tikz-tutorial">https://github.com/mkofinas/tikz-tutorial</a></p></li>
-</ul>
-<div role="list" class="citation-list">
-<div class="citation" id="tikz" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>Tikz<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
-<p><a class="reference external" href="https://tikz.dev/">https://tikz.dev/</a></p>
+<section id="latex">
+<h1>latex<a class="headerlink" href="#latex" title="Link to this heading">¶</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">[tttbegin]  xelatex begin</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">%<span class="w"> </span>!TeX<span class="w"> </span><span class="nv">program</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>xelatex
+</span></pre></div>
 </div>
 </div>
-<div class="section" /></section>
-</section>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">[snippet]  (^|[^a-zA-Z])mi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="w"> </span><span class="o">=</span><span class="w"> </span>match.group<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="sb">`</span><span class="se">\$</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="si">${</span><span class="nv">VISUAL</span><span class="p">:</span><span class="si">}}</span><span class="w"> </span><span class="se">\$</span><span class="nv">$0</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">[hello]  test for python</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="sb">`</span>!p<span class="w"> </span>snip.rv<span class="o">=</span><span class="s2">&quot;hello world&quot;</span><span class="sb">`</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
+<section id="restructuredtext">
+<h1>restructuredtext<a class="headerlink" href="#restructuredtext" title="Link to this heading">¶</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">[xref]  Description</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">:xref:<span class="se">\`</span><span class="nv">$1</span><span class="se">\`</span>
+</span></pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">[test]  Description</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="si">${</span><span class="nv">VISUAL</span><span class="p">:</span><span class="nv">test</span><span class="si">}}</span>
+</span></pre></div>
+</div>
+</div>
+</details></section>
 
         </article><button class="back-to-top" type="button">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
   </svg>
   <span>回到顶部</span>
-</button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="cookiecutter.html">
-      <i class="i-lucide chevron-left"></i>
-      <div class="page-info">
-        <span>上一章</span><div class="title">Cookiecutter</div></div>
-    </a>
-  </div><div class="navigation-next">
-    <a href="vps.html">
-      <div class="page-info">
-        <span>下一章</span>
-        <div class="title">Vps Configs</div>
-      </div>
-      <i class="i-lucide chevron-right"></i>
-    </a>
-  </div></div></div>
+</button><div class="navigation flex print:hidden"></div></div>
     </div>
   </main>
 </div>

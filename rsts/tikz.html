@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Resources - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="prev" title="Vps Configs" href="vps.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Tikz Plot - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Vps Configs" href="../mds/vps.html" /><link rel="prev" title="Cookiecutter" href="cookiecutter.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -20,7 +20,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Resources"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Tikz Plot"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -69,9 +69,9 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Resources</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
         </div>
@@ -84,8 +84,8 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#useful-github-for-my-dev">Useful github for my Dev</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#why-tikz">Why Tikz</a></li>
+<li><a class="reference internal" href="#tikz-resources">Tikz resources</a></li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -106,7 +106,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/resources.rst">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/rsts/tikz.rst">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -122,7 +122,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Resources</strong>
+        <strong itemprop="name">Tikz Plot</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -135,87 +135,29 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="resources">
-<h1>Resources<a class="headerlink" href="#resources" title="Link to this heading">¶</a></h1>
-<section id="useful-github-for-my-dev">
-<h2>Useful github for my Dev<a class="headerlink" href="#useful-github-for-my-dev" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="#cookiecutterdjango" id="id1"><span>[cookiecutterdjango]</span></a> 可以被用来做的起手式，不过相比于传统的<code class="code docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">startproject</span> <span class="pre">xxx</span></code>。
-更多的优势目前还不太清晰。</p>
-<p><a class="reference internal" href="#scientific-python-cookiecutter" id="id2"><span>[scientific-python-cookiecutter]</span></a> 这是可以说是第一次体会到了使用<code class="code docutils literal notranslate"><span class="pre">cookiecutter</span></code>的优势。</p>
-<p><a class="reference internal" href="#proxy-poll" id="id3"><span>[proxy_poll]</span></a> : 这个代理池的项目看起来还行。</p>
-<p><a class="reference internal" href="#serverstatus" id="id4"><span>[ServerStatus]</span></a> : 基于这个项目，开发了 <a class="reference external" href="https://github.com/hotchilipowder/aiohttp_server_status">AiohttpServerStatus</a></p>
-<p><a class="reference internal" href="#django-react-tyadmin" id="id5"><span>[django-react-tyadmin]</span></a> : 这个项目可以被用来学习Django-restfull。</p>
-<p><a class="reference internal" href="#dds-django-dynamic-scrappper" id="id6"><span>[DDS-django-dynamic-scrappper]</span></a> : 一个有趣的爬虫项目</p>
-<p><a class="reference internal" href="#screenity" id="id7"><span>[screenity]</span></a> : 一个有趣的JS项目</p>
-<p><a class="reference internal" href="#pix2tex" id="id8"><span>[pix2tex]</span></a> : Pix2Tex</p>
-<p><a class="reference internal" href="#video-subtitle-extractor" id="id9"><span>[video-subtitle-extractor]</span></a> : 字幕提取</p>
-<p><a class="reference internal" href="#mobilepillowtablklite" id="id10"><span>[mobilePillowTablkLite]</span></a> : IOS 监控</p>
-<p><a class="reference internal" href="#docker-flare" id="id11"><span>[docker-flare]</span></a> : 个人主目录页</p>
-<p><a class="reference internal" href="#silverrainz" id="id12"><span>[silverRainZ]</span></a> : 使用restructtext做笔记</p>
-<p><a class="reference internal" href="#tmux" id="id13"><span>[tmux]</span></a> : oh-my-tmux， 有一点点复杂。</p>
-<p><a class="reference internal" href="#reinstall-tools" id="id14"><span>[Reinstall-Tools]</span></a> : 这个工具可以被用来做系统的重新安装，去掉腾讯云的监控程序等流氓软件。</p>
+          <section id="tikz-plot">
+<h1>Tikz Plot<a class="headerlink" href="#tikz-plot" title="Link to this heading">¶</a></h1>
+<section id="why-tikz">
+<h2>Why Tikz<a class="headerlink" href="#why-tikz" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="#tikz" id="id1"><span>[Tikz]</span></a> 配合Latex确实是能够实现真正出版物级别的作图。
+好的作图确实能让人觉得research的档次得到提升。</p>
+<p>另外，由于使用了 <a class="reference internal" href="#tikz" id="id2"><span>[Tikz]</span></a> ，确实可以实现在图和文章浑然一体。</p>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<section id="tikz-resources">
+<h2>Tikz resources<a class="headerlink" href="#tikz-resources" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/xinychen/awesome-latex-drawing">https://github.com/xinychen/awesome-latex-drawing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/PetarV-/TikZ">https://github.com/PetarV-/TikZ</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mkofinas/tikz-tutorial">https://github.com/mkofinas/tikz-tutorial</a></p></li>
+</ul>
 <div role="list" class="citation-list">
-<div class="citation" id="reinstall-tools" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">Reinstall-Tools</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/leitbogioro/Tools">https://github.com/leitbogioro/Tools</a></p>
-</div>
-<div class="citation" id="tmux" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">tmux</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/gpakosz/.tmux">https://github.com/gpakosz/.tmux</a></p>
-</div>
-<div class="citation" id="silverrainz" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">silverRainZ</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/SilverRainZ/silverrainz.github.io">https://github.com/SilverRainZ/silverrainz.github.io</a></p>
-</div>
-<div class="citation" id="docker-flare" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">docker-flare</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/soulteary/docker-flare">https://github.com/soulteary/docker-flare</a></p>
-</div>
-<div class="citation" id="mobilepillowtablklite" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">mobilePillowTablkLite</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/Lakr233/mobilePillowTalkLite">https://github.com/Lakr233/mobilePillowTalkLite</a></p>
-</div>
-<div class="citation" id="video-subtitle-extractor" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">video-subtitle-extractor</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/YaoFANGUK/video-subtitle-extractor">https://github.com/YaoFANGUK/video-subtitle-extractor</a></p>
-</div>
-<div class="citation" id="pix2tex" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">pix2tex</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/lukas-blecher/LaTeX-OCR">https://github.com/lukas-blecher/LaTeX-OCR</a></p>
-</div>
-<div class="citation" id="screenity" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">screenity</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/alyssaxuu/screenity">https://github.com/alyssaxuu/screenity</a></p>
-</div>
-<div class="citation" id="dds-django-dynamic-scrappper" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">DDS-django-dynamic-scrappper</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/hotchilipowder/django-dynamic-scraper">https://github.com/hotchilipowder/django-dynamic-scraper</a></p>
-</div>
-<div class="citation" id="django-react-tyadmin" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">django-react-tyadmin</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/mtianyan/django-react-tyadmin">https://github.com/mtianyan/django-react-tyadmin</a></p>
-</div>
-<div class="citation" id="serverstatus" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">ServerStatus</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/hotchilipowder/ServerStatus">https://github.com/hotchilipowder/ServerStatus</a></p>
-</div>
-<div class="citation" id="proxy-poll" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">proxy_poll</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/jhao104/proxy_pool">https://github.com/jhao104/proxy_pool</a></p>
-</div>
-<div class="citation" id="scientific-python-cookiecutter" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">scientific-python-cookiecutter</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/NSLS-II/scientific-python-cookiecutter">https://github.com/NSLS-II/scientific-python-cookiecutter</a></p>
-</div>
-<div class="citation" id="cookiecutterdjango" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">cookiecutterdjango</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://github.com/cookiecutter/cookiecutter-django">https://github.com/cookiecutter/cookiecutter-django</a></p>
+<div class="citation" id="tikz" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Tikz<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p><a class="reference external" href="https://tikz.dev/">https://tikz.dev/</a></p>
 </div>
 </div>
-</section>
+<div class="section" /></section>
 </section>
 
         </article><button class="back-to-top" type="button">
@@ -224,10 +166,18 @@ data-aria-dark="切换到自动模式">
   </svg>
   <span>回到顶部</span>
 </button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="vps.html">
+    <a href="cookiecutter.html">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>上一章</span><div class="title">Vps Configs</div></div>
+        <span>上一章</span><div class="title">Cookiecutter</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="../mds/vps.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Vps Configs</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
     </a>
   </div></div></div>
     </div>

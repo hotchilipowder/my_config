@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vps Configs - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Resources" href="resources.html" /><link rel="prev" title="Tikz Plot" href="tikz.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Resources - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="prev" title="Vps Configs" href="../mds/vps.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -20,7 +20,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Vps Configs"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Resources"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -70,8 +70,8 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Vps Configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Resources</a></li>
 </ul>
 
         </div>
@@ -84,15 +84,8 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#id1">&#19968;&#20123;&#24120;&#35265;&#30340;&#33050;&#26412;</a><ul>
-<li><a class="reference internal" href="#bbr-sh">BBR.sh</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id2">&#32593;&#32476;&#35774;&#32622;</a><ul>
-<li><a class="reference internal" href="#id3">&#32511;&#20113;</a></li>
-<li><a class="reference internal" href="#local-machine">Local Machine</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#useful-github-for-my-dev">Useful github for my Dev</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -113,7 +106,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/vps.md">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/rsts/resources.rst">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -129,7 +122,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Vps Configs</strong>
+        <strong itemprop="name">Resources</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -142,67 +135,86 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="vps-configs">
-<h1>Vps Configs<a class="headerlink" href="#vps-configs" title="Link to this heading">¶</a></h1>
-<section id="id1">
-<h2>一些常见的脚本<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<section id="bbr-sh">
-<h3>BBR.sh<a class="headerlink" href="#bbr-sh" title="Link to this heading">¶</a></h3>
-<p>安装BBR基本上是需要的</p>
-<pre  class="mermaid">
-            sequenceDiagram
-      participant Alice
-      participant Bob
-      Alice-&gt;John: Hello John, how are you?
-    </pre></section>
+          <section id="resources">
+<h1>Resources<a class="headerlink" href="#resources" title="Link to this heading">¶</a></h1>
+<section id="useful-github-for-my-dev">
+<h2>Useful github for my Dev<a class="headerlink" href="#useful-github-for-my-dev" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="#cookiecutterdjango" id="id1"><span>[cookiecutterdjango]</span></a> 可以被用来做的起手式，不过相比于传统的<code class="code docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">startproject</span> <span class="pre">xxx</span></code>。
+更多的优势目前还不太清晰。</p>
+<p><a class="reference internal" href="#scientific-python-cookiecutter" id="id2"><span>[scientific-python-cookiecutter]</span></a> 这是可以说是第一次体会到了使用<code class="code docutils literal notranslate"><span class="pre">cookiecutter</span></code>的优势。</p>
+<p><a class="reference internal" href="#proxy-poll" id="id3"><span>[proxy_poll]</span></a> : 这个代理池的项目看起来还行。</p>
+<p><a class="reference internal" href="#serverstatus" id="id4"><span>[ServerStatus]</span></a> : 基于这个项目，开发了 <a class="reference external" href="https://github.com/hotchilipowder/aiohttp_server_status">AiohttpServerStatus</a></p>
+<p><a class="reference internal" href="#django-react-tyadmin" id="id5"><span>[django-react-tyadmin]</span></a> : 这个项目可以被用来学习Django-restfull。</p>
+<p><a class="reference internal" href="#dds-django-dynamic-scrappper" id="id6"><span>[DDS-django-dynamic-scrappper]</span></a> : 一个有趣的爬虫项目</p>
+<p><a class="reference internal" href="#screenity" id="id7"><span>[screenity]</span></a> : 一个有趣的JS项目</p>
+<p><a class="reference internal" href="#pix2tex" id="id8"><span>[pix2tex]</span></a> : Pix2Tex</p>
+<p><a class="reference internal" href="#video-subtitle-extractor" id="id9"><span>[video-subtitle-extractor]</span></a> : 字幕提取</p>
+<p><a class="reference internal" href="#mobilepillowtablklite" id="id10"><span>[mobilePillowTablkLite]</span></a> : IOS 监控</p>
+<p><a class="reference internal" href="#docker-flare" id="id11"><span>[docker-flare]</span></a> : 个人主目录页</p>
+<p><a class="reference internal" href="#silverrainz" id="id12"><span>[silverRainZ]</span></a> : 使用restructtext做笔记</p>
+<p><a class="reference internal" href="#tmux" id="id13"><span>[tmux]</span></a> : oh-my-tmux， 有一点点复杂。</p>
+<p><a class="reference internal" href="#reinstall-tools" id="id14"><span>[Reinstall-Tools]</span></a> : 这个工具可以被用来做系统的重新安装，去掉腾讯云的监控程序等流氓软件。</p>
 </section>
-<section id="id2">
-<h2>网络设置<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<section id="id3">
-<h3>绿云<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># Generated by SolusVM</span>
-</span><span data-line="2">
-</span><span data-line="3"> <span class="n">auto</span> <span class="n">lo</span>
-</span><span data-line="4">  <span class="n">iface</span> <span class="n">lo</span> <span class="n">inet</span> <span class="n">loopback</span>
-</span><span data-line="5">
-</span><span data-line="6"> <span class="n">auto</span> <span class="n">eth0</span>
-</span><span data-line="7">  <span class="n">iface</span> <span class="n">eth0</span> <span class="n">inet</span> <span class="n">static</span>
-</span><span data-line="8">   <span class="n">address</span> <span class="n">xxxxx</span>
-</span><span data-line="9">   <span class="n">gateway</span> <span class="n">xxxx</span>
-</span><span data-line="10">   <span class="n">netmask</span> <span class="mf">255.255.255.0</span>
-</span><span data-line="11">   <span class="n">dns</span><span class="o">-</span><span class="n">nameservers</span> <span class="mf">8.8.8.8</span> <span class="mf">8.8.4.4</span>
-</span><span data-line="12">   <span class="n">up</span> <span class="n">ip</span> <span class="n">addr</span> <span class="n">add</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="n">xxx</span><span class="p">::</span><span class="mi">21</span><span class="o">/</span><span class="mi">64</span> <span class="n">dev</span> <span class="n">eth0</span>
-</span><span data-line="13">   <span class="n">up</span> <span class="n">ip</span> <span class="n">addr</span> <span class="n">add</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="n">xxx</span><span class="p">::</span><span class="mi">1234</span><span class="o">/</span><span class="mi">64</span> <span class="n">dev</span> <span class="n">eth0</span>
-</span><span data-line="14">   <span class="n">up</span> <span class="n">ip</span> <span class="o">-</span><span class="mi">6</span> <span class="n">route</span> <span class="n">add</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0001</span> <span class="n">dev</span> <span class="n">eth0</span>
-</span><span data-line="15">   <span class="n">up</span> <span class="n">ip</span> <span class="o">-</span><span class="mi">6</span> <span class="n">route</span> <span class="n">add</span> <span class="n">default</span> <span class="n">via</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0001</span>
-</span></pre></div>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="reinstall-tools" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">Reinstall-Tools</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/leitbogioro/Tools">https://github.com/leitbogioro/Tools</a></p>
 </div>
-</section>
-<section id="local-machine">
-<h3>Local Machine<a class="headerlink" href="#local-machine" title="Link to this heading">¶</a></h3>
-<p>对于Ubuntu, 设置网络的方式和Debian有所区别。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">network:
-</span><span data-line="2"><span class="w">    </span>ethernets:
-</span><span data-line="3"><span class="w">        </span>enp10s0:
-</span><span data-line="4"><span class="w">            </span>dhcp4:<span class="w"> </span><span class="nb">true</span>
-</span><span data-line="5"><span class="w">            </span>addresses:
-</span><span data-line="6"><span class="w">            </span>-<span class="w"> </span><span class="m">192</span>.168.123.x1/24
-</span><span data-line="7"><span class="w">            </span>nameservers:
-</span><span data-line="8"><span class="w">                </span>addresses:
-</span><span data-line="9"><span class="w">                </span>-<span class="w"> </span><span class="m">1</span>.1.1.1
-</span><span data-line="10"><span class="w">                </span>-<span class="w"> </span><span class="m">192</span>.168.123.x2
-</span><span data-line="11"><span class="w">                </span>search:<span class="w"> </span><span class="o">[]</span>
-</span><span data-line="12"><span class="w">            </span>routes:
-</span><span data-line="13"><span class="w">            </span>-<span class="w">   </span>to:<span class="w"> </span>default
-</span><span data-line="14"><span class="w">                </span>via:<span class="w"> </span><span class="m">192</span>.168.123.x2
-</span><span data-line="15"><span class="w">    </span>version:<span class="w"> </span><span class="m">2</span>
-</span><span data-line="16"><span class="w">    </span>wifis:<span class="w"> </span><span class="o">{}</span>
-</span></pre></div>
+<div class="citation" id="tmux" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">tmux</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/gpakosz/.tmux">https://github.com/gpakosz/.tmux</a></p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">
-</span></pre></div>
+<div class="citation" id="silverrainz" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">silverRainZ</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/SilverRainZ/silverrainz.github.io">https://github.com/SilverRainZ/silverrainz.github.io</a></p>
 </div>
-</section>
+<div class="citation" id="docker-flare" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">docker-flare</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/soulteary/docker-flare">https://github.com/soulteary/docker-flare</a></p>
+</div>
+<div class="citation" id="mobilepillowtablklite" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">mobilePillowTablkLite</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/Lakr233/mobilePillowTalkLite">https://github.com/Lakr233/mobilePillowTalkLite</a></p>
+</div>
+<div class="citation" id="video-subtitle-extractor" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">video-subtitle-extractor</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/YaoFANGUK/video-subtitle-extractor">https://github.com/YaoFANGUK/video-subtitle-extractor</a></p>
+</div>
+<div class="citation" id="pix2tex" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">pix2tex</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/lukas-blecher/LaTeX-OCR">https://github.com/lukas-blecher/LaTeX-OCR</a></p>
+</div>
+<div class="citation" id="screenity" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">screenity</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/alyssaxuu/screenity">https://github.com/alyssaxuu/screenity</a></p>
+</div>
+<div class="citation" id="dds-django-dynamic-scrappper" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">DDS-django-dynamic-scrappper</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/hotchilipowder/django-dynamic-scraper">https://github.com/hotchilipowder/django-dynamic-scraper</a></p>
+</div>
+<div class="citation" id="django-react-tyadmin" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">django-react-tyadmin</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/mtianyan/django-react-tyadmin">https://github.com/mtianyan/django-react-tyadmin</a></p>
+</div>
+<div class="citation" id="serverstatus" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">ServerStatus</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/hotchilipowder/ServerStatus">https://github.com/hotchilipowder/ServerStatus</a></p>
+</div>
+<div class="citation" id="proxy-poll" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">proxy_poll</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/jhao104/proxy_pool">https://github.com/jhao104/proxy_pool</a></p>
+</div>
+<div class="citation" id="scientific-python-cookiecutter" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">scientific-python-cookiecutter</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/NSLS-II/scientific-python-cookiecutter">https://github.com/NSLS-II/scientific-python-cookiecutter</a></p>
+</div>
+<div class="citation" id="cookiecutterdjango" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">cookiecutterdjango</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/cookiecutter/cookiecutter-django">https://github.com/cookiecutter/cookiecutter-django</a></p>
+</div>
+</div>
 </section>
 </section>
 
@@ -212,18 +224,10 @@ data-aria-dark="切换到自动模式">
   </svg>
   <span>回到顶部</span>
 </button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="tikz.html">
+    <a href="../mds/vps.html">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>上一章</span><div class="title">Tikz Plot</div></div>
-    </a>
-  </div><div class="navigation-next">
-    <a href="resources.html">
-      <div class="page-info">
-        <span>下一章</span>
-        <div class="title">Resources</div>
-      </div>
-      <i class="i-lucide chevron-right"></i>
+        <span>上一章</span><div class="title">Vps Configs</div></div>
     </a>
   </div></div></div>
     </div>
@@ -289,13 +293,5 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/shibuya.js?v=e2e99575"></script>
-      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
-      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
-      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
-      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-      <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
-window.addEventListener("load", () => mermaid.run());
-</script></body>
+      <script src="../_static/shibuya.js?v=e2e99575"></script></body>
 </html>

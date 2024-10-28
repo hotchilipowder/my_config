@@ -71,7 +71,7 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
@@ -91,7 +91,7 @@ data-aria-dark="切换到自动模式">
 <li><a class="reference internal" href="#sphinxcontrib-mermaid">sphinxcontrib-mermaid</a></li>
 <li><a class="reference internal" href="#sphinx-design">sphinx_design</a><ul>
 <li><a class="reference internal" href="#tabs-using-sphinx-design">Tabs using sphinx_design</a></li>
-<li><a class="reference internal" href="#tabs-using-sphinx-tabs">Tabs using sphinx_tabs</a></li>
+<li><a class="reference internal" href="#tabs-using-sphinx-tabs-abandon">Tabs using sphinx_tabs (Abandon)</a></li>
 <li><a class="reference internal" href="#drop-using-sphinx-design">Drop using sphinx_design</a></li>
 <li><a class="reference internal" href="#card-using-sphinx-design">Card using sphinx_design</a></li>
 <li><a class="reference internal" href="#grid-using-sphinx-design">Grid using sphinx design</a></li>
@@ -103,7 +103,11 @@ data-aria-dark="切换到自动模式">
 <li><a class="reference internal" href="#sphinx-comments">sphinx comments</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sphinx-with-latex">Sphinx with Latex</a></li>
+<li><a class="reference internal" href="#sphinx-with-latex">Sphinx with Latex</a><ul>
+<li><a class="reference internal" href="#pdf">&#20462;&#25913;&#20026;&#21333;&#20010;&#39029;&#38754;&#30340;pdf</a></li>
+<li><a class="reference internal" href="#id6">&#22810;&#20010;&#37197;&#32622;&#25991;&#20214;&#23545;&#20110;&#19981;&#21516;&#30340;&#39029;&#38754;</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#interesting-links-for-sphinx-extensions">Interesting links for sphinx extensions</a><ul>
 <li><a class="reference internal" href="#groups-for-sphinx">Groups for sphinx</a></li>
 </ul>
@@ -129,7 +133,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/sphinx.rst">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/rsts/sphinx.rst">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -329,8 +333,8 @@ windows</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </section>
-<section id="tabs-using-sphinx-tabs">
-<h4>Tabs using sphinx_tabs<a class="headerlink" href="#tabs-using-sphinx-tabs" title="Link to this heading">¶</a></h4>
+<section id="tabs-using-sphinx-tabs-abandon">
+<h4>Tabs using sphinx_tabs (Abandon)<a class="headerlink" href="#tabs-using-sphinx-tabs-abandon" title="Link to this heading">¶</a></h4>
 <p><a class="reference external" href="https://sphinx-tabs.readthedocs.io/en/latest/#basic-tabs">Sphinx Tab 文档</a></p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>MacOS</p>
@@ -487,14 +491,68 @@ Card Title</div>
 </span></pre></div>
 </div>
 <p>然后使用 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">latexpdf</span></code></p>
+<section id="pdf">
+<h3>修改为单个页面的pdf<a class="headerlink" href="#pdf" title="Link to this heading">¶</a></h3>
+<p>关于定制化单个页面，如何实现latex的有效编译，需要查看手册: <a class="reference external" href="https://www.sphinx-doc.org/en/master/latex.html">Latex customization</a></p>
+<p>例如:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">latex_engine</span> <span class="o">=</span> <span class="s1">&#39;xelatex&#39;</span>
+</span><span data-line="2"><span class="n">latex_elements</span> <span class="o">=</span> <span class="p">{</span>
+</span><span data-line="3">    <span class="s1">&#39;passoptionstopackages&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+</span><span data-line="4"><span class="s1">\PassOptionsToPackage</span><span class="si">{svgnames}{xcolor}</span>
+</span><span data-line="5"><span class="s1">&#39;&#39;&#39;</span><span class="p">,</span>
+</span><span data-line="6">    <span class="s1">&#39;pointsize&#39;</span><span class="p">:</span> <span class="s1">&#39;12pt&#39;</span><span class="p">,</span>
+</span><span data-line="7">    <span class="s1">&#39;fontpkg&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+</span><span data-line="8"><span class="s1">\setmainfont</span><span class="si">{Georgia}</span>
+</span><span data-line="9"><span class="s1">&#39;&#39;&#39;</span><span class="p">,</span>
+</span><span data-line="10">    <span class="s1">&#39;maketitle&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+</span><span data-line="11"><span class="s1">    \date{Fall 2024}</span>
+</span><span data-line="12"><span class="s1">    \maketitle</span>
+</span><span data-line="13"><span class="s1">&#39;&#39;&#39;</span><span class="p">,</span>
+</span><span data-line="14">    <span class="s1">&#39;tableofcontents&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span data-line="15">    <span class="s1">&#39;preamble&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+</span><span data-line="16"><span class="s1">\usepackage</span><span class="si">{xeCJK}</span>
+</span><span data-line="17"><span class="s1">\usepackage</span><span class="si">{hyperref}</span>
+</span><span data-line="18"><span class="s1">\usepackage</span><span class="si">{url}</span>
+</span><span data-line="19"><span class="s1">\raggedbottom  % 避免章节之间产生多余的空白页</span>
+</span><span data-line="20">
+</span><span data-line="21"><span class="s1">\setlength{\parskip}</span><span class="si">{5pt}</span><span class="s1">    % 段落之间空格</span>
+</span><span data-line="22"><span class="s1">&#39;&#39;&#39;</span><span class="p">,</span>
+</span><span data-line="23">    <span class="s1">&#39;sphinxsetup&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+</span><span data-line="24"><span class="s1">    TitleColor=DarkGoldenrod</span>
+</span><span data-line="25"><span class="s1">&#39;&#39;&#39;</span><span class="p">,</span>
+</span><span data-line="26">    <span class="s1">&#39;printindex&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\footnotesize\raggedright\printindex&#39;</span><span class="p">,</span>
+</span><span data-line="27"><span class="p">}</span>
+</span><span data-line="28"><span class="n">latex_show_urls</span> <span class="o">=</span> <span class="s1">&#39;footnote&#39;</span>
+</span><span data-line="29">
+</span><span data-line="30"><span class="n">latex_documents</span> <span class="o">=</span> <span class="p">[</span>
+</span><span data-line="31"><span class="p">(</span><span class="s1">&#39;project1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;project1.tex&#39;</span><span class="p">,</span> <span class="s1">&#39;Title 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Author 1&#39;</span><span class="p">,</span> <span class="s1">&#39;howto&#39;</span><span class="p">),</span>
+</span><span data-line="32"><span class="p">]</span>
+</span><span data-line="33">
+</span><span data-line="34"><span class="n">latex_additional_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;iclr2024_conference.sty&quot;</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<p>特别需要指出的，如果改成了 <code class="code docutils literal notranslate"><span class="pre">howto</span></code>那么对应的是 article类。
+如果是默认的会是 <code class="code docutils literal notranslate"><span class="pre">Manual</span></code>。</p>
+</section>
+<section id="id6">
+<h3>多个配置文件对于不同的页面<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>例如，我们的某个教学项目，包括教程、练习题和代码手册等。
+但是上述的单个页面的 <code class="code docutils literal notranslate"><span class="pre">conf.py</span></code>比较难满足这种需求，因为tex的预加载可能存在差异。
+这个时候最好的方式便是分不同的 <code class="code docutils literal notranslate"><span class="pre">conf.py</span></code>, 然后进行处理。</p>
+<p>例如，我们可以创建一个 <code class="code docutils literal notranslate"><span class="pre">confs/projects/conf.py</span></code></p>
+<p>然后使用 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">latexpdf</span></code>的时候指定配置文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">make<span class="w"> </span>latexpdf<span class="w"> </span><span class="nv">SPHINXOPTS</span><span class="o">=</span><span class="s2">&quot;-c ./confs/projects&quot;</span>
+</span></pre></div>
+</div>
+</section>
 </section>
 <section id="interesting-links-for-sphinx-extensions">
 <h2>Interesting links for sphinx extensions<a class="headerlink" href="#interesting-links-for-sphinx-extensions" title="Link to this heading">¶</a></h2>
 <section id="groups-for-sphinx">
 <h3>Groups for sphinx<a class="headerlink" href="#groups-for-sphinx" title="Link to this heading">¶</a></h3>
-<p><a class="reference internal" href="#excutable-book" id="id6"><span>[excutable-book]</span></a></p>
-<p><a class="reference internal" href="#sphinx-contrib" id="id7"><span>[sphinx-contrib]</span></a></p>
-<p><a class="reference internal" href="#sympy" id="id8"><span>[sympy]</span></a> : 这个是当时找 math + dollar 发现的 github,</p>
+<p><a class="reference internal" href="#excutable-book" id="id7"><span>[excutable-book]</span></a></p>
+<p><a class="reference internal" href="#sphinx-contrib" id="id8"><span>[sphinx-contrib]</span></a></p>
+<p><a class="reference internal" href="#sympy" id="id9"><span>[sympy]</span></a> : 这个是当时找 math + dollar 发现的 github,</p>
 </section>
 </section>
 <section id="references">
@@ -505,15 +563,15 @@ Card Title</div>
 <p><a class="reference external" href="https://github.com/executablebooks/MyST-Parser">https://github.com/executablebooks/MyST-Parser</a></p>
 </div>
 <div class="citation" id="sphinx-contrib" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">sphinx-contrib</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">sphinx-contrib</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/sphinx-contrib">https://github.com/sphinx-contrib</a></p>
 </div>
 <div class="citation" id="excutable-book" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">excutable-book</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">excutable-book</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/executablebooks">https://github.com/executablebooks</a></p>
 </div>
 <div class="citation" id="sympy" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">sympy</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">sympy</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/sympy">https://github.com/sympy</a></p>
 </div>
 </div>

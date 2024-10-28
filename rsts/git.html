@@ -71,7 +71,7 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
@@ -88,18 +88,17 @@ data-aria-dark="切换到自动模式">
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#proxy">Proxy</a></li>
 <li><a class="reference internal" href="#common-git-skill">Common git skill</a><ul>
-<li><a class="reference internal" href="#set-git-proxy">Set git proxy</a></li>
 <li><a class="reference internal" href="#change-history-user-name-and-user-email">Change history user.name and user.email</a></li>
 <li><a class="reference internal" href="#delete-all-history">Delete all history</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#lazygit">Lazygit</a></li>
-<li><a class="reference internal" href="#macos-osxkeychain">MacOS osxkeychain</a></li>
 <li><a class="reference internal" href="#github-action">Github Action</a><ul>
 <li><a class="reference internal" href="#my-config">My config</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#my-github-issues">My Github Issues</a><ul>
+<li><a class="reference internal" href="#macos-osxkeychain">MacOS osxkeychain</a></li>
 <li><a class="reference internal" href="#how-to-change-default-editor-into-vim">How to change default editor into vim</a></li>
 <li><a class="reference internal" href="#permission-to-x-denied-to-github-actions-bot">Permission to x denied to github-actions[bot]</a></li>
 <li><a class="reference internal" href="#github-save-username-and-password">Github Save username and password</a></li>
@@ -126,7 +125,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/git.rst">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/rsts/git.rst">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -160,11 +159,10 @@ data-aria-dark="切换到自动模式">
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux (Apt)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Linux (From source)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>MacOS</p>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>git-all
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Linux (Apt)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux (From source)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">MacOS</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>git-all
 </span></pre></div>
 </div>
-</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>see <a class="reference external" href="https://mirrors.edge.kernel.org/pub/software/scm/git/">this link</a>  for recent release.</p>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>see <a class="reference external" href="https://mirrors.edge.kernel.org/pub/software/scm/git/">this link</a>  for recent release.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt-get<span class="w"> </span>install<span class="w"> </span>dh-autoreconf<span class="w"> </span>libcurl4-gnutls-dev<span class="w"> </span>libexpat1-dev<span class="w"> </span>gettext<span class="w"> </span>libz-dev<span class="w"> </span>libssl-dev
 </span><span data-line="2">
 </span><span data-line="3"><span class="nb">cd</span><span class="w"> </span>tmp
@@ -174,6 +172,7 @@ data-aria-dark="切换到自动模式">
 </span><span data-line="7">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
 </span></pre></div>
 </div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>brew install git</p>
 </div></div>
 </section>
 <section id="proxy">
@@ -187,13 +186,6 @@ data-aria-dark="切换到自动模式">
 <section id="common-git-skill">
 <h2>Common git skill<a class="headerlink" href="#common-git-skill" title="Link to this heading">¶</a></h2>
 <p>关于git学习的资料，可以查看 <a class="reference external" href="https://www.liaoxuefeng.com/wiki/896043488029600">git教程</a></p>
-<section id="set-git-proxy">
-<h3>Set git proxy<a class="headerlink" href="#set-git-proxy" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>xxx
-</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>xxx
-</span></pre></div>
-</div>
-</section>
 <section id="change-history-user-name-and-user-email">
 <h3>Change history user.name and user.email<a class="headerlink" href="#change-history-user-name-and-user-email" title="Link to this heading">¶</a></h3>
 <p>这个需求我主要是多设备没设置user.name 或者 user.email导致有一些奇怪的用户出现在git history里面了。</p>
@@ -236,19 +228,6 @@ data-aria-dark="切换到自动模式">
 <section id="lazygit">
 <h2>Lazygit<a class="headerlink" href="#lazygit" title="Link to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/jesseduffield/lazygit">Lazygit</a> is a simple terminal UI for git commands.</p>
-</section>
-<section id="macos-osxkeychain">
-<h2>MacOS osxkeychain<a class="headerlink" href="#macos-osxkeychain" title="Link to this heading">¶</a></h2>
-<p>Mac 上清除 git osxkeychain 保存的登录名密码</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>--unset<span class="w"> </span>credential.helper
-</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>credential.helper
-</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>credential.helper
-</span></pre></div>
-</div>
-<p>但是还有进一步删除这个文件下的配置, more detail see <a class="reference external" href="https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config">this link</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>--get<span class="w"> </span>credential.helper
-</span></pre></div>
-</div>
 </section>
 <section id="github-action">
 <h2>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h2>
@@ -308,6 +287,19 @@ data-aria-dark="切换到自动模式">
 </section>
 <section id="my-github-issues">
 <h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
+<section id="macos-osxkeychain">
+<h3>MacOS osxkeychain<a class="headerlink" href="#macos-osxkeychain" title="Link to this heading">¶</a></h3>
+<p>Mac 上清除 git osxkeychain 保存的登录名密码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+<p>但是还有进一步删除这个文件下的配置, more detail see <a class="reference external" href="https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config">this link</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>--get<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+</section>
 <section id="how-to-change-default-editor-into-vim">
 <h3>How to change default editor into vim<a class="headerlink" href="#how-to-change-default-editor-into-vim" title="Link to this heading">¶</a></h3>
 <p>不太习惯使用 nano, 默认的nano比较难搞，改成 <code class="code docutils literal notranslate"><span class="pre">vim</span></code></p>
@@ -366,11 +358,6 @@ data-aria-dark="切换到自动模式">
 </tbody>
 </table>
 </div>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Linux</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>MacOS</p>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Linux</p>
-</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><p>Windows</p>
-</div></div>
 </section>
 </section>
 </section>

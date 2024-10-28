@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cookiecutter - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Tikz Plot" href="tikz.html" /><link rel="prev" title="HomeLab" href="homelab.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hardware记录 - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -20,7 +20,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Cookiecutter"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Hardware记录"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -61,16 +61,16 @@ data-aria-dark="切换到自动模式">
     <div class="sy-lside-inner md:sticky">
       <div class="sy-scrollbar p-6">
         <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim and Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
@@ -84,8 +84,10 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#why-cookiecutter">Why Cookiecutter</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#linux-server">Linux Server</a><ul>
+<li><a class="reference internal" href="#note">2024-05-22 Note</a></li>
+</ul>
+</li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -106,7 +108,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/docs/cookiecutter.rst">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/rsts/hardware.rst">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -122,7 +124,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Cookiecutter</strong>
+        <strong itemprop="name">Hardware记录</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -135,29 +137,15 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="cookiecutter">
-<h1>Cookiecutter<a class="headerlink" href="#cookiecutter" title="Link to this heading">¶</a></h1>
-<section id="why-cookiecutter">
-<h2>Why Cookiecutter<a class="headerlink" href="#why-cookiecutter" title="Link to this heading">¶</a></h2>
-<p>使用这个工具最开始是因为觉得自己写的很多的项目其实有共同的脚手架。
-使用了脚手架的项目相比build from scratch，确实更好用，因此尝试去看看别人的解决方案。</p>
-<p>当然，在不同的语言下，区别还是比较大的(在JS下，也许你应该选择 <code class="code docutils literal notranslate"><span class="pre">next</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">vite</span></code>而不是默认的 <code class="code docutils literal notranslate"><span class="pre">create-react-app</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">webpack</span></code>。如果你用 <a class="reference internal" href="#django" id="id1"><span>[Django]</span></a> , 其实本身使用 <code class="code docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">starprojects</span> <span class="pre">xxx</span></code>就是一种脚手架。
-但是由于库本身需要让新手和老手能区分开，所以很多的默认配置比较保守，或者不愿意修改。例如，我需要开启 <code class="code docutils literal notranslate"><span class="pre">ALLOWED_HOSTS</span> <span class="pre">=</span> <span class="pre">['*']</span></code>或者，我希望设置 <code class="code docutils literal notranslate"><span class="pre">TIME_ZONE</span> <span class="pre">=</span> <span class="pre">'Asia/Shanghai'</span></code>都需要再进行配置，非常的麻烦。</p>
-<p>所以最后我选择的方案是使用 <a class="reference internal" href="#id3" id="id2"><span>[Cookiecutter]</span></a> 。</p>
+          <section id="hardware">
+<h1>Hardware记录<a class="headerlink" href="#hardware" title="Link to this heading">¶</a></h1>
+<p>关于机器的一些硬件情报</p>
+<section id="linux-server">
+<h2>Linux Server<a class="headerlink" href="#linux-server" title="Link to this heading">¶</a></h2>
+<section id="note">
+<h3>2024-05-22 Note<a class="headerlink" href="#note" title="Link to this heading">¶</a></h3>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
-<div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Cookiecutter</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://cookiecutter.readthedocs.io/">https://cookiecutter.readthedocs.io/</a></p>
-</div>
-<div class="citation" id="django" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Django</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://www.djangoproject.com/">https://www.djangoproject.com/</a></p>
-</div>
-</div>
-<div class="section" /></section>
+</section>
 </section>
 
         </article><button class="back-to-top" type="button">
@@ -165,21 +153,7 @@ data-aria-dark="切换到自动模式">
     <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
   </svg>
   <span>回到顶部</span>
-</button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="homelab.html">
-      <i class="i-lucide chevron-left"></i>
-      <div class="page-info">
-        <span>上一章</span><div class="title">HomeLab</div></div>
-    </a>
-  </div><div class="navigation-next">
-    <a href="tikz.html">
-      <div class="page-info">
-        <span>下一章</span>
-        <div class="title">Tikz Plot</div>
-      </div>
-      <i class="i-lucide chevron-right"></i>
-    </a>
-  </div></div></div>
+</button><div class="navigation flex print:hidden"></div></div>
     </div>
   </main>
 </div>

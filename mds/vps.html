@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hardware Information - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vps Configs - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Resources" href="../rsts/resources.html" /><link rel="prev" title="Tikz Plot" href="../rsts/tikz.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -20,7 +20,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Hardware Information"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Vps Configs"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -61,7 +61,7 @@ data-aria-dark="切换到自动模式">
     <div class="sy-lside-inner md:sticky">
       <div class="sy-scrollbar p-6">
         <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../rsts/neovim.html">Neovim and Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rsts/git.html">Awesome Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rsts/docker.html">Dockers</a></li>
@@ -70,7 +70,7 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="../rsts/homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rsts/cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rsts/tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vps Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rsts/resources.html">Resources</a></li>
 </ul>
 
@@ -84,8 +84,15 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#cpu-and-mainboard">CPU and Mainboard</a></li>
-<li><a class="reference internal" href="#id1">&#26426;&#31665;</a></li>
+<li><a class="reference internal" href="#id1">&#19968;&#20123;&#24120;&#35265;&#30340;&#33050;&#26412;</a><ul>
+<li><a class="reference internal" href="#bbr-sh">BBR.sh</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">&#32593;&#32476;&#35774;&#32622;</a><ul>
+<li><a class="reference internal" href="#id3">&#32511;&#20113;</a></li>
+<li><a class="reference internal" href="#local-machine">Local Machine</a></li>
+</ul>
+</li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -106,7 +113,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/mds/hardware.md">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/mds/vps.md">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -122,7 +129,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Hardware Information</strong>
+        <strong itemprop="name">Vps Configs</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -135,13 +142,67 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="hardware-information">
-<h1>Hardware Information<a class="headerlink" href="#hardware-information" title="Link to this heading">¶</a></h1>
-<section id="cpu-and-mainboard">
-<h2>CPU and Mainboard<a class="headerlink" href="#cpu-and-mainboard" title="Link to this heading">¶</a></h2>
-</section>
+          <section id="vps-configs">
+<h1>Vps Configs<a class="headerlink" href="#vps-configs" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2>机箱<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2>一些常见的脚本<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="bbr-sh">
+<h3>BBR.sh<a class="headerlink" href="#bbr-sh" title="Link to this heading">¶</a></h3>
+<p>安装BBR基本上是需要的</p>
+<pre  class="mermaid">
+            sequenceDiagram
+      participant Alice
+      participant Bob
+      Alice-&gt;John: Hello John, how are you?
+    </pre></section>
+</section>
+<section id="id2">
+<h2>网络设置<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="id3">
+<h3>绿云<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># Generated by SolusVM</span>
+</span><span data-line="2">
+</span><span data-line="3"> <span class="n">auto</span> <span class="n">lo</span>
+</span><span data-line="4">  <span class="n">iface</span> <span class="n">lo</span> <span class="n">inet</span> <span class="n">loopback</span>
+</span><span data-line="5">
+</span><span data-line="6"> <span class="n">auto</span> <span class="n">eth0</span>
+</span><span data-line="7">  <span class="n">iface</span> <span class="n">eth0</span> <span class="n">inet</span> <span class="n">static</span>
+</span><span data-line="8">   <span class="n">address</span> <span class="n">xxxxx</span>
+</span><span data-line="9">   <span class="n">gateway</span> <span class="n">xxxx</span>
+</span><span data-line="10">   <span class="n">netmask</span> <span class="mf">255.255.255.0</span>
+</span><span data-line="11">   <span class="n">dns</span><span class="o">-</span><span class="n">nameservers</span> <span class="mf">8.8.8.8</span> <span class="mf">8.8.4.4</span>
+</span><span data-line="12">   <span class="n">up</span> <span class="n">ip</span> <span class="n">addr</span> <span class="n">add</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="n">xxx</span><span class="p">::</span><span class="mi">21</span><span class="o">/</span><span class="mi">64</span> <span class="n">dev</span> <span class="n">eth0</span>
+</span><span data-line="13">   <span class="n">up</span> <span class="n">ip</span> <span class="n">addr</span> <span class="n">add</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="n">xxx</span><span class="p">::</span><span class="mi">1234</span><span class="o">/</span><span class="mi">64</span> <span class="n">dev</span> <span class="n">eth0</span>
+</span><span data-line="14">   <span class="n">up</span> <span class="n">ip</span> <span class="o">-</span><span class="mi">6</span> <span class="n">route</span> <span class="n">add</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0001</span> <span class="n">dev</span> <span class="n">eth0</span>
+</span><span data-line="15">   <span class="n">up</span> <span class="n">ip</span> <span class="o">-</span><span class="mi">6</span> <span class="n">route</span> <span class="n">add</span> <span class="n">default</span> <span class="n">via</span> <span class="mi">2403</span><span class="p">:</span><span class="mi">71</span><span class="n">c0</span><span class="p">:</span><span class="mi">2000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0001</span>
+</span></pre></div>
+</div>
+</section>
+<section id="local-machine">
+<h3>Local Machine<a class="headerlink" href="#local-machine" title="Link to this heading">¶</a></h3>
+<p>对于Ubuntu, 设置网络的方式和Debian有所区别。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">network:
+</span><span data-line="2"><span class="w">    </span>ethernets:
+</span><span data-line="3"><span class="w">        </span>enp10s0:
+</span><span data-line="4"><span class="w">            </span>dhcp4:<span class="w"> </span><span class="nb">true</span>
+</span><span data-line="5"><span class="w">            </span>addresses:
+</span><span data-line="6"><span class="w">            </span>-<span class="w"> </span><span class="m">192</span>.168.123.x1/24
+</span><span data-line="7"><span class="w">            </span>nameservers:
+</span><span data-line="8"><span class="w">                </span>addresses:
+</span><span data-line="9"><span class="w">                </span>-<span class="w"> </span><span class="m">1</span>.1.1.1
+</span><span data-line="10"><span class="w">                </span>-<span class="w"> </span><span class="m">192</span>.168.123.x2
+</span><span data-line="11"><span class="w">                </span>search:<span class="w"> </span><span class="o">[]</span>
+</span><span data-line="12"><span class="w">            </span>routes:
+</span><span data-line="13"><span class="w">            </span>-<span class="w">   </span>to:<span class="w"> </span>default
+</span><span data-line="14"><span class="w">                </span>via:<span class="w"> </span><span class="m">192</span>.168.123.x2
+</span><span data-line="15"><span class="w">    </span>version:<span class="w"> </span><span class="m">2</span>
+</span><span data-line="16"><span class="w">    </span>wifis:<span class="w"> </span><span class="o">{}</span>
+</span></pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">
+</span></pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -150,7 +211,21 @@ data-aria-dark="切换到自动模式">
     <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
   </svg>
   <span>回到顶部</span>
-</button><div class="navigation flex print:hidden"></div></div>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="../rsts/tikz.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>上一章</span><div class="title">Tikz Plot</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="../rsts/resources.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Resources</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
     </div>
   </main>
 </div>
@@ -214,5 +289,13 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/shibuya.js?v=e2e99575"></script></body>
+      <script src="../_static/shibuya.js?v=e2e99575"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script></body>
 </html>
