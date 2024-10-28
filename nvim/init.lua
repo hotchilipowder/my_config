@@ -380,7 +380,7 @@ require("lazy").setup({
 
 	-- https://www.lazyvim.org/plugins/lsp#null-lsnvim
 	{
-	  "nvimtools/none-ls.nvim"
+	  "nvimtools/none-ls.nvim",
 	  dependencies = { "mason.nvim" },
 	  opts = function(_, opts)
 	    local null_ls = require("null-ls")
