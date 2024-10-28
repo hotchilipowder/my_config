@@ -367,33 +367,39 @@ require("lazy").setup({
 				-- You can customize some of the format options for the filetype (:help conform.format)
 				rust = { "rustfmt", lsp_format = "fallback" },
 				-- Conform will run the first available formatter
-				javascript = { "prettierd", "prettier", stop_after_first = true }
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+        -- Use the "*" filetype to run formatters on all filetypes.
+        ["*"] = { "codespell" },
+        -- Use the "_" filetype to run formatters on filetypes that don't
+        -- have other formatters configured.
+        ["_"] = { "prettierd", "prettier", stop_after_first = true  },
+
 			},
 		},
 	},
 
-	-- -- https://www.lazyvim.org/plugins/lsp#null-lsnvim
-	-- {
-	--   "nvimtools/none-ls.nvim"
-	--   dependencies = { "mason.nvim" },
-	--   opts = function(_, opts)
-	--     local null_ls = require("null-ls")
-	--     opts.root_dir = opts.root_dir
-	--       or require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git")
-	--     opts.sources = vim.list_extend(opts.sources or {}, {
-	--       -- see https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
-	--       null_ls.builtins.formatting.stylua,
-	--       null_ls.builtins.formatting.shfmt,
-	--       -- python
-	--       null_ls.builtins.formatting.black,
-	--
-	--       null_ls.builtins.diagnostics.djlint,
-	--       null_ls.builtins.formatting.djlint,
-	--       -- js
-	--       null_ls.builtins.formatting.prettier,
-	--     })
-	--   end,
-	-- },
+	-- https://www.lazyvim.org/plugins/lsp#null-lsnvim
+	{
+	  "nvimtools/none-ls.nvim"
+	  dependencies = { "mason.nvim" },
+	  opts = function(_, opts)
+	    local null_ls = require("null-ls")
+	    opts.root_dir = opts.root_dir
+	      or require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git")
+	    opts.sources = vim.list_extend(opts.sources or {}, {
+	      -- see https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+	      null_ls.builtins.formatting.stylua,
+	      null_ls.builtins.formatting.shfmt,
+	      -- python
+	      null_ls.builtins.formatting.black,
+
+	      null_ls.builtins.diagnostics.djlint,
+	      null_ls.builtins.formatting.djlint,
+	      -- js
+	      null_ls.builtins.formatting.prettier,
+	    })
+	  end,
+	},
 
 	-- Fuzzy Finder (files, lsp, etc)
 	{

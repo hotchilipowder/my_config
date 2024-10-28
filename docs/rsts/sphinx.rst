@@ -213,8 +213,8 @@ Tabs using sphinx_design
         windows 
 
 
-Tabs using sphinx_tabs
-^^^^^^^^^^^^^^^^^^^^^^
+Tabs using sphinx_tabs (Abandon)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `Sphinx Tab 文档 <https://sphinx-tabs.readthedocs.io/en/latest/#basic-tabs>`_
 
 .. tabs::

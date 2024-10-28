@@ -107,4 +107,8 @@ def get_logger(name, log_fpath=None):
     return logger
 endsnippet
 	
+snippet django_char "Django charfield with null and blank"
+${1:field_name} = models.CharField(max_length=200, null=True, blank=True)
+endsnippet
+
 	

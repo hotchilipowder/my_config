@@ -54,19 +54,19 @@ snippet  csv-table "Description" b
 
 endsnippet
 
-snippet sphinx_tab "the tabs in sphinx-tabs" b
+snippet sphinx_tab "the tabs in sphinx-design" b
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: ${1:MacOS}
+   .. tab-item:: ${1:MacOS}
 
      MacOS 
 
-   .. tab:: ${2:Linux}
+   .. tab-item:: ${2:Linux}
 
      Linux
 
-   .. tab:: ${3: Windows}
+   .. tab-item:: ${3: Windows}
 
 	 Windows
 
@@ -85,6 +85,14 @@ snippet sphinx_link "link in rst" i
 snip.rv = "\ "`\`${1} <${2}>\`_`!p
 `$0
 endsnippet
+
+
+snippet sphinx_gl "link reference" i
+`!p
+snip.rv = "\ "`\`${1}\`__`!p
+`$0
+endsnippet  
+
 
 
 snippet sphinx_list_table "description"
