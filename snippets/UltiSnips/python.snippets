@@ -64,45 +64,4 @@ params = {
 matplotlib.rcParams.update(params)
 
 endsnippet
-<<<<<<< HEAD
-
-
-
-
-snippet file_logger "Just place this code as logger.py"
-import logging
-# https://docs.python.org/3/howto/logging.html#logging-advanced-tutorial
-
-def get_logger(name, log_fpath=None):
-    logger = logging.getLogger(name)
-    logger.setLevel(logging.DEBUG)
-
-    # create console handler and set level to debug
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.DEBUG)
-
-    fpath = log_fpath if log_fpath else f'./logs/{name}.log'
-    fh = logging.FileHandler(fpath)
-    fh.setLevel(logging.INFO)
-
-    # create formatter
-    formatter = logging.Formatter(
-        '%(asctime)s %(levelname)s [%(filename)s:%(lineno)d] %(message)s')
-
-    # add formatter to ch
-    ch.setFormatter(formatter)
-    fh.setFormatter(formatter)
-
-    # add handler to logger
-    logger.addHandler(ch)
-    logger.addHandler(fh)
-    return logger
-endsnippet
-	
-snippet django_char "Django charfield with null and blank"
-${1:field_name} = models.CharField(max_length=200, null=True, blank=True)
-endsnippet
-
-=======
->>>>>>> 3fa9146 (typos fixed)
 	
