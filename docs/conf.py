@@ -83,8 +83,22 @@ html_css_files = [
 
 latex_engine = 'xelatex'
 latex_elements = {
-  'preamble': r'''
-\addto\captionsenglish{\renewcommand{\chaptername}{}}
-\usepackage[UTF8, scheme = plain]{ctex}
+    'passoptionstopackages': r'''
+\PassOptionsToPackage{svgnames}{xcolor}
 ''',
+    'fontpkg': r'''
+\usepackage{fontspec}
+\setmainfont{Arial Unicode MS}  % 修改为支持 Unicode 的字体名称
+''',
+    'preamble': r'''
+\usepackage[titles]{tocloft}
+\cftsetpnumwidth {1.25cm}\cftsetrmarg{1.5cm}
+\setlength{\cftchapnumwidth}{0.75cm}
+\setlength{\cftsecindent}{\cftchapnumwidth}
+\setlength{\cftsecnumwidth}{1.25cm}
+''',
+    'sphinxsetup': 'TitleColor=DarkGoldenrod',
+    'fncychap': r'\usepackage[Bjornstrup]{fncychap}',
+    'printindex': r'\footnotesize\raggedright\printindex',
 }
+latex_show_urls = 'footnote'

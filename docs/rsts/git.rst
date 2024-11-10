@@ -3,6 +3,22 @@ Awesome Git
 ===========
 
 
+Useful Config
+=============
+
+No Password
+-----------
+
+
+
+
+
+
+
+
+
+
+
 
 
 Install

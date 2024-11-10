@@ -35,10 +35,6 @@ snippet tt "The \texttt{} command for typewriter-style font"
 \texttt{$1}$0
 endsnippet
 
-snippet \bf "The \textbf{} command" 
-\textbf{$1}$0
-endsnippet
-
 
 snippet ff "The LaTeX \frac{}{} command"
 \frac{$1}{$2}$0
@@ -49,27 +45,20 @@ snippet hr "The hyperref package's \href{}{} command (for url links)"
 \href{${1:url}}{${2:display name}}$0
 endsnippet
 
-snippet tii "The \textit{} command for italic font"
-\textit{${1:${VISUAL:}}}$0
-endsnippet
-
-
-
-
-snippet "(^|[^a-zA-Z])mm" "Inline LaTeX math" rA
+snippet "(^|[^a-zA-Z])mi" "Inline LaTeX math" rA
 `!p snip.rv = match.group(1)`\$${1:${VISUAL:}} \$$0
 endsnippet
 
-# snippet "midr" "Midrule"
-# \\\\ \midrule
-# endsnippet
+snippet "midr" "Midrule"
+\\\\ \midrule
+endsnippet
 
-# snippet "(?<![\\a-zA-Z])([a-zA-Z])\1{1}(?![a-zA-Z ])" "greek letters" rA
-# `!p transliteration = {"a": "\\alpha", "b": "\\beta", "g": "\\gamma", "G": "\\Gamma", "d": "\\delta", "D": "\\Delta", "e": "\\epsilon", "E": "\\varepsilon", "z": "\\zeta", "h": "\\eta", "t": "\\theta", "T": "\\Theta", "k": "\\kappa", "i": "\\iota", "l": "\\lambda", "L": "\\Lambda", "n": "\\nu", "x": "\\xi", "X": "\\Xi", "p": "\\pi", "P": "\\Pi", "r": "\\rho", "s": "\\sigma", "S": "\\Sigma", "o": "\\omega", "O": "\\Omega", "c": "\\chi", "f": "\\phi", "F": "\\Phi", "y": "\\upsilon", "Y": "\\Upsilon", "v": "\\psi", "V": "\\Psi", "u": "\\tau" }
-# m = match.group(1)
-# if m in transliteration:
-# 	snip.rv = transliteration[m]`$0 
-# endsnippet
+snippet "(?<![\\a-zA-Z])([a-zA-Z])\1{1}(?![a-zA-Z ])" "greek letters" rA
+`!p transliteration = {"a": "\\alpha", "b": "\\beta", "g": "\\gamma", "G": "\\Gamma", "d": "\\delta", "D": "\\Delta", "e": "\\epsilon", "E": "\\varepsilon", "z": "\\zeta", "h": "\\eta", "t": "\\theta", "T": "\\Theta", "k": "\\kappa", "i": "\\iota", "l": "\\lambda", "L": "\\Lambda", "n": "\\nu", "x": "\\xi", "X": "\\Xi", "p": "\\pi", "P": "\\Pi", "r": "\\rho", "s": "\\sigma", "S": "\\Sigma", "o": "\\omega", "O": "\\Omega", "c": "\\chi", "f": "\\phi", "F": "\\Phi", "y": "\\upsilon", "Y": "\\Upsilon", "v": "\\psi", "V": "\\Psi", "u": "\\tau" }
+m = match.group(1)
+if m in transliteration:
+	snip.rv = transliteration[m]`$0 
+endsnippet
 
 
 # ddd

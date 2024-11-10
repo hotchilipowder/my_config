@@ -30,18 +30,9 @@ endsnippet
 snippet django_model "django model" b
 class ${1:Model}(models.Model):
 	
-	def __str__(self, obj) -> str:
+	def __str__(self, obj)->str:
 		return obj.id
 endsnippet
-
-
-snippet ds_django_model "import model to do sth"
-os.environ['DJANGO_SETTINGS_MODULE'] = '${1:modules}.settings'
-os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = 'True'
-import django
-django.setup()
-endsnippet
-    
 
 
 snippet urllib_request "description"
@@ -56,7 +47,7 @@ content = response.read()
 endsnippet
 	
 
-snippet file_matplotlib_style1 "matplotlib plot style1"
+snippet matplotlib_style1 "matplotlib plot style1"
 import matplotlib
 import matplotlib.pyplot as plt
 import scienceplots # see https://github.com/garrettj403/SciencePlots
@@ -73,6 +64,7 @@ params = {
 matplotlib.rcParams.update(params)
 
 endsnippet
+<<<<<<< HEAD
 
 
 
@@ -111,4 +103,6 @@ snippet django_char "Django charfield with null and blank"
 ${1:field_name} = models.CharField(max_length=200, null=True, blank=True)
 endsnippet
 
+=======
+>>>>>>> 3fa9146 (typos fixed)
 	
