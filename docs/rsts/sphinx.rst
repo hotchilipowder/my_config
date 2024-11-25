@@ -24,9 +24,39 @@ Install 常用的sphinx扩展
 ================================
 常用的设置
 
+.. dropdown:: 我的吐槽
+
+    最烦的就是默认功能不开启，需要额外安装，等你想用的时候，查文档才能知道是安装的时候某个功能没有启用。
+    而且有些功能居然需要你重新编译，这种设置还不如不开启。。。
+    这里需要注意的就是，你使用的myst-parser,需要开启的插件功能需要安装 linkify-it-py 。
+
+    .. code-block:: bash
+    
+        myst_enable_extensions = [
+            "amsmath",
+            "attrs_inline",
+            "colon_fence",
+            "deflist",
+            "dollarmath",
+            "fieldlist",
+            "html_admonition",
+            "html_image",
+            "linkify",
+            "replacements",
+            "smartquotes",
+            "strikethrough",
+            "substitution",
+            "tasklist",
+        ]
+    
+    
+
+
+
+
 .. code-block:: bash
 
-    pip install myst-parser \
+    pip install myst-parser[linkify] \
                 sphinxcontrib-mermaid \
                 sphinx_design \
                 sphinx-copybutton \

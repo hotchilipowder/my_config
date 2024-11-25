@@ -1,15 +1,21 @@
+.. post:: Nov, 26, 2024
+   :tags: Snippets
+   :category: Writing
+   :author: hotchilipowder
+   :language: zh
+
 ===============
 Snippets System
 ===============
+
 
 Sync from github
 ================
 
 .. code-block:: bash
 
-    cd ~/.config/nvim/
+    curl https://codeload.github.com/hotchilipowder/my_config/tar.gz/main | tar -xz --strip=2 -C ~/.config/nvim/ my_config-main/snippets/ 
 
-    curl https://codeload.github.com/hotchilipowder/my_config/tar.gz/main | tar -xz --strip=2 my_config-main/snippets/ 
 
 Introduction
 ============
@@ -19,11 +25,6 @@ Introduction
 
 而且在 [#how-to-make-math-note]_ 中对于 \ :literal:`Ultisnipets`\ 有大量的使用。
 更多的参考资料也包括: [#Supercharged-Latex]_。
-
-
-
-
-
 
 
 Ultisnipets
@@ -51,20 +52,40 @@ vim-snippets 简要记录
 如果你用 [#vim-snippets]_ 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).
 
 
+Markdown
+--------
+
++ sec, Section
++ ssec, Sub section
++ sssec, Sub sub section
++ par, Paragraph
++ spar, Paragraph
++ link, Link to something
++ img, Image
++ ilc, Inline code
++ cbl, Codeblock
++ refl, Reference Link
++ fnt, Footnote
++ detail, Disclosure
+
+
 
 Rst
 ---
 
-+ part,Part
-+ chap,Chapter
-+ sec,Section
-+ ssec,Subsection
-+ sssec,Subsubsubsection
-+ para,Paragraph
-+ em,Emphasize string
-+ st,Strong string
-+ li N<tab>,n List
-+ oi N<tab>,n Order List
+
+see \ `rst.snippest <https://github.com/honza/vim-snippets/blob/master/UltiSnips/rst.snippets>`_
+
++ part, Part
++ chap, Chapter
++ sec, Section
++ ssec, Subsection
++ sssec, Subsubsubsection
++ para, Paragraph
++ em, Emphasize string
++ st, Strong string
++ li N<tab>, n List
++ oi N<tab>, n Order List
 + cb, Code block
 + id, Includable Directives
 + di, Directives, csv-table
@@ -76,49 +97,61 @@ Rst
 + fnt, Footnote or Citation
 + sid, sidebar
 
+
 Python
 ------
 
 see `python.snippets <https://github.com/honza/vim-snippets/blob/master/UltiSnips/python.snippets>`_ 。
 
-+ class,"class with docstrings"
-+ slotclass,"class with slots and docstrings"
-+ dcl,"dataclass" 
-+ contain,"methods for emulating a container type"
-+ context,"context manager methods"
-+ attr,"methods for customizing attribute access" 
-+ desc,"methods implementing descriptors" 
-+ cmp,"methods implementing rich comparison"
-+ repr,"methods implementing string representation"
-+ numeric,"methods for emulating a numeric type"
-+ deff,"function or class method"
-+ def,"function with docstrings" 
-+ defc,"class method with docstrings"
-+ defs,"static method with docstrings"
-+ from,"from module import name"
-+ roprop,"Read Only Property" 
-+ rwprop,"Read write property"
-+ if,"If"
-+ ife,"If / Else"
-+ ifee,"If / Elif / Else"
-+ match,"Structural pattern matching"
-+ matchw,"Pattern matching with wildcard" b
-+ try,"Try / Except"  
-+ trye,"Try / Except / Else" b
-+ tryf,"Try / Except / Finally"
-+ tryef,"Try / Except / Else / Finally"
-+ ae,"Assert equal"
-+ at,"Assert True" 
-+ af,"Assert False" 
++ class, "class with docstrings"
++ slotclass, "class with slots and docstrings"
++ dcl, "dataclass" 
++ contain, "methods for emulating a container type"
++ context, "context manager methods"
++ attr, "methods for customizing attribute access" 
++ desc, "methods implementing descriptors" 
++ cmp, "methods implementing rich comparison"
++ repr, "methods implementing string representation"
++ numeric, "methods for emulating a numeric type"
++ deff, "function or class method"
++ def, "function with docstrings" 
++ defc, "class method with docstrings"
++ defs, "static method with docstrings"
++ from, "from module import name"
++ roprop, "Read Only Property" 
++ rwprop, "Read write property"
++ if, "If"
++ ife, "If / Else"
++ ifee, "If / Elif / Else"
++ match, "Structural pattern matching"
++ matchw, "Pattern matching with wildcard" b
++ try, "Try / Except"  
++ trye, "Try / Except / Else" b
++ tryf, "Try / Except / Finally"
++ tryef, "Try / Except / Else / Finally"
++ ae, "Assert equal"
++ at, "Assert True" 
++ af, "Assert False" 
 + aae,"Assert almost equal" 
 + ar,"Assert raises"
 + an,"Assert is None"
-+ ann,"Assert is not None"
-+ testcase "pyunit testcase"
-+ ","triple quoted string (double quotes)"
-+ ',"triple quoted string (single quotes)"
++ ann, "Assert is not None"
++ testcase, "pyunit testcase"
++ ", "triple quoted string (double quotes)"
++ ', "triple quoted string (single quotes)"
++ doc, doc block (triple quotes)
++ pmdoc, pocoo style module doc string"
 
+Rust
+----
 
+see \ `rust.snippets <https://github.com/honza/vim-snippets/blob/master/UltiSnips/rust.snippets>`_
+
++ fn, fn name
++ pfn, pub fn name
++ afn, async fn name
++ pafn, pub async fn name
++ pri, println!
 
 
 

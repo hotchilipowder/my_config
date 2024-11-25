@@ -1,18 +1,15 @@
 sphinx
-sphinx-copybutton
 sphinx-tabs
-sphinx_design
-shibuya
-
 sphinxemoji
+sphinx_design
 sphinx-comments
-
-myst-parser
+sphinx-copybutton
 sphinxcontrib-mermaid
 
+shibuya
+ablog
+myst-parser[linkify]
 aiohttp
 
 
-# for crypto config files in github
-cryptography
 

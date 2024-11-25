@@ -22,7 +22,7 @@ Welcome to My Dev Config's documentation!
 
    rsts/neovim.rst
    rsts/git.rst
-   mds/github_action.md
+   mds/github_actions.md
    rsts/docker.rst
    rsts/snippets.rst
    rsts/sphinx.rst
