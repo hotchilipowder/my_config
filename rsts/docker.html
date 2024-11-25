@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,7 +70,6 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
@@ -166,8 +164,11 @@ data-aria-dark="切换到自动模式">
 <h1>Dockers<a class="headerlink" href="#dockers" title="Link to this heading">¶</a></h1>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Linux-Tsinghua</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Linux</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">MacOS</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>可以使用别的安装方式，但是最简单的还是 <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/">清华的安装链接</a></p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Linux-Tsinghua</label><div class="sd-tab-content docutils">
+<p>可以使用别的安装方式，但是最简单的还是 <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/">清华的安装链接</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nb">export</span><span class="w"> </span><span class="nv">DOWNLOAD_URL</span><span class="o">=</span><span class="s2">&quot;https://mirrors.tuna.tsinghua.edu.cn/docker-ce&quot;</span>
 </span><span data-line="2">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com/<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span><span data-line="3">
@@ -175,7 +176,11 @@ data-aria-dark="切换到自动模式">
 </span><span data-line="5">chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
 </span></pre></div>
 </div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>可以使用别的安装方式，但是最简单的还是</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Linux</label><div class="sd-tab-content docutils">
+<p>可以使用别的安装方式，但是最简单的还是</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>install-docker.sh
 </span><span data-line="2">sh<span class="w"> </span>install-docker.sh
 </span><span data-line="3">
@@ -183,10 +188,19 @@ data-aria-dark="切换到自动模式">
 </span><span data-line="5">chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
 </span></pre></div>
 </div>
-</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>我尝试过Docker-desktop, 只能说体验很差，经常斯基。
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+MacOS</label><div class="sd-tab-content docutils">
+<p>我尝试过Docker-desktop, 只能说体验很差，经常斯基。
 改用了 <a class="reference external" href="https://orbstack.dev/">orbstack</a> , 世界一下就变美好了。</p>
-</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><p>Windows</p>
-</div></div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Windows</label><div class="sd-tab-content docutils">
+<p>Windows</p>
+</div>
+</div>
 <section id="install-docker-compose">
 <h3>Install docker-compose<a class="headerlink" href="#install-docker-compose" title="Link to this heading">¶</a></h3>
 <p>refer to <a class="reference external" href="https://docs.docker.com/compose/install/standalone/">https://docs.docker.com/compose/install/standalone/</a></p>
@@ -1135,6 +1149,5 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/shibuya.js?v=e2e99575"></script>
-      <script src="../_static/tabs.js?v=3030b3cb"></script></body>
+      <script src="../_static/shibuya.js?v=e2e99575"></script></body>
 </html>

@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,7 +70,6 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mds/vps.html">Vps Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
@@ -91,11 +89,11 @@ data-aria-dark="切换到自动模式">
 <li><a class="reference internal" href="#why-tmux-instead-of-zellij">Why tmux instead of Zellij</a></li>
 <li><a class="reference internal" href="#tmux-with-neovim">Tmux with Neovim</a></li>
 <li><a class="reference internal" href="#awesome-neovim-plugins">Awesome Neovim Plugins</a><ul>
-<li><a class="reference internal" href="#id5">vim-tmux-navigator</a></li>
+<li><a class="reference internal" href="#id4">vim-tmux-navigator</a></li>
 <li><a class="reference internal" href="#bufferline-nvim">bufferline.nvim</a></li>
 <li><a class="reference internal" href="#alpha-nvim">alpha-nvim</a></li>
 <li><a class="reference internal" href="#tpope">tpope&#22823;&#20332;&#31995;&#21015;</a></li>
-<li><a class="reference internal" href="#id8">toggleterm.nvim</a></li>
+<li><a class="reference internal" href="#id7">toggleterm.nvim</a></li>
 <li><a class="reference internal" href="#nvim-tree-lua">nvim-tree.lua</a></li>
 <li><a class="reference internal" href="#symbols-outline">Symbols-outline</a></li>
 <li><a class="reference internal" href="#which-key">Which-key</a></li>
@@ -160,65 +158,9 @@ data-aria-dark="切换到自动模式">
 <h1>Neovim and Tmux<a class="headerlink" href="#neovim-and-tmux" title="Link to this heading">¶</a></h1>
 <section id="install-neovim">
 <h2>Install Neovim<a class="headerlink" href="#install-neovim" title="Link to this heading">¶</a></h2>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Linux (AppImage)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">MacOS (homebrew)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">MacOS (Pre-built archives)</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Others</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-</span><span data-line="2">chmod<span class="w"> </span>u+x<span class="w"> </span>nvim.appimage
-</span><span data-line="3">mv<span class="w"> </span>nvim.appimage<span class="w"> </span>nvim
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>neovim
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-LO<span class="w"> </span>https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
-</span><span data-line="2">tar<span class="w"> </span>xzf<span class="w"> </span>nvim-macos.tar.gz
-</span><span data-line="3">./nvim-macos/bin/nvim
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><p>see <a class="reference external" href="https://github.com/neovim/neovim/wiki/Installing-Neovim">install neovim</a></p>
-</div></div>
 </section>
 <section id="install-tmux">
 <h2>Install Tmux<a class="headerlink" href="#install-tmux" title="Link to this heading">¶</a></h2>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">MacOS</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Linux (APT)</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Linux (Source)</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>tmux
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>tmux
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><p>First, please keep <code class="code docutils literal notranslate"><span class="pre">~/.local/bin</span></code>in the <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>, then <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">install</span></code>in the <code class="code docutils literal notranslate"><span class="pre">tmp/</span></code>dir.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>tmp
-</span><span data-line="2"><span class="nb">cd</span><span class="w"> </span>tmp/
-</span><span data-line="3">curl<span class="w"> </span>-OL<span class="w"> </span>https://invisible-island.net/datafiles/release/ncurses.tar.gz
-</span><span data-line="4">tar<span class="w"> </span>-xvf<span class="w"> </span>ncurses.tar.gz
-</span><span data-line="5">
-</span><span data-line="6"><span class="nv">LOC</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/libevent/libevent/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;browser_download_url&quot;</span><span class="p">|</span><span class="w">  </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;[\&quot;\&quot;]&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>tar.gz$<span class="w"> </span><span class="k">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>curl<span class="w"> </span>-OLl<span class="w">  </span><span class="nv">$LOC</span>
-</span><span data-line="7">
-</span><span data-line="8"><span class="nv">LOC</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://api.github.com/repos/tmux/tmux/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;browser_download_url&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $2 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;[\&quot;\&quot;]&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span>curl<span class="w"> </span>-OL<span class="w"> </span><span class="nv">$LOC</span>
-</span><span data-line="9">
-</span><span data-line="10"><span class="c1"># install libevent</span>
-</span><span data-line="11">mkdir<span class="w"> </span><span class="nv">$HOME</span>/.local
-</span><span data-line="12"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
-</span><span data-line="13">tar<span class="w"> </span>-zxf<span class="w"> </span>libevent*.tar.gz
-</span><span data-line="14"><span class="nb">cd</span><span class="w"> </span>libevent-*/
-</span><span data-line="15">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local<span class="w"> </span>--enable-shared
-</span><span data-line="16">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-</span><span data-line="17">
-</span><span data-line="18"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
-</span><span data-line="19">tar<span class="w"> </span>-zxf<span class="w"> </span>ncurses*.tar.gz
-</span><span data-line="20"><span class="nb">cd</span><span class="w"> </span>ncurses*/
-</span><span data-line="21">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local<span class="w"> </span>--with-shared<span class="w"> </span>--with-termlib<span class="w"> </span>--enable-pc-files<span class="w"> </span>--with-pkg-config-libdir<span class="o">=</span><span class="nv">$HOME</span>/.local/lib/pkgconfig
-</span><span data-line="22">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-</span><span data-line="23">
-</span><span data-line="24"><span class="c1"># install tmux</span>
-</span><span data-line="25"><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/tmp
-</span><span data-line="26">tar<span class="w"> </span>-zxf<span class="w"> </span>tmux-*.tar.gz
-</span><span data-line="27"><span class="nb">cd</span><span class="w"> </span>tmux-*/
-</span><span data-line="28"><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.local/lib/pkgconfig<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
-</span><span data-line="29">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-</span></pre></div>
-</div>
-</div></div>
 </section>
 <section id="why-neovim-instead-of-vim">
 <h2>Why Neovim instead of Vim<a class="headerlink" href="#why-neovim-instead-of-vim" title="Link to this heading">¶</a></h2>
@@ -227,7 +169,7 @@ data-aria-dark="切换到自动模式">
 总体而言，比较讨厌写多个文件，喜欢使用<code class="code docutils literal notranslate"><span class="pre">&lt;Space&gt;fed</span></code>去打开配置文件，然后复制粘贴即可。</p>
 <p>有许多关于使用plug文件夹和多个不同插件配置的方式，我个人不是很喜欢。
 我更喜欢<a class="reference external" href="https://github.com/nvim-lua/kickstart.nvim">kickstart.nvim</a>这样的方式。</p>
-<p>由于 <a class="reference internal" href="#kickstart" id="id2"><span>[kickstart]</span></a> 使用的 <a class="reference internal" href="#lazy-nvim" id="id3"><span>[lazy.nvim]</span></a>, 所以也就切换到了 <a class="reference internal" href="#lazy-nvim" id="id4"><span>[lazy.nvim]</span></a></p>
+<p>由于 <a class="reference internal" href="#kickstart" id="id1"><span>[kickstart]</span></a> 使用的 <a class="reference internal" href="#lazy-nvim" id="id2"><span>[lazy.nvim]</span></a>, 所以也就切换到了 <a class="reference internal" href="#lazy-nvim" id="id3"><span>[lazy.nvim]</span></a></p>
 <p>具体的配置如下：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/nvim
 </span><span data-line="2">curl<span class="w"> </span>-SL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/nvim/init.lua<span class="w"> </span>-o<span class="w"> </span>~/.config/nvim/init.lua
@@ -993,33 +935,11 @@ data-aria-dark="切换到自动模式">
 <li><p><code class="code docutils literal notranslate"><span class="pre">:imap</span></code> for insert mode mappings</p></li>
 </ul>
 </div>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Lazy.nvim</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Plug</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">{</span>
-</span><span data-line="2"><span class="w">  </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
-</span><span data-line="3"><span class="w">  </span><span class="nv">keys</span><span class="o">={</span>
-</span><span data-line="4"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;C-h&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;:&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;&#39;</span><span class="o">}</span>,
-</span><span data-line="5"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;C-j&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;:&lt;C-U&gt;TmuxNavigateDown&lt;cr&gt;&#39;</span><span class="o">}</span>,
-</span><span data-line="6"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;C-k&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;:&lt;C-U&gt;TmuxNavigateUp&lt;cr&gt;&#39;</span><span class="o">}</span>,
-</span><span data-line="7"><span class="w">    </span><span class="o">{</span><span class="s1">&#39;&lt;C-l&gt;&#39;</span>,<span class="w"> </span><span class="s1">&#39;:&lt;C-U&gt;TmuxNavigateRight&lt;cr&gt;&#39;</span><span class="o">}</span>,
-</span><span data-line="8"><span class="w">  </span><span class="o">}</span>,
-</span><span data-line="9"><span class="o">}</span>,
-</span></pre></div>
-</div>
-</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="w"> </span>Plug<span class="w"> </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
-</span><span data-line="2">
-</span><span data-line="3"><span class="nb">let</span><span class="w"> </span>g:tmux_navigator_no_mappings<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-</span><span data-line="4">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Left-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;
-</span><span data-line="5">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Down-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateDown&lt;cr&gt;
-</span><span data-line="6">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Up-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateUp&lt;cr&gt;
-</span><span data-line="7">noremap<span class="w"> </span>&lt;silent&gt;<span class="w"> </span><span class="o">{</span>Right-Mapping<span class="o">}</span><span class="w"> </span>:&lt;C-U&gt;TmuxNavigateRight&lt;cr&gt;
-</span></pre></div>
-</div>
-</div></div>
 </section>
 <section id="awesome-neovim-plugins">
 <h2>Awesome Neovim Plugins<a class="headerlink" href="#awesome-neovim-plugins" title="Link to this heading">¶</a></h2>
-<section id="id5">
-<h3>vim-tmux-navigator<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<section id="id4">
+<h3>vim-tmux-navigator<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://github.com/christoomey/vim-tmux-navigator">vim-tmux-navigator</a></p>
 <p>more config see  <span class="xref std std-doc">tmux.rst</span></p>
 <p>这里之前有</p>
@@ -1075,8 +995,8 @@ data-aria-dark="切换到自动模式">
 </ul>
 <p>之前还有一个 <a class="reference external" href="https://github.com/tpope/vim-commentary">vim-commentary</a>, 不过我还是用 <a class="reference external" href="https://github.com/numToStr/Comment.nvim">Comment.nvim</a>替代了。我相信 <code class="code docutils literal notranslate"><span class="pre">lua</span> <span class="pre">is</span> <span class="pre">better</span> <span class="pre">than</span> <span class="pre">vimscript</span></code>(see <a class="reference external" href="https://www.zhihu.com/question/445290918">你们的vim配置都换成lua了吗？</a>.</p>
 </section>
-<section id="id8">
-<h3>toggleterm.nvim<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<section id="id7">
+<h3>toggleterm.nvim<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="thttps://github.com/akinsho/toggleterm.nvim">toggleterm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="k">function</span><span class="w"> </span>_G.set_terminal_keymaps<span class="o">()</span>
 </span><span data-line="2"><span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">}</span>
@@ -1141,9 +1061,9 @@ data-aria-dark="切换到自动模式">
 <h3>Symbols-outline<a class="headerlink" href="#symbols-outline" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://github.com/simrat39/symbols-outline.nvim">Symbols-outline</a></p>
 <p>核心的命令包括:</p>
-<div class="table-wrapper colwidths-given docutils container" id="id16">
-<table class="docutils align-default" id="id16">
-<caption><span class="caption-text">Symbols-outline Commands</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
+<div class="table-wrapper colwidths-given docutils container" id="id15">
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">Symbols-outline Commands</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1232,12 +1152,6 @@ data-aria-dark="切换到自动模式">
 <p>在配置了上述的一些插件后，由于字体的nerd原因，所以需要安装一些必要的字体，才能正确的现实图标。</p>
 <p><a class="reference external" href="https://www.nerdfonts.com/font-downloads">nerdfonts</a> 列出了目前可用的常见字体。</p>
 <p>操作如下：</p>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">MacOS-brew</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">Linux</button><button aria-controls="panel-3-3-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-2" name="3-2" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><p>brew install font-fantasque-sans-mono-nerd-font</p>
-<p># 如果想要其他的字体，直接尝试安装，如果失败了，brew会给出建议，这不用担心。</p>
-</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><p>Linux</p>
-</div><div aria-labelledby="tab-3-3-2" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-2" name="3-2" role="tabpanel" tabindex="0"><p>NA</p>
-</div></div>
 </section>
 <section id="updates-for-null-ls">
 <h2>Updates for null-ls<a class="headerlink" href="#updates-for-null-ls" title="Link to this heading">¶</a></h2>
@@ -1347,6 +1261,5 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/shibuya.js?v=e2e99575"></script>
-      <script src="../_static/tabs.js?v=3030b3cb"></script></body>
+      <script src="../_static/shibuya.js?v=e2e99575"></script></body>
 </html>

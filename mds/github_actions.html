@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hardware Information - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Github Action - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -20,7 +20,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Hardware Information"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Github Action"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -83,8 +83,27 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#cpu-and-mainboard">CPU and Mainboard</a></li>
-<li><a class="reference internal" href="#id1">&#26426;&#31665;</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#workflows">workflows</a></li>
+<li><a class="reference internal" href="#events">Events</a></li>
+<li><a class="reference internal" href="#jobs">Jobs</a></li>
+<li><a class="reference internal" href="#actions">Actions</a></li>
+<li><a class="reference internal" href="#runners">Runners</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Github Action&#21151;&#33021;</a><ul>
+<li><a class="reference internal" href="#ci">&#25345;&#32493;&#38598;&#25104; (CI)</a></li>
+<li><a class="reference internal" href="#cd">&#25345;&#32493;&#37096;&#32626; (CD)</a></li>
+<li><a class="reference internal" href="#id2">&#39640;&#32423;&#24037;&#20316;&#27969;&#21151;&#33021;</a><ul>
+<li><a class="reference internal" href="#secrets">Secrets</a></li>
+<li><a class="reference internal" href="#id3">&#21019;&#24314;&#20381;&#36182;&#30340;&#20316;&#19994;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#github">Github &#25176;&#31649;</a></li>
+<li><a class="reference internal" href="#self-hosted">Self-hosted &#25176;&#31649;</a></li>
+<li><a class="reference internal" href="#id4">&#21442;&#32771;&#36164;&#26009;</a></li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -105,7 +124,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/mds/hardware.md">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/mds/github_actions.md">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -121,7 +140,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Hardware Information</strong>
+        <strong itemprop="name">Github Action</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -134,13 +153,106 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="hardware-information">
-<h1>Hardware Information<a class="headerlink" href="#hardware-information" title="Link to this heading">¶</a></h1>
-<section id="cpu-and-mainboard">
-<h2>CPU and Mainboard<a class="headerlink" href="#cpu-and-mainboard" title="Link to this heading">¶</a></h2>
+          <section class="tex2jax_ignore mathjax_ignore" id="github-action">
+<h1>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>根据<a class="reference external" href="https://docs.github.com/zh/actions/about-github-actions/understanding-github-actions">了解 GitHub Actions</a>，
+对于Github Actions需要了解一下的概念</p>
+<section id="workflows">
+<h3>workflows<a class="headerlink" href="#workflows" title="Link to this heading">¶</a></h3>
+<p>Workflows are defined in the <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code> directory in a repository.</p>
+<p>常见的任务包括:</p>
+<ul class="simple">
+<li><p>Building and testing pull requests. 构建和测试pull request</p></li>
+<li><p>Deploying your application every time a release is created. 部署应用，当发表release时</p></li>
+<li><p>Adding a label whenever a new issue is opened. 当开一个新的issue的时候添加一个标签</p></li>
+</ul>
+</section>
+<section id="events">
+<h3>Events<a class="headerlink" href="#events" title="Link to this heading">¶</a></h3>
+<p>An event is a specific activity in a repository that triggers a workflow run.</p>
+<p>常见的触发包括:</p>
+<ul class="simple">
+<li><p>push a commit to a repository</p></li>
+<li><p>creates a pull request</p></li>
+<li><p>opens an issue</p></li>
+</ul>
+</section>
+<section id="jobs">
+<h3>Jobs<a class="headerlink" href="#jobs" title="Link to this heading">¶</a></h3>
+<p>A job is a set of steps in a workflow that is executed on the same runner.</p>
+<p>对于一个step，通常包括:</p>
+<ul class="simple">
+<li><p>a shell script that will be executed</p></li>
+<li><p>an action will be run</p></li>
+</ul>
+<p>Step是顺序执行的.</p>
+</section>
+<section id="actions">
+<h3>Actions<a class="headerlink" href="#actions" title="Link to this heading">¶</a></h3>
+<p>An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task.</p>
+<p>Action是各种写好的集合。可以理解成是一种代码的重复利用。如果不是个性化的，建议使用一些常见的Action将会更好提升效率.</p>
+</section>
+<section id="runners">
+<h3>Runners<a class="headerlink" href="#runners" title="Link to this heading">¶</a></h3>
+<p>A runner is a server that runs your workflows when they’re triggered.
+Each runner can run a single job at a time.
+GitHub provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows.</p>
+<p>需要一提的，我们也可以用self-hosted的runners。<a class="reference external" href="https://docs.github.com/en/actions/hosting-your-own-runners">Hosting your own runners</a></p>
+</section>
 </section>
 <section id="id1">
-<h2>机箱<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2>Github Action功能<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="ci">
+<h3>持续集成 (CI)<a class="headerlink" href="#ci" title="Link to this heading">¶</a></h3>
+<p>持续集成 (CI) 是一种需要频繁提交代码到共享仓库的软件实践。 频繁提交代码能较早检测到错误，减少在查找错误来源时开发者需要调试的代码量。 频繁的代码更新也更便于从软件开发团队的不同成员合并更改。 这对开发者非常有益，他们可以将更多时间用于编写代码，而减少在调试错误或解决合并冲突上所花的时间。</p>
+<p>提交代码到仓库时，可以持续创建并测试代码，以确保提交未引入错误。 您的测试可以包括代码语法检查（检查样式格式）、安全性检查、代码覆盖率、功能测试及其他自定义检查。</p>
+<p>创建和测试代码需要服务器。 您可以在推送代码到仓库之前在本地创建并测试更新，也可以使用 CI 服务器检查仓库中的新代码提交。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/actions/starter-workflows/tree/main/ci">actions/starter-workflows</a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/zh/actions/use-cases-and-examples/building-and-testing/building-and-testing-python">Python CI</a></p></li>
+</ul>
+</section>
+<section id="cd">
+<h3>持续部署 (CD)<a class="headerlink" href="#cd" title="Link to this heading">¶</a></h3>
+<p>持续部署 (CD) 是使用自动化发布和部署软件更新的做法。</p>
+<p>配置 CD 工作流程在发生 GitHub 事件（例如，将新代码推送到存储库的默认分支）时运行、按设定的时间表运行、手动运行或者在使用存储库分发 web 挂钩的外部事件发生时运行</p>
+<p>一般来说，可以定义一个deploy的分支，然后当push到这个分支的commit后，就可以实现部署和更新了。当然也可以使用release的方式进行。</p>
+</section>
+<section id="id2">
+<h3>高级工作流功能<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="secrets">
+<h4>Secrets<a class="headerlink" href="#secrets" title="Link to this heading">¶</a></h4>
+<p>如果你的工作流使用密码或证书等敏感数据，你可以将这些数据作为机密保存在 GitHub 中，然后在工作流中将它们用作环境变量。 这意味着你将能够创建和共享工作流，而无需直接在工作流的 YAML 源中嵌入敏感值。</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nt">jobs</span><span class="p">:</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">example-job</span><span class="p">:</span>
+</span><span data-line="3"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span data-line="4"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span data-line="5"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Retrieve secret</span>
+</span><span data-line="6"><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+</span><span data-line="7"><span class="w">          </span><span class="nt">super_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SUPERSECRET }}</span>
+</span><span data-line="8"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span data-line="9"><span class="w">          </span><span class="no">example-command &quot;$super_secret&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="id3">
+<h4>创建依赖的作业<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="github">
+<h2>Github 托管<a class="headerlink" href="#github" title="Link to this heading">¶</a></h2>
+</section>
+<section id="self-hosted">
+<h2>Self-hosted 托管<a class="headerlink" href="#self-hosted" title="Link to this heading">¶</a></h2>
+</section>
+<section id="id4">
+<h2>参考资料<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.github.com/zh/actions">GitHub Actions 文档</a></p></li>
+</ul>
 </section>
 </section>
 
