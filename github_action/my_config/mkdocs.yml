@@ -3,11 +3,11 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main  # Set a branch name to trigger deployment
+      - main
 jobs:
   publish:
     name: Deploy Site
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     environment: github-pages
     steps:
       - name: Checkout Repo

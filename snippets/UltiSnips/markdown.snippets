@@ -1,7 +1,171 @@
-snippet md_dropdown "markdown dropdown" b
+snippet text_with_color "Text with warning attribute" 
+[${1:Your text}]{.bg-warning}
+endsnippet
+	
+
+snippet md_solution "markdown dropdown" b
 \`\`\`{dropdown} ${1:Solution}
 
 ${2:Dropdown content}
 
 \`\`\`
 endsnippet
+
+
+snippet md_dropdown "the dropdown in sphinx-design" b
+:::{dropdown} ${1:Title}
+
+${2:Dropdown content}
+:::
+endsnippet
+
+
+snippet md_tabs "the tabs in sphinx-design" b
+
+::::{tab-set}
+
+:::{tab-item} ${1:MacOS}
+MacOS
+:::
+
+:::{tab-item} ${2:Linux}
+Linux
+:::
+
+:::{tab-item} ${3:Windows}
+Widows
+:::
+
+::::
+
+endsnippet
+
+
+snippet md_card "Card in sphinx-design"
+:::{card} ${1:Card Title}
+Header
+^^^
+Card Content
++++
+Footer
+:::
+endsnippet
+
+snippet md_quota_attrs_block "quotations with attrs_block" b
+{attribution="${1:Author}}
+> ${2:content}
+endsnippet
+	
+
+snippet md_definition "definiton and glossaries" b
+{$1:Term 1}
+: {$2:Definition}
+endsnippet
+
+snippet md_glossary "glossaries" b
+{.glossary}
+${1:Term 1}
+: ${2:Definition}
+
+% Example: {term}\`$1\`
+endsnippet
+	
+snippet md_footnote "Footnotes"
+[^${1:Tag}]
+
+[^$1]: ${2:Content}
+
+endsnippet
+
+
+
+snippet md_figure_caption "Figures with captions" b
+\`\`\`{figure} $1
+:scale: 80%
+:alt: alt text
+
+${2: This is the caption of the figure}
+\`\`\`
+endsnippet
+	
+
+snippet md_admon "Admonitions"
+	
+endsnippet
+
+snippet md_tb "description"
+| left | center | right |
+| :--- | :----: | ----: |
+| a    | b      | c     |
+endsnippet
+
+
+snippet md_table_caption "description" b
+:::{table} ${1:Table caption}
+:widths: auto
+:align: center
+
+| foo | bar |
+| --- | --- |
+| baz | bim |
+:::
+endsnippet
+	
+snippet md_list_table "List Tables" b
+:::{list-table} Frozen Delights!
+:widths: 15 10 30
+:header-rows: 1
+
+*   - Treat
+    - Quantity
+    - Description
+*   - Albatross
+    - 2.99
+    - On a stick!
+*   - Crunchy Frog
+    - 1.49
+    - If we took the bones out, it wouldn't be
+ crunchy, now would it?
+*   - Gannet Ripple
+    - 1.99
+    - On a stick!
+:::
+endsnippet
+
+snippet md_csv_table "description" b
+```{csv-table} Frozen Delights!
+:header: >
+:    "Treat", "Quantity", "Description"
+:widths: 15, 10, 30
+
+"Albatross", 2.99, "On a stick!"
+"Crunchy Frog", 1.49, "If we took the bones out, it wouldn't be crunchy, now would it?"
+"Gannet Ripple", 1.99, "On a stick!"
+```
+endsnippet
+	
+
+snippet md_include_code "description" b
+```{literalinclude} examples/example.py
+```
+endsnippet
+
+
+snippet md_link "description" 
+[${1:content}](${2:link}){.external}
+endsnippet
+
+
+snippet md_math_number "description"
+$$
+(a + b)^2  &=  (a + b)(a + b) \\
+           &=  a^2 + 2ab + b^2
+$$ (mymath2)
+endsnippet
+
+
+
+
+
+	
+	

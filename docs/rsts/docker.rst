@@ -5,10 +5,9 @@ Dockers
 Install
 =======
 
+.. tab-set::
 
-.. tabs::
-
-   .. tab:: Linux-Tsinghua
+   .. tab-item:: Linux-Tsinghua
 
      可以使用别的安装方式，但是最简单的还是 \ `清华的安装链接 <https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/>`_
    
@@ -20,7 +19,7 @@ Install
         curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
         chmod +x /usr/local/bin/docker-compose
      
-   .. tab:: Linux
+   .. tab-item:: Linux
 
      可以使用别的安装方式，但是最简单的还是
    
@@ -33,12 +32,12 @@ Install
         chmod +x /usr/local/bin/docker-compose
      
 
-   .. tab:: MacOS
+   .. tab-item:: MacOS
       
       我尝试过Docker-desktop, 只能说体验很差，经常斯基。
       改用了 \ `orbstack <https://orbstack.dev/>`_ , 世界一下就变美好了。
 
-   .. tab::  Windows
+   .. tab-item::  Windows
 
       Windows
 

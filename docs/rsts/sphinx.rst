@@ -217,19 +217,6 @@ Tabs using sphinx_tabs (Abandon)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `Sphinx Tab 文档 <https://sphinx-tabs.readthedocs.io/en/latest/#basic-tabs>`_
 
-.. tabs::
-
-   .. tab:: MacOS
-
-     MacOS 
-
-   .. tab:: Linux
-
-     Linux
-
-   .. tab::  Windows
-
-        Windows
 
 .. code-block:: bash
 

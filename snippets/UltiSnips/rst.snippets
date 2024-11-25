@@ -5,6 +5,7 @@ from vimsnippets import display_width;
 from vimsnippets import complete
 
 endglobal
+
 snippet h2 "Description" b
 $1
 ######################################
@@ -29,6 +30,7 @@ snippet list "Description" b
 * ${3:this}
 endsnippet
 
+
 snippet ref: "Description" b
 :ref:\`${1:this}\`
 
@@ -44,6 +46,7 @@ snippet test "Description" b
 ${1:${VISUAL:test}}
 endsnippet
 
+
 snippet ablog_new "bracket ablog new" b
 `!p snip.rv = display_width(t[1])*'='`
 ${1:${VISUAL:Chapter name}}
@@ -52,12 +55,14 @@ ${1:${VISUAL:Chapter name}}
 $0
 endsnippet
 
+
 snippet ablog_note_new "ablog new" b
 `!v strftime("%Y-%m-%d")` ${1:${VISUAL:Section name}}
 `!p snip.rv = 11 * '*' + display_width(t[1])*'*'`
 
 $0
 endsnippet
+
 
 snippet ablog_new_article "ablog new article with dates and tags"
 .. post:: `!p import datetime; snip.rv=datetime.datetime.now().strftime("%b, %d, %Y")`
@@ -78,9 +83,10 @@ snippet  csv-table "csv table" b
 
 endsnippet
 
+
 snippet sphinx_tab "the tabs in sphinx-design" b
 
-.. tab-st::
+.. tab-set::
 
    .. tab-item:: ${1:MacOS}
 
@@ -104,10 +110,9 @@ snippet sphinx_drop "description" b
 
 endsnippet
 
+
 snippet sphinx_link "link in rst" i
-`!p
-snip.rv = "\ "`\`${1} <${2}>\`_`!p
-`$0
+\ \`${1:title} <${2:url}>\`_
 endsnippet
 
 

@@ -2,8 +2,6 @@
 My Dev Config
 =============
 
-
-
 This is my dotfiles
 
 .. code-block:: bash
