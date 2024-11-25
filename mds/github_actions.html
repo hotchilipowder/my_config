@@ -20,9 +20,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Github Action"/>
-<meta name="twitter:card" content="summary"/>
-  </head>
+        </head>
 <body><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
@@ -55,106 +53,10 @@ data-aria-dark="切换到自动模式">
       </button>
     </div>
   </div>
-</div>
-<div class="sy-page sy-container flex mx-auto">
-  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
-    <div class="sy-lside-inner md:sticky">
-      <div class="sy-scrollbar p-6">
-        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../rsts/neovim.html">Neovim and Tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/git.html">Awesome Git</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Github Action</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/docker.html">Dockers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/snippets.html">Snippets System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/sphinx.html">Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/homelab.html">HomeLab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/cookiecutter.html">Cookiecutter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rsts/resources.html">Resources</a></li>
-</ul>
-
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
-  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
-    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
-      <i class="i-lucide close"></i>
-    </button>
-    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a><ul>
-<li><a class="reference internal" href="#workflows">workflows</a></li>
-<li><a class="reference internal" href="#events">Events</a></li>
-<li><a class="reference internal" href="#jobs">Jobs</a></li>
-<li><a class="reference internal" href="#actions">Actions</a></li>
-<li><a class="reference internal" href="#runners">Runners</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id1">Github Action&#21151;&#33021;</a><ul>
-<li><a class="reference internal" href="#ci">&#25345;&#32493;&#38598;&#25104; (CI)</a></li>
-<li><a class="reference internal" href="#cd">&#25345;&#32493;&#37096;&#32626; (CD)</a></li>
-<li><a class="reference internal" href="#id2">&#39640;&#32423;&#24037;&#20316;&#27969;&#21151;&#33021;</a><ul>
-<li><a class="reference internal" href="#secrets">Secrets</a></li>
-<li><a class="reference internal" href="#id3">&#21019;&#24314;&#20381;&#36182;&#30340;&#20316;&#19994;</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#github">Github &#25176;&#31649;</a></li>
-<li><a class="reference internal" href="#self-hosted">Self-hosted &#25176;&#31649;</a></li>
-<li><a class="reference internal" href="#id4">&#21442;&#32771;&#36164;&#26009;</a></li>
-</ul>
-</div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
-  data-type="github" data-user="hotchilipowder" data-repo="my_config">
-  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
-    <iconify-icon icon="simple-icons:github"></iconify-icon>
-  </span>
-  <span class="flex-grow px-2 break-all">
-    <span>hotchilipowder/my_config</span>
-    <span class="flex text-sm repo-stats-count">
-      <span class="flex items-center pr-3">
-        <iconify-icon icon="lucide:star"></iconify-icon>
-        <strong class="js-repo-stars ml-1">0</strong>
-      </span>
-      <span class="flex items-center">
-        <iconify-icon icon="lucide:git-fork"></iconify-icon>
-        <strong class="js-repo-forks ml-1">0</strong>
-      </span>
-    </span>
-  </span>
-</a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/master/docs/mds/github_actions.md">编辑此页面</a>
-</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
-  </aside>
-  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
-  <main class="sy-main w-full max-sm:max-w-full print:pt-6"><div class="sy-breadcrumbs" role="navigation">
-  <div class="sy-breadcrumbs-inner flex items-center">
-    <div class="md:hidden mr-3">
-      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
-        <i class="i-lucide menu"></i>
-      </button>
-    </div>
-    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="../index.html"><span itemprop="name">My Dev Config</span></a>
-        <span>/</span>
-        <meta itemprop="position" content="1" />
-      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Github Action</strong>
-        <meta itemprop="position" content="2" />
-      </li></ol>
-    <div class="xl:hidden ml-1">
-      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
-        aria-expanded="false">
-        <i class="i-lucide outdent"></i>
-      </button>
-    </div>
-  </div>
-</div><div class="flex flex-col break-words justify-between">
-      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
-        <article class="yue" role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="github-action">
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+         <section class="tex2jax_ignore mathjax_ignore" id="github-action">
 <h1>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
@@ -257,30 +159,14 @@ GitHub provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your w
 </section>
 </section>
 
-        </article><button class="back-to-top" type="button">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
-  </svg>
-  <span>回到顶部</span>
-</button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="../rsts/git.html">
-      <i class="i-lucide chevron-left"></i>
-      <div class="page-info">
-        <span>上一章</span><div class="title">Awesome Git</div></div>
-    </a>
-  </div><div class="navigation-next">
-    <a href="../rsts/docker.html">
-      <div class="page-info">
-        <span>下一章</span>
-        <div class="title">Dockers</div>
-      </div>
-      <i class="i-lucide chevron-right"></i>
-    </a>
-  </div></div></div>
-    </div>
-  </main>
+<div class="section ablog__blog_comments">
+   
 </div>
-<footer class="sy-foot">
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
   <div class="sy-foot-inner sy-container mx-auto">
     <div class="sy-foot-reserved md:flex justify-between items-center">
       <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
