@@ -24,7 +24,6 @@ intersphinx_mapping = {
 extensions = [
     "myst_parser",
     "sphinx.ext.autodoc",
-    "ablog",
     "sphinx.ext.intersphinx",
     "sphinx.ext.extlinks",
     "sphinx.ext.todo",
@@ -34,7 +33,6 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_comments"
-
 ]
 
 myst_enable_extensions = [

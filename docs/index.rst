@@ -32,13 +32,6 @@ Welcome to My Dev Config's documentation!
    rsts/resources.rst
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
 .. |python| replace:: :literal:`Python`
 .. |JS| replace:: :literal:`JS` 
 .. |TS| replace:: :literal:`TS` 
