@@ -2,13 +2,15 @@
 Neovim and Tmux
 ====================
 
+
 Install Neovim
 ==============
 
 
-.. tabs::
 
-   .. tab::  Linux (AppImage)
+.. tab-set::
+
+   .. tab-item::  Linux (AppImage)
 
     .. code-block:: bash
 
@@ -16,13 +18,13 @@ Install Neovim
       chmod u+x nvim.appimage
       mv nvim.appimage nvim
 
-   .. tab:: MacOS (homebrew)
+   .. tab-item:: MacOS (homebrew)
 
     .. code-block:: bash
     
       brew install neovim 
 
-   .. tab:: MacOS (Pre-built archives)
+   .. tab-item:: MacOS (Pre-built archives)
 
     .. code-block:: bash
     
@@ -30,7 +32,7 @@ Install Neovim
       tar xzf nvim-macos.tar.gz
       ./nvim-macos/bin/nvim
 
-   .. tab:: Others 
+   .. tab-item:: Others 
 
       see \ `install neovim <https://github.com/neovim/neovim/wiki/Installing-Neovim>`_
 
@@ -39,22 +41,22 @@ Install Tmux
 ============
 
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: MacOS
+   .. tab-item:: MacOS
         
      .. code-block:: bash
 
          brew install tmux
 
 
-   .. tab:: Linux (APT)
+   .. tab-item:: Linux (APT)
 
      .. code-block:: bash
 
          apt install tmux
 
-   .. tab::  Linux (Source)
+   .. tab-item::  Linux (Source)
     
         First, please keep \ :code:`~/.local/bin`\ in the \ :code:`PATH`\, then \ :code:`make && make install`\ in the \ :code:`tmp/`\ dir.
 
@@ -153,9 +155,9 @@ The basic useful for my tmux with neovim is `vim-tmux-navigator <https://github.
     + :code:`:imap` for insert mode mappings
 
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: Lazy.nvim
+   .. tab-item:: Lazy.nvim
 
      .. code-block:: bash
      
@@ -170,7 +172,7 @@ The basic useful for my tmux with neovim is `vim-tmux-navigator <https://github.
         },
          
 
-   .. tab:: Plug
+   .. tab-item:: Plug
 
      .. code-block:: bash
      
@@ -433,20 +435,20 @@ Neovim Fonts
 操作如下：
 
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: MacOS-brew
+   .. tab-item:: MacOS-brew
 
      brew install font-fantasque-sans-mono-nerd-font
 
      # 如果想要其他的字体，直接尝试安装，如果失败了，brew会给出建议，这不用担心。
 
 
-   .. tab:: Linux
+   .. tab-item:: Linux
 
      Linux
 
-   .. tab::  Windows
+   .. tab-item::  Windows
 
       NA
 

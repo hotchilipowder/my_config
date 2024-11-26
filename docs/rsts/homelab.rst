@@ -137,16 +137,16 @@ Install Docker
 国内使用清华源安装更好
 
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: MacOS
+   .. tab-item:: MacOS
 
      .. code-block:: bash
 
          brew install --cask docker
 
 
-   .. tab:: Linux (Using getdocker)
+   .. tab-item:: Linux (Using getdocker)
 
 
     .. code-block:: bash
@@ -154,7 +154,7 @@ Install Docker
         curl -fsSL https://get.docker.com -o get-docker.sh
         sh get-docker.sh
     
-   .. tab:: Linux (Using apt)
+   .. tab-item:: Linux (Using apt)
 
     See  `Linux Install <https://docs.docker.com/engine/install/>`_
 
@@ -303,9 +303,9 @@ Nodejs Install
 --------------
 
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: download/release
+   .. tab-item:: download/release
 
      see \ `https://nodejs.org/download/release/ <https://nodejs.org/download/release/>`_
 
@@ -319,7 +319,7 @@ Nodejs Install
         pip3 install neovim
 
 
-   .. tab:: 编译
+   .. tab-item:: Compile
 
      just download from \ `https://nodejs.org/en/download <https://nodejs.org/en/download>`_
 

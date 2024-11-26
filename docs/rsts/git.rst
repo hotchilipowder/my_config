@@ -3,37 +3,19 @@ Awesome Git
 ===========
 
 
-Useful Config
-=============
-
-No Password
------------
-
-
-
-
-
-
-
-
-
-
-
-
-
 Install
 =======
 
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: Linux (Apt)
+   .. tab-item:: Linux (Apt)
 
       .. code-block:: bash
       
          apt install git-all
 
-   .. tab:: Linux (From source)
+   .. tab-item:: Linux (From source)
       
       see \ `this link <https://mirrors.edge.kernel.org/pub/software/scm/git/>`_  for recent release.
 
@@ -47,7 +29,7 @@ Install
          ./configure --prefix=$HOME/.local
          make && make install
 
-   .. tab:: MacOS
+   .. tab-item:: MacOS
 
      brew install git 
 
