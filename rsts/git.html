@@ -84,10 +84,6 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#useful-config">Useful Config</a><ul>
-<li><a class="reference internal" href="#no-password">No Password</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#proxy">Proxy</a></li>
 <li><a class="reference internal" href="#common-git-skill">Common git skill</a><ul>
@@ -159,14 +155,36 @@ data-aria-dark="切换到自动模式">
         <article class="yue" role="main">
           <section id="awesome-git">
 <h1>Awesome Git<a class="headerlink" href="#awesome-git" title="Link to this heading">¶</a></h1>
-<section id="useful-config">
-<h2>Useful Config<a class="headerlink" href="#useful-config" title="Link to this heading">¶</a></h2>
-<section id="no-password">
-<h3>No Password<a class="headerlink" href="#no-password" title="Link to this heading">¶</a></h3>
-</section>
-</section>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Linux (Apt)</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>git-all
+</span></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Linux (From source)</label><div class="sd-tab-content docutils">
+<p>see <a class="reference external" href="https://mirrors.edge.kernel.org/pub/software/scm/git/">this link</a>  for recent release.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt-get<span class="w"> </span>install<span class="w"> </span>dh-autoreconf<span class="w"> </span>libcurl4-gnutls-dev<span class="w"> </span>libexpat1-dev<span class="w"> </span>gettext<span class="w"> </span>libz-dev<span class="w"> </span>libssl-dev
+</span><span data-line="2">
+</span><span data-line="3"><span class="nb">cd</span><span class="w"> </span>tmp
+</span><span data-line="4">curl<span class="w"> </span>-OL<span class="w"> </span>https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.5.tar.gz
+</span><span data-line="5">tar<span class="w"> </span>-xvf<span class="w"> </span>git-2.38.5.tar.gz
+</span><span data-line="6">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/.local
+</span><span data-line="7">make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+</span></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+MacOS</label><div class="sd-tab-content docutils">
+<p>brew install git</p>
+</div>
+</div>
 </section>
 <section id="proxy">
 <h2>Proxy<a class="headerlink" href="#proxy" title="Link to this heading">¶</a></h2>
@@ -325,9 +343,9 @@ data-aria-dark="切换到自动模式">
 </section>
 <section id="github-cheatsheet">
 <h3>Github CheatSheet<a class="headerlink" href="#github-cheatsheet" title="Link to this heading">¶</a></h3>
-<div class="table-wrapper colwidths-given docutils container" id="id4">
-<table class="docutils align-default" id="id4">
-<caption><span class="caption-text">Title</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
+<div class="table-wrapper colwidths-given docutils container" id="id5">
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Title</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 25.0%" />
