@@ -3,6 +3,28 @@ Awesome Git
 ===========
 
 
+Config
+======
+
+.. list-table:: Title
+   :widths: 50 25 25
+   :header-rows: 1
+
+   * - Command
+     - Meaning
+     - Note
+   * - \ :code:`git config --global core.editor "vim"`\
+     - 修改编辑器为Vim
+     - 
+   * - \ :code:`git config --global credential.helper "cache --timeout=604800"`
+     - 修改cache过期事件为1周=60 * 60 * 24 * 7 = 604800
+     - 
+   * - \ :code:`git config --local credential.username "hotchilipowder"`\
+     - 设置默认的本地的crediential的username，避免每次都要重复输入。
+     -
+
+
+
 Install
 =======
 
@@ -215,18 +237,4 @@ Github Save username and password
 
 Github CheatSheet
 -----------------
-
-.. list-table:: Title
-   :widths: 50 25 25
-   :header-rows: 1
-
-   * - Command
-     - Meaning
-     - Note
-   * - \ :code:`git config --global core.editor "vim"`\
-     - 修改编辑器
-     - 
-   * - Row 2, column 1
-     - Row 2, column 2
-     - Row 2, column 3
 

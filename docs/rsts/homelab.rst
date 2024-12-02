@@ -1,5 +1,5 @@
 ======================
-HomeLab 
+HomeLab
 ======================
 
 Introduction
