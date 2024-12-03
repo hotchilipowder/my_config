@@ -1,3 +1,34 @@
+global !p
+
+from vimsnippets import complete, has_cjk, display_width
+
+MD_ADMONITION = [
+    "attention",
+    "caution",
+    "danger",
+    "error",
+    "hint",
+    "important",
+    "note",
+    "seealso",
+    "tip",
+    "warning"
+]
+
+GITHUB_ALERTS = [
+    "NOTE",
+    "TIP",
+    "IMPORTANT",
+    "WARNING",
+    "CAUTION"
+]
+
+
+
+endglobal
+
+
+
 snippet text_with_color "Text with warning attribute" 
 [${1:Your text}]{.bg-warning}
 endsnippet
@@ -91,6 +122,10 @@ endsnippet
 
 snippet md_admon "Admonitions"
 	
+:::{$1`!p snip.rv =complete(t[1], MD_ADMONITION)`}
+${2:${VISUAL:Content}}
+:::
+$0
 endsnippet
 
 snippet md_tb "description"
@@ -164,8 +199,17 @@ $$ (mymath2)
 endsnippet
 
 
+snippet md_sa "Specific Admonitions" b
+\`\`\`{$1`!p snip.rv =complete(t[1], MD_ADMONITION)`}
 
+${2:${VISUAL:Content}}
 
+\`\`\`
+$0
+endsnippet
 
 	
-	
+snippet md_alert "Alter from github" b
+> [!`!p snip.rv=complete(t[1], GITHUB_ALERTS)`]
+> ${2:content}
+endsnippet

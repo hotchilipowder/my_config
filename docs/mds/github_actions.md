@@ -1,3 +1,5 @@
+
+
 # Github Action
 
 
@@ -103,12 +105,136 @@ jobs:
 
 ```
 
+基于找个特性，可以实现在 self-hosted 中自动重启docker (docker跑在 `sudo`中且普通用户没有权限的情况下）
+
+  
+  
+:::{hint}
+使用`sudo -S`可以实现从标准输入中读取密码
+:::
+
+  
 
 
 #### 创建依赖的作业
 
+默认情况下，工作流程中的作业同时并行运行。 如果你有一个作业只能在另一个作业完成后运行，则可以使用 needs 关键字来创建此依赖项。 如果其中一个作业失败，则跳过所有从属作业；但如果需要作业继续运行，可以使用 if 条件语句来定义。
+
+
+```YAML
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./setup_server.sh
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./build_server.sh
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./test_server.sh
+```
+
+#### 使用矩阵
+
+使用矩阵策略，可以在单个作业定义中使用变量自动创建基于变量组合的多个作业运行。 例如，可以使用矩阵策略在某个语言的多个版本或多个操作系统上测试代码。 矩阵是使用 strategy 关键字创建的，该关键字接收生成选项作为数组。 例如，此矩阵将使用不同版本的 Node.js 多次运行作业：
+
+```YAML
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16]
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+```
+
+
+#### 缓存依赖项
+
+如果你的作业定期重用依赖项，你可以考虑缓存这些文件以帮助提高性能。 缓存一旦创建，就可用于同一仓库中的所有工作流程。
+
+
+```YAML
+jobs:
+  example-job:
+    steps:
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+```
+
+有关详细信息，请参阅“[缓存依赖项以加快工作流程](https://docs.github.com/zh/actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows)”
+
+
+#### 使用数据库和服务容器
+
+如果作业需要数据库或缓存服务，可以使用 services 关键字创建临时容器来托管服务；生成的容器随后可用于该作业中的所有步骤，并在作业完成后删除。
+此示例演示作业如何使用 services 创建 postgres 容器，然后使用 node 连接到服务。
+
+```YAML
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    container: node:20-bookworm-slim
+    services:
+      postgres:
+        image: postgres
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Connect to PostgreSQL
+        run: node client.js
+        env:
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
+```
+
+#### 使用标签路由工作流程
+
+如果要确保特定类型的运行器处理作业，可以使用标签来控制作业的执行位置。 除了默认标签 self-hosted 之外，还可以为自托管运行器分配其他标签。 然后，可以在 YAML 工作流中引用这些标签，确保作业以可预测的方式路由。 GitHub 托管运行器已获分配了预定义的标签。
+
+此示例显示工作流程如何使用标签来指定所需的运行器：
+
+```YAML
+jobs:
+  example-job:
+    runs-on: [self-hosted, linux, x64, gpu]
+```
+
+工作流只能在所有标签处于 runs-on 数组中的运行器上运行。 作业将优先转到具有指定标签的空闲自托管运行器。 如果没有可用且具有指定标签的 GitHub 托管的运行器，作业将转到 GitHub 托管的运行器。
+
+
+若要详细了解自托管运行器标签，请参阅将 [标签与自托管运行程序结合使用](https://docs.github.com/zh/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)。
+
+有关 GitHub 托管的运行器标签的详细信息，请参阅 [使用 GitHub 托管的运行器](https://docs.github.com/zh/actions/using-github-hosted-runners/using-github-hosted-runners#supported-runners-and-hardware-resources)。
+
+
+#### 重新使用工作流
+
+可调用一个工作流，可以公开或私下与组织共享工作流。 这样便可重用工作流，避免重复并使工作流更易于维护。 有关详细信息，请参阅 [重新使用工作流](https://docs.github.com/zh/actions/sharing-automations/reusing-workflows)
+
+
 
 ## Github 托管
+
+
 
 
 ## Self-hosted 托管
