@@ -98,13 +98,18 @@ data-aria-dark="切换到自动模式">
 <li><a class="reference internal" href="#id2">&#39640;&#32423;&#24037;&#20316;&#27969;&#21151;&#33021;</a><ul>
 <li><a class="reference internal" href="#secrets">Secrets</a></li>
 <li><a class="reference internal" href="#id3">&#21019;&#24314;&#20381;&#36182;&#30340;&#20316;&#19994;</a></li>
+<li><a class="reference internal" href="#id4">&#20351;&#29992;&#30697;&#38453;</a></li>
+<li><a class="reference internal" href="#id5">&#32531;&#23384;&#20381;&#36182;&#39033;</a></li>
+<li><a class="reference internal" href="#id6">&#20351;&#29992;&#25968;&#25454;&#24211;&#21644;&#26381;&#21153;&#23481;&#22120;</a></li>
+<li><a class="reference internal" href="#id7">&#20351;&#29992;&#26631;&#31614;&#36335;&#30001;&#24037;&#20316;&#27969;&#31243;</a></li>
+<li><a class="reference internal" href="#id8">&#37325;&#26032;&#20351;&#29992;&#24037;&#20316;&#27969;</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#github">Github &#25176;&#31649;</a></li>
 <li><a class="reference internal" href="#self-hosted">Self-hosted &#25176;&#31649;</a></li>
-<li><a class="reference internal" href="#id4">&#21442;&#32771;&#36164;&#26009;</a></li>
+<li><a class="reference internal" href="#id9">&#21442;&#32771;&#36164;&#26009;</a></li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -237,9 +242,108 @@ GitHub provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your w
 </span><span data-line="9"><span class="w">          </span><span class="no">example-command &quot;$super_secret&quot;</span>
 </span></pre></div>
 </div>
+<p>基于找个特性，可以实现在 self-hosted 中自动重启docker (docker跑在 <code class="docutils literal notranslate"><span class="pre">sudo</span></code>中且普通用户没有权限的情况下）</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-S</span></code>可以实现从标准输入中读取密码</p>
+</div>
 </section>
 <section id="id3">
 <h4>创建依赖的作业<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+<p>默认情况下，工作流程中的作业同时并行运行。 如果你有一个作业只能在另一个作业完成后运行，则可以使用 needs 关键字来创建此依赖项。 如果其中一个作业失败，则跳过所有从属作业；但如果需要作业继续运行，可以使用 if 条件语句来定义。</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nt">jobs</span><span class="p">:</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">setup</span><span class="p">:</span>
+</span><span data-line="3"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span data-line="4"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span data-line="5"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./setup_server.sh</span>
+</span><span data-line="6"><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+</span><span data-line="7"><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
+</span><span data-line="8"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span data-line="9"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span data-line="10"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./build_server.sh</span>
+</span><span data-line="11"><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+</span><span data-line="12"><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+</span><span data-line="13"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span data-line="14"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span data-line="15"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./test_server.sh</span>
+</span></pre></div>
+</div>
+</section>
+<section id="id4">
+<h4>使用矩阵<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
+<p>使用矩阵策略，可以在单个作业定义中使用变量自动创建基于变量组合的多个作业运行。 例如，可以使用矩阵策略在某个语言的多个版本或多个操作系统上测试代码。 矩阵是使用 strategy 关键字创建的，该关键字接收生成选项作为数组。 例如，此矩阵将使用不同版本的 Node.js 多次运行作业：</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nt">jobs</span><span class="p">:</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+</span><span data-line="3"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span data-line="4"><span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
+</span><span data-line="5"><span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
+</span><span data-line="6"><span class="w">        </span><span class="nt">node</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">14</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">16</span><span class="p p-Indicator">]</span>
+</span><span data-line="7"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span data-line="8"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
+</span><span data-line="9"><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+</span><span data-line="10"><span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.node }}</span>
+</span></pre></div>
+</div>
+</section>
+<section id="id5">
+<h4>缓存依赖项<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
+<p>如果你的作业定期重用依赖项，你可以考虑缓存这些文件以帮助提高性能。 缓存一旦创建，就可用于同一仓库中的所有工作流程。</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nt">jobs</span><span class="p">:</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">example-job</span><span class="p">:</span>
+</span><span data-line="3"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span data-line="4"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cache node modules</span>
+</span><span data-line="5"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v3</span>
+</span><span data-line="6"><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+</span><span data-line="7"><span class="w">          </span><span class="nt">cache-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cache-node-modules</span>
+</span><span data-line="8"><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+</span><span data-line="9"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.npm</span>
+</span><span data-line="10"><span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles(&#39;**/package-lock.json&#39;) }}</span>
+</span><span data-line="11"><span class="w">          </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span data-line="12"><span class="w">            </span><span class="no">${{ runner.os }}-build-${{ env.cache-name }}-</span>
+</span></pre></div>
+</div>
+<p>有关详细信息，请参阅“<a class="reference external" href="https://docs.github.com/zh/actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows">缓存依赖项以加快工作流程</a>”</p>
+</section>
+<section id="id6">
+<h4>使用数据库和服务容器<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h4>
+<p>如果作业需要数据库或缓存服务，可以使用 services 关键字创建临时容器来托管服务；生成的容器随后可用于该作业中的所有步骤，并在作业完成后删除。
+此示例演示作业如何使用 services 创建 postgres 容器，然后使用 node 连接到服务。</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nt">jobs</span><span class="p">:</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">container-job</span><span class="p">:</span>
+</span><span data-line="3"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span data-line="4"><span class="w">    </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:20-bookworm-slim</span>
+</span><span data-line="5"><span class="w">    </span><span class="nt">services</span><span class="p">:</span>
+</span><span data-line="6"><span class="w">      </span><span class="nt">postgres</span><span class="p">:</span>
+</span><span data-line="7"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span data-line="8"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span data-line="9"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check out repository code</span>
+</span><span data-line="10"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+</span><span data-line="11"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+</span><span data-line="12"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm ci</span>
+</span><span data-line="13"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Connect to PostgreSQL</span>
+</span><span data-line="14"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node client.js</span>
+</span><span data-line="15"><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+</span><span data-line="16"><span class="w">          </span><span class="nt">POSTGRES_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span data-line="17"><span class="w">          </span><span class="nt">POSTGRES_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+</span></pre></div>
+</div>
+</section>
+<section id="id7">
+<h4>使用标签路由工作流程<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h4>
+<p>如果要确保特定类型的运行器处理作业，可以使用标签来控制作业的执行位置。 除了默认标签 self-hosted 之外，还可以为自托管运行器分配其他标签。 然后，可以在 YAML 工作流中引用这些标签，确保作业以可预测的方式路由。 GitHub 托管运行器已获分配了预定义的标签。</p>
+<p>此示例显示工作流程如何使用标签来指定所需的运行器：</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nt">jobs</span><span class="p">:</span>
+</span><span data-line="2"><span class="w">  </span><span class="nt">example-job</span><span class="p">:</span>
+</span><span data-line="3"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">self-hosted</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">linux</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">x64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gpu</span><span class="p p-Indicator">]</span>
+</span></pre></div>
+</div>
+<p>工作流只能在所有标签处于 runs-on 数组中的运行器上运行。 作业将优先转到具有指定标签的空闲自托管运行器。 如果没有可用且具有指定标签的 GitHub 托管的运行器，作业将转到 GitHub 托管的运行器。</p>
+<p>若要详细了解自托管运行器标签，请参阅将 <a class="reference external" href="https://docs.github.com/zh/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners">标签与自托管运行程序结合使用</a>。</p>
+<p>有关 GitHub 托管的运行器标签的详细信息，请参阅 <a class="reference external" href="https://docs.github.com/zh/actions/using-github-hosted-runners/using-github-hosted-runners#supported-runners-and-hardware-resources">使用 GitHub 托管的运行器</a>。</p>
+</section>
+<section id="id8">
+<h4>重新使用工作流<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
+<p>可调用一个工作流，可以公开或私下与组织共享工作流。 这样便可重用工作流，避免重复并使工作流更易于维护。 有关详细信息，请参阅 <a class="reference external" href="https://docs.github.com/zh/actions/sharing-automations/reusing-workflows">重新使用工作流</a></p>
 </section>
 </section>
 </section>
@@ -249,8 +353,8 @@ GitHub provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your w
 <section id="self-hosted">
 <h2>Self-hosted 托管<a class="headerlink" href="#self-hosted" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id4">
-<h2>参考资料<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<section id="id9">
+<h2>参考资料<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.github.com/zh/actions">GitHub Actions 文档</a></p></li>
 </ul>
