@@ -16,6 +16,18 @@ Sync from github
 
     curl https://codeload.github.com/hotchilipowder/my_config/tar.gz/main | tar -xz --strip=2 -C ~/.config/nvim/ my_config-main/snippets/ 
 
+DIY for vim-snippets
+====================
+
+在使用了2年的 [vim-snippets]_ 后，因为入坑了 [typst]_ ，所以决定还是切换到自己的repository下，以便能支持snippets. 
+此外，因为写snippets的过程其实也是对于语法进行学习了解的过程，例如我根据阅读一些rst的snippet，很好的学习了许多的相关的用法。
+因此，个人认为是时候 (2024-12-08) 切换到这里来了。
+
+.. [typst] https://typst.app/
+
+.. [vim-snippets] https://github.com/honza/vim-snippets
+
+
 
 Introduction
 ============

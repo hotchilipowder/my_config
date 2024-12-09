@@ -109,8 +109,7 @@ Why Neovim instead of Vim
 
 .. code-block:: bash
 
-   mkdir -p ~/.config/nvim
-   curl -SL https://raw.githubusercontent.com/hotchilipowder/my_config/main/nvim/init.lua -o ~/.config/nvim/init.lua
+   mkdir -p ~/.config/nvim && curl -SL https://raw.githubusercontent.com/hotchilipowder/my_config/main/nvim/init.lua -o ~/.config/nvim/init.lua
   
 
 .. dropdown:: ~/.config/nvim/init.lua
