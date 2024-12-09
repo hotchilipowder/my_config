@@ -85,6 +85,7 @@ data-aria-dark="切换到自动模式">
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
 <li><a class="reference internal" href="#sync-from-github">Sync from github</a></li>
+<li><a class="reference internal" href="#diy-for-vim-snippets">DIY for vim-snippets</a></li>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#ultisnipets">Ultisnipets</a><ul>
 <li><a class="reference internal" href="#python">python</a></li>
@@ -93,15 +94,15 @@ data-aria-dark="切换到自动模式">
 </ul>
 </li>
 <li><a class="reference internal" href="#vsnip">Vsnip</a><ul>
-<li><a class="reference internal" href="#id3">python</a></li>
-<li><a class="reference internal" href="#id4">latex</a></li>
-<li><a class="reference internal" href="#id5">restructuredtext</a></li>
+<li><a class="reference internal" href="#id5">python</a></li>
+<li><a class="reference internal" href="#id6">latex</a></li>
+<li><a class="reference internal" href="#id7">restructuredtext</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#vim-snippets">vim-snippets &#31616;&#35201;&#35760;&#24405;</a><ul>
+<li><a class="reference internal" href="#id8">vim-snippets &#31616;&#35201;&#35760;&#24405;</a><ul>
 <li><a class="reference internal" href="#markdown">Markdown</a></li>
 <li><a class="reference internal" href="#rst">Rst</a></li>
-<li><a class="reference internal" href="#id7">Python</a></li>
+<li><a class="reference internal" href="#id10">Python</a></li>
 <li><a class="reference internal" href="#rust">Rust</a></li>
 </ul>
 </li>
@@ -163,12 +164,28 @@ data-aria-dark="切换到自动模式">
 </span></pre></div>
 </div>
 </section>
+<section id="diy-for-vim-snippets">
+<h2>DIY for vim-snippets<a class="headerlink" href="#diy-for-vim-snippets" title="Link to this heading">¶</a></h2>
+<p>在使用了2年的 <a class="reference internal" href="#vim-snippets" id="id1"><span>[vim-snippets]</span></a> 后，因为入坑了 <a class="reference internal" href="#typst" id="id2"><span>[typst]</span></a> ，所以决定还是切换到自己的repository下，以便能支持snippets.
+此外，因为写snippets的过程其实也是对于语法进行学习了解的过程，例如我根据阅读一些rst的snippet，很好的学习了许多的相关的用法。
+因此，个人认为是时候 (2024-12-08) 切换到这里来了。</p>
+<div role="list" class="citation-list">
+<div class="citation" id="typst" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">typst</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://typst.app/">https://typst.app/</a></p>
+</div>
+<div class="citation" id="vim-snippets" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>vim-snippets<span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/honza/vim-snippets">https://github.com/honza/vim-snippets</a></p>
+</div>
+</div>
+</section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>使用Snippets无意是在日常工作流中非常重要的一环。
 常见的编辑起无论是 <code class="docutils literal notranslate"><span class="pre">vscode</span></code>还是 <code class="docutils literal notranslate"><span class="pre">neovim</span></code>都有很多的snippets系统。</p>
-<p>而且在 <a class="footnote-reference brackets" href="#how-to-make-math-note" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> 中对于 <code class="docutils literal notranslate"><span class="pre">Ultisnipets</span></code>有大量的使用。
-更多的参考资料也包括: <a class="footnote-reference brackets" href="#supercharged-latex" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>。</p>
+<p>而且在 <a class="footnote-reference brackets" href="#how-to-make-math-note" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> 中对于 <code class="docutils literal notranslate"><span class="pre">Ultisnipets</span></code>有大量的使用。
+更多的参考资料也包括: <a class="footnote-reference brackets" href="#supercharged-latex" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>。</p>
 </section>
 <section id="ultisnipets">
 <h2>Ultisnipets<a class="headerlink" href="#ultisnipets" title="Link to this heading">¶</a></h2>
@@ -225,8 +242,8 @@ data-aria-dark="切换到自动模式">
 <section id="vsnip">
 <h2>Vsnip<a class="headerlink" href="#vsnip" title="Link to this heading">¶</a></h2>
 <p>Just use <code class="code docutils literal notranslate"><span class="pre">VsniptOpenEdit</span></code></p>
-<section id="id3">
-<h3>python<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="id5">
+<h3>python<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">[pytornado_begin]  pytornado_begin&quot;</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -700,8 +717,8 @@ data-aria-dark="切换到自动模式">
 </div>
 </div>
 </details></section>
-<section id="id4">
-<h3>latex<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="id6">
+<h3>latex<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">[beamer_only_fig]  beamer_only_fig&quot;</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -743,8 +760,8 @@ data-aria-dark="切换到自动模式">
 </div>
 </div>
 </details></section>
-<section id="id5">
-<h3>restructuredtext<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<section id="id7">
+<h3>restructuredtext<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">[ablog_img_new]  ablog_img_new&quot;</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -783,9 +800,9 @@ data-aria-dark="切换到自动模式">
 </div>
 </details></section>
 </section>
-<section id="vim-snippets">
-<h2>vim-snippets 简要记录<a class="headerlink" href="#vim-snippets" title="Link to this heading">¶</a></h2>
-<p>如果你用 <a class="footnote-reference brackets" href="#id8" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).</p>
+<section id="id8">
+<h2>vim-snippets 简要记录<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<p>如果你用 <a href="#id13"><span class="problematic" id="id9">[#vim-snippets]_</span></a> 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).</p>
 <section id="markdown">
 <h3>Markdown<a class="headerlink" href="#markdown" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -829,8 +846,8 @@ data-aria-dark="切换到自动模式">
 <li><p>sid, sidebar</p></li>
 </ul>
 </section>
-<section id="id7">
-<h3>Python<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<section id="id10">
+<h3>Python<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <p>see <a class="reference external" href="https://github.com/honza/vim-snippets/blob/master/UltiSnips/python.snippets">python.snippets</a> 。</p>
 <ul class="simple">
 <li><p>class, &quot;class with docstrings&quot;</p></li>
@@ -889,15 +906,15 @@ data-aria-dark="切换到自动模式">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="supercharged-latex" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://www.ejmastnak.com/tutorials/vim-latex/intro/">Supercharged LaTeX using Vim/Neovim, VimTeX, and snippets</a></p>
 </aside>
 <aside class="footnote brackets" id="how-to-make-math-note" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://castel.dev/post/lecture-notes-1/">How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel</a></p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">3</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/honza/vim-snippets">https://github.com/honza/vim-snippets</a></p>
 </aside>
 </aside>
