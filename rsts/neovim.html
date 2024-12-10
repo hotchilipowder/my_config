@@ -738,7 +738,7 @@ Linux (Source)</label><div class="sd-tab-content docutils">
 </span><span data-line="474"><span class="c1">-- See `:help nvim-treesitter`</span>
 </span><span data-line="475"><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;nvim-treesitter.configs&quot;</span><span class="p">).</span><span class="n">setup</span><span class="p">({</span>
 </span><span data-line="476">	<span class="c1">-- Add languages to be installed here that you want installed for treesitter</span>
-</span><span data-line="477">	<span class="n">ensure_installed</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;tsx&quot;</span><span class="p">,</span> <span class="s2">&quot;typescript&quot;</span><span class="p">,</span> <span class="s2">&quot;vimdoc&quot;</span><span class="p">,</span> <span class="s2">&quot;vim&quot;</span><span class="p">,</span> <span class="s2">&quot;lua&quot;</span> <span class="p">},</span>
+</span><span data-line="477">	<span class="n">ensure_installed</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;tsx&quot;</span><span class="p">,</span> <span class="s2">&quot;typescript&quot;</span><span class="p">,</span> <span class="s2">&quot;vimdoc&quot;</span><span class="p">,</span> <span class="s2">&quot;vim&quot;</span><span class="p">,</span> <span class="s2">&quot;lua&quot;</span><span class="p">,</span> <span class="s2">&quot;typst&quot;</span> <span class="p">},</span>
 </span><span data-line="478">
 </span><span data-line="479">	<span class="c1">-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)</span>
 </span><span data-line="480">	<span class="n">auto_install</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
@@ -865,85 +865,86 @@ Linux (Source)</label><div class="sd-tab-content docutils">
 </span><span data-line="601">	<span class="n">rust_analyzer</span> <span class="o">=</span> <span class="p">{},</span>
 </span><span data-line="602">	<span class="n">ts_ls</span> <span class="o">=</span> <span class="p">{},</span>
 </span><span data-line="603">	<span class="n">texlab</span> <span class="o">=</span> <span class="p">{},</span>
-</span><span data-line="604"><span class="p">}</span>
-</span><span data-line="605">
-</span><span data-line="606"><span class="c1">-- Setup neovim lua configuration</span>
-</span><span data-line="607"><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;neodev&quot;</span><span class="p">).</span><span class="n">setup</span><span class="p">()</span>
-</span><span data-line="608">
-</span><span data-line="609"><span class="c1">-- nvim-cmp supports additional completion capabilities, so broadcast that to servers</span>
-</span><span data-line="610"><span class="kd">local</span> <span class="n">capabilities</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">lsp</span><span class="p">.</span><span class="n">protocol</span><span class="p">.</span><span class="n">make_client_capabilities</span><span class="p">()</span>
-</span><span data-line="611"><span class="n">capabilities</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp_nvim_lsp&quot;</span><span class="p">).</span><span class="n">default_capabilities</span><span class="p">(</span><span class="n">capabilities</span><span class="p">)</span>
-</span><span data-line="612">
-</span><span data-line="613"><span class="c1">-- Setup mason so it can manage external tooling</span>
-</span><span data-line="614"><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason&quot;</span><span class="p">).</span><span class="n">setup</span><span class="p">()</span>
-</span><span data-line="615">
-</span><span data-line="616"><span class="c1">-- Ensure the servers above are installed</span>
-</span><span data-line="617"><span class="kd">local</span> <span class="n">mason_lspconfig</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason-lspconfig&quot;</span><span class="p">)</span>
-</span><span data-line="618">
-</span><span data-line="619"><span class="n">mason_lspconfig</span><span class="p">.</span><span class="n">setup</span><span class="p">({</span>
-</span><span data-line="620">	<span class="n">ensure_installed</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">tbl_keys</span><span class="p">(</span><span class="n">servers</span><span class="p">),</span>
-</span><span data-line="621"><span class="p">})</span>
-</span><span data-line="622">
-</span><span data-line="623"><span class="n">mason_lspconfig</span><span class="p">.</span><span class="n">setup_handlers</span><span class="p">({</span>
-</span><span data-line="624">	<span class="kr">function</span><span class="p">(</span><span class="n">server_name</span><span class="p">)</span>
-</span><span data-line="625">		<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;lspconfig&quot;</span><span class="p">)[</span><span class="n">server_name</span><span class="p">].</span><span class="n">setup</span><span class="p">({</span>
-</span><span data-line="626">			<span class="n">capabilities</span> <span class="o">=</span> <span class="n">capabilities</span><span class="p">,</span>
-</span><span data-line="627">			<span class="n">on_attach</span> <span class="o">=</span> <span class="n">on_attach</span><span class="p">,</span>
-</span><span data-line="628">			<span class="n">settings</span> <span class="o">=</span> <span class="n">servers</span><span class="p">[</span><span class="n">server_name</span><span class="p">],</span>
-</span><span data-line="629">		<span class="p">})</span>
-</span><span data-line="630">	<span class="kr">end</span><span class="p">,</span>
-</span><span data-line="631"><span class="p">})</span>
-</span><span data-line="632">
-</span><span data-line="633"><span class="c1">-- nvim-cmp setup</span>
-</span><span data-line="634"><span class="kd">local</span> <span class="n">cmp</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp&quot;</span><span class="p">)</span>
-</span><span data-line="635"><span class="c1">-- local luasnip = require &#39;luasnip&#39;</span>
-</span><span data-line="636">
-</span><span data-line="637"><span class="n">cmp</span><span class="p">.</span><span class="n">setup</span><span class="p">({</span>
-</span><span data-line="638">	<span class="n">snippet</span> <span class="o">=</span> <span class="p">{</span>
-</span><span data-line="639">		<span class="n">expand</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-</span><span data-line="640">			<span class="n">vim</span><span class="p">.</span><span class="n">fn</span><span class="p">[</span><span class="s2">&quot;UltiSnips#Anon&quot;</span><span class="p">](</span><span class="n">args</span><span class="p">.</span><span class="n">body</span><span class="p">)</span>
-</span><span data-line="641">		<span class="kr">end</span><span class="p">,</span>
-</span><span data-line="642">	<span class="p">},</span>
-</span><span data-line="643">	<span class="n">mapping</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">preset</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span>
-</span><span data-line="644">		<span class="p">[</span><span class="s2">&quot;&lt;C-d&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">scroll_docs</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span>
-</span><span data-line="645">		<span class="p">[</span><span class="s2">&quot;&lt;C-f&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">scroll_docs</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
-</span><span data-line="646">		<span class="p">[</span><span class="s2">&quot;&lt;C-Space&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">complete</span><span class="p">({}),</span>
-</span><span data-line="647">		<span class="p">[</span><span class="s2">&quot;&lt;CR&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">confirm</span><span class="p">({</span>
-</span><span data-line="648">			<span class="n">behavior</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">ConfirmBehavior</span><span class="p">.</span><span class="n">Replace</span><span class="p">,</span>
-</span><span data-line="649">			<span class="nb">select</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-</span><span data-line="650">		<span class="p">}),</span>
-</span><span data-line="651">	<span class="p">}),</span>
-</span><span data-line="652">	<span class="n">sources</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">sources</span><span class="p">({</span>
-</span><span data-line="653">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;nvim_lsp&quot;</span> <span class="p">},</span>
-</span><span data-line="654">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;vsnip&quot;</span> <span class="p">},</span> <span class="c1">-- For vsnip users.</span>
-</span><span data-line="655">		<span class="c1">-- { name = &#39;luasnip&#39; }, -- For luasnip users.</span>
-</span><span data-line="656">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;ultisnips&quot;</span> <span class="p">},</span> <span class="c1">-- For ultisnips users.</span>
-</span><span data-line="657">		<span class="c1">-- { name = &#39;snippy&#39; }, -- For snippy users.</span>
-</span><span data-line="658">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;buffer&quot;</span> <span class="p">},</span>
-</span><span data-line="659">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;path&quot;</span> <span class="p">},</span>
-</span><span data-line="660">	<span class="p">}),</span>
-</span><span data-line="661"><span class="p">})</span>
-</span><span data-line="662">
-</span><span data-line="663"><span class="kr">function</span> <span class="nc">_G</span><span class="p">.</span><span class="nf">set_terminal_keymaps</span><span class="p">()</span>
-</span><span data-line="664">	<span class="kd">local</span> <span class="n">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span>
-</span><span data-line="665">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;esc&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
-</span><span data-line="666">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;jk&quot;</span><span class="p">,</span> <span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
-</span><span data-line="667">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-h&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd h&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
-</span><span data-line="668">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-j&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd j&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
-</span><span data-line="669">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-k&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd k&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
-</span><span data-line="670">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-l&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd l&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
-</span><span data-line="671">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-w&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;C-\&gt;&lt;C-n&gt;&lt;C-w&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
-</span><span data-line="672"><span class="kr">end</span>
-</span><span data-line="673">
-</span><span data-line="674"><span class="c1">-- if you only want these mappings for toggle term use term://*toggleterm#* instead</span>
-</span><span data-line="675"><span class="n">vim</span><span class="p">.</span><span class="n">cmd</span><span class="p">(</span><span class="s2">&quot;autocmd! TermOpen term://* lua set_terminal_keymaps()&quot;</span><span class="p">)</span>
-</span><span data-line="676">
+</span><span data-line="604">  <span class="n">tinymist</span> <span class="o">=</span> <span class="p">{},</span>
+</span><span data-line="605"><span class="p">}</span>
+</span><span data-line="606">
+</span><span data-line="607"><span class="c1">-- Setup neovim lua configuration</span>
+</span><span data-line="608"><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;neodev&quot;</span><span class="p">).</span><span class="n">setup</span><span class="p">()</span>
+</span><span data-line="609">
+</span><span data-line="610"><span class="c1">-- nvim-cmp supports additional completion capabilities, so broadcast that to servers</span>
+</span><span data-line="611"><span class="kd">local</span> <span class="n">capabilities</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">lsp</span><span class="p">.</span><span class="n">protocol</span><span class="p">.</span><span class="n">make_client_capabilities</span><span class="p">()</span>
+</span><span data-line="612"><span class="n">capabilities</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp_nvim_lsp&quot;</span><span class="p">).</span><span class="n">default_capabilities</span><span class="p">(</span><span class="n">capabilities</span><span class="p">)</span>
+</span><span data-line="613">
+</span><span data-line="614"><span class="c1">-- Setup mason so it can manage external tooling</span>
+</span><span data-line="615"><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason&quot;</span><span class="p">).</span><span class="n">setup</span><span class="p">()</span>
+</span><span data-line="616">
+</span><span data-line="617"><span class="c1">-- Ensure the servers above are installed</span>
+</span><span data-line="618"><span class="kd">local</span> <span class="n">mason_lspconfig</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason-lspconfig&quot;</span><span class="p">)</span>
+</span><span data-line="619">
+</span><span data-line="620"><span class="n">mason_lspconfig</span><span class="p">.</span><span class="n">setup</span><span class="p">({</span>
+</span><span data-line="621">	<span class="n">ensure_installed</span> <span class="o">=</span> <span class="n">vim</span><span class="p">.</span><span class="n">tbl_keys</span><span class="p">(</span><span class="n">servers</span><span class="p">),</span>
+</span><span data-line="622"><span class="p">})</span>
+</span><span data-line="623">
+</span><span data-line="624"><span class="n">mason_lspconfig</span><span class="p">.</span><span class="n">setup_handlers</span><span class="p">({</span>
+</span><span data-line="625">	<span class="kr">function</span><span class="p">(</span><span class="n">server_name</span><span class="p">)</span>
+</span><span data-line="626">		<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;lspconfig&quot;</span><span class="p">)[</span><span class="n">server_name</span><span class="p">].</span><span class="n">setup</span><span class="p">({</span>
+</span><span data-line="627">			<span class="n">capabilities</span> <span class="o">=</span> <span class="n">capabilities</span><span class="p">,</span>
+</span><span data-line="628">			<span class="n">on_attach</span> <span class="o">=</span> <span class="n">on_attach</span><span class="p">,</span>
+</span><span data-line="629">			<span class="n">settings</span> <span class="o">=</span> <span class="n">servers</span><span class="p">[</span><span class="n">server_name</span><span class="p">],</span>
+</span><span data-line="630">		<span class="p">})</span>
+</span><span data-line="631">	<span class="kr">end</span><span class="p">,</span>
+</span><span data-line="632"><span class="p">})</span>
+</span><span data-line="633">
+</span><span data-line="634"><span class="c1">-- nvim-cmp setup</span>
+</span><span data-line="635"><span class="kd">local</span> <span class="n">cmp</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp&quot;</span><span class="p">)</span>
+</span><span data-line="636"><span class="c1">-- local luasnip = require &#39;luasnip&#39;</span>
+</span><span data-line="637">
+</span><span data-line="638"><span class="n">cmp</span><span class="p">.</span><span class="n">setup</span><span class="p">({</span>
+</span><span data-line="639">	<span class="n">snippet</span> <span class="o">=</span> <span class="p">{</span>
+</span><span data-line="640">		<span class="n">expand</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</span><span data-line="641">			<span class="n">vim</span><span class="p">.</span><span class="n">fn</span><span class="p">[</span><span class="s2">&quot;UltiSnips#Anon&quot;</span><span class="p">](</span><span class="n">args</span><span class="p">.</span><span class="n">body</span><span class="p">)</span>
+</span><span data-line="642">		<span class="kr">end</span><span class="p">,</span>
+</span><span data-line="643">	<span class="p">},</span>
+</span><span data-line="644">	<span class="n">mapping</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">preset</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span>
+</span><span data-line="645">		<span class="p">[</span><span class="s2">&quot;&lt;C-d&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">scroll_docs</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span>
+</span><span data-line="646">		<span class="p">[</span><span class="s2">&quot;&lt;C-f&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">scroll_docs</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+</span><span data-line="647">		<span class="p">[</span><span class="s2">&quot;&lt;C-Space&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">complete</span><span class="p">({}),</span>
+</span><span data-line="648">		<span class="p">[</span><span class="s2">&quot;&lt;CR&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">mapping</span><span class="p">.</span><span class="n">confirm</span><span class="p">({</span>
+</span><span data-line="649">			<span class="n">behavior</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">ConfirmBehavior</span><span class="p">.</span><span class="n">Replace</span><span class="p">,</span>
+</span><span data-line="650">			<span class="nb">select</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+</span><span data-line="651">		<span class="p">}),</span>
+</span><span data-line="652">	<span class="p">}),</span>
+</span><span data-line="653">	<span class="n">sources</span> <span class="o">=</span> <span class="n">cmp</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">sources</span><span class="p">({</span>
+</span><span data-line="654">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;nvim_lsp&quot;</span> <span class="p">},</span>
+</span><span data-line="655">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;vsnip&quot;</span> <span class="p">},</span> <span class="c1">-- For vsnip users.</span>
+</span><span data-line="656">		<span class="c1">-- { name = &#39;luasnip&#39; }, -- For luasnip users.</span>
+</span><span data-line="657">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;ultisnips&quot;</span> <span class="p">},</span> <span class="c1">-- For ultisnips users.</span>
+</span><span data-line="658">		<span class="c1">-- { name = &#39;snippy&#39; }, -- For snippy users.</span>
+</span><span data-line="659">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;buffer&quot;</span> <span class="p">},</span>
+</span><span data-line="660">		<span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;path&quot;</span> <span class="p">},</span>
+</span><span data-line="661">	<span class="p">}),</span>
+</span><span data-line="662"><span class="p">})</span>
+</span><span data-line="663">
+</span><span data-line="664"><span class="kr">function</span> <span class="nc">_G</span><span class="p">.</span><span class="nf">set_terminal_keymaps</span><span class="p">()</span>
+</span><span data-line="665">	<span class="kd">local</span> <span class="n">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">buffer</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span>
+</span><span data-line="666">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;esc&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</span><span data-line="667">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;jk&quot;</span><span class="p">,</span> <span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</span><span data-line="668">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-h&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd h&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</span><span data-line="669">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-j&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd j&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</span><span data-line="670">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-k&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd k&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</span><span data-line="671">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-l&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;Cmd&gt;wincmd l&lt;CR&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</span><span data-line="672">	<span class="n">vim</span><span class="p">.</span><span class="n">keymap</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;C-w&gt;&quot;</span><span class="p">,</span> <span class="s">[[&lt;C-\&gt;&lt;C-n&gt;&lt;C-w&gt;]]</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</span><span data-line="673"><span class="kr">end</span>
+</span><span data-line="674">
+</span><span data-line="675"><span class="c1">-- if you only want these mappings for toggle term use term://*toggleterm#* instead</span>
+</span><span data-line="676"><span class="n">vim</span><span class="p">.</span><span class="n">cmd</span><span class="p">(</span><span class="s2">&quot;autocmd! TermOpen term://* lua set_terminal_keymaps()&quot;</span><span class="p">)</span>
 </span><span data-line="677">
 </span><span data-line="678">
-</span><span data-line="679"><span class="c1">-- The line beneath this is called `modeline`. See `:help modeline`</span>
-</span><span data-line="680"><span class="c1">-- vim: ts=2 sts=2 sw=2 et</span>
-</span><span data-line="681">
-</span><span data-line="682"><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">tmux_navigator_no_mappings</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span data-line="679">
+</span><span data-line="680"><span class="c1">-- The line beneath this is called `modeline`. See `:help modeline`</span>
+</span><span data-line="681"><span class="c1">-- vim: ts=2 sts=2 sw=2 et</span>
+</span><span data-line="682">
+</span><span data-line="683"><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">tmux_navigator_no_mappings</span> <span class="o">=</span> <span class="mi">1</span>
 </span></pre></div>
 </div>
 </div>
