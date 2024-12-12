@@ -84,8 +84,11 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
+<li><a class="reference internal" href="#my-self-hosted-tips">My Self-hosted Tips</a><ul>
+<li><a class="reference internal" href="#sudo-priviledge"><code class="docutils literal notranslate"><span class="pre">Sudo</span></code> Priviledge</a></li>
 <li><a class="reference internal" href="#service">Service</a></li>
-<li><a class="reference internal" href="#root">Root</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#introduction">Introduction</a><ul>
 <li><a class="reference internal" href="#workflows">workflows</a></li>
 <li><a class="reference internal" href="#events">Events</a></li>
@@ -163,8 +166,29 @@ data-aria-dark="切换到自动模式">
         <article class="yue" role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="github-action">
 <h1>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h1>
+<section id="my-self-hosted-tips">
+<h2>My Self-hosted Tips<a class="headerlink" href="#my-self-hosted-tips" title="Link to this heading">¶</a></h2>
+<section id="sudo-priviledge">
+<h3><code class="docutils literal notranslate"><span class="pre">Sudo</span></code> Priviledge<a class="headerlink" href="#sudo-priviledge" title="Link to this heading">¶</a></h3>
+<p>常见的许多任务需要用到<code class="docutils literal notranslate"><span class="pre">sudo</span></code>权限，例如 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">restart</span> <span class="pre">traefik</span></code>。</p>
+<p>当然，可以直接使用 <code class="docutils literal notranslate"><span class="pre">root</span></code>账号进行运行，但是默认会报错。
+需要使用</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nv">RUNNER_ALLOW_RUNASROOT</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>bash<span class="w"> </span>run.sh
+</span></pre></div>
+</div>
+<p>方案2，就是使用github action的 <code class="docutils literal notranslate"><span class="pre">secrets</span></code>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">- name: Restart Docoker
+</span><span data-line="2">  shell: bash
+</span><span data-line="3">  env:
+</span><span data-line="4">    SU_PASSWD: ${{ secrets.SU_PASSWD }}
+</span><span data-line="5">  run: |
+</span><span data-line="6">    echo $SU_PASSWD | sudo -S bash run_restart_docker.sh
+</span></pre></div>
+</div>
+<p>核心的方案就是 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-S</span> <span class="pre">bash</span> <span class="pre">xxx.sh</span></code> 配合流式的 <code class="docutils literal notranslate"><span class="pre">echo</span></code> 。</p>
+</section>
 <section id="service">
-<h2>Service<a class="headerlink" href="#service" title="Link to this heading">¶</a></h2>
+<h3>Service<a class="headerlink" href="#service" title="Link to this heading">¶</a></h3>
 <p>为了github action能服务器运行，按照<a class="reference external" href="https://docs.github.com/zh/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service">教程</a>进行配置</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">sudo<span class="w"> </span>./svc.sh<span class="w"> </span>install
 </span><span data-line="2">sudo<span class="w"> </span>./svc.sh<span class="w"> </span>start
@@ -187,8 +211,6 @@ data-aria-dark="切换到自动模式">
 </span></pre></div>
 </div>
 </section>
-<section id="root">
-<h2>Root<a class="headerlink" href="#root" title="Link to this heading">¶</a></h2>
 </section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
