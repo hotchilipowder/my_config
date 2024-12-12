@@ -84,6 +84,8 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
+<li><a class="reference internal" href="#service">Service</a></li>
+<li><a class="reference internal" href="#root">Root</a></li>
 <li><a class="reference internal" href="#introduction">Introduction</a><ul>
 <li><a class="reference internal" href="#workflows">workflows</a></li>
 <li><a class="reference internal" href="#events">Events</a></li>
@@ -161,6 +163,33 @@ data-aria-dark="切换到自动模式">
         <article class="yue" role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="github-action">
 <h1>Github Action<a class="headerlink" href="#github-action" title="Link to this heading">¶</a></h1>
+<section id="service">
+<h2>Service<a class="headerlink" href="#service" title="Link to this heading">¶</a></h2>
+<p>为了github action能服务器运行，按照<a class="reference external" href="https://docs.github.com/zh/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service">教程</a>进行配置</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">sudo<span class="w"> </span>./svc.sh<span class="w"> </span>install
+</span><span data-line="2">sudo<span class="w"> </span>./svc.sh<span class="w"> </span>start
+</span></pre></div>
+</div>
+<p>如果是sudo的话，安装在 <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>下面，当然很多情况下需要配置Proxy，</p>
+<p>在<code class="docutils literal notranslate"><span class="pre">service</span></code>下面添加 <code class="docutils literal notranslate"><span class="pre">proxy</span></code>即可</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">[</span>Service<span class="o">]</span>
+</span><span data-line="2"><span class="nv">ExecStart</span><span class="o">=</span>xxx/runsvc.sh
+</span><span data-line="3"><span class="nv">Environment</span><span class="o">=</span><span class="s2">&quot;HTTPS_PROXY=http://localhost:1085&quot;</span>
+</span></pre></div>
+</div>
+<p>然后重载这个服务</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</span></pre></div>
+</div>
+<p>之后再重新启动即可</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">sudo<span class="w"> </span>./svc.sh<span class="w"> </span>stop
+</span><span data-line="2">sudo<span class="w"> </span>./svc.sh<span class="w"> </span>start
+</span></pre></div>
+</div>
+</section>
+<section id="root">
+<h2>Root<a class="headerlink" href="#root" title="Link to this heading">¶</a></h2>
+</section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>根据<a class="reference external" href="https://docs.github.com/zh/actions/about-github-actions/understanding-github-actions">了解 GitHub Actions</a>，
