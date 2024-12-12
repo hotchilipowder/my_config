@@ -4,7 +4,67 @@
 
 
 
+## My Self-hosted Tips
+
+### `Sudo` Priviledge
+
+常见的许多任务需要用到`sudo`权限，例如 `sudo docker restart traefik`。
+
+当然，可以直接使用 `root`账号进行运行，但是默认会报错。
+需要使用
+
+```bash
+RUNNER_ALLOW_RUNASROOT=true bash run.sh
+```
+
+方案2，就是使用github action的 `secrets`。
+
+
+```
+- name: Restart Docoker
+  shell: bash
+  env:
+    SU_PASSWD: ${{ secrets.SU_PASSWD }}
+  run: |
+    echo $SU_PASSWD | sudo -S bash run_restart_docker.sh
+```
+
+核心的方案就是 `sudo -S bash xxx.sh` 配合流式的 `echo` 。
+
+### Service
+
+
+为了github action能服务器运行，按照[教程](https://docs.github.com/zh/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service)进行配置
+
+```bash
+sudo ./svc.sh install
+sudo ./svc.sh start
+```
+
+如果是sudo的话，安装在 `/etc/systemd/system`下面，当然很多情况下需要配置Proxy，
+
+在`service`下面添加 `proxy`即可
+
+```bash
+[Service]
+ExecStart=xxx/runsvc.sh
+Environment="HTTPS_PROXY=http://localhost:1085"
+```
+
+然后重载这个服务
+
+```bash
+sudo systemctl daemon-reload
+```
+
+之后再重新启动即可
+```bash
+sudo ./svc.sh stop
+sudo ./svc.sh start
+```
+
 ## Introduction
+
 
 根据[了解 GitHub Actions](https://docs.github.com/zh/actions/about-github-actions/understanding-github-actions)，
 对于Github Actions需要了解一下的概念
@@ -231,13 +291,6 @@ jobs:
 可调用一个工作流，可以公开或私下与组织共享工作流。 这样便可重用工作流，避免重复并使工作流更易于维护。 有关详细信息，请参阅 [重新使用工作流](https://docs.github.com/zh/actions/sharing-automations/reusing-workflows)
 
 
-
-## Github 托管
-
-
-
-
-## Self-hosted 托管
 
 
 ## 参考资料
