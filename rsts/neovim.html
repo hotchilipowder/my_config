@@ -6,7 +6,7 @@
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
-    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=83eaa723" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=aeb20d5c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
@@ -84,7 +84,10 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#install-neovim">Install Neovim</a></li>
+<li><a class="reference internal" href="#install-neovim">Install Neovim</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#install-tmux">Install Tmux</a></li>
 <li><a class="reference internal" href="#why-neovim-instead-of-vim">Why Neovim instead of Vim</a></li>
 <li><a class="reference internal" href="#why-tmux-instead-of-zellij">Why tmux instead of Zellij</a></li>
@@ -159,9 +162,20 @@ data-aria-dark="切换到自动模式">
 <h1>Neovim and Tmux<a class="headerlink" href="#neovim-and-tmux" title="Link to this heading">¶</a></h1>
 <section id="install-neovim">
 <h2>Install Neovim<a class="headerlink" href="#install-neovim" title="Link to this heading">¶</a></h2>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h3>
+<p>Because My neovim config has lsp config, install nodejs is necessary. <a class="reference external" href="https://nodejs.org/en/download/package-manager">Download Node.js</a></p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
+Linux (~/.local)</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+</span><span data-line="2">tar<span class="w"> </span>-xvf<span class="w"> </span>nvim-linux64.tar.gz<span class="w"> </span>-C<span class="w"> </span>~/.local<span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span>
+</span></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
 Linux (AppImage)</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 </span><span data-line="2">chmod<span class="w"> </span>u+x<span class="w"> </span>nvim.appimage
@@ -169,15 +183,15 @@ Linux (AppImage)</label><div class="sd-tab-content docutils">
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
 MacOS (homebrew)</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>neovim
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-2">
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
 MacOS (Pre-built archives)</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-LO<span class="w"> </span>https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
 </span><span data-line="2">tar<span class="w"> </span>xzf<span class="w"> </span>nvim-macos.tar.gz
@@ -185,32 +199,33 @@ MacOS (Pre-built archives)</label><div class="sd-tab-content docutils">
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-3">
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
 Others</label><div class="sd-tab-content docutils">
 <p>see <a class="reference external" href="https://github.com/neovim/neovim/wiki/Installing-Neovim">install neovim</a></p>
 </div>
 </div>
 </section>
+</section>
 <section id="install-tmux">
 <h2>Install Tmux<a class="headerlink" href="#install-tmux" title="Link to this heading">¶</a></h2>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-4">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
 MacOS</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>tmux
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-5">
+<input id="sd-tab-item-6" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
 Linux (APT)</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>tmux
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-6" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-6">
+<input id="sd-tab-item-7" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
 Linux (Source)</label><div class="sd-tab-content docutils">
 <p>First, please keep <code class="code docutils literal notranslate"><span class="pre">~/.local/bin</span></code>in the <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>, then <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">install</span></code>in the <code class="code docutils literal notranslate"><span class="pre">tmp/</span></code>dir.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>tmp
@@ -1021,8 +1036,8 @@ Linux (Source)</label><div class="sd-tab-content docutils">
 </ul>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-7">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
 Lazy.nvim</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">{</span>
 </span><span data-line="2"><span class="w">  </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
@@ -1036,8 +1051,8 @@ Lazy.nvim</label><div class="sd-tab-content docutils">
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-8">
+<input id="sd-tab-item-9" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
 Plug</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="w"> </span>Plug<span class="w"> </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
 </span><span data-line="2">
@@ -1268,19 +1283,19 @@ Plug</label><div class="sd-tab-content docutils">
 <p><a class="reference external" href="https://www.nerdfonts.com/font-downloads">nerdfonts</a> 列出了目前可用的常见字体。</p>
 <p>操作如下：</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-9" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-9">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
 MacOS-brew</label><div class="sd-tab-content docutils">
 <p>brew install font-fantasque-sans-mono-nerd-font</p>
 <p># 如果想要其他的字体，直接尝试安装，如果失败了，brew会给出建议，这不用担心。</p>
 </div>
-<input id="sd-tab-item-10" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-10">
+<input id="sd-tab-item-11" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
 Linux</label><div class="sd-tab-content docutils">
 <p>Linux</p>
 </div>
-<input id="sd-tab-item-11" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-11">
+<input id="sd-tab-item-12" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
 Windows</label><div class="sd-tab-content docutils">
 <p>NA</p>
 </div>
@@ -1394,5 +1409,5 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/shibuya.js?v=e2e99575"></script></body>
+      <script src="../_static/shibuya.js?v=55e26b35"></script></body>
 </html>

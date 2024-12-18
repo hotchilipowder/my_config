@@ -6,7 +6,7 @@
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
-    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=83eaa723" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=aeb20d5c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
@@ -84,6 +84,8 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#typst-talk">Typst-Talk</a></li>
 <li><a class="reference internal" href="#why-i-want-to-use-it">Why I want to use it</a></li>
 <li><a class="reference internal" href="#comparsion">Comparsion</a></li>
 <li><a class="reference internal" href="#notes">Notes</a></li>
@@ -138,6 +140,31 @@ data-aria-dark="切换到自动模式">
         <article class="yue" role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="learning-typst">
 <h1>Learning Typst<a class="headerlink" href="#learning-typst" title="Link to this heading">¶</a></h1>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+WSL</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>pkg-config<span class="w"> </span>libssl-dev
+</span><span data-line="2">cargo<span class="w"> </span>install<span class="w"> </span>--locked<span class="w"> </span>typst-cli
+</span></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Linux</label><div class="sd-tab-content docutils">
+<p>Linux</p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Windows</label><div class="sd-tab-content docutils">
+<p>Widows</p>
+</div>
+</div>
+</section>
+<section id="typst-talk">
+<h2>Typst-Talk<a class="headerlink" href="#typst-talk" title="Link to this heading">¶</a></h2>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 可以在 slide 里展示一个用户可见的进度条或当前剩余页数提示。</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 易于加入代码块，要有正确的高亮，以及最好能够做到可复制，而不仅是截一张图片。</p></li>
@@ -150,6 +177,7 @@ data-aria-dark="切换到自动模式">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能够加入 GIF 动图或者视频。</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能有动态过渡效果，例如淡入淡出、平滑等。</p></li>
 </ul>
+</section>
 <section id="why-i-want-to-use-it">
 <h2>Why I want to use it<a class="headerlink" href="#why-i-want-to-use-it" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
@@ -239,5 +267,5 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/shibuya.js?v=e2e99575"></script></body>
+      <script src="../_static/shibuya.js?v=55e26b35"></script></body>
 </html>
