@@ -1,6 +1,35 @@
 # Learning Typst
 
 
+## Install
+
+
+
+::::{tab-set}
+
+:::{tab-item} WSL
+```bash
+apt install pkg-config libssl-dev
+cargo install --locked typst-cli
+```
+:::
+
+:::{tab-item} Linux
+Linux
+:::
+
+:::{tab-item} Windows
+Widows
+:::
+
+::::
+
+
+
+
+## Typst-Talk
+
+
 - [ ] 可以在 slide 里展示一个用户可见的进度条或当前剩余页数提示。
 - [ ] 易于加入代码块，要有正确的高亮，以及最好能够做到可复制，而不仅是截一张图片。
 - [ ] 易于编写数学公式，最好是能直接复用已有的数学公式源文件，且易于编辑。

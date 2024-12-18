@@ -3,12 +3,27 @@ Neovim and Tmux
 ====================
 
 
+
 Install Neovim
 ==============
+
+Requirements
+------------
+
+Because My neovim config has lsp config, install nodejs is necessary. \ `Download Node.js <https://nodejs.org/en/download/package-manager>`_
+
 
 
 
 .. tab-set::
+
+   .. tab-item::  Linux (~/.local) 
+
+    .. code-block:: bash
+
+      curl -OL https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+      tar -xvf nvim-linux64.tar.gz -C ~/.local --strip-components=1
+
 
    .. tab-item::  Linux (AppImage)
 
