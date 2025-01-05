@@ -244,9 +244,11 @@ Tabs using sphinx_design
 
 
 Tabs using sphinx_tabs (Abandon)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `Sphinx Tab 文档 <https://sphinx-tabs.readthedocs.io/en/latest/#basic-tabs>`_
 
+.. note::
+    由于sphinx_desin可以实现tab，因此这个extension的可用性比较低，就可以不用了。
 
 .. code-block:: bash
 

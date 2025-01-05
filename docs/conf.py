@@ -32,7 +32,7 @@ extensions = [
     "sphinxemoji.sphinxemoji",
     "sphinx_copybutton",
     "sphinx_design",
-    "sphinx_comments"
+    "sphinx_comments",
 ]
 
 myst_enable_extensions = [
