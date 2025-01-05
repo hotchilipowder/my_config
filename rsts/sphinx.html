@@ -6,7 +6,7 @@
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
-    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=aeb20d5c" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=10d1008b" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
@@ -360,6 +360,10 @@ windows</label><div class="sd-tab-content docutils">
 <section id="tabs-using-sphinx-tabs-abandon">
 <h4>Tabs using sphinx_tabs (Abandon)<a class="headerlink" href="#tabs-using-sphinx-tabs-abandon" title="Link to this heading">¶</a></h4>
 <p><a class="reference external" href="https://sphinx-tabs.readthedocs.io/en/latest/#basic-tabs">Sphinx Tab 文档</a></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>由于sphinx_desin可以实现tab，因此这个extension的可用性比较低，就可以不用了。</p>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">..<span class="w"> </span>tabs::
 </span><span data-line="2">
 </span><span data-line="3"><span class="w">   </span>..<span class="w"> </span>tab::<span class="w"> </span>MacOS

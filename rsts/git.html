@@ -6,7 +6,7 @@
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
-    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=aeb20d5c" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=10d1008b" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
@@ -84,7 +84,17 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#config">Config</a></li>
+<li><a class="reference internal" href="#my-github-issues">My Github Issues</a><ul>
+<li><a class="reference internal" href="#macos-osxkeychain">MacOS osxkeychain</a></li>
+<li><a class="reference internal" href="#how-to-change-default-editor-into-vim">How to change default editor into vim</a></li>
+<li><a class="reference internal" href="#permission-to-x-denied-to-github-actions-bot">Permission to x denied to github-actions[bot]</a></li>
+<li><a class="reference internal" href="#github-save-username-and-password">Github Save username and password</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#config">Config</a><ul>
+<li><a class="reference internal" href="#no-password">No Password</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#proxy">Proxy</a></li>
 <li><a class="reference internal" href="#common-git-skill">Common git skill</a><ul>
@@ -95,13 +105,7 @@ data-aria-dark="切换到自动模式">
 <li><a class="reference internal" href="#lazygit">Lazygit</a></li>
 <li><a class="reference internal" href="#github-action">Github Action</a><ul>
 <li><a class="reference internal" href="#my-config">My config</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#my-github-issues">My Github Issues</a><ul>
-<li><a class="reference internal" href="#macos-osxkeychain">MacOS osxkeychain</a></li>
-<li><a class="reference internal" href="#how-to-change-default-editor-into-vim">How to change default editor into vim</a></li>
-<li><a class="reference internal" href="#permission-to-x-denied-to-github-actions-bot">Permission to x denied to github-actions[bot]</a></li>
-<li><a class="reference internal" href="#github-save-username-and-password">Github Save username and password</a></li>
+<li><a class="reference internal" href="#self-hosted-action">Self-hosted Action</a></li>
 <li><a class="reference internal" href="#github-cheatsheet">Github CheatSheet</a></li>
 </ul>
 </li>
@@ -156,6 +160,52 @@ data-aria-dark="切换到自动模式">
         <article class="yue" role="main">
           <section id="awesome-git">
 <h1>Awesome Git<a class="headerlink" href="#awesome-git" title="Link to this heading">¶</a></h1>
+<section id="my-github-issues">
+<h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
+<section id="macos-osxkeychain">
+<h3>MacOS osxkeychain<a class="headerlink" href="#macos-osxkeychain" title="Link to this heading">¶</a></h3>
+<p>Mac 上清除 git osxkeychain 保存的登录名密码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+<p>但是还有进一步删除这个文件下的配置, more detail see <a class="reference external" href="https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config">this link</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>--get<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+</section>
+<section id="how-to-change-default-editor-into-vim">
+<h3>How to change default editor into vim<a class="headerlink" href="#how-to-change-default-editor-into-vim" title="Link to this heading">¶</a></h3>
+<p>不太习惯使用 nano, 默认的nano比较难搞，改成 <code class="code docutils literal notranslate"><span class="pre">vim</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span>vim
+</span></pre></div>
+</div>
+</section>
+<section id="permission-to-x-denied-to-github-actions-bot">
+<h3>Permission to x denied to github-actions[bot]<a class="headerlink" href="#permission-to-x-denied-to-github-actions-bot" title="Link to this heading">¶</a></h3>
+<p>遇到“Permission to &quot;x&quot; denied to github-actions[bot].”问题，按照下面的方法进行处理, see <a class="reference external" href="https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot">this link</a></p>
+<img alt="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" src="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" />
+</section>
+<section id="github-save-username-and-password">
+<h3>Github Save username and password<a class="headerlink" href="#github-save-username-and-password" title="Link to this heading">¶</a></h3>
+<p>由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 <code class="code docutils literal notranslate"><span class="pre">user.name</span></code>和 <code class="code docutils literal notranslate"><span class="pre">user.email</span></code>，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.helper<span class="w"> </span>cache
+</span></pre></div>
+</div>
+<p>具体这些字段将会被写入到 <code class="code docutils literal notranslate"><span class="pre">project_xxx/.git/config</span></code>中，</p>
+<p>例如：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">[</span>user<span class="o">]</span>
+</span><span data-line="2"><span class="w">     </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hotchilipowder
+</span><span data-line="3"><span class="w">     </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>h12345jack@gmail.com
+</span><span data-line="4"><span class="o">[</span>credential<span class="o">]</span>
+</span><span data-line="5"><span class="w">     </span><span class="nv">helper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cache
+</span></pre></div>
+</div>
+</section>
+</section>
 <section id="config">
 <h2>Config<a class="headerlink" href="#config" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container" id="id5">
@@ -188,6 +238,9 @@ data-aria-dark="切换到自动模式">
 </tbody>
 </table>
 </div>
+<section id="no-password">
+<h3>No Password<a class="headerlink" href="#no-password" title="Link to this heading">¶</a></h3>
+</section>
 </section>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
@@ -329,51 +382,10 @@ MacOS</label><div class="sd-tab-content docutils">
 <li><p>push html to github page</p></li>
 </ul>
 </section>
-</section>
-<section id="my-github-issues">
-<h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
-<section id="macos-osxkeychain">
-<h3>MacOS osxkeychain<a class="headerlink" href="#macos-osxkeychain" title="Link to this heading">¶</a></h3>
-<p>Mac 上清除 git osxkeychain 保存的登录名密码</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>--unset<span class="w"> </span>credential.helper
-</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>credential.helper
-</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>credential.helper
-</span></pre></div>
-</div>
-<p>但是还有进一步删除这个文件下的配置, more detail see <a class="reference external" href="https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config">this link</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>--get<span class="w"> </span>credential.helper
-</span></pre></div>
-</div>
-</section>
-<section id="how-to-change-default-editor-into-vim">
-<h3>How to change default editor into vim<a class="headerlink" href="#how-to-change-default-editor-into-vim" title="Link to this heading">¶</a></h3>
-<p>不太习惯使用 nano, 默认的nano比较难搞，改成 <code class="code docutils literal notranslate"><span class="pre">vim</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span>vim
-</span></pre></div>
-</div>
-</section>
-<section id="permission-to-x-denied-to-github-actions-bot">
-<h3>Permission to x denied to github-actions[bot]<a class="headerlink" href="#permission-to-x-denied-to-github-actions-bot" title="Link to this heading">¶</a></h3>
-<p>遇到“Permission to &quot;x&quot; denied to github-actions[bot].”问题，按照下面的方法进行处理, see <a class="reference external" href="https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot">this link</a></p>
-<img alt="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" src="https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&amp;w=1280&amp;q=100" />
-</section>
-<section id="github-save-username-and-password">
-<h3>Github Save username and password<a class="headerlink" href="#github-save-username-and-password" title="Link to this heading">¶</a></h3>
-<p>由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 <code class="code docutils literal notranslate"><span class="pre">user.name</span></code>和 <code class="code docutils literal notranslate"><span class="pre">user.email</span></code>，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
-</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
-</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.helper<span class="w"> </span>cache
-</span></pre></div>
-</div>
-<p>具体这些字段将会被写入到 <code class="code docutils literal notranslate"><span class="pre">project_xxx/.git/config</span></code>中，</p>
-<p>例如：</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">[</span>user<span class="o">]</span>
-</span><span data-line="2"><span class="w">     </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hotchilipowder
-</span><span data-line="3"><span class="w">     </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>h12345jack@gmail.com
-</span><span data-line="4"><span class="o">[</span>credential<span class="o">]</span>
-</span><span data-line="5"><span class="w">     </span><span class="nv">helper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cache
-</span></pre></div>
-</div>
+<section id="self-hosted-action">
+<h3>Self-hosted Action<a class="headerlink" href="#self-hosted-action" title="Link to this heading">¶</a></h3>
+<p>最近，得知了Github Action可以Self-hosted了。基于这个特性，将会非常好的使用Github Action去替换Jenkin。</p>
+<p>具体的步骤主要是按照要求进行安装即可。</p>
 </section>
 <section id="github-cheatsheet">
 <h3>Github CheatSheet<a class="headerlink" href="#github-cheatsheet" title="Link to this heading">¶</a></h3>
