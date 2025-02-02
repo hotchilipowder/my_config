@@ -6,10 +6,12 @@
 @time: 2024/10/14
 """
 
+import os
 import json
 import logging
 import subprocess
 import argparse
+import platform
 import urllib
 import urllib.request
 import urllib.parse
@@ -47,8 +49,7 @@ def get_public_ipv6():
 
     url = GETIPV6
     req = urllib.request.Request(url)
-    req.add_header("Host", url.lstrip(
-        "https://").lstrip("http://").split("/")[0])
+    req.add_header("Host", url.lstrip("https://").lstrip("http://").split("/")[0])
     response = urllib.request.urlopen(req)
     content = response.read().decode("utf-8")
     return content
@@ -59,26 +60,39 @@ def get_public_ipv4():
 
     url = GETIPV4
     req = urllib.request.Request(url)
-    req.add_header("Host", url.lstrip(
-        "https://").lstrip("http://").split("/")[0])
+    req.add_header("Host", url.lstrip("https://").lstrip("http://").split("/")[0])
     response = urllib.request.urlopen(req)
     content = response.read().decode("utf-8")
     return content
 
+def get_local_ipconfig_cmd():
+    system_name = platform.system()
+    if system_name == "Windows":
+        return "ipconfig"
+    elif system_name == "Darwin":  # MacOS 系统返回 "Darwin"
+        return "ifconfig"
+    elif system_name == "Linux":
+        return "ip a"
+    else:
+        return ""
+
 
 def get_local_ipv4():
-    cmdline = r"ip a | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v '172*'| head -n 1"
+    cmd = get_local_ipconfig_cmd()
+    cmdline = rf"{cmd} | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v '172*'| head -n 1"
     res = subprocess.run(cmdline, shell=True, capture_output=True)
     ip = res.stdout.decode("utf8").strip()
     logger.warning(ip)
     return ip
 
 
+
 def get_local_ipv6():
-    cmdline = 'ip a | grep inet6 | grep -v "::1" | grep -Eo "([a-f0-9:]+:+)+[a-f0-9]+" | head -n 1'
+    cmd = get_local_ipconfig_cmd()
+    cmdline = rf'{cmd} | grep inet6 | grep -v "::1" | grep -Eo "(2[a-f0-9:]+:+)+[a-f0-9]+" | head -n 1'
     res = subprocess.run(cmdline, shell=True, capture_output=True)
     ip = res.stdout.decode("utf8").strip()
-    logger.warning(ip)
+    logger.warning(f"ip: {ip}")
     return ip
 
 
@@ -118,7 +132,6 @@ class DNSPod(object):
         if record_list["code"] == "10" or record_list["code"] == "26":
             # create record for empty sub_domain
             record_id = self.create_record(params, public_ip)
-            logger.info(f"create {record_id}")
             remote_ip = public_ip
         elif record_list["code"] == "1":
             # get record id
@@ -159,16 +172,19 @@ class DNSPod(object):
         https://www.dnspod.cn/docs/records.html#record-create
         :return: record_id of new record
         """
+        if len(ip) == 0: 
+            logger.error("ip not set")
+            return
         params["value"] = ip
         record_create_url = "https://dnsapi.cn/Record.Create"
+        logger.warning(params)
         r = self.post_data(record_create_url, data=params)
         jd = json.loads(r)
-        assert jd["status"]["code"] == "1"
+        assert jd["status"]["code"] == "1", jd
         record_id = jd["record"]["id"]
         logger.warning("create_record")
         logger.warning(jd)
         return record_id
-
 
     def ddns(self, params, ip):
         """Update ddns ip.
