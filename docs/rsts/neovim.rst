@@ -7,13 +7,8 @@ Neovim and Tmux
 Install Neovim
 ==============
 
-Requirements
-------------
-
-Because My neovim config has lsp config, install nodejs is necessary. \ `Download Node.js <https://nodejs.org/en/download/package-manager>`_
-
-
-
+Neovim
+------
 
 .. tab-set::
 
@@ -21,8 +16,8 @@ Because My neovim config has lsp config, install nodejs is necessary. \ `Downloa
 
     .. code-block:: bash
 
-      curl -OL https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-      tar -xvf nvim-linux64.tar.gz -C ~/.local --strip-components=1
+      curl -OL https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz 
+      tar -xvf nvim-linux*.tar.gz -C ~/.local --strip-components=1
 
 
    .. tab-item::  Linux (AppImage)
@@ -51,6 +46,50 @@ Because My neovim config has lsp config, install nodejs is necessary. \ `Downloa
 
       see \ `install neovim <https://github.com/neovim/neovim/wiki/Installing-Neovim>`_
 
+
+NodeJS
+------
+
+
+Because My neovim config has lsp config, install nodejs is necessary. 
+
+\ `Download Node.js <https://nodejs.org/en/download/package-manager>`_
+
+.. tab-set::
+
+   .. tab-item:: download/release (latest)
+      
+      ..  jupyter-execute:: ../codes/install_nodejs.py
+          :hide-code:
+
+   .. tab-item:: download/release (v16.14)
+
+     see \ `https://nodejs.org/download/release/ <https://nodejs.org/download/release/>`_
+
+     .. code-block:: bash
+        :linenos:
+
+        curl -OL https://nodejs.org/download/release/latest-v16.x/node-v16.14.0-linux-x64.tar.gz
+        tar -xvf node-*
+        mv node-*/ ~/.local
+        rm node-*
+        pip3 install neovim
+
+
+   .. tab-item:: Compile
+
+     just download from \ `https://nodejs.org/en/download <https://nodejs.org/en/download>`_
+
+     根据 \ `Build takes so long <https://github.com/orgs/nodejs/discussions/43451>`_ , 可以发现，还是要使用多核编译，但是仍然非常慢！
+
+
+
+     .. code-block:: bash
+       :linenos:
+       
+        ./configure --prefix=~/.local
+        make -j 4 && make install
+     
 
 Install Tmux
 ============
@@ -153,6 +192,7 @@ Why tmux instead of Zellij
 
     .. literalinclude:: ../../tmux/.tmux.conf
        :language: bash
+
 
 Tmux with Neovim
 ================

@@ -5,6 +5,7 @@
 @file: ddns_dp.py
 @time: 2024/10/14
 """
+
 import json
 import logging
 import subprocess
@@ -46,7 +47,8 @@ def get_public_ipv6():
 
     url = GETIPV6
     req = urllib.request.Request(url)
-    req.add_header("Host", url.lstrip("https://").lstrip("http://").split("/")[0])
+    req.add_header("Host", url.lstrip(
+        "https://").lstrip("http://").split("/")[0])
     response = urllib.request.urlopen(req)
     content = response.read().decode("utf-8")
     return content
@@ -57,7 +59,8 @@ def get_public_ipv4():
 
     url = GETIPV4
     req = urllib.request.Request(url)
-    req.add_header("Host", url.lstrip("https://").lstrip("http://").split("/")[0])
+    req.add_header("Host", url.lstrip(
+        "https://").lstrip("http://").split("/")[0])
     response = urllib.request.urlopen(req)
     content = response.read().decode("utf-8")
     return content
@@ -115,6 +118,7 @@ class DNSPod(object):
         if record_list["code"] == "10" or record_list["code"] == "26":
             # create record for empty sub_domain
             record_id = self.create_record(params, public_ip)
+            logger.info(f"create {record_id}")
             remote_ip = public_ip
         elif record_list["code"] == "1":
             # get record id
@@ -164,6 +168,7 @@ class DNSPod(object):
         logger.warning("create_record")
         logger.warning(jd)
         return record_id
+
 
     def ddns(self, params, ip):
         """Update ddns ip.

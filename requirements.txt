@@ -5,6 +5,7 @@ sphinx_design
 sphinx-comments
 sphinx-copybutton
 sphinxcontrib-mermaid
+jupyter-sphinx
 
 shibuya
 ablog

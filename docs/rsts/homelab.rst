@@ -5,21 +5,31 @@ HomeLab
 Introduction
 ============
 
-[HomeLab]_ 是一个比较好的环境，可以跑一些docker和linux，服务于自己。我主要是采用pve进行虚拟化。
-其中软件上有不少的坑，都记录在这里，方便查阅。
+[HomeLab]_ 是一个比较好的环境，可以跑一些docker和linux脚本，
+
+在配置一个基本的Server的过程中，软件上有不少的坑，都记录在这里，方便查阅。
+
+
+My Default Configs
+==================
+
+部分配置由于方便进行同步和管理，使用了Github进行同步。
+默认的文件夹名为 `deploy` .
 
 
 
 DDNS
 ====
 
-.. code-block:: python
+.. code-block:: bash
 
-  code
-
-
+  curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/scripts/ddns/ddns_dp.py
 
 
+.. dropdown:: ddns-python
+
+   .. literalinclude:: ../../scripts/ddns/ddns_dp.py
+      :language: python
 
 
 
@@ -46,10 +56,7 @@ Font Install
    brew install font-fira-code-nerd-font
 
 
-
-
-
-Configurations For u200
+Configurations For Linux
 ========================
 
 Install Basic Developments
@@ -60,10 +67,6 @@ autojump
 ^^^^^^^^
 
 之前一直用 \ `autojump <https://github.com/wting/autojump>`_ , 但是似乎已经没有人在维护了，并且发现了一个 rust写的替代产品 \ `zoxide <https://github.com/ajeetdsouza/zoxide>`_ ，遂转到这个。
-
-安装
-
-
 
 
 docker-compose
@@ -90,11 +93,9 @@ htop
 Download from \ `https://github.com/htop-dev/htop/releases/download/3.2.2/htop-3.2.2.tar.xz <https://github.com/htop-dev/htop/releases/download/3.2.2/htop-3.2.2.tar.xz>`_
 Then, \ :code:`./configure;make;make install`\
 
+Python Source
+^^^^^^^^^^^^^^
 
-
-
-Python3.12
-^^^^^^^^^^
 Dependecy:
 
 .. code-block:: bash
@@ -106,17 +107,24 @@ Dependecy:
 
 
 
+.. tab-set::
 
-.. code-block:: bash
+   .. tab-item:: Latest
 
-    curl -OL https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tar.xz
-    tar -xvf Python-3.12.0
-    
-    ./configure --enable-optimizations --with-lto
-    make 
-    make install
+      .. jupyter-execute:: ../codes/install_python.py
+         :hide-code:
 
+   .. tab-item:: Python-3.12.8
 
+      .. code-block:: bash
+      
+          curl -OL https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tar.xz
+          tar -xvf Python-3.12.8
+          
+          ./configure --enable-optimizations --with-lto --prefix=~/.local
+          make -j 4
+          make install
+      
 
 References: 
 
@@ -175,9 +183,6 @@ Install Docker
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
         sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-
-Frp dockers
------------
 
 
 PVE
@@ -245,9 +250,9 @@ Proxmox安装后默认没有通过SLAAC配置公网ipv6地址，使用debian/ubu
        bridge-fd 0
     iface vmbr0 inet6 auto
 
+
 Research Server
 ===============
-
 
 
 网络接入
@@ -298,12 +303,17 @@ Pytorch安装
 
 
 
-
 Nodejs Install
 --------------
 
 
 .. tab-set::
+
+   .. tab-item:: Latest
+    
+
+      .. jupyter-execute:: ../codes/install_nodejs.py
+         :hide-code:
 
    .. tab-item:: download/release
 

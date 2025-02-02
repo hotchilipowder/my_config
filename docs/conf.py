@@ -33,6 +33,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_comments",
+    "jupyter_sphinx"
 ]
 
 myst_enable_extensions = [
