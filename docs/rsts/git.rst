@@ -2,6 +2,37 @@
 Awesome Git
 ===========
 
+Best Pratice for Git
+====================
+
+.. code-block:: bash
+
+   git config --global core.editor vim
+   git config --global user.name "hotchilipowder"
+   git config --global user.email "h12345jack@gmail.com"
+
+
+
+账户设置
+========
+
+之前在Mac用多个账户，经常出现要么不能git clone私有项目（因为是另外一个账户），要么错误的用了账户到别的repo中，并且一直管理上比较麻烦。
+
+有如下的方案：
+
++ 方案1: 不配置global
++ 方案2: 配置global， 默认使用hotchilipowder的账号。
+
+
+方案1的版本中，需要按照如下的方式清除默认的 `credential.helper` 。
+对于
+
+
+
+
+
+
+
 My Github Issues
 ================
 
@@ -22,7 +53,6 @@ Mac 上清除 git osxkeychain 保存的登录名密码
 
    git config --show-origin --get credential.helper
 
-
 How to change default editor into vim
 -------------------------------------
 
@@ -31,7 +61,6 @@ How to change default editor into vim
 .. code-block:: bash
 
    git config --global core.editor vim
-
 
 
 Permission to x denied to github-actions[bot]

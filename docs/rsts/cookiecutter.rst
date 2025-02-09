@@ -15,6 +15,16 @@ Why Cookiecutter
 所以最后我选择的方案是使用 [Cookiecutter]_ 。
 
 
+My Cookiecutters
+================
+
+`Docs-cookiecutter <https://github.com/hotchilipowder/docs-cookiecutter>`_
+----------------------------------------------------------------------------
+
+这个项目主要是希望能快速的生成一个可以开发使用的文档。
+
+
+
 References
 ==========
 
