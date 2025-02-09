@@ -86,6 +86,8 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
+<li><a class="reference internal" href="#best-pratice-for-git">Best Pratice for Git</a></li>
+<li><a class="reference internal" href="#id1">&#36134;&#25143;&#35774;&#32622;</a></li>
 <li><a class="reference internal" href="#my-github-issues">My Github Issues</a><ul>
 <li><a class="reference internal" href="#macos-osxkeychain">MacOS osxkeychain</a></li>
 <li><a class="reference internal" href="#how-to-change-default-editor-into-vim">How to change default editor into vim</a></li>
@@ -162,6 +164,25 @@ data-aria-dark="切换到自动模式">
         <article class="yue" role="main">
           <section id="awesome-git">
 <h1>Awesome Git<a class="headerlink" href="#awesome-git" title="Link to this heading">¶</a></h1>
+<section id="best-pratice-for-git">
+<h2>Best Pratice for Git<a class="headerlink" href="#best-pratice-for-git" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span>vim
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>账户设置<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>之前在Mac用多个账户，经常出现要么不能git clone私有项目（因为是另外一个账户），要么错误的用了账户到别的repo中，并且一直管理上比较麻烦。</p>
+<p>有如下的方案：</p>
+<ul class="simple">
+<li><p>方案1: 不配置global</p></li>
+<li><p>方案2: 配置global， 默认使用hotchilipowder的账号。</p></li>
+</ul>
+<p>方案1的版本中，需要按照如下的方式清除默认的 <cite>credential.helper</cite> 。
+对于</p>
+</section>
 <section id="my-github-issues">
 <h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
 <section id="macos-osxkeychain">
@@ -210,9 +231,9 @@ data-aria-dark="切换到自动模式">
 </section>
 <section id="config">
 <h2>Config<a class="headerlink" href="#config" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper colwidths-given docutils container" id="id5">
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-text">Title</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
+<div class="table-wrapper colwidths-given docutils container" id="id6">
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Title</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 25.0%" />
