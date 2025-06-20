@@ -27,7 +27,17 @@ Best Pratice for Git
 方案1的版本中，需要按照如下的方式清除默认的 `credential.helper` 。
 对于
 
+.. code-block:: bash
 
+   git config --global --unset credential.helper
+
+
+对于方案2，在进行拉取非默认账号的项目的时候可能会报404，使用如下的命令:
+
+
+.. code-block:: bash
+
+   git clone -c credential.helper=  -c credential.username=xxx https://github.com/xxx/xx
 
 
 
