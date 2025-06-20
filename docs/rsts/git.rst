@@ -167,8 +167,10 @@ Install
          make && make install
 
    .. tab-item:: MacOS
+      
+      .. code-block:: bash
 
-     brew install git 
+         brew install git 
 
 
 Proxy
@@ -287,9 +289,4 @@ Self-hosted Action
 
 
 
-  
-
-
-Github CheatSheet
------------------
 
