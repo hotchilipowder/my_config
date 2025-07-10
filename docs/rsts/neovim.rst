@@ -16,7 +16,7 @@ Neovim
 
     .. code-block:: bash
 
-      curl -OL https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz 
+      curl -OL https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz 
       tar -xvf nvim-linux*.tar.gz -C ~/.local --strip-components=1
 
 
