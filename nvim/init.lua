@@ -292,13 +292,10 @@ require("lazy").setup({
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"neovim/nvim-lspconfig",
-
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-
 			"hrsh7th/cmp-cmdline",
-			"hrsh7th/nvim-cmp",
 
 			"hrsh7th/cmp-vsnip",
 			{
@@ -307,9 +304,10 @@ require("lazy").setup({
 					vim.g.vsnip_snippet_dir = vim.fn.fnamemodify(vim.fn.expand("~/.config/nvim/vsnip_snippets"), ":p:h")
 				end,
 			},
+      -- ultisnips
 			{
 				"SirVer/ultisnips",
-				dependencies = { "honza/vim-snippets" },
+				dependencies = { "hotchilipowder/vim-snippets" },
 				config = function()
 					vim.g.UltiSnipsSnippetDirectories = { "UltiSnips" }
 					vim.g.ultisnips_python_style = "numpy"
