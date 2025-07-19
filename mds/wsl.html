@@ -157,6 +157,25 @@ data-aria-dark="切换到自动模式">
 <li><p>配置wsl,</p></li>
 <li><p>配置键盘，为了和MacOS一致. <a class="external reference" href="https://www.v2ex.com/t/863055">MacOS</a></p></li>
 </ol>
+<p>网络上，本来配合旁路由设置是很好的。
+但是我发现默认分配的ipv6的dns非常的noisy，</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">nslookup<span class="w"> </span>fast.com
+</span></pre></div>
+</div>
+<p>输出结果</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">nslookup<span class="w"> </span>fast.com
+</span><span data-line="2">服务器:<span class="w">  </span>UnKnown
+</span><span data-line="3">Address:<span class="w">  </span><span class="m">2408</span>:xxxxx::1
+</span><span data-line="4">
+</span><span data-line="5">非权威应答:
+</span><span data-line="6">名称:<span class="w">    </span>fast.com
+</span><span data-line="7">Addresses:<span class="w">  </span>2a02:26f0:dc:38d::24fe
+</span><span data-line="8"><span class="w">          </span>2a02:26f0:dc:392::24fe
+</span><span data-line="9"><span class="w">          </span><span class="m">23</span>.67.137.188
+</span></pre></div>
+</div>
+<p>这说明使用了ipv6的dns服务器给出了dns响应，这非常的不好。
+因此，尝试了各种办法， 最后设置ipv6的dns为 <code class="docutils literal notranslate"><span class="pre">::1</span></code>, 就很好的解决了这个问题。</p>
 </section>
 <section id="wsl">
 <h2>WSL<a class="headerlink" href="#wsl" title="Link to this heading">¶</a></h2>
