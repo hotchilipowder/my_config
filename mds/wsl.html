@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cookiecutter - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Tikz Plot" href="tikz.html" /><link rel="prev" title="HomeLab" href="homelab.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Win11 - My Dev Config</title><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Dockers" href="../rsts/docker.html" /><link rel="prev" title="Github Action" href="github_actions.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -22,7 +22,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Cookiecutter"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Win11"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -64,17 +64,17 @@ data-aria-dark="切换到自动模式">
       <div class="sy-scrollbar p-6">
         <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim and Tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mds/github_actions.html">Github Action</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mds/wsl.html">Win11</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cookiecutter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/neovim.html">Neovim and Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/git.html">Awesome Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_actions.html">Github Action</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Win11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/homelab.html">HomeLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rsts/resources.html">Resources</a></li>
 </ul>
 
         </div>
@@ -87,12 +87,13 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#why-cookiecutter">Why Cookiecutter</a></li>
-<li><a class="reference internal" href="#my-cookiecutters">My Cookiecutters</a><ul>
-<li><a class="reference internal" href="#id3">Docs-cookiecutter</a></li>
+<li><a class="reference internal" href="#configs">Configs</a></li>
+<li><a class="reference internal" href="#wsl">WSL</a><ul>
+<li><a class="reference internal" href="#service">Service</a></li>
+<li><a class="reference internal" href="#id1">&#24320;&#26426;&#21551;&#21160;</a></li>
+<li><a class="reference internal" href="#network">Network</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -113,7 +114,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/rsts/cookiecutter.rst">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/mds/wsl.md">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -130,7 +131,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Cookiecutter</strong>
+        <strong itemprop="name">Win11</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -143,36 +144,54 @@ data-aria-dark="切换到自动模式">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="cookiecutter">
-<h1>Cookiecutter<a class="headerlink" href="#cookiecutter" title="Link to this heading">¶</a></h1>
-<section id="why-cookiecutter">
-<h2>Why Cookiecutter<a class="headerlink" href="#why-cookiecutter" title="Link to this heading">¶</a></h2>
-<p>使用这个工具最开始是因为觉得自己写的很多的项目其实有共同的脚手架。
-使用了脚手架的项目相比build from scratch，确实更好用，因此尝试去看看别人的解决方案。</p>
-<p>当然，在不同的语言下，区别还是比较大的(在JS下，也许你应该选择 <code class="code docutils literal notranslate"><span class="pre">next</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">vite</span></code>而不是默认的 <code class="code docutils literal notranslate"><span class="pre">create-react-app</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">webpack</span></code>。如果你用 <a class="reference internal" href="#django" id="id1"><span>[Django]</span></a> , 其实本身使用 <code class="code docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">starprojects</span> <span class="pre">xxx</span></code>就是一种脚手架。
-但是由于库本身需要让新手和老手能区分开，所以很多的默认配置比较保守，或者不愿意修改。例如，我需要开启 <code class="code docutils literal notranslate"><span class="pre">ALLOWED_HOSTS</span> <span class="pre">=</span> <span class="pre">['*']</span></code>或者，我希望设置 <code class="code docutils literal notranslate"><span class="pre">TIME_ZONE</span> <span class="pre">=</span> <span class="pre">'Asia/Shanghai'</span></code>都需要再进行配置，非常的麻烦。</p>
-<p>所以最后我选择的方案是使用 <a class="reference internal" href="#id4" id="id2"><span>[Cookiecutter]</span></a> 。</p>
+          <section class="tex2jax_ignore mathjax_ignore" id="win11">
+<h1>Win11<a class="headerlink" href="#win11" title="Link to this heading">¶</a></h1>
+<p>由于之前的Win10一直出现更新失败的情况，最后还是一咬牙升级了win11.</p>
+<p>另外一个重要的原因就是可以更好的支持WSL, 日常我只需要使用Windows，就可以很好的跑实验了。</p>
+<section id="configs">
+<h2>Configs<a class="headerlink" href="#configs" title="Link to this heading">¶</a></h2>
+<p>激活和安装驱动的问题就不说了…</p>
+<ol class="arabic simple">
+<li><p>安装Terminal</p></li>
+<li><p>Terminal修改字体，下载 <a class="external reference" href="https://www.nerdfonts.com/">nerfonts</a></p></li>
+<li><p>配置wsl,</p></li>
+<li><p>配置键盘，为了和MacOS一致. <a class="external reference" href="https://www.v2ex.com/t/863055">MacOS</a></p></li>
+</ol>
 </section>
-<section id="my-cookiecutters">
-<h2>My Cookiecutters<a class="headerlink" href="#my-cookiecutters" title="Link to this heading">¶</a></h2>
-<section id="id3">
-<h3><a class="reference external" href="https://github.com/hotchilipowder/docs-cookiecutter">Docs-cookiecutter</a><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
-<p>这个项目主要是希望能快速的生成一个可以开发使用的文档。</p>
+<section id="wsl">
+<h2>WSL<a class="headerlink" href="#wsl" title="Link to this heading">¶</a></h2>
+<section id="service">
+<h3>Service<a class="headerlink" href="#service" title="Link to this heading">¶</a></h3>
+<p>首先需要安装 <code class="docutils literal notranslate"><span class="pre">openssh-server</span></code></p>
+</section>
+<section id="id1">
+<h3>开机启动<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p><a class="external reference" href="https://sjdhome.com/blog/post/wsl2-auto-start/">实现 WSL 2 开机免登录自动启动</a></p>
+<ol class="arabic simple">
+<li><p>一定要确保 WSL 当前处于最新版本（即 WSL September 2023 update 之后的版本），系统自带版本不支持这种开机启动。</p></li>
+<li><p>打开任务计划程序。</p></li>
+<li><p>点击右边的创建任务。</p></li>
+<li><p>任务的名称和描述可以随便写，安全选项需要选择“不管用户是否登录都要运行”。</p></li>
+<li><p>点击上方的“触发器”选项卡，点新建按钮，然后会卡几秒（微软的老 BUG ）。开始任务中选择“启动时”，然后点击确定。</p></li>
+<li><p>“操作”选项卡中，点新建按钮，然后“程序或脚本”下的文本框里输入&quot;C:\Program Files\WSL\wsl.exe&quot;，引号也要带上（非常重要，除了这个目录下的wsl.exe，其他位置的都不行）。添加参数可以根据需要填写，比如-d Debian指定发行版。</p></li>
+<li><p>“条件”选项卡中，所有选项全部取消勾选。</p></li>
+<li><p>”设置“选项卡中，除了“允许按需执行任务”，其他全部取消勾选。</p></li>
+<li><p>点击确定关闭窗口。可以先右键运行试试效果。这种方法运行的 WSL 即使当前用户注销也是会继续运行的。</p></li>
+</ol>
+</section>
+<section id="network">
+<h3>Network<a class="headerlink" href="#network" title="Link to this heading">¶</a></h3>
+<p><a class="external reference" href="https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config#configuration-settings-for-wslconfig">.wsl.conf 的配置设置</a></p>
+<p>配置 <code class="docutils literal notranslate"><span class="pre">C:\Users\xxx\.wslconfig</span></code> 文件如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">[</span>wsl2<span class="o">]</span>
+</span><span data-line="2"><span class="nv">networkingMode</span><span class="o">=</span>mirrored
+</span><span data-line="3"><span class="nv">dnsTunneling</span><span class="o">=</span><span class="nb">true</span>
+</span><span data-line="4"><span class="nv">firewall</span><span class="o">=</span><span class="nb">true</span>
+</span><span data-line="5"><span class="nv">autoProxy</span><span class="o">=</span><span class="nb">true</span>
+</span></pre></div>
+</div>
 </section>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
-<div role="list" class="citation-list">
-<div class="citation" id="id4" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Cookiecutter</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://cookiecutter.readthedocs.io/">https://cookiecutter.readthedocs.io/</a></p>
-</div>
-<div class="citation" id="django" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Django</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://www.djangoproject.com/">https://www.djangoproject.com/</a></p>
-</div>
-</div>
-<div class="section" /></section>
 </section>
 
         </article><button class="back-to-top" type="button">
@@ -181,16 +200,16 @@ data-aria-dark="切换到自动模式">
   </svg>
   <span>回到顶部</span>
 </button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="homelab.html">
+    <a href="github_actions.html">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>上一章</span><div class="title">HomeLab</div></div>
+        <span>上一章</span><div class="title">Github Action</div></div>
     </a>
   </div><div class="navigation-next">
-    <a href="tikz.html">
+    <a href="../rsts/docker.html">
       <div class="page-info">
         <span>下一章</span>
-        <div class="title">Tikz Plot</div>
+        <div class="title">Dockers</div>
       </div>
       <i class="i-lucide chevron-right"></i>
     </a>
