@@ -15,6 +15,31 @@
 3. 配置wsl, 
 4. 配置键盘，为了和MacOS一致. [MacOS](https://www.v2ex.com/t/863055){.external}
 
+网络上，本来配合旁路由设置是很好的。
+但是我发现默认分配的ipv6的dns非常的noisy，
+
+```bash
+nslookup fast.com
+```
+输出结果
+
+```bash
+nslookup fast.com
+服务器:  UnKnown
+Address:  2408:xxxxx::1
+
+非权威应答:
+名称:    fast.com
+Addresses:  2a02:26f0:dc:38d::24fe
+          2a02:26f0:dc:392::24fe
+          23.67.137.188
+```
+
+这说明使用了ipv6的dns服务器给出了dns响应，这非常的不好。
+因此，尝试了各种办法， 最后设置ipv6的dns为 `::1`, 就很好的解决了这个问题。
+
+
+
 ## WSL 
 
 
