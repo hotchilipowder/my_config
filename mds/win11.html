@@ -88,9 +88,10 @@ data-aria-dark="切换到自动模式">
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
 <li><a class="reference internal" href="#configs">Configs</a></li>
+<li><a class="reference internal" href="#id1">&#38190;&#30424;&#37197;&#32622;</a></li>
 <li><a class="reference internal" href="#wsl">WSL</a><ul>
 <li><a class="reference internal" href="#service">Service</a></li>
-<li><a class="reference internal" href="#id1">&#24320;&#26426;&#21551;&#21160;</a></li>
+<li><a class="reference internal" href="#id2">&#24320;&#26426;&#21551;&#21160;</a></li>
 <li><a class="reference internal" href="#network">Network</a></li>
 </ul>
 </li>
@@ -196,6 +197,18 @@ data-aria-dark="切换到自动模式">
 </span></pre></div>
 </div>
 </section>
+<section id="id1">
+<h2>键盘配置<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>为了尽可能的和MacOS保持一样的输入体验，需要将Caps键设置为中英文的切换。</p>
+<p>并且取消原来的中英文切换的 shift键。具体的配置在</p>
+<p><img alt="" src="../_images/Snipaste_2025-07-20_14-57-22.png" /></p>
+<p>另外，Terminal的默认配置会和vim的块操作快捷键冲突，</p>
+<p>解决办法，打开 windows terminal 的配置文件，删除下面这行配置：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">{</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;paste&quot;</span><span class="p">,</span> <span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="s2">&quot;ctrl+v&quot;</span> <span class="p">},</span>
+</span><span data-line="2">
+</span></pre></div>
+</div>
+</section>
 <section id="wsl">
 <h2>WSL<a class="headerlink" href="#wsl" title="Link to this heading">¶</a></h2>
 <section id="service">
@@ -224,8 +237,8 @@ data-aria-dark="切换到自动模式">
 </span></pre></div>
 </div>
 </section>
-<section id="id1">
-<h3>开机启动<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<section id="id2">
+<h3>开机启动<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <p><a class="external reference" href="https://sjdhome.com/blog/post/wsl2-auto-start/">实现 WSL 2 开机免登录自动启动</a></p>
 <ol class="arabic simple">
 <li><p>一定要确保 WSL 当前处于最新版本（即 WSL September 2023 update 之后的版本），系统自带版本不支持这种开机启动。</p></li>
