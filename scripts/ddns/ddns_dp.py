@@ -7,6 +7,7 @@
 """
 
 import os
+import re
 import json
 import logging
 import subprocess
@@ -15,9 +16,11 @@ import platform
 import urllib
 import urllib.request
 import urllib.parse
+import locale
 
 DP_ID = "xxx"  # replace with your ID
 DP_TOKEN = "xxx"  # replace with your Token
+
 
 DOMAIN = "utlab.ltd"
 
@@ -42,6 +45,9 @@ args = parser.parse_args()
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
+
+ENCODING = locale.getpreferredencoding(False)
 
 
 def get_public_ipv6():
@@ -69,7 +75,7 @@ def get_local_ipconfig_cmd():
     system_name = platform.system()
     if system_name == "Windows":
         return "ipconfig"
-    elif system_name == "Darwin":  # MacOS 系统返回 "Darwin"
+    elif system_name == "Darwin":  
         return "ifconfig"
     elif system_name == "Linux":
         return "ip a"
@@ -79,21 +85,31 @@ def get_local_ipconfig_cmd():
 
 def get_local_ipv4():
     cmd = get_local_ipconfig_cmd()
-    cmdline = rf"{cmd} | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v '172*'| head -n 1"
-    res = subprocess.run(cmdline, shell=True, capture_output=True)
-    ip = res.stdout.decode("utf8").strip()
-    logger.warning(ip)
-    return ip
+    res = subprocess.run(cmd, shell=True, capture_output=True)
+    output = res.stdout.decode(ENCODING, errors="ignore")
+
+    ips = re.findall(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b', output)
+    for ip in ips:
+        if not ip.startswith("127.") and not ip.startswith("172."):
+            logger.warning(f"Local IPv4: {ip}")
+            return ip
+    return None
 
 
 
 def get_local_ipv6():
     cmd = get_local_ipconfig_cmd()
-    cmdline = rf'{cmd} | grep inet6 | grep -v "::1" | grep -Eo "(2[a-f0-9:]+:+)+[a-f0-9]+" | head -n 1'
-    res = subprocess.run(cmdline, shell=True, capture_output=True)
-    ip = res.stdout.decode("utf8").strip()
-    logger.warning(f"ip: {ip}")
-    return ip
+    res = subprocess.run(cmd, shell=True, capture_output=True)
+    output = res.stdout.decode(ENCODING, errors="ignore")
+
+  
+    ipv6_list = re.findall(r'\b(?:[a-fA-F0-9]{1,4}:){1,7}[a-fA-F0-9]{1,4}\b', output)
+    for ip in ipv6_list:
+        if ip.startswith("2"):
+            logger.warning(f"Local IPv6: {ip}")
+            return ip
+    logger.warning("No valid public IPv6 found.")
+    return None
 
 
 class DNSPod(object):
@@ -111,9 +127,39 @@ class DNSPod(object):
             response_data = response.read().decode("utf-8")
             return response_data
 
+    # 在DNSPod类中增加一个方法 check_and_delete_conflict
+    def check_and_delete_conflict(self, params, current_record_type):
+        """Check if there's a conflicting record type and delete it."""
+        record_list_url = "https://dnsapi.cn/Record.List"
+
+        # 请求所有类型的记录
+        params_all_types = params.copy()
+        params_all_types.pop('record_type', None)
+        r = self.post_data(record_list_url, data=params_all_types)
+        logger.warning(record_list_url)
+        jd = json.loads(r)
+        logger.info(f"Check conflict: {jd}")
+
+        if jd['status']['code'] != '1':
+            logger.error("Failed to retrieve record list")
+            return
+
+        records = jd.get('records', [])
+        for record in records:
+            if record['name'] == params['sub_domain'] and record['type'] != current_record_type:
+                delete_url = "https://dnsapi.cn/Record.Remove"
+                delete_params = params.copy()
+                delete_params["record_id"] = record["id"]
+                delete_response = self.post_data(delete_url, data=delete_params)
+                jd_delete = json.loads(delete_response)
+                assert jd_delete["status"]["code"] == "1", f"Failed to delete record: {jd_delete}"
+                logger.info(f"Deleted conflicting record: {record}")
+
+# 修改run函数，在添加或更新记录之前调用这个新方法
     def run(self, params=None):
         if params is None:
             params = self._params
+
         public_ip = None
         if args.local_ip_type is None:
             if params["record_type"] == "AAAA":
@@ -124,32 +170,30 @@ class DNSPod(object):
             public_ip = get_local_ipv4()
         elif args.local_ip_type == "AAAA":
             public_ip = get_local_ipv6()
+
         if public_ip is None:
             logger.error("IP unknown")
             return
-        # get record_id of sub_domain
+
+        # 检测并删除冲突的记录类型
+        self.check_and_delete_conflict(params, params["record_type"])
+
         record_list = self.get_record_list(params)
         if record_list["code"] == "10" or record_list["code"] == "26":
-            # create record for empty sub_domain
-            record_id = self.create_record(params, public_ip)
-            remote_ip = public_ip
+            self.create_record(params, public_ip)
         elif record_list["code"] == "1":
-            # get record id
             remote_ip = record_list["ip_value"]
             if remote_ip == public_ip:
-                logger.warning("same ip: " + remote_ip)
+                logger.info("same ip: " + remote_ip)
                 return -1
             else:
-                logger.warning(record_list)
                 params["record_id"] = record_list["record_id"]
-                res = self.ddns(params, public_ip)
-                logger.warning(res)
+                self.ddns(params, public_ip)
         else:
             logger.error("Update not work")
-            logger.error(record_list)
             return -1
-        current_ip = remote_ip
-        logger.warning("current_ip: " + current_ip)
+        logger.info(f"Updated IP to: {public_ip}")
+
 
     def get_record_list(self, params):
         """Get record list.
@@ -221,3 +265,4 @@ def test():
 
 if __name__ == "__main__":
     main()
+

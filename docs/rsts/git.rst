@@ -7,7 +7,7 @@ Best Pratice for Git
 
 .. code-block:: bash
 
-   git config --global core.editor vim
+   git config --global core.editor "nvim"
    git config --global user.name "hotchilipowder"
    git config --global user.email "h12345jack@gmail.com"
    git config --global pull.rebase true
@@ -23,6 +23,26 @@ Best Pratice for Git
 .. attention::
    `credential.helper store`将会存放到本地的文本文件中，这是一个比较危险的事情。
    也就意味着需要你保证本机的安全。 `~/.git-credentials`
+
+
+.. tab-set::
+
+   .. tab-item:: MacOS
+
+      On Mac, Git comes with an “osxkeychain” mode, which caches credentials in the secure keychain that’s attached to your system account.
+
+     .. code-block:: bash
+     
+        git config --global credential.helper osxkeychain
+     
+   .. tab-item:: Linux
+
+     Linux
+
+   .. tab-item::  Windows
+
+    Windows
+
 
 
 
