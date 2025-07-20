@@ -11,13 +11,18 @@ Best Pratice for Git
    git config --global user.name "hotchilipowder"
    git config --global user.email "h12345jack@gmail.com"
    git config --global pull.rebase true
-   git config --global credential.helper manager-core
+   git config --global credential.helper cache
 
 
 1. 设置默认的编辑器
 2. 设置默认的用户名和邮箱
 3. 设置拉取合并行为
 4. 设置Git凭证管理器
+
+
+.. attention::
+   `credential.helper store`将会存放到本地的文本文件中，这是一个比较危险的事情。
+   也就意味着需要你保证本机的安全。 `~/.git-credentials`
 
 
 

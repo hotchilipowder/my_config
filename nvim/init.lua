@@ -304,7 +304,7 @@ require("lazy").setup({
 					vim.g.vsnip_snippet_dir = vim.fn.fnamemodify(vim.fn.expand("~/.config/nvim/vsnip_snippets"), ":p:h")
 				end,
 			},
-      -- ultisnips
+			-- ultisnips
 			{
 				"SirVer/ultisnips",
 				dependencies = { "hotchilipowder/vim-snippets" },
@@ -315,12 +315,15 @@ require("lazy").setup({
 					vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
 					vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
 					vim.g.UltiSnipsEditSplit = "vertical"
-					vim.api.nvim_exec(
-						[[
-            autocmd FileType ultisnips setlocal nofoldenable
-          ]],
-						false
-					)
+
+					vim.api.nvim_create_autocmd("FileType", {
+						pattern = "ultisnips",
+						command = "setlocal nofoldenable",
+					})
+					vim.api.nvim_create_autocmd("FileType", {
+						pattern = "markdown",
+						command = "UltiSnipsAddFiletypes markdown",
+					})
 				end,
 				lazy = false,
 			},

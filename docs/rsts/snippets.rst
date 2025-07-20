@@ -44,12 +44,22 @@ Ultisnipets
 
 Just use \ :code:`UltiSnipsEdit`\
 
-
 .. attention::
     特别的，当我们写python的时候，可能需要用到一些Rst的snippets。我们可以用 \ :code:`UltiSnipsAddFiletypes python.rst`\。这个功能很重要，然而 \ `it cannot provide a command like :UltiSnipsAddFiletypes <https://github.com/neoclide/coc-snippets/issues/121>`_ in coc.nvim. 建议还是换官方吧...
 
 .. include:: ./_ultisnippet.rst
 
+
+.. attention::
+    UltiSnips默认是不识别markdown的，需要配置如下：
+
+    .. code-block:: bash
+    
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "markdown",
+            command = "UltiSnipsAddFiletypes markdown",
+        })
+    
 
 Vsnip
 =====
