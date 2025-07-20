@@ -35,6 +35,7 @@ vs_affix_dict = {
 ul_affix_dict = {
     'python': 'python',
     'tex': 'latex',
+    'md': 'markdown',
     'rst': 'restructuredtext',
 }
 

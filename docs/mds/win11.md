@@ -62,6 +62,25 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters"
 ```
 
 
+## 键盘配置
+
+为了尽可能的和MacOS保持一样的输入体验，需要将Caps键设置为中英文的切换。
+
+并且取消原来的中英文切换的 shift键。具体的配置在
+
+![](./imgs/Snipaste_2025-07-20_14-57-22.png)
+
+
+另外，Terminal的默认配置会和vim的块操作快捷键冲突，
+
+解决办法，打开 windows terminal 的配置文件，删除下面这行配置：
+
+```
+{ "command": "paste", "keys": "ctrl+v" },
+
+```
+
+
 
 ## WSL 
 
