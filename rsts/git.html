@@ -167,7 +167,7 @@ data-aria-dark="切换到自动模式">
 <h1>Awesome Git<a class="headerlink" href="#awesome-git" title="Link to this heading">¶</a></h1>
 <section id="best-pratice-for-git">
 <h2>Best Pratice for Git<a class="headerlink" href="#best-pratice-for-git" title="Link to this heading">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span>vim
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;nvim&quot;</span>
 </span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
 </span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
 </span><span data-line="4">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span>
@@ -184,6 +184,28 @@ data-aria-dark="切换到自动模式">
 <p class="admonition-title">注意</p>
 <p><cite>credential.helper store`将会存放到本地的文本文件中，这是一个比较危险的事情。
 也就意味着需要你保证本机的安全。 `~/.git-credentials</cite></p>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+MacOS</label><div class="sd-tab-content docutils">
+<blockquote>
+<div><p>On Mac, Git comes with an “osxkeychain” mode, which caches credentials in the secure keychain that’s attached to your system account.</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>osxkeychain
+</span></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Linux</label><div class="sd-tab-content docutils">
+<p>Linux</p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Windows</label><div class="sd-tab-content docutils">
+<p>Windows</p>
+</div>
 </div>
 </section>
 <section id="id1">
@@ -289,15 +311,15 @@ data-aria-dark="切换到自动模式">
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-0">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
 Linux (Apt)</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>git-all
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
 Linux (From source)</label><div class="sd-tab-content docutils">
 <p>see <a class="reference external" href="https://mirrors.edge.kernel.org/pub/software/scm/git/">this link</a>  for recent release.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt-get<span class="w"> </span>install<span class="w"> </span>dh-autoreconf<span class="w"> </span>libcurl4-gnutls-dev<span class="w"> </span>libexpat1-dev<span class="w"> </span>gettext<span class="w"> </span>libz-dev<span class="w"> </span>libssl-dev
@@ -310,8 +332,8 @@ Linux (From source)</label><div class="sd-tab-content docutils">
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-2">
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
 MacOS</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>git
 </span></pre></div>
