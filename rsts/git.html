@@ -67,7 +67,7 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim and Tmux</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Awesome Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mds/github_actions.html">Github Action</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mds/wsl.html">Win11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mds/win11.html">Win11</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
@@ -170,8 +170,16 @@ data-aria-dark="切换到自动模式">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span>vim
 </span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
 </span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
+</span><span data-line="4">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span>
+</span><span data-line="5">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>manager-core
 </span></pre></div>
 </div>
+<ol class="arabic simple">
+<li><p>设置默认的编辑器</p></li>
+<li><p>设置默认的用户名和邮箱</p></li>
+<li><p>设置拉取合并行为</p></li>
+<li><p>设置Git凭证管理器</p></li>
+</ol>
 </section>
 <section id="id1">
 <h2>账户设置<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>

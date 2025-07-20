@@ -114,7 +114,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/mds/wsl.md">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/mds/win11.md">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -147,14 +147,17 @@ data-aria-dark="切换到自动模式">
           <section class="tex2jax_ignore mathjax_ignore" id="win11">
 <h1>Win11<a class="headerlink" href="#win11" title="Link to this heading">¶</a></h1>
 <p>由于之前的Win10一直出现更新失败的情况，最后还是一咬牙升级了win11.</p>
-<p>另外一个重要的原因就是可以更好的支持WSL, 日常我只需要使用Windows，就可以很好的跑实验了。</p>
+<p>然后第一安装被微软坑了，安装了一个企业评估版，只有90天的有效期。
+最后遵循 <a class="external reference" href="https://massgrave.dev/genuine-installation-media">链接</a>
+进行了重新的下载和安装。</p>
+<p>将自己的开发机器（配置拉满的机器）安装为Win11，重要的原因就是可以更好的支持WSL, 日常我只需要使用Windows，就可以很好的跑实验了。</p>
 <section id="configs">
 <h2>Configs<a class="headerlink" href="#configs" title="Link to this heading">¶</a></h2>
 <p>激活和安装驱动的问题就不说了…</p>
 <ol class="arabic simple">
 <li><p>安装Terminal</p></li>
 <li><p>Terminal修改字体，下载 <a class="external reference" href="https://www.nerdfonts.com/">nerfonts</a></p></li>
-<li><p>配置wsl,</p></li>
+<li><p>配置wsl,  <a class="reference internal" href="#wsl"><span class="xref myst">配置</span></a></p></li>
 <li><p>配置键盘，为了和MacOS一致. <a class="external reference" href="https://www.v2ex.com/t/863055">MacOS</a></p></li>
 </ol>
 <p>网络上，本来配合旁路由设置是很好的。
@@ -176,12 +179,50 @@ data-aria-dark="切换到自动模式">
 </div>
 <p>这说明使用了ipv6的dns服务器给出了dns响应，这非常的不好。
 因此，尝试了各种办法， 最后设置ipv6的dns为 <code class="docutils literal notranslate"><span class="pre">::1</span></code>, 就很好的解决了这个问题。</p>
+<p>其中的Debug和GPT过程记录如下：</p>
+<ol class="arabic simple">
+<li><p>GPT <code class="docutils literal notranslate"><span class="pre">nesth</span></code>命令来来调整Windows使用IPv6和IPv4的优先级，使得IPv4优先</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">netsh</span> <span class="n">interface</span> <span class="n">ipv6</span> <span class="nb">set</span> <span class="n">prefixpolicy</span> <span class="p">::</span><span class="o">/</span><span class="mi">0</span> <span class="mi">35</span> <span class="mi">4</span>
+</span><span data-line="2"><span class="n">netsh</span> <span class="n">interface</span> <span class="n">ipv6</span> <span class="nb">set</span> <span class="n">prefixpolicy</span> <span class="mi">2002</span><span class="p">::</span><span class="o">/</span><span class="mi">16</span> <span class="mi">30</span> <span class="mi">3</span>
+</span><span data-line="3"><span class="n">netsh</span> <span class="n">interface</span> <span class="n">ipv6</span> <span class="nb">set</span> <span class="n">prefixpolicy</span> <span class="mi">0</span><span class="p">::</span><span class="o">/</span><span class="mi">0</span> <span class="mi">10</span> <span class="mi">2</span>
+</span></pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><a class="external reference" href="https://learn.microsoft.com/zh-cn/troubleshoot/windows-server/networking/configure-ipv6-in-windows">在 Windows 中为高级用户配置 IPv6 的指南</a></p></li>
+</ol>
+<p>设置 <code class="docutils literal notranslate"><span class="pre">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">reg<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters&quot;</span><span class="w"> </span>/v<span class="w"> </span>DisabledComponents<span class="w"> </span>/t<span class="w"> </span>REG_DWORD<span class="w"> </span>/d<span class="w"> </span>&lt;value&gt;<span class="w"> </span>/f
+</span></pre></div>
+</div>
 </section>
 <section id="wsl">
 <h2>WSL<a class="headerlink" href="#wsl" title="Link to this heading">¶</a></h2>
 <section id="service">
 <h3>Service<a class="headerlink" href="#service" title="Link to this heading">¶</a></h3>
-<p>首先需要安装 <code class="docutils literal notranslate"><span class="pre">openssh-server</span></code></p>
+<p>首先需要安装 <code class="docutils literal notranslate"><span class="pre">openssh-server</span></code>, 这样的 <code class="docutils literal notranslate"><span class="pre">frpc.service</span></code> 才能得到启用</p>
+<p>例如，将下面的<code class="docutils literal notranslate"><span class="pre">frpc.service</span></code> 放入到 <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/frpc.service</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+</span><span data-line="2"><span class="n">Description</span><span class="o">=</span><span class="n">frpc</span> <span class="n">client</span>
+</span><span data-line="3"><span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span>
+</span><span data-line="4">
+</span><span data-line="5"><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+</span><span data-line="6"><span class="n">ExecStart</span><span class="o">=/</span><span class="n">root</span><span class="o">/</span><span class="n">deploy</span><span class="o">/</span><span class="n">frp</span><span class="o">/</span><span class="n">frpc</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">deploy</span><span class="o">/</span><span class="n">frp</span><span class="o">/</span><span class="n">frpc</span><span class="o">.</span><span class="n">toml</span>
+</span><span data-line="7"><span class="n">Restart</span><span class="o">=</span><span class="n">always</span>
+</span><span data-line="8"><span class="n">User</span><span class="o">=</span><span class="n">root</span>
+</span><span data-line="9">
+</span><span data-line="10"><span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+</span><span data-line="11"><span class="n">WantedBy</span><span class="o">=</span><span class="n">default</span><span class="o">.</span><span class="n">target</span>
+</span></pre></div>
+</div>
+<p>然后使用如下的命令启用，</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">cp<span class="w">  </span>frpc.service<span class="w"> </span>/etc/systemd/system/frpc.service<span class="sb">`</span>
+</span><span data-line="2">
+</span><span data-line="3">systemctl<span class="w"> </span>daemon-reload
+</span><span data-line="4">systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>frpc.service
+</span><span data-line="5">systemctl<span class="w"> </span>start<span class="w"> </span>frpc.service
+</span></pre></div>
+</div>
 </section>
 <section id="id1">
 <h3>开机启动<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
@@ -200,7 +241,7 @@ data-aria-dark="切换到自动模式">
 </section>
 <section id="network">
 <h3>Network<a class="headerlink" href="#network" title="Link to this heading">¶</a></h3>
-<p><a class="external reference" href="https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config#configuration-settings-for-wslconfig">.wsl.conf 的配置设置</a></p>
+<p><a class="external reference" href="https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config#configuration-settings-for-wslconfig">.wslconfig 的配置设置</a></p>
 <p>配置 <code class="docutils literal notranslate"><span class="pre">C:\Users\xxx\.wslconfig</span></code> 文件如下：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">[</span>wsl2<span class="o">]</span>
 </span><span data-line="2"><span class="nv">networkingMode</span><span class="o">=</span>mirrored
