@@ -1,0 +1,11 @@
+[Unit]
+Description=frpc client
+After=network.target
+
+[Service]
+ExecStart=/root/deploy/frp/frpc -c /root/deploy/frp/frpc.toml
+Restart=always
+User=root
+
+[Install]
+WantedBy=default.target

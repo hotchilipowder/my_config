@@ -1,0 +1,21 @@
+[project]
+name = "my-config"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ablog>=0.11.12",
+    "aiohttp>=3.12.14",
+    "jupyter-sphinx>=0.5.3",
+    "myst-parser[linkify]>=4.0.1",
+    "shibuya>=2025.7.14",
+    "sphinx>=8.2.3",
+    "sphinx-autobuild>=2024.10.3",
+    "sphinx-comments>=0.0.3",
+    "sphinx-copybutton>=0.5.2",
+    "sphinx-design>=0.6.1",
+    "sphinx-tabs>=3.4.7",
+    "sphinxcontrib-mermaid>=1.0.0",
+    "sphinxemoji>=0.3.1",
+]

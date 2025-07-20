@@ -2,8 +2,12 @@
 
 由于之前的Win10一直出现更新失败的情况，最后还是一咬牙升级了win11.
 
-另外一个重要的原因就是可以更好的支持WSL, 日常我只需要使用Windows，就可以很好的跑实验了。
+然后第一安装被微软坑了，安装了一个企业评估版，只有90天的有效期。
+最后遵循 [链接](https://massgrave.dev/genuine-installation-media){.external} 
+进行了重新的下载和安装。
 
+
+将自己的开发机器（配置拉满的机器）安装为Win11，重要的原因就是可以更好的支持WSL, 日常我只需要使用Windows，就可以很好的跑实验了。
 
 
 ## Configs
@@ -12,7 +16,7 @@
 
 1. 安装Terminal
 2. Terminal修改字体，下载 [nerfonts](https://www.nerdfonts.com/){.external}
-3. 配置wsl, 
+3. 配置wsl,  [配置](#wsl)
 4. 配置键盘，为了和MacOS一致. [MacOS](https://www.v2ex.com/t/863055){.external}
 
 网络上，本来配合旁路由设置是很好的。
@@ -38,6 +42,25 @@ Addresses:  2a02:26f0:dc:38d::24fe
 这说明使用了ipv6的dns服务器给出了dns响应，这非常的不好。
 因此，尝试了各种办法， 最后设置ipv6的dns为 `::1`, 就很好的解决了这个问题。
 
+其中的Debug和GPT过程记录如下：
+
+
+1. GPT `nesth`命令来来调整Windows使用IPv6和IPv4的优先级，使得IPv4优先
+
+```
+netsh interface ipv6 set prefixpolicy ::/0 35 4
+netsh interface ipv6 set prefixpolicy 2002::/16 30 3
+netsh interface ipv6 set prefixpolicy 0::/0 10 2
+```
+
+2. [在 Windows 中为高级用户配置 IPv6 的指南](https://learn.microsoft.com/zh-cn/troubleshoot/windows-server/networking/configure-ipv6-in-windows){.external}
+
+设置 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\`
+
+```bash
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters" /v DisabledComponents /t REG_DWORD /d <value> /f
+```
+
 
 
 ## WSL 
@@ -45,7 +68,25 @@ Addresses:  2a02:26f0:dc:38d::24fe
 
 ### Service
 
-首先需要安装 `openssh-server`
+首先需要安装 `openssh-server`, 这样的 `frpc.service` 才能得到启用
+
+例如，将下面的`frpc.service` 放入到 `/etc/systemd/system/frpc.service`
+
+
+```{literalinclude} ./codes/frpc.service
+```
+
+然后使用如下的命令启用，
+
+
+```bash
+cp  frpc.service /etc/systemd/system/frpc.service`
+
+systemctl daemon-reload
+systemctl enable frpc.service
+systemctl start frpc.service
+```
+
 
 ### 开机启动
 
@@ -65,7 +106,7 @@ Addresses:  2a02:26f0:dc:38d::24fe
 
 ### Network
 
-[.wsl.conf 的配置设置](https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config#configuration-settings-for-wslconfig){.external}
+[.wslconfig 的配置设置](https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config#configuration-settings-for-wslconfig){.external}
 
 
 配置 `C:\Users\xxx\.wslconfig` 文件如下：

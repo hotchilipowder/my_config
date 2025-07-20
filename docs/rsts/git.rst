@@ -10,6 +10,14 @@ Best Pratice for Git
    git config --global core.editor vim
    git config --global user.name "hotchilipowder"
    git config --global user.email "h12345jack@gmail.com"
+   git config --global pull.rebase true
+   git config --global credential.helper manager-core
+
+
+1. 设置默认的编辑器
+2. 设置默认的用户名和邮箱
+3. 设置拉取合并行为
+4. 设置Git凭证管理器
 
 
 
