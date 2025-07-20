@@ -171,7 +171,7 @@ data-aria-dark="切换到自动模式">
 </span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
 </span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
 </span><span data-line="4">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span>
-</span><span data-line="5">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>manager-core
+</span><span data-line="5">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>cache
 </span></pre></div>
 </div>
 <ol class="arabic simple">
@@ -180,6 +180,11 @@ data-aria-dark="切换到自动模式">
 <li><p>设置拉取合并行为</p></li>
 <li><p>设置Git凭证管理器</p></li>
 </ol>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p><cite>credential.helper store`将会存放到本地的文本文件中，这是一个比较危险的事情。
+也就意味着需要你保证本机的安全。 `~/.git-credentials</cite></p>
+</div>
 </section>
 <section id="id1">
 <h2>账户设置<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>

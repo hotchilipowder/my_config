@@ -241,7 +241,17 @@ data-aria-dark="切换到自动模式">
 </span></pre></div>
 </div>
 </div>
-</details></section>
+</details><div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>UltiSnips默认是不识别markdown的，需要配置如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">vim.api.nvim_create_autocmd<span class="o">(</span><span class="s2">&quot;FileType&quot;</span>,<span class="w"> </span><span class="o">{</span>
+</span><span data-line="2"><span class="w">    </span><span class="nv">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;markdown&quot;</span>,
+</span><span data-line="3"><span class="w">    </span><span class="nb">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UltiSnipsAddFiletypes markdown&quot;</span>,
+</span><span data-line="4"><span class="o">})</span>
+</span></pre></div>
+</div>
+</div>
+</section>
 </section>
 <section id="vsnip">
 <h2>Vsnip<a class="headerlink" href="#vsnip" title="Link to this heading">¶</a></h2>
