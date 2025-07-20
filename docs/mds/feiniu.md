@@ -61,3 +61,8 @@ echo "服务已更新"
 ### 参考资料
 1. https://github.com/lfgyx/fnos_certificate_update/blob/main/src/update_cert.sh
 2. https://club.fnnas.com/forum.php?mod=viewthread&tid=6890
+
+
+## Zotero
+
+[数据与文件的同步](https://zotero-chinese.com/user-guide/sync)
