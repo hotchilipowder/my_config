@@ -326,7 +326,7 @@ Nodejs Install
         tar -xvf node-*
         mv node-*/ ~/.local
         rm node-*
-        pip3 install neovim
+        uv pip install neovim
 
 
    .. tab-item:: Compile
@@ -372,5 +372,4 @@ References
 ==========
 
 .. [HomeLab] a laboratory of (usually slightly outdated) awesome in the domicile. See https://icyleaf.com/2022/02/how-to-homelab-part-0
-
 

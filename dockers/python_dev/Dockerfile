@@ -1,12 +1,14 @@
 FROM mcr.microsoft.com/playwright:jammy
 RUN apt update -y
-RUN apt install python3-pip -y
+RUN apt install curl -y
 RUN apt install python3-dev libpq-dev -y
-RUN pip3 install playwright
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.local/bin:${PATH}"
+RUN uv pip install --system playwright
 RUN playwright install
 RUN playwright install-deps
 RUN echo y | npx playwright install-deps
 RUN mkdir /code
 WORKDIR /code
 COPY ./requirements.txt /code
-RUN pip3 install -r requirements.txt
+RUN uv pip install --system -r requirements.txt

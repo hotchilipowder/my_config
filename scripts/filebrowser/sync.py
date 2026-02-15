@@ -6,7 +6,7 @@
 @file: sync_fb.py
 @time: 2022/07/27
 
-pip install aiohttp tqdm
+uv pip install aiohttp tqdm
 """
 import os
 import re

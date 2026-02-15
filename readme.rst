@@ -21,11 +21,10 @@ For development, you can have a dev environment to get the docs.
 
    virtualenv venv
    source venv/bin/activate
-   pip install -r requirements.txt
+   uv pip install -r requirements.txt
    sphinx-autobuild docs build --host 0
 
 
 
 Devs
 ====
-

@@ -56,7 +56,7 @@ Install 常用的sphinx扩展
 
 .. code-block:: bash
 
-    pip install myst-parser[linkify] \
+    uv pip install myst-parser[linkify] \
                 sphinxcontrib-mermaid \
                 sphinx_design \
                 sphinx-copybutton \

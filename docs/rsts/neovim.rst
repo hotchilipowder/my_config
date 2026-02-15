@@ -73,7 +73,7 @@ Because My neovim config has lsp config, install nodejs is necessary.
         tar -xvf node-*
         mv node-*/ ~/.local
         rm node-*
-        pip3 install neovim
+        uv pip install neovim
 
 
    .. tab-item:: Compile

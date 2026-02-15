@@ -13,10 +13,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
       - name: Install 
         shell: bash
         run: |
-          pip install -r requirements.txt
+          uv pip install --system -r requirements.txt
           sphinx-build -b html docs build
 
       - name: Make snippets to rst
