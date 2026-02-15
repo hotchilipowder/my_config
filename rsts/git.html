@@ -87,8 +87,11 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#best-pratice-for-git">Best Pratice for Git</a></li>
-<li><a class="reference internal" href="#id1">&#36134;&#25143;&#35774;&#32622;</a></li>
+<li><a class="reference internal" href="#best-pratice-for-git">Best Pratice for Git</a><ul>
+<li><a class="reference internal" href="#id1">&#22810;&#36134;&#25143;&#24555;&#36895;&#24037;&#20316;&#27969;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">&#36134;&#25143;&#35774;&#32622;</a></li>
 <li><a class="reference internal" href="#my-github-issues">My Github Issues</a><ul>
 <li><a class="reference internal" href="#macos-osxkeychain">MacOS osxkeychain</a></li>
 <li><a class="reference internal" href="#how-to-change-default-editor-into-vim">How to change default editor into vim</a></li>
@@ -103,6 +106,7 @@ data-aria-dark="切换到自动模式">
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#proxy">Proxy</a></li>
 <li><a class="reference internal" href="#common-git-skill">Common git skill</a><ul>
+<li><a class="reference internal" href="#git-restore">Git Restore</a></li>
 <li><a class="reference internal" href="#change-history-user-name-and-user-email">Change history user.name and user.email</a></li>
 <li><a class="reference internal" href="#delete-all-history">Delete all history</a></li>
 </ul>
@@ -218,6 +222,24 @@ data-aria-dark="切换到自动模式">
 <li><p>设置拉取合并行为</p></li>
 <li><p>设置Git凭证管理器</p></li>
 </ol>
+<section id="id1">
+<h3>多账户快速工作流<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>如果你是一个主账户 + 多个项目账号的模式，建议优先用下面这个流程：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 1) 非默认账号仓库，clone时指定用户名，避免走错凭证</span>
+</span><span data-line="2">git<span class="w"> </span>clone<span class="w"> </span>-c<span class="w"> </span>credential.helper<span class="o">=</span><span class="w">  </span>-c<span class="w"> </span>credential.username<span class="o">=</span>xxx<span class="w"> </span>https://github.com/xxx/demo.git
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># 2) 进入仓库后设置本地身份（只作用当前repo）</span>
+</span><span data-line="5"><span class="nb">cd</span><span class="w"> </span>demo
+</span><span data-line="6">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;xxx&quot;</span>
+</span><span data-line="7">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;xxx@example.com&quot;</span>
+</span><span data-line="8">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.username<span class="w"> </span><span class="s2">&quot;xxx&quot;</span>
+</span></pre></div>
+</div>
+<p>这个方式的好处：</p>
+<ul class="simple">
+<li><p>git history更干净（每个repo身份明确）</p></li>
+<li><p>git push 和 git pull 不容易出现账号问题</p></li>
+</ul>
 <div class="admonition attention">
 <p class="admonition-title">注意</p>
 <p><cite>credential.helper store`将会存放到本地的文本文件中，这是一个比较危险的事情。
@@ -246,8 +268,9 @@ Windows</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </section>
-<section id="id1">
-<h2>账户设置<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+</section>
+<section id="id2">
+<h2>账户设置<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <p>之前在Mac用多个账户，经常出现要么不能git clone私有项目（因为是另外一个账户），要么错误的用了账户到别的repo中，并且一直管理上比较麻烦。</p>
 <p>有如下的方案：</p>
 <ul class="simple">
@@ -263,6 +286,24 @@ Windows</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>-c<span class="w"> </span>credential.helper<span class="o">=</span><span class="w">  </span>-c<span class="w"> </span>credential.username<span class="o">=</span>xxx<span class="w"> </span>https://github.com/xxx/xx
 </span></pre></div>
 </div>
+<p>我自己目前常用的多账户开发方式如下：</p>
+<ol class="arabic simple">
+<li><p>主账户继续用global配置（默认账号）</p></li>
+<li><p>非默认账号仓库，clone时临时指定credential.username</p></li>
+<li><p>clone后在repo里设置local的user.name、user.email和credential.username</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>-c<span class="w"> </span>credential.helper<span class="o">=</span><span class="w">  </span>-c<span class="w"> </span>credential.username<span class="o">=</span>xxx<span class="w"> </span>https://github.com/xxx/demo.git
+</span><span data-line="2"><span class="nb">cd</span><span class="w"> </span>demo
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;xxx&quot;</span>
+</span><span data-line="4">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;xxx@example.com&quot;</span>
+</span><span data-line="5">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.username<span class="w"> </span><span class="s2">&quot;xxx&quot;</span>
+</span></pre></div>
+</div>
+<p>这样做的好处是：</p>
+<ul class="simple">
+<li><p>git history 更干净（每个repo用对应身份）</p></li>
+<li><p>git push 和 git pull 不容易出现账号问题</p></li>
+</ul>
 </section>
 <section id="my-github-issues">
 <h2>My Github Issues<a class="headerlink" href="#my-github-issues" title="Link to this heading">¶</a></h2>
@@ -312,9 +353,9 @@ Windows</label><div class="sd-tab-content docutils">
 </section>
 <section id="config">
 <h2>Config<a class="headerlink" href="#config" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper colwidths-given docutils container" id="id6">
-<table class="docutils align-default" id="id6">
-<caption><span class="caption-text">Title</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<div class="table-wrapper colwidths-given docutils container" id="id7">
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Title</span><a class="headerlink" href="#id7" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 25.0%" />
@@ -390,6 +431,28 @@ MacOS</label><div class="sd-tab-content docutils">
 <section id="common-git-skill">
 <h2>Common git skill<a class="headerlink" href="#common-git-skill" title="Link to this heading">¶</a></h2>
 <p>关于git学习的资料，可以查看 <a class="reference external" href="https://www.liaoxuefeng.com/wiki/896043488029600">git教程</a></p>
+<section id="git-restore">
+<h3>Git Restore<a class="headerlink" href="#git-restore" title="Link to this heading">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code>是较新的撤销命令，用于恢复工作区和暂存区文件，比 <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--</span> <span class="pre">&lt;file&gt;</span></code>语义更清晰。</p>
+<p>常见用法：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 丢弃工作区改动（未add）</span>
+</span><span data-line="2">git<span class="w"> </span>restore<span class="w"> </span>&lt;file&gt;
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># 丢弃目录下的工作区改动</span>
+</span><span data-line="5">git<span class="w"> </span>restore<span class="w"> </span>path/to/dir
+</span><span data-line="6">
+</span><span data-line="7"><span class="c1"># 取消暂存（从staged放回工作区）</span>
+</span><span data-line="8">git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>&lt;file&gt;
+</span><span data-line="9">
+</span><span data-line="10"><span class="c1"># 同时撤销暂存和工作区改动</span>
+</span><span data-line="11">git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>--worktree<span class="w"> </span>&lt;file&gt;
+</span><span data-line="12">
+</span><span data-line="13"><span class="c1"># 从某个commit恢复指定文件</span>
+</span><span data-line="14">git<span class="w"> </span>restore<span class="w"> </span>--source<span class="w"> </span>&lt;commit&gt;<span class="w"> </span>&lt;file&gt;
+</span></pre></div>
+</div>
+<p>注意：<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code>只影响当前文件状态，不会修改已经存在的commit history。</p>
+</section>
 <section id="change-history-user-name-and-user-email">
 <h3>Change history user.name and user.email<a class="headerlink" href="#change-history-user-name-and-user-email" title="Link to this heading">¶</a></h3>
 <p>这个需求我主要是多设备没设置user.name 或者 user.email导致有一些奇怪的用户出现在git history里面了。</p>
