@@ -20,6 +20,28 @@ Best Pratice for Git
 4. 设置Git凭证管理器
 
 
+多账户快速工作流
+----------------
+
+如果你是一个主账户 + 多个项目账号的模式，建议优先用下面这个流程：
+
+.. code-block:: bash
+
+   # 1) 非默认账号仓库，clone时指定用户名，避免走错凭证
+   git clone -c credential.helper=  -c credential.username=xxx https://github.com/xxx/demo.git
+
+   # 2) 进入仓库后设置本地身份（只作用当前repo）
+   cd demo
+   git config --local user.name "xxx"
+   git config --local user.email "xxx@example.com"
+   git config --local credential.username "xxx"
+
+这个方式的好处：
+
++ git history更干净（每个repo身份明确）
++ git push 和 git pull 不容易出现账号问题
+
+
 .. attention::
    `credential.helper store`将会存放到本地的文本文件中，这是一个比较危险的事情。
    也就意味着需要你保证本机的安全。 `~/.git-credentials`
@@ -71,6 +93,26 @@ Best Pratice for Git
 .. code-block:: bash
 
    git clone -c credential.helper=  -c credential.username=xxx https://github.com/xxx/xx
+
+
+我自己目前常用的多账户开发方式如下：
+
+1. 主账户继续用global配置（默认账号）
+2. 非默认账号仓库，clone时临时指定credential.username
+3. clone后在repo里设置local的user.name、user.email和credential.username
+
+.. code-block:: bash
+
+   git clone -c credential.helper=  -c credential.username=xxx https://github.com/xxx/demo.git
+   cd demo
+   git config --local user.name "xxx"
+   git config --local user.email "xxx@example.com"
+   git config --local credential.username "xxx"
+
+这样做的好处是：
+
++ git history 更干净（每个repo用对应身份）
++ git push 和 git pull 不容易出现账号问题
 
 
 
@@ -223,6 +265,33 @@ Common git skill
 关于git学习的资料，可以查看 \ `git教程 <https://www.liaoxuefeng.com/wiki/896043488029600>`_\ 
 
 
+Git Restore
+-----------
+
+\ :code:`git restore`\ 是较新的撤销命令，用于恢复工作区和暂存区文件，比 \ :code:`git checkout -- <file>`\ 语义更清晰。
+
+常见用法：
+
+.. code-block:: bash
+
+   # 丢弃工作区改动（未add）
+   git restore <file>
+
+   # 丢弃目录下的工作区改动
+   git restore path/to/dir
+
+   # 取消暂存（从staged放回工作区）
+   git restore --staged <file>
+
+   # 同时撤销暂存和工作区改动
+   git restore --staged --worktree <file>
+
+   # 从某个commit恢复指定文件
+   git restore --source <commit> <file>
+
+注意：\ :code:`git restore`\ 只影响当前文件状态，不会修改已经存在的commit history。
+
+
 
 Change history user.name and user.email
 --------------------------------------
@@ -319,7 +388,5 @@ Self-hosted Action
 最近，得知了Github Action可以Self-hosted了。基于这个特性，将会非常好的使用Github Action去替换Jenkin。
 
 具体的步骤主要是按照要求进行安装即可。
-
-
 
 
