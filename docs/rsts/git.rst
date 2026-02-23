@@ -1,302 +1,371 @@
-===========
-Awesome Git
-===========
+=================
+Awesome Git (Notes)
+=================
 
-Best Pratice for Git
-====================
+这个文档是我自己的 Git 查漏补缺笔记：偏“日常高频 + 容易混淆的点”。
+风格：先给**心智模型**，再给**最常用命令**，最后给**坑点/排错**。
+
+.. contents::
+   :local:
+   :depth: 2
+
+
+Best Practice for Git
+=====================
 
 .. code-block:: bash
 
    git config --global core.editor "nvim"
    git config --global user.name "hotchilipowder"
    git config --global user.email "h12345jack@gmail.com"
+
+   # 我倾向保持线性历史（但要理解 rebase 的代价）
    git config --global pull.rebase true
+
+   # 多账号/避免明文：优先 cache（再按需调 timeout）
    git config --global credential.helper cache
 
+说明：
+1. 设置默认编辑器
+2. 设置默认用户名和邮箱（影响 commit 的 author/committer）
+3. 设置 pull 的默认整合策略（rebase/merge/ff-only）
+4. 设置凭证管理器（避免每次输入密码/Token）
 
-1. 设置默认的编辑器
-2. 设置默认的用户名和邮箱
-3. 设置拉取合并行为
-4. 设置Git凭证管理器
+
+Git 的三层心智模型（最重要）
+============================
+
+很多命令之所以难记，是因为你没把它们映射到 Git 的三层：
+
+- HEAD：当前分支指向的提交（历史/指针）
+- Index / Staging：暂存区（git add 后那份）
+- Worktree：工作区（你编辑器里看到的文件）
+
+我记忆方式：
+
+- restore：**只动文件内容**（Index/Worktree），一般不动 HEAD
+- reset：**动 HEAD 指针**（并可选择是否同步 Index/Worktree）
+- checkout：老命令，既能切分支又能还原文件，语义太多（所以后来拆出 switch/restore）
+- rm：把“删除文件”也变成一次变更（放进 Index 等你 commit）
 
 
-多账户快速工作流
-----------------
+四个命令的关系：restore / reset / checkout / rm
+================================================
 
-如果你是一个主账户 + 多个项目账号的模式，建议优先用下面这个流程：
+Git Restore
+-----------
+
+:code:`git restore` 是“恢复文件内容”的新命令，用来替代一部分 :code:`git checkout -- <file>` 的用法。
+
+- 不带 :code:`--staged`：默认从 **Index** 恢复到 **Worktree**
+- 带 :code:`--staged`：默认从 **HEAD** 恢复到 **Index**
+- :code:`--source <commit>`：指定从某个 commit/branch/tag 当作“恢复源”
 
 .. code-block:: bash
 
-   # 1) 非默认账号仓库，clone时指定用户名，避免走错凭证
-   git clone -c credential.helper=  -c credential.username=xxx https://github.com/xxx/demo.git
+   # 1) 丢弃工作区改动（未 add）：Worktree <- Index
+   git restore .
+   git restore path/to/file
 
-   # 2) 进入仓库后设置本地身份（只作用当前repo）
+   # 2) 取消暂存（已经 add 了想撤回）：Index <- HEAD
+   git restore --staged .
+   git restore --staged path/to/file
+
+   # 3) 同时撤销暂存 + 工作区（把文件回到 HEAD）：Index+Worktree <- HEAD
+   git restore --staged --worktree path/to/file
+   # 常见：只恢复某个 commit 的版本
+   git restore --source <commit> --staged --worktree path/to/file
+
+   # 4) 交互式恢复（hunk级别）
+   git restore -p path/to/file
+
+.. note::
+   restore **不会移动 HEAD**，所以不会“撤销提交历史”，它只是在改你当前这份文件状态。
+
+
+Git Reset
+---------
+
+reset 的核心是“把 HEAD 指针挪到某个 commit”，然后选择是否同步 Index/Worktree。
+
+.. code-block:: bash
+
+   # soft：只移动 HEAD（保留 Index/Worktree）
+   git reset --soft HEAD~1
+
+   # mixed（默认）：移动 HEAD + 重置 Index（保留 Worktree）
+   git reset HEAD~1
+   git reset --mixed HEAD~1
+
+   # hard：移动 HEAD + 重置 Index + 重置 Worktree（最危险）
+   git reset --hard HEAD~1
+
+.. warning::
+   reset --hard 是“仓库级大杀器”，优先用 restore 精准恢复单文件/单目录，除非你确定要彻底丢弃。
+
+
+Git Checkout / Switch
+---------------------
+
+checkout 是老命令：
+- :code:`git checkout <branch>` 切分支
+- :code:`git checkout -- <file>` 还原文件
+
+后来 Git 拆成两个更清晰的命令：
+- :code:`git switch`：只切分支
+- :code:`git restore`：只还原文件
+
+.. code-block:: bash
+
+   git switch main
+   git switch -c feat/xxx
+   git switch -
+
+
+Git RM
+------
+
+rm 是“产生删除变更”，不是撤销工具。
+
+.. code-block:: bash
+
+   # 删除并暂存（commit 后历史里就删了）
+   git rm path/to/file
+
+   # 只从 git 索引里移除（保留本地文件）
+   git rm --cached path/to/file
+
+
+常见“等价/不等价”对照表（防止混淆）
+==================================
+
+.. list-table::
+   :widths: 40 30 30
+   :header-rows: 1
+
+   * - 你看到的命令
+     - 直觉想法
+     - 更准确的解释
+   * - :code:`git restore .`
+     - “是不是等于 reset？”
+     - 不等价。restore 主要是 **Worktree <- Index**（不动 HEAD）
+   * - :code:`git restore --staged file`
+     - “是不是等于 reset？”
+     - 这更像“取消暂存”：**Index <- HEAD**（不动 HEAD）
+   * - :code:`git restore --staged --worktree file`
+     - “是不是等于 reset --hard？”
+     - **对这个文件**效果很像“回到 HEAD”，但不移动 HEAD，不影响其它文件
+   * - :code:`git reset --hard`
+     - “彻底回滚”
+     - 可能移动 HEAD（如果指定了目标），并同步 Index+Worktree，通常是全仓库级别
+
+
+Pull / Rebase / Merge / Fast-forward（你最困惑的点）
+===================================================
+
+git pull 的本质
+---------------
+
+:code:`git pull` = :code:`git fetch` + “把远端整合进来”。
+
+整合方式常见三种：fast-forward / merge / rebase。
+
+
+Fast-forward（快进）是什么？
+---------------------------
+
+如果本地分支 **没有额外提交**，只是落后远端，那么 Git 只需要把分支指针往前挪一下。
+这叫 fast-forward（不会产生 merge commit）。
+
+我理解成：**历史是一条线，指针快进**。
+
+.. code-block:: text
+
+   A---B---C  (origin/main)
+   A---B      (main)
+
+   pull 后（fast-forward）：
+
+   A---B---C  (origin/main, main)
+
+
+Merge（合并）是什么？
+---------------------
+
+如果本地也有提交、远端也有提交，历史分叉了：
+
+.. code-block:: text
+
+       D---E  (main)
+      /
+   A--B--C    (origin/main)
+
+merge 会创建一个新的 merge commit，把两条线汇合：
+
+.. code-block:: text
+
+       D---E
+      /     \
+   A--B--C---M   (main)
+
+好处：保留真实分叉/汇合
+坏处：log 会多一个 M（你会觉得不友好）
+
+
+Rebase（变基）是什么？
+---------------------
+
+rebase 的核心是：把你本地那串提交 **挪到远端最新提交的后面重放**（commit id 会变）。
+
+.. code-block:: text
+
+       D---E  (main)
+      /
+   A--B--C    (origin/main)
+
+rebase 后（线性）：
+
+   A--B--C--D'--E'   (main)
+   A--B--C           (origin/main)
+
+好处：历史线性好读
+坏处：D/E 变成 D'/E'（重写历史）
+
+
+pull.rebase / pull.ff 我应该怎么选？
+----------------------------------
+
+我自己的倾向（个人分支日常开发）：
+
+- 想要线性：:code:`git config --global pull.rebase true`
+- 想要绝不产生 merge commit（不能快进就报错）：:code:`git config --global pull.ff only`
+
+.. code-block:: bash
+
+   # 默认 pull 走 rebase（线性）
+   git config --global pull.rebase true
+
+   # 或者：只允许 fast-forward（不能快进就失败，逼你手动处理分叉）
+   git config --global pull.ff only
+
+.. attention::
+   如果一个分支已经被别人基于它开发/已经共享，慎用 rebase（会让别人需要处理“历史被重写”的问题）。
+
+
+多账号快速工作流（我现在推荐的“可解释版本”）
+==========================================
+
+你目前的方案是对的：**clone 时指定 credential.username + 进入 repo 配 local 身份**。
+
+核心目的：
+- commit 的 author 不串（user.name/user.email）
+- push/pull 的认证不串（credential.username + helper）
+
+步骤
+----
+
+.. code-block:: bash
+
+   # 1) clone 时临时禁用 helper + 指定用户名（避免被旧凭证污染）
+   git clone -c credential.helper= -c credential.username=xxx https://github.com/xxx/demo.git
+
+   # 2) 进入仓库后：把“身份”写死在本仓库 config
    cd demo
    git config --local user.name "xxx"
    git config --local user.email "xxx@example.com"
    git config --local credential.username "xxx"
 
-这个方式的好处：
+   # 3) 关键：让这个仓库（或全局）记住 token，不要每次输入
+   #    cache 默认 900 秒（15分钟），我一般调长
+   git config --local credential.helper "cache --timeout=604800"   # 1周
+   # 或全局（看你是否所有 repo 都能接受同一个策略）
+   # git config --global credential.helper "cache --timeout=604800"
 
-+ git history更干净（每个repo身份明确）
-+ git push 和 git pull 不容易出现账号问题
+解释：我到底要设置到什么程度？
+----------------------------
+
+- :code:`user.name/user.email`：只影响 commit 记录（不解决免密码）
+- :code:`credential.username`：告诉 Git 默认用哪个用户名（减少重复输入）
+- :code:`credential.helper cache --timeout=...`：决定“多久内不再输入 token”
+
+.. note::
+   cache 是内存缓存：重启/daemon 退出就没了。安全性更好，但不是永久保存。
 
 
-.. attention::
-   `credential.helper store`将会存放到本地的文本文件中，这是一个比较危险的事情。
-   也就意味着需要你保证本机的安全。 `~/.git-credentials`
+常见坑：MacOS 的 osxkeychain 多账号不好用怎么办？
+------------------------------------------------
 
+我自己的经验是：多账号时 keychain 容易“串号/撞记录”，体验不稳定。
+我一般用两个替代路线：
+
+- 路线A（少折腾）：HTTPS + cache（把 timeout 调长）
+- 路线B（最稳）：SSH 多 key（每个账号一把 key + ssh config 区分 host）
 
 .. tab-set::
 
-   .. tab-item:: MacOS
+   .. tab-item:: 路线A：cache（我当前最常用）
 
-      On Mac, Git comes with an “osxkeychain” mode, which caches credentials in the secure keychain that’s attached to your system account.
+      .. code-block:: bash
 
-     .. code-block:: bash
-     
-        git config --global credential.helper osxkeychain
-     
-   .. tab-item:: Linux
+         # 全局 cache + 8小时
+         git config --global credential.helper "cache --timeout=28800"
 
-     Linux
+         # 对某个 repo 单独设置 1周（更常用）
+         git config --local credential.helper "cache --timeout=604800"
 
-   .. tab-item::  Windows
+         # 想立刻清空缓存（排错时很有用）
+         git credential-cache exit
 
-    Windows
+   .. tab-item:: 路线B：SSH 多 key（稳定但需要一次配置）
 
-
-
-
-账户设置
-========
-
-之前在Mac用多个账户，经常出现要么不能git clone私有项目（因为是另外一个账户），要么错误的用了账户到别的repo中，并且一直管理上比较麻烦。
-
-有如下的方案：
-
-+ 方案1: 不配置global
-+ 方案2: 配置global， 默认使用hotchilipowder的账号。
+      思路：
+      - 账号1：Host github-personal -> 使用 key1
+      - 账号2：Host github-work     -> 使用 key2
+      然后每个 repo 的 remote 用不同 host，从根上隔离身份。
 
 
-方案1的版本中，需要按照如下的方式清除默认的 `credential.helper` 。
-对于
-
-.. code-block:: bash
-
-   git config --global --unset credential.helper
-
-
-对于方案2，在进行拉取非默认账号的项目的时候可能会报404，使用如下的命令:
-
-
-.. code-block:: bash
-
-   git clone -c credential.helper=  -c credential.username=xxx https://github.com/xxx/xx
-
-
-我自己目前常用的多账户开发方式如下：
-
-1. 主账户继续用global配置（默认账号）
-2. 非默认账号仓库，clone时临时指定credential.username
-3. clone后在repo里设置local的user.name、user.email和credential.username
-
-.. code-block:: bash
-
-   git clone -c credential.helper=  -c credential.username=xxx https://github.com/xxx/demo.git
-   cd demo
-   git config --local user.name "xxx"
-   git config --local user.email "xxx@example.com"
-   git config --local credential.username "xxx"
-
-这样做的好处是：
-
-+ git history 更干净（每个repo用对应身份）
-+ git push 和 git pull 不容易出现账号问题
-
-
-
-
-
-My Github Issues
-================
-
-MacOS osxkeychain
------------------
-
-Mac 上清除 git osxkeychain 保存的登录名密码
-
-.. code-block:: bash
-
-   git config --local --unset credential.helper
-   git config --global --unset credential.helper
-   git config --system --unset credential.helper
-
-但是还有进一步删除这个文件下的配置, more detail see \ `this link <https://stackoverflow.com/questions/16052602/how-to-disable-osxkeychain-as-credential-helper-in-git-config>`_
+排错：到底哪个 credential.helper 在生效？
+---------------------------------------
 
 .. code-block:: bash
 
    git config --show-origin --get credential.helper
 
-How to change default editor into vim
--------------------------------------
-
-不太习惯使用 nano, 默认的nano比较难搞，改成 \ :code:`vim`\
+清理（按优先级逐级排查）：
 
 .. code-block:: bash
 
-   git config --global core.editor vim
-
-
-Permission to x denied to github-actions[bot]
----------------------------------------------
-
-遇到“Permission to "x" denied to github-actions[bot].”问题，按照下面的方法进行处理, see \ `this link <https://www.raulmelo.me/en/til/how-to-solve-permission-to-x-denied-to-github-actions-bot>`_
-
-
-.. image:: https://www.raulmelo.me/_vercel/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgc3hakk3%2Fproduction%2F8b5476684f1dfe262c1d8c0abe8b9fca7124311a-1220x1381.png%3Fw%3D1220%26h%3D1381%26auto%3Dformat&w=1280&q=100
-
-
-
-Github Save username and password
----------------------------------
-
-
-由于经常有开项目的习惯，存在多个账号，所以建议先设置local的 \ :code:`user.name`\ 和 \ :code:`user.email`\ ，并且进一步设置, 当前的项目的存储方式，这样可以少输入密码
-
-
-.. code-block:: bash
-
-   git config --local user.name "hotchilipowder"
-   git config --local user.email "h12345jack@gmail.com"
-   git config --local credential.helper cache
-
-具体这些字段将会被写入到 \ :code:`project_xxx/.git/config`\中，
-
-例如：
-
-.. code-block:: bash
-
-   [user]
-   	name = hotchilipowder
-   	email = h12345jack@gmail.com
-   [credential]
-   	helper = cache
-   
-
-
-Config
-======
-
-.. list-table:: Title
-   :widths: 50 25 25
-   :header-rows: 1
-
-   * - Command
-     - Meaning
-     - Note
-   * - \ :code:`git config --global core.editor "vim"`\
-     - 修改编辑器为Vim
-     - 
-   * - \ :code:`git config --global credential.helper "cache --timeout=604800"`
-     - 修改cache过期事件为1周=60 * 60 * 24 * 7 = 604800
-     - 
-   * - \ :code:`git config --local credential.username "hotchilipowder"`\
-     - 设置默认的本地的crediential的username，避免每次都要重复输入。
-     -
-=======
-Useful Config
-=============
-
-No Password
------------
-
-
-
-
-
-Install
-=======
-
-
-.. tab-set::
-
-   .. tab-item:: Linux (Apt)
-
-      .. code-block:: bash
-      
-         apt install git-all
-
-   .. tab-item:: Linux (From source)
-      
-      see \ `this link <https://mirrors.edge.kernel.org/pub/software/scm/git/>`_  for recent release.
-
-      .. code-block:: bash
-      
-         apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
-
-         cd tmp
-         curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.5.tar.gz
-         tar -xvf git-2.38.5.tar.gz
-         ./configure --prefix=$HOME/.local
-         make && make install
-
-   .. tab-item:: MacOS
-      
-      .. code-block:: bash
-
-         brew install git 
-
-
-Proxy
-=====
-
-Just set following cmdline:
-
-.. code-block:: bash
-
-   git config --global http.proxy http://xxx
-   git config --global https.proxy http://xxx
+   git config --local  --unset credential.helper
+   git config --global --unset credential.helper
+   git config --system --unset credential.helper
 
 
 Common git skill
 ================
 
-关于git学习的资料，可以查看 \ `git教程 <https://www.liaoxuefeng.com/wiki/896043488029600>`_\ 
-
-
-Git Restore
------------
-
-\ :code:`git restore`\ 是较新的撤销命令，用于恢复工作区和暂存区文件，比 \ :code:`git checkout -- <file>`\ 语义更清晰。
-
-常见用法：
+Git Restore（再强调一次：适合“精准撤文件”）
+------------------------------------------
 
 .. code-block:: bash
 
-   # 丢弃工作区改动（未add）
-   git restore <file>
+   # 丢弃工作区改动（未 add）
+   git restore .
 
-   # 丢弃目录下的工作区改动
-   git restore path/to/dir
+   # 取消暂存（staged -> unstaged）
+   git restore --staged .
 
-   # 取消暂存（从staged放回工作区）
-   git restore --staged <file>
+   # 单文件回到 HEAD（相当于“这个文件彻底不要了”）
+   git restore --staged --worktree path/to/file
 
-   # 同时撤销暂存和工作区改动
-   git restore --staged --worktree <file>
-
-   # 从某个commit恢复指定文件
-   git restore --source <commit> <file>
-
-注意：\ :code:`git restore`\ 只影响当前文件状态，不会修改已经存在的commit history。
-
+   # 从某个 commit 恢复文件
+   git restore --source <commit> -- path/to/file
 
 
 Change history user.name and user.email
 --------------------------------------
 
-这个需求我主要是多设备没设置user.name 或者 user.email导致有一些奇怪的用户出现在git history里面了。
+这个需求常见：多设备没设置 user.name/email，导致 history 里出现奇怪作者。
+（注意：改历史会影响 commit id，做之前先备份/确认）
 
 .. code-block:: bash
 
@@ -305,6 +374,7 @@ Change history user.name and user.email
    OLD_EMAIL="you@example.com"
    CORRECT_NAME="hotchilipowder"
    CORRECT_EMAIL="h12345jack@gmail.com"
+
    if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
    then
        export GIT_COMMITTER_NAME="$CORRECT_NAME"
@@ -317,20 +387,15 @@ Change history user.name and user.email
    fi
    ' --tag-name-filter cat -- --branches --tags
 
-当然，为了避免这些，最好还是设置一下 user.name和user.email.
-
-.. code-block:: bash
-
-   git config --local user.name "hotchilipowder"
-   git config --local user.email "h12345jack@gmail.com"
-
+.. note::
+   最好的办法还是：一开始就把 user.name/user.email 配好，避免后面“洗历史”。
 
 
 Delete all history
 ------------------
 
-
-这个需求比较常见，因为有些commit history确实不想让人看到，很愚蠢
+这个需求也常见：有些历史不想让人看到（太蠢了）。
+（注意：这会让历史断掉，等于开新仓库）
 
 .. code-block:: bash
 
@@ -339,15 +404,7 @@ Delete all history
    git commit -m "Update"
    git branch -D main
    git branch -m main
-
-
-Lazygit
-=======
-
-`Lazygit <https://github.com/jesseduffield/lazygit>`_ is a simple terminal UI for git commands.
-
-
-
+   git push -f origin main
 
 
 
@@ -390,3 +447,12 @@ Self-hosted Action
 具体的步骤主要是按照要求进行安装即可。
 
 
+
+References
+==========
+
+- `git教程`_
+- `Lazygit`_
+
+.. _git教程: https://git-scm.com/book/en/v2
+.. _Lazygit: https://github.com/jesseduffield/lazygit
