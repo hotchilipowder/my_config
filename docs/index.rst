@@ -20,17 +20,17 @@ Welcome to My Dev Config's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   rsts/neovim.rst
-   rsts/git.rst
-   mds/github_actions.md
-   mds/win11.md
-   rsts/docker.rst
-   rsts/snippets.rst
-   rsts/sphinx.rst
-   rsts/homelab.rst
-   rsts/cookiecutter.rst
-   rsts/tikz.rst
-   rsts/resources.rst
+   notes/neovim.rst
+   notes/git.rst
+   notes/github_actions.md
+   notes/win11.md
+   notes/docker.rst
+   notes/snippets.rst
+   notes/sphinx.rst
+   notes/homelab.rst
+   notes/cookiecutter.rst
+   notes/tikz.rst
+   notes/resources.rst
 
 
 .. |python| replace:: :literal:`Python`
