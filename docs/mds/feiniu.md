@@ -26,12 +26,8 @@ acme.sh --issue --dns dns_dp -d example.com -d *.example.com
 cat /usr/trim/etc/network_gateway_cert.conf
 ```
 
-配置免密码:
+注意填写        
 
-```
-sudo visudo
-admin ALL=(ALL) NOPASSWD: NOPASSWD: ALL
-```
 
 部署证书&重启服务:
 
@@ -46,7 +42,7 @@ acme.sh --install-cert -d example.com --fullchain-file /home/admin/ssl/example.c
 CERT_NAME="example.com"
 CERT_PATH="/usr/trim/var/trim_connect/ssls/xxx"
 
-sudo cp /home/admin/ssl/example.com.crt /usr/trim/var/trim_connect/ssls/example.com/xxxx/example.com.crt
+sudo cp /home/admin/ssl/example.com.crt $CERT_PATH/example.com/xxx/example.com.crt
 sudo cp /home/admin/ssl/example.com.key /usr/trim/var/trim_connect/ssls/example.com/xxx/example.com.key
 
 NEW_EXPIRY_DATE=$(openssl x509 -enddate -noout -in "$CERT_PATH/$CERT_NAME.crt" | sed "s/^.*=\(.*\)$/\1/")
