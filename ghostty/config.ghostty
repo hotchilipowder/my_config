@@ -1,0 +1,29 @@
+# ===== Font: mimic your iTerm2 setting =====
+font-family = "FiraCode Nerd Font Mono"
+font-style = "Regular"
+font-size = 18
+
+# iTerm2 里你没开 ligatures，所以这里也关掉
+font-feature = -calt, -liga, -dlig
+
+# macOS 上让字体稍微厚一点；如果你觉得太糊，就改成 false
+font-thicken = true
+font-thicken-strength = 64
+
+# 稍微增加行高，接近 iTerm2 的舒服感
+adjust-cell-height = 5%
+
+# 中文 fallback，避免中文很丑或缺字
+font-family = "PingFang SC"
+
+# ===== Tabs =====
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
+
+# 也保留常见 tab 切换
+keybind = cmd+shift+left_bracket=previous_tab
+keybind = cmd+shift+right_bracket=next_tab
+
+# reload config
+keybind = cmd+shift+,=reload_config
+
