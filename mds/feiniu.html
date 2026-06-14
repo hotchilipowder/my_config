@@ -6,7 +6,7 @@
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
-    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=44020203" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=9454f7d5" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
@@ -22,7 +22,8 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="飞牛"/>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="飞牛"/>
     <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -201,11 +202,7 @@ data-aria-dark="切换到自动模式">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cat</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">trim</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">network_gateway_cert</span><span class="o">.</span><span class="n">conf</span>
 </span></pre></div>
 </div>
-<p>配置免密码:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">sudo</span> <span class="n">visudo</span>
-</span><span data-line="2"><span class="n">admin</span> <span class="n">ALL</span><span class="o">=</span><span class="p">(</span><span class="n">ALL</span><span class="p">)</span> <span class="n">NOPASSWD</span><span class="p">:</span> <span class="n">NOPASSWD</span><span class="p">:</span> <span class="n">ALL</span>
-</span></pre></div>
-</div>
+<p>注意填写</p>
 <p>部署证书&amp;重启服务:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">acme</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">cert</span> <span class="o">-</span><span class="n">d</span> <span class="n">example</span><span class="o">.</span><span class="n">com</span> <span class="o">--</span><span class="n">fullchain</span><span class="o">-</span><span class="n">file</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">crt</span> <span class="o">--</span><span class="n">key</span><span class="o">-</span><span class="n">file</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">key</span> \
 </span><span data-line="2">        <span class="o">--</span><span class="n">reloadcmd</span> <span class="s2">&quot;sudo bash /home/admin/ssl/update_cert.sh&quot;</span>
@@ -215,7 +212,7 @@ data-aria-dark="切换到自动模式">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">CERT_NAME=&quot;example.com&quot;
 </span><span data-line="2">CERT_PATH=&quot;/usr/trim/var/trim_connect/ssls/xxx&quot;
 </span><span data-line="3">
-</span><span data-line="4">sudo cp /home/admin/ssl/example.com.crt /usr/trim/var/trim_connect/ssls/example.com/xxxx/example.com.crt
+</span><span data-line="4">sudo cp /home/admin/ssl/example.com.crt $CERT_PATH/example.com/xxx/example.com.crt
 </span><span data-line="5">sudo cp /home/admin/ssl/example.com.key /usr/trim/var/trim_connect/ssls/example.com/xxx/example.com.key
 </span><span data-line="6">
 </span><span data-line="7">NEW_EXPIRY_DATE=$(openssl x509 -enddate -noout -in &quot;$CERT_PATH/$CERT_NAME.crt&quot; | sed &quot;s/^.*=\(.*\)$/\1/&quot;)
@@ -313,5 +310,5 @@ commentsRunWhenDOMLoaded(addUtterances);
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-      <script src="../_static/shibuya.js?v=cac61aee"></script></body>
+      <script src="../_static/shibuya.js?v=50760d75"></script></body>
 </html>
