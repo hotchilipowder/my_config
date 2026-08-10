@@ -3,3 +3,5 @@ docs/_build
 build/
 jupyter_execute/
 uv.lock
+nvim.log
+nvim/init.lua.bak

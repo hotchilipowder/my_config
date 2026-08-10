@@ -21,6 +21,7 @@ Welcome to My Dev Config's documentation!
    :caption: Contents:
 
    notes/neovim.rst
+   notes/ghostty.rst
    notes/git.rst
    notes/github_actions.md
    notes/win11.md
