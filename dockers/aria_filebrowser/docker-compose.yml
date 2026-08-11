@@ -3,13 +3,13 @@ version: "3.8"
 services:
   filebrowser:
     image: hurlenko/filebrowser
-    user: "${UID}:${GID}"
+    user: "${UID:-1000}:${GID:-1000}"
     ports:
-      - 44443:8080
+      - "${FILEBROWSER_BIND_ADDRESS:-127.0.0.1}:44443:8080"
     volumes:
-      - ${PWD}/filebrowser_config:/config
-      - ${PWD}/aria2-downloads:/data
-      - /root/ssl:/ssl
+      - ./filebrowser_config:/config
+      - ./aria2-downloads:/data
+      - /root/ssl:/ssl:ro
     environment:
       - FB_BASEURL=/filebrowser
     restart: always
@@ -28,22 +28,18 @@ services:
       - UPDATE_TRACKERS=true
       - CUSTOM_TRACKER_URL=
       - TZ=Asia/Shanghai
-      - RPC_SECRET=bytedance
+      - RPC_SECRET=${RPC_SECRET:?RPC_SECRET must be set}
       - RPC_SECURE=true
       - RPC_CERTIFICATE=/ssl/us-45.xxx.xxx/us-45.xxx.xxx.cer
       - RPC_PRIVATE_KEY=/ssl/us-45.xxx.xxx/us-45.xxx.xxx.key
     volumes:
-      - ${PWD}/aria2-config:/config
-      - ${PWD}/aria2-downloads:/downloads
-      - /root/ssl:/ssl
-# If you use host network mode, then no port mapping is required.
-# This is the easiest way to use IPv6 networks.
-    network_mode: host
-#    network_mode: bridge
-#    ports:
-#      - 6800:6800
-#      - 6888:6888
-#      - 6888:6888/udp
+      - ./aria2-config:/config
+      - ./aria2-downloads:/downloads
+      - /root/ssl:/ssl:ro
+    ports:
+      - "${ARIA2_BIND_ADDRESS:-127.0.0.1}:6800:6800"
+      - "${ARIA2_BIND_ADDRESS:-127.0.0.1}:6888:6888"
+      - "${ARIA2_BIND_ADDRESS:-127.0.0.1}:6888:6888/udp"
     restart: unless-stopped
 # Since Aria2 will continue to generate logs, limit the log size to 1M to prevent your hard disk from running out of space.
     logging:
@@ -56,10 +52,8 @@ services:
     container_name: ariang
     image: p3terx/ariang
     command: --port 6880 --ipv6
-    network_mode: host
-#    network_mode: bridge
-#    ports:
-#      - 6880:6880
+    ports:
+      - "127.0.0.1:6880:6880"
     restart: unless-stopped
     logging:
       driver: json-file

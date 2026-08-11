@@ -26,6 +26,6 @@ scrape_configs:
     static_configs:
       - targets: ['cadvisor:8080']
 
-  - job_name: 'xray_expoter'
+  - job_name: 'xray_exporter'
     static_configs:
-      - targets: ['xray_expoter:9550']
+      - targets: ['xray_exporter:9550']

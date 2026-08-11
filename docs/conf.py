@@ -33,7 +33,8 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_comments",
-    "jupyter_sphinx"
+    "jupyter_sphinx",
+    "ablog",
 ]
 
 myst_enable_extensions = [
@@ -56,7 +57,7 @@ myst_enable_extensions = [
 
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'plans']
 
 language = 'zh'
 
@@ -75,7 +76,7 @@ html_static_path = ['_static']
 
 html_logo = "_static/my_config.png"
 html_title = 'My Dev Config'
-html_favicon = "_static/logo.svg"
+html_favicon = "_static/my_config.png"
 html_theme_options = {
     "logo_target": "/my_config",
     "github_url": "https://github.com/hotchilipowder/my_config",

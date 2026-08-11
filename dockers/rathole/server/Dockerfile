@@ -10,4 +10,6 @@ RUN cd /root \
     && mv rathole /usr/bin/  \
     && cd /root \
     && rm ${FILENAME}
-ENTRYPOINT /usr/bin/rathole /etc/rathole/server.toml
+COPY entrypoint.sh /usr/local/bin/rathole-entrypoint
+RUN chmod +x /usr/local/bin/rathole-entrypoint
+ENTRYPOINT ["/usr/local/bin/rathole-entrypoint", "/etc/rathole/server.toml.template"]

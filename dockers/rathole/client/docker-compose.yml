@@ -1,11 +1,13 @@
 version: "3"
 services:
   rathole-client:
-     image: my-rathole
-     build:
-       context: .
-     network_mode: host
-     volumes:
-         - ./client.toml:/etc/rathole/client.toml
-     restart: unless-stopped
-     tty: true
+      image: my-rathole
+      build:
+        context: .
+      network_mode: host
+      environment:
+          RATHOLE_TOKEN: ${RATHOLE_TOKEN:?RATHOLE_TOKEN must be set}
+      volumes:
+          - ./client.toml.example:/etc/rathole/client.toml.template:ro
+      restart: unless-stopped
+      tty: true

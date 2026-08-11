@@ -19,13 +19,14 @@ services:
     ports:
       - "127.0.0.1:9090:9090"
     volumes:
-      - ./prometheus_confs:/etc/prometheus
+      - ./prom_confs:/etc/prometheus
       - prometheus-data:/prometheus
     restart: unless-stopped
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     networks:
       - default
+      - traefik_default
 
   grafana:
     image: grafana/grafana-oss:latest

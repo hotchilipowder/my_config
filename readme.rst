@@ -19,10 +19,8 @@ For development, you can have a dev environment to get the docs.
 
 .. code-block:: bash
 
-   virtualenv venv
-   source venv/bin/activate
-   uv pip install -r requirements.txt
-   sphinx-autobuild docs build --host 0
+    uv sync --locked
+    uv run sphinx-autobuild docs build --host 0
 
 
 

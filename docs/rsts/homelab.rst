@@ -23,6 +23,8 @@ DDNS
 
 .. code-block:: bash
 
+  export DNSPOD_ID="your-id"
+  export DNSPOD_TOKEN="your-token"
   curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/scripts/ddns/ddns_dp.py
 
 
@@ -372,4 +374,3 @@ References
 ==========
 
 .. [HomeLab] a laboratory of (usually slightly outdated) awesome in the domicile. See https://icyleaf.com/2022/02/how-to-homelab-part-0
-

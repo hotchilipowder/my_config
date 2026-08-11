@@ -7,14 +7,14 @@ services:
       - PGID=1000
       - TZ=Asia/Shanghai
       - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
-      - USER=admin #optional
-      - PASS=xxxxx #optional
+      - USER=${TRANSMISSION_USER:-admin}
+      - PASS=${TRANSMISSION_PASS:?TRANSMISSION_PASS must be set}
     volumes:
       - ./config:/config
-      - ./dowloands:/downloads
+      - ./downloads:/downloads
       - ./watch:/watch
     ports:
-      - 9091:9091
-      - 51413:51413
-      - 51413:51413/udp
+      - "${TRANSMISSION_WEB_BIND_ADDRESS:-127.0.0.1}:9091:9091"
+      - "${TRANSMISSION_PEER_BIND_ADDRESS:-127.0.0.1}:51413:51413"
+      - "${TRANSMISSION_PEER_BIND_ADDRESS:-127.0.0.1}:51413:51413/udp"
     restart: unless-stopped

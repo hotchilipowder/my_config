@@ -4,9 +4,8 @@ http:
     enabled: false
   address: 0.0.0.0:3000
   session_ttl: 720h
-users:
-  - name: admin
-    password: xxx 
+# Create the administrator account during the first-run setup.
+users: []
 auth_attempts: 5
 block_auth_min: 15
 http_proxy: ""
@@ -36,7 +35,11 @@ dns:
   all_servers: false
   fastest_addr: false
   fastest_timeout: 1s
-  allowed_clients: []
+  allowed_clients:
+    - 127.0.0.0/8
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
   disallowed_clients: []
   blocked_hosts:
     - version.bind

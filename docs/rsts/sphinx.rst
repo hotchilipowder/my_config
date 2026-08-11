@@ -17,7 +17,7 @@ Why sphinx
 
 很显然如果想要简单，选用markdown即可。但是markdown的功能收到限制，因此需要进一步扩展起能力，就得往下。
 而mdx虽然很好，交互丰富，但是想来还是使用python更多，因此，最后还是选择了rst.
-不过还有包括 [MyST]_ 这种有趣的md扩展。
+不过还有包括 `MyST-Parser <https://github.com/executablebooks/MyST-Parser>`_ 这种有趣的md扩展。
 
 
 Install 常用的sphinx扩展
@@ -99,7 +99,7 @@ MyST-Parser
 sphinxcontrib-mermaid
 ---------------------
 
-由于在 `MyST-Parser`_ 介绍了关于这个 \ `mermaid <https://mermaid.js.org/>`_, 感觉非常好用。
+由于在 `MyST-Parser <https://github.com/executablebooks/MyST-Parser>`_ 介绍了关于这个 \ `mermaid <https://mermaid.js.org/>`_, 感觉非常好用。
 
 更多的文档，请查看 \ `https://mermaid.js.org/intro/ <https://mermaid.js.org/intro/>`_
 
@@ -528,8 +528,6 @@ Groups for sphinx
 References
 ==========
 
-
-.. [MyST] https://github.com/executablebooks/MyST-Parser
 
 .. [sphinx-contrib] https://github.com/sphinx-contrib
 

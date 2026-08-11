@@ -5,6 +5,9 @@ on:
     branches:
       - main  # Set a branch name to trigger deployment
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     name: Deploy Site
@@ -14,17 +17,29 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Install 
-        shell: bash
-        run: |
-          pip install -r requirements.txt
-          sphinx-build -b html docs build
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked
 
       - name: Make snippets to rst
         shell: bash
         working-directory: snippets
         run: |
-          python3 snippets.py
+          uv run python snippets.py
+
+      - name: Build documentation
+        shell: bash
+        run: |
+          uv run sphinx-build -W --keep-going -b html docs build
 
       - name: Deploy Website
         uses: peaceiris/actions-gh-pages@v3

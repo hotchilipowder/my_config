@@ -3,6 +3,11 @@
     "loglevel": "warning",
     "dnsLog": false
   },
+  "api": {
+    "tag": "api",
+    "services": ["StatsService"]
+  },
+  "stats": {},
   "dns": {
      "hosts": {
       "domain:googleapis.cn": "googleapis.com",
@@ -51,21 +56,12 @@
       }
     },
     {
-      "tag": "http-in-1086",
-      "protocol": "http",
+      "tag": "api",
       "listen": "0.0.0.0",
-      "port": 1085,
+      "port": 10085,
+      "protocol": "dokodemo-door",
       "settings": {
-        "network": "tcp,udp"
-      }
-    },
-    {
-      "tag": "http-in-1085",
-      "protocol": "http",
-      "listen": "0.0.0.0",
-      "port": 1085,
-      "settings": {
-        "network": "tcp,udp"
+        "address": "127.0.0.1"
       }
     }
   ],
@@ -82,7 +78,6 @@
         }
       }
     },
-    // proxy here
     {
       "tag": "block",
       "protocol": "blackhole",
@@ -103,7 +98,7 @@
     }
   ],
   "routing": {
-    "domainStrategy": "mph",
+    "domainStrategy": "IPIfNonMatch",
     "rules": [
       {
         "type": "field",
@@ -112,13 +107,8 @@
       },
       {
         "type": "field",
-        "inboundTag": ["http-in-1085"],
-        "outboundTag": "proxy"
-      },
-      {
-        "type": "field",
-        "inboundTag": ["http-in-1086"],
-        "outboundTag": "proxy-2"
+        "inboundTag": ["api"],
+        "outboundTag": "api"
       },
       {
         "type": "field",
@@ -155,27 +145,27 @@
       {
         "type": "field",
         "ip": ["8.8.8.8", "1.1.1.1"],
-        "outboundTag": "proxy"
+        "outboundTag": "direct"
       },
       {
         "type": "field",
         "domain": [
-	  "domian:chatgpt.com",
-	  "domian:oaistatic.com",
-	  "domian:oaiusercontent.com",
-	  "domian:openai.com",
+	  "domain:chatgpt.com",
+	  "domain:oaistatic.com",
+	  "domain:oaiusercontent.com",
+	  "domain:openai.com",
 	  "full:chat.openai.com.cdn.cloudflare.net",
 	  "full:openaiapi-site.azureedge.net",
 	  "full:openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net",
 	  "full:openaicomproductionae4b.blob.core.windows.net",
 	  "full:production-openaicom-storage.azureedge.net"
 	],
-        "outboundTag": "proxy"
+        "outboundTag": "direct"
       },
       {
         "type": "field",
         "domain": ["geosite:geolocation-!cn"],
-        "outboundTag": "proxy"
+        "outboundTag": "direct"
       }
     ]
   }

@@ -18,8 +18,8 @@ import urllib.request
 import urllib.parse
 import locale
 
-DP_ID = "xxx"  # replace with your ID
-DP_TOKEN = "xxx"  # replace with your Token
+DP_ID = os.environ.get("DNSPOD_ID")
+DP_TOKEN = os.environ.get("DNSPOD_TOKEN")
 
 
 DOMAIN = "utlab.ltd"
@@ -123,7 +123,7 @@ class DNSPod(object):
         encoded_data = urllib.parse.urlencode(data).encode()
 
         req = urllib.request.Request(url, data=encoded_data, method="POST")
-        with urllib.request.urlopen(req) as response:
+        with urllib.request.urlopen(req, timeout=10) as response:
             response_data = response.read().decode("utf-8")
             return response_data
 
@@ -138,7 +138,7 @@ class DNSPod(object):
         r = self.post_data(record_list_url, data=params_all_types)
         logger.warning(record_list_url)
         jd = json.loads(r)
-        logger.info(f"Check conflict: {jd}")
+        logger.info("Checked DNS record conflicts for %s.%s", params["sub_domain"], params["domain"])
 
         if jd['status']['code'] != '1':
             logger.error("Failed to retrieve record list")
@@ -221,7 +221,6 @@ class DNSPod(object):
             return
         params["value"] = ip
         record_create_url = "https://dnsapi.cn/Record.Create"
-        logger.warning(params)
         r = self.post_data(record_create_url, data=params)
         jd = json.loads(r)
         assert jd["status"]["code"] == "1", jd
@@ -235,7 +234,6 @@ class DNSPod(object):
         https://www.dnspod.cn/docs/records.html#dns
         """
         logger.warning(ip)
-        logger.warning(params)
         params["value"] = ip
         ddns_url = "https://dnsapi.cn/Record.Ddns"
         r = self.post_data(ddns_url, data=params)
@@ -246,6 +244,9 @@ class DNSPod(object):
 
 
 def main():
+    if not DP_ID or not DP_TOKEN:
+        parser.error("DNSPOD_ID and DNSPOD_TOKEN environment variables are required")
+
     params = dict(
         login_token=("%s,%s" % (DP_ID, DP_TOKEN)),
         format="json",
@@ -265,4 +266,3 @@ def test():
 
 if __name__ == "__main__":
     main()
-

@@ -254,7 +254,7 @@ vim-tmux-navigator
 
 `vim-tmux-navigator <https://github.com/christoomey/vim-tmux-navigator>`_
 
-more config see  :doc:`tmux.rst <./tmux>` 
+more config see the Tmux section above.
 
 这里之前有
 

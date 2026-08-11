@@ -197,12 +197,7 @@ server_status_rust
 
 .. code-block:: bash
 
-   curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/server_status_rust/Dockerfile
-   curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/server_status_rust/docker-compose.yml
-
-.. dropdown:: \ :code:`Dockerfile`\
-
-    .. literalinclude:: ../../dockers/server_status_rust/Dockerfile
+    curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/server_status_rust/docker-compose.yml
 
 .. dropdown:: \ :code:`docker-compose.yml`\
 
@@ -217,11 +212,13 @@ rathole
 rathole client
 ^^^^^^^^^^^^^^
 
+Token 通过 `RATHOLE_TOKEN` 环境变量注入，配置模板不会保存真实凭据。
+
 .. code-block:: bash
 
    curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/client/Dockerfile
    curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/client/docker-compose.yml
-   curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/client/client.toml
+   curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/client/client.toml.example
 
 .. dropdown:: \ :code:`Dockerfile`\
 
@@ -233,16 +230,18 @@ rathole client
 
 .. dropdown:: \ :code:`client.toml`\
 
-   .. literalinclude:: ../../dockers/rathole/client/client.toml
+    .. literalinclude:: ../../dockers/rathole/client/client.toml.example
 
 rathole server
 ^^^^^^^^^^^^^^
+
+服务端使用与客户端相同的 `RATHOLE_TOKEN`，请在启动前配置本地 `.env` 文件。
 
 .. code-block:: bash
 
    curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/server/Dockerfile
    curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/server/docker-compose.yml
-   curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/server/server.toml
+   curl -OL https://raw.githubusercontent.com/hotchilipowder/my_config/main/dockers/rathole/server/server.toml.example
 
 .. dropdown:: \ :code:`Dockerfile`\
 
@@ -254,7 +253,7 @@ rathole server
 
 .. dropdown:: \ :code:`server.toml`\
 
-   .. literalinclude:: ../../dockers/rathole/server/server.toml
+    .. literalinclude:: ../../dockers/rathole/server/server.toml.example
 
 
 Adhomeguard 
@@ -288,6 +287,8 @@ Aria filebrowser(TODO)
 --------------------------------
  
 这个是设置的aria-pro和filebrowser
+
+启动前请复制 `.env.example` 为 `.env`，并设置随机的 `RPC_SECRET`。
 
 
 .. dropdown:: \ :code:`docker-compose.yml`\

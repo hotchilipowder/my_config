@@ -1,0 +1,10 @@
+services:
+  python-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my-python-dev:local
+    working_dir: /code
+    volumes:
+      - ./:/code
+    command: sleep infinity

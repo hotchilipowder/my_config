@@ -2,4 +2,6 @@
 docs/_build
 build/
 jupyter_execute/
-uv.lock
+.env
+dockers/rathole/client/client.toml
+dockers/rathole/server/server.toml

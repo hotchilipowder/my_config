@@ -19,13 +19,12 @@ Sync from github
 DIY for vim-snippets
 ====================
 
-在使用了2年的 [vim-snippets]_ 后，因为入坑了 [typst]_ ，所以决定还是切换到自己的repository下，以便能支持snippets. 
+在使用了2年的 `vim-snippets <https://github.com/honza/vim-snippets>`_ 后，因为入坑了 [typst]_ ，所以决定还是切换到自己的repository下，以便能支持snippets.
 此外，因为写snippets的过程其实也是对于语法进行学习了解的过程，例如我根据阅读一些rst的snippet，很好的学习了许多的相关的用法。
 因此，个人认为是时候 (2024-12-08) 切换到这里来了。
 
 .. [typst] https://typst.app/
 
-.. [vim-snippets] https://github.com/honza/vim-snippets
 
 
 
@@ -35,8 +34,8 @@ Introduction
 使用Snippets无意是在日常工作流中非常重要的一环。
 常见的编辑起无论是 \ :literal:`vscode`\还是 \ :literal:`neovim`\ 都有很多的snippets系统。
 
-而且在 [#how-to-make-math-note]_ 中对于 \ :literal:`Ultisnipets`\ 有大量的使用。
-更多的参考资料也包括: [#Supercharged-Latex]_。
+而且在 `How I'm able to take notes in mathematics lectures using LaTeX and Vim <https://castel.dev/post/lecture-notes-1/>`_ 中对于 \ :literal:`Ultisnipets`\ 有大量的使用。
+更多的参考资料也包括: `Supercharged LaTeX using Vim/Neovim, VimTeX, and snippets <https://www.ejmastnak.com/tutorials/vim-latex/intro/>`_。
 
 
 Ultisnipets
@@ -71,7 +70,7 @@ Just use \ :code:`VsniptOpenEdit`\
 vim-snippets 简要记录
 =====================
 
-如果你用 [#vim-snippets]_ 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).
+如果你用 `vim-snippets <https://github.com/honza/vim-snippets>`_ 就会发现有一些经典的使用。简单的罗列一下snippets (2023-04-22).
 
 
 Markdown
@@ -179,10 +178,3 @@ see \ `rust.snippets <https://github.com/honza/vim-snippets/blob/master/UltiSnip
 
 References
 ==========
-
-
-.. [#Supercharged-Latex]  `Supercharged LaTeX using Vim/Neovim, VimTeX, and snippets <https://www.ejmastnak.com/tutorials/vim-latex/intro/>`_
-
-.. [#how-to-make-math-note]  `How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel <https://castel.dev/post/lecture-notes-1/>`_
-
-.. [#vim-snippets] https://github.com/honza/vim-snippets

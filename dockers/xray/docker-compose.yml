@@ -37,11 +37,14 @@ services:
   xray_exporter:
     container_name: xray_exporter
     image: xray_docker
-    # command: "sleep 10000"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     command: "/root/v2ray-exporter --v2ray-endpoint 'xray:10085'"
+    depends_on:
+      - xray
+    restart: always
     tty: true
-    ports:
-      - 9550:9550
     networks: 
       - xray_macvlan
       - traefik_default

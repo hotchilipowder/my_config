@@ -203,17 +203,7 @@ Config
      - 
    * - \ :code:`git config --local credential.username "hotchilipowder"`\
      - 设置默认的本地的crediential的username，避免每次都要重复输入。
-     -
-=======
-Useful Config
-=============
-
-No Password
------------
-
-
-
-
+     - 无
 
 Install
 =======
@@ -294,7 +284,7 @@ Git Restore
 
 
 Change history user.name and user.email
---------------------------------------
+=======================================
 
 这个需求我主要是多设备没设置user.name 或者 user.email导致有一些奇怪的用户出现在git history里面了。
 
@@ -388,5 +378,3 @@ Self-hosted Action
 最近，得知了Github Action可以Self-hosted了。基于这个特性，将会非常好的使用Github Action去替换Jenkin。
 
 具体的步骤主要是按照要求进行安装即可。
-
-

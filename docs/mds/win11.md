@@ -16,7 +16,7 @@
 
 1. 安装Terminal
 2. Terminal修改字体，下载 [nerfonts](https://www.nerdfonts.com/){.external}
-3. 配置wsl,  [配置](#wsl)
+3. 配置wsl
 4. 配置键盘，为了和MacOS一致. [MacOS](https://www.v2ex.com/t/863055){.external}
 
 网络上，本来配合旁路由设置是很好的。
@@ -137,4 +137,3 @@ dnsTunneling=true
 firewall=true
 autoProxy=true
 ```
-

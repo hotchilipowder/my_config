@@ -23,11 +23,15 @@ Welcome to My Dev Config's documentation!
    rsts/neovim.rst
    rsts/git.rst
    mds/github_actions.md
+   mds/feiniu.md
+   mds/typst.md
+   mds/vps.md
    mds/win11.md
    rsts/docker.rst
    rsts/snippets.rst
    rsts/sphinx.rst
    rsts/homelab.rst
+   rsts/hardware.rst
    rsts/cookiecutter.rst
    rsts/tikz.rst
    rsts/resources.rst

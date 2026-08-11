@@ -4,6 +4,7 @@ import gzip
 import argparse
 
 import urllib.request
+from urllib.error import URLError
 
 # url = 'VISUAL'
 # headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
@@ -17,9 +18,11 @@ url = 'https://nodejs.org/download/release/latest'
 url_domain = 'https://nodejs.org'
 req = urllib.request.Request(url, headers=headers)
 
-res = urllib.request.urlopen(req)
-content = res.read()
-content = content.decode('utf8')
+try:
+    with urllib.request.urlopen(req, timeout=10) as response:
+        content = response.read().decode('utf8')
+except (OSError, URLError, UnicodeDecodeError):
+    content = ''
 # print(content)
 res = re.findall(r'href\=\"(.+?-linux-x64.tar.gz)\"\>', content)
 if len(res) > 0:
