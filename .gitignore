@@ -5,3 +5,5 @@ jupyter_execute/
 .env
 dockers/rathole/client/client.toml
 dockers/rathole/server/server.toml
+nvim.log
+nvim/init.lua.bak

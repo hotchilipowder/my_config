@@ -1,0 +1,8 @@
+font-family = "FantasqueSansMNFM-Regular"
+font-size = 21
+
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+term = xterm-256color
+
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
