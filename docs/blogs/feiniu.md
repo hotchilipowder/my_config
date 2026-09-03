@@ -54,6 +54,64 @@ psql -U postgres -d trim_connect -c "UPDATE cert SET valid_to=$NEW_EXPIRY_TIMEST
 echo "服务已更新"
 ```
 
+## 使用traefik替换默认的转发
+
+1. 关闭系统设置-安全性-端口设置-高级设置-重定向。
+2. 设置traefik的转发功能
+
+
+```
+tls:
+  certificates:
+    - certFile: /ssl/xxx.xxxx.xxxxx.crt
+      keyFile: /ssl/xxx.xxxx.xxxxx.key
+
+http:
+  routers:
+    # 针对80端口的路由器，直接返回重定向
+    router-http:
+      rule: "Host(`xxx.xxxx.xxxxx`)"
+      entryPoints:
+        - web
+      middlewares:
+        - redirect-http
+      service: dummy-service
+
+    router-https:
+      rule: "Host(`xxx.xxxx.xxxxx`)"
+      tls: true
+      entryPoints:
+        - websecure
+      middlewares:
+        - redirect-https
+      service: dummy-service
+
+
+  middlewares:
+    # 针对HTTP请求的重定向，将端口改为5666
+    redirect-http:
+      redirectRegex:
+        redirectRegex:
+        regex: "^https?://xxx\\.xxxx\\.xxxxx(.*)$"
+        replacement: "http://xxx.xxxx.xxxxx:5666$1"
+        permanent: true
+
+    # 针对HTTPS请求的重定向，将端口改为5667
+    redirect-https:
+      redirectRegex:
+        regex: "^https://xxx\\.xxxx\\.xxxxx(.*)$"
+        replacement: "https://xxx.xxxx.xxxxx:5667$1"
+        permanent: true
+
+  services:
+    dummy-service:
+      loadBalancer:
+        servers:
+          - url: "https://xxx.xxxx.xxxxx:5667"  # 无实际请求意义
+```
+
+
+
 ### 参考资料
 1. https://github.com/lfgyx/fnos_certificate_update/blob/main/src/update_cert.sh
 2. https://club.fnnas.com/forum.php?mod=viewthread&tid=6890
