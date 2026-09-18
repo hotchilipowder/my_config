@@ -352,7 +352,7 @@ MISC
 Backup disks
 ------------
 
-.. code-block:: code
+.. code-block:: text
 
   # first find node_modules venv .git
 

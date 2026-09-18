@@ -21,7 +21,7 @@ VSTEMPLATE_DIR = os.path.join(BASE_DIR, 'vscode-snips', 'raws')
 VSOUTPUT_DIR = os.path.join(BASE_DIR, 'vscode-snips', '..', 'vsnip_snippets')
 ULOUTPUT_DIR = os.path.join(BASE_DIR, 'UltiSnips')
 PROJECT_DIR = os.path.join(BASE_DIR, '..')
-DOCOUPUT_DIR = os.path.join(PROJECT_DIR, 'docs', 'rsts')
+DOCOUPUT_DIR = os.path.join(PROJECT_DIR, 'docs', 'notes')
 
 # vs_affix_dict, you can add more
 vs_affix_dict = {
@@ -78,9 +78,8 @@ def make_snippest(fname: str):
 def list_raws():
     raw_dirpath = VSTEMPLATE_DIR
     for fname in os.listdir(raw_dirpath):
-        for affix in vs_affix_dict.keys():
-            if not fname.endswith(affix):
-                continue
+        if not any(fname.endswith(affix) for affix in vs_affix_dict):
+            continue
         make_snippest(fname)
 
 

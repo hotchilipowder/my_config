@@ -44,3 +44,19 @@ restructuredtext
         ${1:${VISUAL:test}}
 
     
+
+.. dropdown:: [sphinx_link]  link in rst
+
+   .. code-block:: bash
+
+        \ \`${1:title} <${2:url}>\`_
+
+    
+
+.. dropdown:: [sphinx_jupyter]  sphinx_jupyter
+
+   .. code-block:: bash
+
+            :hide-code:
+
+    
