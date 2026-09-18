@@ -21,12 +21,13 @@ Welcome to My Dev Config's documentation!
    :caption: Contents:
 
    notes/neovim.rst
-   notes/ghostty.rst
+   notes/ghostty.md
    notes/git.rst
    notes/github_actions.md
    blogs/feiniu.md
    notes/typst.md
    notes/vps.md
+   notes/macos.md
    notes/win11.md
    notes/docker.rst
    notes/snippets.rst
