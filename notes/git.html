@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Awesome Git (Notes) - My Dev Config</title><link rel="shortcut icon" href="../_static/my_config.png"/><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Github Action" href="github_actions.html" /><link rel="prev" title="Ghostty" href="ghostty.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=44020203" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+        </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/my_config">
+      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" loading="lazy" />
+      <strong>My Dev Config</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="切换到亮色模式"
+data-aria-light="切换到暗色模式"
+data-aria-dark="切换到自动模式">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+         <section id="awesome-git-notes">
+<h1>Awesome Git (Notes)<a class="headerlink" href="#awesome-git-notes" title="链接到此标题。">¶</a></h1>
+<p>这个文档是我自己的 Git 查漏补缺笔记：偏“日常高频 + 容易混淆的点”。
+风格：先给心智模型，再给最常用命令，最后给坑点/排错。</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#best-practice-for-git" id="id8">Best Practice for Git</a></p></li>
+<li><p><a class="reference internal" href="#git" id="id9">Git 的三层心智模型（最重要）</a></p></li>
+<li><p><a class="reference internal" href="#restore-reset-checkout-rm" id="id10">四个命令的关系：restore / reset / checkout / rm</a></p>
+<ul>
+<li><p><a class="reference internal" href="#git-restore" id="id11">Git Restore</a></p></li>
+<li><p><a class="reference internal" href="#git-reset" id="id12">Git Reset</a></p></li>
+<li><p><a class="reference internal" href="#git-checkout-switch" id="id13">Git Checkout / Switch</a></p></li>
+<li><p><a class="reference internal" href="#git-rm" id="id14">Git RM</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id1" id="id15">常见“等价/不等价”对照表（防止混淆）</a></p></li>
+<li><p><a class="reference internal" href="#pull-rebase-merge-fast-forward" id="id16">Pull / Rebase / Merge / Fast-forward（你最困惑的点）</a></p>
+<ul>
+<li><p><a class="reference internal" href="#git-pull" id="id17">git pull 的本质</a></p></li>
+<li><p><a class="reference internal" href="#fast-forward" id="id18">Fast-forward（快进）是什么？</a></p></li>
+<li><p><a class="reference internal" href="#merge" id="id19">Merge（合并）是什么？</a></p></li>
+<li><p><a class="reference internal" href="#rebase" id="id20">Rebase（变基）是什么？</a></p></li>
+<li><p><a class="reference internal" href="#pull-rebase-pull-ff" id="id21">pull.rebase / pull.ff 我应该怎么选？</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id2" id="id22">多账号快速工作流（我现在推荐的“可解释版本”）</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id23">步骤</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id24">解释：我到底要设置到什么程度？</a></p></li>
+<li><p><a class="reference internal" href="#macos-osxkeychain" id="id25">常见坑：MacOS 的 osxkeychain 多账号不好用怎么办？</a></p></li>
+<li><p><a class="reference internal" href="#credential-helper" id="id26">排错：到底哪个 credential.helper 在生效？</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#common-git-skill" id="id27">Common git skill</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id28">Git Restore（再强调一次：适合“精准撤文件”）</a></p></li>
+<li><p><a class="reference internal" href="#change-history-user-name-and-user-email" id="id29">Change history user.name and user.email</a></p></li>
+<li><p><a class="reference internal" href="#delete-all-history" id="id30">Delete all history</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#github-action" id="id31">Github Action</a></p>
+<ul>
+<li><p><a class="reference internal" href="#my-config" id="id32">My config</a></p></li>
+<li><p><a class="reference internal" href="#self-hosted-action" id="id33">Self-hosted Action</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#references" id="id34">References</a></p></li>
+</ul>
+</nav>
+<section id="best-practice-for-git">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Best Practice for Git</a><a class="headerlink" href="#best-practice-for-git" title="链接到此标题。">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;nvim&quot;</span>
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;hotchilipowder&quot;</span>
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;h12345jack@gmail.com&quot;</span>
+</span><span data-line="4">
+</span><span data-line="5"><span class="c1"># 我倾向保持线性历史（但要理解 rebase 的代价）</span>
+</span><span data-line="6">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span>
+</span><span data-line="7">
+</span><span data-line="8"><span class="c1"># 多账号/避免明文：优先 cache（再按需调 timeout）</span>
+</span><span data-line="9">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>cache
+</span></pre></div>
+</div>
+<p>说明：
+1. 设置默认编辑器
+2. 设置默认用户名和邮箱（影响 commit 的 author/committer）
+3. 设置 pull 的默认整合策略（rebase/merge/ff-only）
+4. 设置凭证管理器（避免每次输入密码/Token）</p>
+</section>
+<section id="git">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Git 的三层心智模型（最重要）</a><a class="headerlink" href="#git" title="链接到此标题。">¶</a></h2>
+<p>很多命令之所以难记，是因为你没把它们映射到 Git 的三层：</p>
+<ul class="simple">
+<li><p>HEAD：当前分支指向的提交（历史/指针）</p></li>
+<li><p>Index / Staging：暂存区（git add 后那份）</p></li>
+<li><p>Worktree：工作区（你编辑器里看到的文件）</p></li>
+</ul>
+<p>我记忆方式：</p>
+<ul class="simple">
+<li><p>restore：只动文件内容（Index/Worktree），一般不动 HEAD</p></li>
+<li><p>reset：动 HEAD 指针（并可选择是否同步 Index/Worktree）</p></li>
+<li><p>checkout：老命令，既能切分支又能还原文件，语义太多（所以后来拆出 switch/restore）</p></li>
+<li><p>rm：把“删除文件”也变成一次变更（放进 Index 等你 commit）</p></li>
+</ul>
+</section>
+<section id="restore-reset-checkout-rm">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">四个命令的关系：restore / reset / checkout / rm</a><a class="headerlink" href="#restore-reset-checkout-rm" title="链接到此标题。">¶</a></h2>
+<section id="git-restore">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Git Restore</a><a class="headerlink" href="#git-restore" title="链接到此标题。">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> 是“恢复文件内容”的新命令，用来替代一部分 <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--</span> <span class="pre">&lt;file&gt;</span></code> 的用法。</p>
+<ul class="simple">
+<li><p>不带 <code class="code docutils literal notranslate"><span class="pre">--staged</span></code>：默认从 Index 恢复到 Worktree</p></li>
+<li><p>带 <code class="code docutils literal notranslate"><span class="pre">--staged</span></code>：默认从 HEAD 恢复到 Index</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">--source</span> <span class="pre">&lt;commit&gt;</span></code>：指定从某个 commit/branch/tag 当作“恢复源”</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 1) 丢弃工作区改动（未 add）：Worktree &lt;- Index</span>
+</span><span data-line="2">git<span class="w"> </span>restore<span class="w"> </span>.
+</span><span data-line="3">git<span class="w"> </span>restore<span class="w"> </span>path/to/file
+</span><span data-line="4">
+</span><span data-line="5"><span class="c1"># 2) 取消暂存（已经 add 了想撤回）：Index &lt;- HEAD</span>
+</span><span data-line="6">git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.
+</span><span data-line="7">git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>path/to/file
+</span><span data-line="8">
+</span><span data-line="9"><span class="c1"># 3) 同时撤销暂存 + 工作区（把文件回到 HEAD）：Index+Worktree &lt;- HEAD</span>
+</span><span data-line="10">git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>--worktree<span class="w"> </span>path/to/file
+</span><span data-line="11"><span class="c1"># 常见：只恢复某个 commit 的版本</span>
+</span><span data-line="12">git<span class="w"> </span>restore<span class="w"> </span>--source<span class="w"> </span>&lt;commit&gt;<span class="w"> </span>--staged<span class="w"> </span>--worktree<span class="w"> </span>path/to/file
+</span><span data-line="13">
+</span><span data-line="14"><span class="c1"># 4) 交互式恢复（hunk级别）</span>
+</span><span data-line="15">git<span class="w"> </span>restore<span class="w"> </span>-p<span class="w"> </span>path/to/file
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>restore 不会移动 HEAD，所以不会“撤销提交历史”，它只是在改你当前这份文件状态。</p>
+</div>
+</section>
+<section id="git-reset">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Git Reset</a><a class="headerlink" href="#git-reset" title="链接到此标题。">¶</a></h3>
+<p>reset 的核心是“把 HEAD 指针挪到某个 commit”，然后选择是否同步 Index/Worktree。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># soft：只移动 HEAD（保留 Index/Worktree）</span>
+</span><span data-line="2">git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># mixed（默认）：移动 HEAD + 重置 Index（保留 Worktree）</span>
+</span><span data-line="5">git<span class="w"> </span>reset<span class="w"> </span>HEAD~1
+</span><span data-line="6">git<span class="w"> </span>reset<span class="w"> </span>--mixed<span class="w"> </span>HEAD~1
+</span><span data-line="7">
+</span><span data-line="8"><span class="c1"># hard：移动 HEAD + 重置 Index + 重置 Worktree（最危险）</span>
+</span><span data-line="9">git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1
+</span></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>reset --hard 是“仓库级大杀器”，优先用 restore 精准恢复单文件/单目录，除非你确定要彻底丢弃。</p>
+</div>
+</section>
+<section id="git-checkout-switch">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Git Checkout / Switch</a><a class="headerlink" href="#git-checkout-switch" title="链接到此标题。">¶</a></h3>
+<p>checkout 是老命令：
+- <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">&lt;branch&gt;</span></code> 切分支
+- <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--</span> <span class="pre">&lt;file&gt;</span></code> 还原文件</p>
+<p>后来 Git 拆成两个更清晰的命令：
+- <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span></code>：只切分支
+- <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code>：只还原文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span data-line="2">git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feat/xxx
+</span><span data-line="3">git<span class="w"> </span>switch<span class="w"> </span>-
+</span></pre></div>
+</div>
+</section>
+<section id="git-rm">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Git RM</a><a class="headerlink" href="#git-rm" title="链接到此标题。">¶</a></h3>
+<p>rm 是“产生删除变更”，不是撤销工具。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 删除并暂存（commit 后历史里就删了）</span>
+</span><span data-line="2">git<span class="w"> </span>rm<span class="w"> </span>path/to/file
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># 只从 git 索引里移除（保留本地文件）</span>
+</span><span data-line="5">git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>path/to/file
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">常见“等价/不等价”对照表（防止混淆）</a><a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>你看到的命令</p></th>
+<th class="head"><p>直觉想法</p></th>
+<th class="head"><p>更准确的解释</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span> <span class="pre">.</span></code></p></td>
+<td><p>“是不是等于 reset？”</p></td>
+<td><p>不等价。restore 主要是 Worktree &lt;- Index（不动 HEAD）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span> <span class="pre">--staged</span> <span class="pre">file</span></code></p></td>
+<td><p>“是不是等于 reset？”</p></td>
+<td><p>这更像“取消暂存”：Index &lt;- HEAD（不动 HEAD）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span> <span class="pre">--staged</span> <span class="pre">--worktree</span> <span class="pre">file</span></code></p></td>
+<td><p>“是不是等于 reset --hard？”</p></td>
+<td><p>对这个文件效果很像“回到 HEAD”，但不移动 HEAD，不影响其它文件</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span></code></p></td>
+<td><p>“彻底回滚”</p></td>
+<td><p>可能移动 HEAD（如果指定了目标），并同步 Index+Worktree，通常是全仓库级别</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pull-rebase-merge-fast-forward">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Pull / Rebase / Merge / Fast-forward（你最困惑的点）</a><a class="headerlink" href="#pull-rebase-merge-fast-forward" title="链接到此标题。">¶</a></h2>
+<section id="git-pull">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">git pull 的本质</a><a class="headerlink" href="#git-pull" title="链接到此标题。">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> = <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> + “把远端整合进来”。</p>
+<p>整合方式常见三种：fast-forward / merge / rebase。</p>
+</section>
+<section id="fast-forward">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Fast-forward（快进）是什么？</a><a class="headerlink" href="#fast-forward" title="链接到此标题。">¶</a></h3>
+<p>如果本地分支没有额外提交，只是落后远端，那么 Git 只需要把分支指针往前挪一下。
+这叫 fast-forward（不会产生 merge commit）。</p>
+<p>我理解成：历史是一条线，指针快进。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">A---B---C  (origin/main)
+</span><span data-line="2">A---B      (main)
+</span><span data-line="3">
+</span><span data-line="4">pull 后（fast-forward）：
+</span><span data-line="5">
+</span><span data-line="6">A---B---C  (origin/main, main)
+</span></pre></div>
+</div>
+</section>
+<section id="merge">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Merge（合并）是什么？</a><a class="headerlink" href="#merge" title="链接到此标题。">¶</a></h3>
+<p>如果本地也有提交、远端也有提交，历史分叉了：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">    D---E  (main)
+</span><span data-line="2">   /
+</span><span data-line="3">A--B--C    (origin/main)
+</span></pre></div>
+</div>
+<p>merge 会创建一个新的 merge commit，把两条线汇合：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">    D---E
+</span><span data-line="2">   /     \
+</span><span data-line="3">A--B--C---M   (main)
+</span></pre></div>
+</div>
+<p>好处：保留真实分叉/汇合
+坏处：log 会多一个 M（你会觉得不友好）</p>
+</section>
+<section id="rebase">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Rebase（变基）是什么？</a><a class="headerlink" href="#rebase" title="链接到此标题。">¶</a></h3>
+<p>rebase 的核心是：把你本地那串提交挪到远端最新提交的后面重放（commit id 会变）。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">    D---E  (main)
+</span><span data-line="2">   /
+</span><span data-line="3">A--B--C    (origin/main)
+</span></pre></div>
+</div>
+<p>rebase 后（线性）：</p>
+<blockquote>
+<div><p>A--B--C--D'--E'   (main)
+A--B--C           (origin/main)</p>
+</div></blockquote>
+<p>好处：历史线性好读
+坏处：D/E 变成 D'/E'（重写历史）</p>
+</section>
+<section id="pull-rebase-pull-ff">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">pull.rebase / pull.ff 我应该怎么选？</a><a class="headerlink" href="#pull-rebase-pull-ff" title="链接到此标题。">¶</a></h3>
+<p>我自己的倾向（个人分支日常开发）：</p>
+<ul class="simple">
+<li><p>想要线性：<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">pull.rebase</span> <span class="pre">true</span></code></p></li>
+<li><p>想要绝不产生 merge commit（不能快进就报错）：<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">pull.ff</span> <span class="pre">only</span></code></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 默认 pull 走 rebase（线性）</span>
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># 或者：只允许 fast-forward（不能快进就失败，逼你手动处理分叉）</span>
+</span><span data-line="5">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.ff<span class="w"> </span>only
+</span></pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>如果一个分支已经被别人基于它开发/已经共享，慎用 rebase（会让别人需要处理“历史被重写”的问题）。</p>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">多账号快速工作流（我现在推荐的“可解释版本”）</a><a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
+<p>你目前的方案是对的：clone 时指定 credential.username + 进入 repo 配 local 身份。</p>
+<p>核心目的：
+- commit 的 author 不串（user.name/user.email）
+- push/pull 的认证不串（credential.username + helper）</p>
+<section id="id3">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">步骤</a><a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 1) clone 时临时禁用 helper + 指定用户名（避免被旧凭证污染）</span>
+</span><span data-line="2">git<span class="w"> </span>clone<span class="w"> </span>-c<span class="w"> </span>credential.helper<span class="o">=</span><span class="w"> </span>-c<span class="w"> </span>credential.username<span class="o">=</span>xxx<span class="w"> </span>https://github.com/xxx/demo.git
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># 2) 进入仓库后：把“身份”写死在本仓库 config</span>
+</span><span data-line="5"><span class="nb">cd</span><span class="w"> </span>demo
+</span><span data-line="6">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;xxx&quot;</span>
+</span><span data-line="7">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;xxx@example.com&quot;</span>
+</span><span data-line="8">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.username<span class="w"> </span><span class="s2">&quot;xxx&quot;</span>
+</span><span data-line="9">
+</span><span data-line="10"><span class="c1"># 3) 关键：让这个仓库（或全局）记住 token，不要每次输入</span>
+</span><span data-line="11"><span class="c1">#    cache 默认 900 秒（15分钟），我一般调长</span>
+</span><span data-line="12">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.helper<span class="w"> </span><span class="s2">&quot;cache --timeout=604800&quot;</span><span class="w">   </span><span class="c1"># 1周</span>
+</span><span data-line="13"><span class="c1"># 或全局（看你是否所有 repo 都能接受同一个策略）</span>
+</span><span data-line="14"><span class="c1"># git config --global credential.helper &quot;cache --timeout=604800&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">解释：我到底要设置到什么程度？</a><a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">user.name/user.email</span></code>：只影响 commit 记录（不解决免密码）</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">credential.username</span></code>：告诉 Git 默认用哪个用户名（减少重复输入）</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">credential.helper</span> <span class="pre">cache</span> <span class="pre">--timeout=...</span></code>：决定“多久内不再输入 token”</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>cache 是内存缓存：重启/daemon 退出就没了。安全性更好，但不是永久保存。</p>
+</div>
+</section>
+<section id="macos-osxkeychain">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">常见坑：MacOS 的 osxkeychain 多账号不好用怎么办？</a><a class="headerlink" href="#macos-osxkeychain" title="链接到此标题。">¶</a></h3>
+<p>我自己的经验是：多账号时 keychain 容易“串号/撞记录”，体验不稳定。
+我一般用两个替代路线：</p>
+<ul class="simple">
+<li><p>路线A（少折腾）：HTTPS + cache（把 timeout 调长）</p></li>
+<li><p>路线B（最稳）：SSH 多 key（每个账号一把 key + ssh config 区分 host）</p></li>
+</ul>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+路线A：cache（我当前最常用）</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 全局 cache + 8小时</span>
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span><span class="s2">&quot;cache --timeout=28800&quot;</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># 对某个 repo 单独设置 1周（更常用）</span>
+</span><span data-line="5">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>credential.helper<span class="w"> </span><span class="s2">&quot;cache --timeout=604800&quot;</span>
+</span><span data-line="6">
+</span><span data-line="7"><span class="c1"># 想立刻清空缓存（排错时很有用）</span>
+</span><span data-line="8">git<span class="w"> </span>credential-cache<span class="w"> </span><span class="nb">exit</span>
+</span></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+路线B：SSH 多 key（稳定但需要一次配置）</label><div class="sd-tab-content docutils">
+<p>思路：
+- 账号1：Host github-personal -&gt; 使用 key1
+- 账号2：Host github-work     -&gt; 使用 key2
+然后每个 repo 的 remote 用不同 host，从根上隔离身份。</p>
+</div>
+</div>
+</section>
+<section id="credential-helper">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">排错：到底哪个 credential.helper 在生效？</a><a class="headerlink" href="#credential-helper" title="链接到此标题。">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>--get<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+<p>清理（按优先级逐级排查）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>config<span class="w"> </span>--local<span class="w">  </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="2">git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span><span data-line="3">git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="common-git-skill">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Common git skill</a><a class="headerlink" href="#common-git-skill" title="链接到此标题。">¶</a></h2>
+<section id="id5">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Git Restore（再强调一次：适合“精准撤文件”）</a><a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># 丢弃工作区改动（未 add）</span>
+</span><span data-line="2">git<span class="w"> </span>restore<span class="w"> </span>.
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># 取消暂存（staged -&gt; unstaged）</span>
+</span><span data-line="5">git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.
+</span><span data-line="6">
+</span><span data-line="7"><span class="c1"># 单文件回到 HEAD（相当于“这个文件彻底不要了”）</span>
+</span><span data-line="8">git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>--worktree<span class="w"> </span>path/to/file
+</span><span data-line="9">
+</span><span data-line="10"><span class="c1"># 从某个 commit 恢复文件</span>
+</span><span data-line="11">git<span class="w"> </span>restore<span class="w"> </span>--source<span class="w"> </span>&lt;commit&gt;<span class="w"> </span>--<span class="w"> </span>path/to/file
+</span></pre></div>
+</div>
+</section>
+<section id="change-history-user-name-and-user-email">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Change history user.name and user.email</a><a class="headerlink" href="#change-history-user-name-and-user-email" title="链接到此标题。">¶</a></h3>
+<p>这个需求常见：多设备没设置 user.name/email，导致 history 里出现奇怪作者。
+（注意：改历史会影响 commit id，做之前先备份/确认）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="ch">#!/bin/sh</span>
+</span><span data-line="2">git<span class="w"> </span>filter-branch<span class="w"> </span>--env-filter<span class="w"> </span><span class="s1">&#39;</span>
+</span><span data-line="3"><span class="s1">OLD_EMAIL=&quot;you@example.com&quot;</span>
+</span><span data-line="4"><span class="s1">CORRECT_NAME=&quot;hotchilipowder&quot;</span>
+</span><span data-line="5"><span class="s1">CORRECT_EMAIL=&quot;h12345jack@gmail.com&quot;</span>
+</span><span data-line="6">
+</span><span data-line="7"><span class="s1">if [ &quot;$GIT_COMMITTER_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span>
+</span><span data-line="8"><span class="s1">then</span>
+</span><span data-line="9"><span class="s1">    export GIT_COMMITTER_NAME=&quot;$CORRECT_NAME&quot;</span>
+</span><span data-line="10"><span class="s1">    export GIT_COMMITTER_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
+</span><span data-line="11"><span class="s1">fi</span>
+</span><span data-line="12"><span class="s1">if [ &quot;$GIT_AUTHOR_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span>
+</span><span data-line="13"><span class="s1">then</span>
+</span><span data-line="14"><span class="s1">    export GIT_AUTHOR_NAME=&quot;$CORRECT_NAME&quot;</span>
+</span><span data-line="15"><span class="s1">    export GIT_AUTHOR_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
+</span><span data-line="16"><span class="s1">fi</span>
+</span><span data-line="17"><span class="s1">&#39;</span><span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--branches<span class="w"> </span>--tags
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>最好的办法还是：一开始就把 user.name/user.email 配好，避免后面“洗历史”。</p>
+</div>
+</section>
+<section id="delete-all-history">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Delete all history</a><a class="headerlink" href="#delete-all-history" title="链接到此标题。">¶</a></h3>
+<p>这个需求也常见：有些历史不想让人看到（太蠢了）。
+（注意：这会让历史断掉，等于开新仓库）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>checkout<span class="w"> </span>--orphan<span class="w"> </span>latest_branch
+</span><span data-line="2">git<span class="w"> </span>add<span class="w"> </span>.
+</span><span data-line="3">git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update&quot;</span>
+</span><span data-line="4">git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>main
+</span><span data-line="5">git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>main
+</span><span data-line="6">git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>origin<span class="w"> </span>main
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="github-action">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Github Action</a><a class="headerlink" href="#github-action" title="链接到此标题。">¶</a></h2>
+<p>首先，github action 已经成为了软件开发领域不可获取的部分。</p>
+<p>关于 <a class="reference external" href="https://docs.github.com/zh/actions">Github Action</a> 文档学习,</p>
+<p>首先，需要创建 <code class="code docutils literal notranslate"><span class="pre">.github/workflow/xxx.yml</span></code>目录文件。</p>
+<p>下面是我在用的一些 Github Action</p>
+<section id="my-config">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">My config</a><a class="headerlink" href="#my-config" title="链接到此标题。">¶</a></h3>
+<p><a class="reference external" href="https://github.com/hotchilipowder/my_config">Github Link</a></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text"><code class="code docutils literal notranslate"><span class="pre">mkdocs.yml</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">name: GitHub Pages
+</span><span data-line="2">
+</span><span data-line="3">on:
+</span><span data-line="4">  push:
+</span><span data-line="5">    branches:
+</span><span data-line="6">      - main
+</span><span data-line="7">jobs:
+</span><span data-line="8">  publish:
+</span><span data-line="9">    name: Deploy Site
+</span><span data-line="10">    runs-on: ubuntu-24.04
+</span><span data-line="11">    environment: github-pages
+</span><span data-line="12">    steps:
+</span><span data-line="13">      - name: Checkout Repo
+</span><span data-line="14">        uses: actions/checkout@v3
+</span><span data-line="15">
+</span><span data-line="16">      - name: Setup uv
+</span><span data-line="17">        uses: astral-sh/setup-uv@v6
+</span><span data-line="18">
+</span><span data-line="19">      - name: Install 
+</span><span data-line="20">        shell: bash
+</span><span data-line="21">        run: |
+</span><span data-line="22">          uv pip install --system -r requirements.txt
+</span><span data-line="23">          sphinx-build -b html docs build
+</span><span data-line="24">
+</span><span data-line="25">      - name: Make snippets to rst
+</span><span data-line="26">        shell: bash
+</span><span data-line="27">        working-directory: snippets
+</span><span data-line="28">        run: |
+</span><span data-line="29">          python3 snippets.py
+</span><span data-line="30">
+</span><span data-line="31">      - name: Deploy Website
+</span><span data-line="32">        uses: peaceiris/actions-gh-pages@v3
+</span><span data-line="33">        with:
+</span><span data-line="34">          github_token: ${{ secrets.GITHUB_TOKEN }}
+</span><span data-line="35">          publish_dir: ./build
+</span><span data-line="36">    
+</span></pre></div>
+</div>
+</div>
+</details><p>本项目使用的github，其主要包括以下功能：</p>
+<ul class="simple">
+<li><p>安装依赖+构建文档</p></li>
+<li><p>Make snippsts to rst</p></li>
+<li><p>push html to github page</p></li>
+</ul>
+</section>
+<section id="self-hosted-action">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Self-hosted Action</a><a class="headerlink" href="#self-hosted-action" title="链接到此标题。">¶</a></h3>
+<p>最近，得知了Github Action可以Self-hosted了。基于这个特性，将会非常好的使用Github Action去替换Jenkin。</p>
+<p>具体的步骤主要是按照要求进行安装即可。</p>
+</section>
+</section>
+<section id="references">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">References</a><a class="headerlink" href="#references" title="链接到此标题。">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/book/en/v2">git教程</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jesseduffield/lazygit">Lazygit</a></p></li>
+</ul>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+<a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+  <iconify-icon icon="simple-icons:github"></iconify-icon>
+</a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5b8091a7"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hotchilipowder/my_config");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/shibuya.js?v=cac61aee"></script></body>
+</html>

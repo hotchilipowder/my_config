@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cookiecutter - My Dev Config</title><link rel="shortcut icon" href="../_static/my_config.png"/><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Tikz Plot" href="tikz.html" /><link rel="prev" title="Hardware记录" href="hardware.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=44020203" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+        </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/my_config">
+      <img class="light-logo" src="../_static/my_config.png" alt="My Dev Config" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/my_config_dark.png" alt="My Dev Config" height="28" loading="lazy" />
+      <strong>My Dev Config</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="切换到亮色模式"
+data-aria-light="切换到暗色模式"
+data-aria-dark="切换到自动模式">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+         <section id="cookiecutter">
+<h1>Cookiecutter<a class="headerlink" href="#cookiecutter" title="链接到此标题。">¶</a></h1>
+<section id="why-cookiecutter">
+<h2>Why Cookiecutter<a class="headerlink" href="#why-cookiecutter" title="链接到此标题。">¶</a></h2>
+<p>使用这个工具最开始是因为觉得自己写的很多的项目其实有共同的脚手架。
+使用了脚手架的项目相比build from scratch，确实更好用，因此尝试去看看别人的解决方案。</p>
+<p>当然，在不同的语言下，区别还是比较大的(在JS下，也许你应该选择 <code class="code docutils literal notranslate"><span class="pre">next</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">vite</span></code>而不是默认的 <code class="code docutils literal notranslate"><span class="pre">create-react-app</span></code>或者 <code class="code docutils literal notranslate"><span class="pre">webpack</span></code>。如果你用 <a class="reference internal" href="#django" id="id1"><span>[Django]</span></a> , 其实本身使用 <code class="code docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">starprojects</span> <span class="pre">xxx</span></code>就是一种脚手架。
+但是由于库本身需要让新手和老手能区分开，所以很多的默认配置比较保守，或者不愿意修改。例如，我需要开启 <code class="code docutils literal notranslate"><span class="pre">ALLOWED_HOSTS</span> <span class="pre">=</span> <span class="pre">['*']</span></code>或者，我希望设置 <code class="code docutils literal notranslate"><span class="pre">TIME_ZONE</span> <span class="pre">=</span> <span class="pre">'Asia/Shanghai'</span></code>都需要再进行配置，非常的麻烦。</p>
+<p>所以最后我选择的方案是使用 <a class="reference internal" href="#id4" id="id2"><span>[Cookiecutter]</span></a> 。</p>
+</section>
+<section id="my-cookiecutters">
+<h2>My Cookiecutters<a class="headerlink" href="#my-cookiecutters" title="链接到此标题。">¶</a></h2>
+<section id="id3">
+<h3><a class="reference external" href="https://github.com/hotchilipowder/docs-cookiecutter">Docs-cookiecutter</a><a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h3>
+<p>这个项目主要是希望能快速的生成一个可以开发使用的文档。</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="链接到此标题。">¶</a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Cookiecutter</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://cookiecutter.readthedocs.io/">https://cookiecutter.readthedocs.io/</a></p>
+</div>
+<div class="citation" id="django" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Django</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.djangoproject.com/">https://www.djangoproject.com/</a></p>
+</div>
+</div>
+<div class="section" /></section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+<a href="https://github.com/hotchilipowder/my_config" aria-label="GitHub">
+  <iconify-icon icon="simple-icons:github"></iconify-icon>
+</a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5b8091a7"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hotchilipowder/my_config");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/shibuya.js?v=cac61aee"></script></body>
+</html>
