@@ -71,7 +71,8 @@ comments_config = {
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'shibuya'
+html_theme = 'shibuya-ablog'
+html_theme_path = ['_themes']
 html_static_path = ['_static']
 
 html_logo = "_static/my_config.png"

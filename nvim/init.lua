@@ -439,12 +439,15 @@ require("lazy").setup({
 		end,
 	},
 	{ -- Highlight, edit, and navigate code
+		-- The `master` branch is archived and incompatible with Neovim 0.12.
 		"nvim-treesitter/nvim-treesitter",
 		enabled = not is_server_profile,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
+		branch = "main",
+		lazy = false,
 		build = ":TSUpdate",
+		dependencies = {
+			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
+		},
 	},
 }, {})
 
@@ -492,71 +495,90 @@ vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 -- [[ Configure Treesitter ]]
--- See `:help nvim-treesitter`
+-- Neovim 0.12 provides highlighting, folds and indentation natively; the
+-- `main` branch of nvim-treesitter only installs parsers/queries for it.
+-- See `:help nvim-treesitter` and `:help treesitter`
 if not is_server_profile then
-	require("nvim-treesitter.configs").setup({
-		-- Add languages to be installed here that you want installed for treesitter
-		ensure_installed = { "python", "tsx", "typescript", "vimdoc", "vim", "lua", "typst" },
+	local treesitter_parsers = { "python", "tsx", "typescript", "vimdoc", "vim", "lua", "typst" }
 
-		-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-		auto_install = false,
+	local nvim_treesitter = require("nvim-treesitter")
+	-- `install_dir` is prepended to 'runtimepath' so freshly installed
+	-- parsers/queries take priority over stale ones.
+	nvim_treesitter.setup({
+		install_dir = vim.fn.stdpath("data") .. "/site",
+	})
+	if vim.fn.executable("tree-sitter") == 1 then
+		-- Parser installation needs the `tree-sitter` CLI (tree-sitter-cli).
+		nvim_treesitter.install(treesitter_parsers)
+	else
+		vim.notify_once(
+			"[nvim-treesitter] `tree-sitter` CLI not found, parsers cannot be installed/updated. "
+				.. "Install tree-sitter-cli (e.g. `brew install tree-sitter-cli`).",
+			vim.log.levels.WARN
+		)
+	end
 
-		highlight = { enable = true },
-		indent = { enable = true, disable = { "python" } },
-		incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = "<c-space>",
-				node_incremental = "<c-space>",
-				scope_incremental = "<c-s>",
-				node_decremental = "<M-space>",
-			},
+	vim.api.nvim_create_autocmd("FileType", {
+		callback = function(args)
+			if not pcall(vim.treesitter.start, args.buf) then
+				return
+			end
+			-- Treesitter indentation is experimental; python keeps its own filetype indent.
+			if vim.bo[args.buf].filetype ~= "python" then
+				vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end
+		end,
+	})
+
+	local textobjects = require("nvim-treesitter-textobjects")
+	textobjects.setup({
+		select = {
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
 		},
-		textobjects = {
-			select = {
-				enable = true,
-				lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-				keymaps = {
-					-- You can use the capture groups defined in textobjects.scm
-					["aa"] = "@parameter.outer",
-					["ia"] = "@parameter.inner",
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["ac"] = "@class.outer",
-					["ic"] = "@class.inner",
-				},
-			},
-			move = {
-				enable = true,
-				set_jumps = true, -- whether to set jumps in the jumplist
-				goto_next_start = {
-					["]m"] = "@function.outer",
-					["]]"] = "@class.outer",
-				},
-				goto_next_end = {
-					["]M"] = "@function.outer",
-					["]["] = "@class.outer",
-				},
-				goto_previous_start = {
-					["[m"] = "@function.outer",
-					["[["] = "@class.outer",
-				},
-				goto_previous_end = {
-					["[M"] = "@function.outer",
-					["[]"] = "@class.outer",
-				},
-			},
-			swap = {
-				enable = true,
-				swap_next = {
-					["<leader>a"] = "@parameter.inner",
-				},
-				swap_previous = {
-					["<leader>A"] = "@parameter.inner",
-				},
-			},
+		move = {
+			set_jumps = true, -- whether to set jumps in the jumplist
 		},
 	})
+
+	local select = require("nvim-treesitter-textobjects.select")
+	local move = require("nvim-treesitter-textobjects.move")
+	local swap = require("nvim-treesitter-textobjects.swap")
+
+	-- You can use the capture groups defined in textobjects.scm
+	for lhs, query in pairs({
+		["aa"] = "@parameter.outer",
+		["ia"] = "@parameter.inner",
+		["af"] = "@function.outer",
+		["if"] = "@function.inner",
+		["ac"] = "@class.outer",
+		["ic"] = "@class.inner",
+	}) do
+		vim.keymap.set({ "x", "o" }, lhs, function()
+			select.select_textobject(query, "textobjects")
+		end, { desc = "Select " .. query })
+	end
+
+	local function map_move(lhs, func, query)
+		vim.keymap.set({ "n", "x", "o" }, lhs, function()
+			move[func](query, "textobjects")
+		end, { desc = "Move to " .. query })
+	end
+
+	map_move("]m", "goto_next_start", "@function.outer")
+	map_move("]]", "goto_next_start", "@class.outer")
+	map_move("]M", "goto_next_end", "@function.outer")
+	map_move("][", "goto_next_end", "@class.outer")
+	map_move("[m", "goto_previous_start", "@function.outer")
+	map_move("[[", "goto_previous_start", "@class.outer")
+	map_move("[M", "goto_previous_end", "@function.outer")
+	map_move("[]", "goto_previous_end", "@class.outer")
+
+	vim.keymap.set("n", "<leader>a", function()
+		swap.swap_next("@parameter.inner")
+	end, { desc = "Swap with next parameter" })
+	vim.keymap.set("n", "<leader>A", function()
+		swap.swap_previous("@parameter.inner")
+	end, { desc = "Swap with previous parameter" })
 end
 
 -- Diagnostic keymaps

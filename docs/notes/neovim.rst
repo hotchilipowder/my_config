@@ -91,6 +91,35 @@ Because My neovim config has lsp config, install nodejs is necessary.
         make -j 4 && make install
      
 
+Tree-sitter CLI
+---------------
+
+Since Neovim 0.12, highlighting, folds and indentation are provided by Neovim
+itself, and the `main branch
+<https://github.com/nvim-treesitter/nvim-treesitter>`_ of ``nvim-treesitter``
+installs the parsers and queries for it. The old ``master`` branch is archived
+and raises errors such as ``attempt to call method 'range' (a nil value)`` on
+Neovim 0.12.
+
+Installing or updating parsers requires the `tree-sitter CLI
+<https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md>`_.
+The configuration installs the parsers automatically on startup when the CLI is
+available, otherwise run ``:TSInstall <language>`` manually.
+
+.. tab-set::
+
+   .. tab-item:: MacOS (homebrew)
+
+     .. code-block:: bash
+
+         brew install tree-sitter-cli
+
+   .. tab-item:: Others
+
+     See the `official releases
+     <https://github.com/tree-sitter/tree-sitter/releases>`_.
+
+
 Install Tmux
 ============
 
