@@ -22,7 +22,9 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-        </head>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Neovim and Tmux"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
 <body><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
@@ -55,10 +57,159 @@ data-aria-dark="切换到自动模式">
       </button>
     </div>
   </div>
-</div><div class="sy-container mx-auto body">
-    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
-      <article class="yue" role="main">
-         <section id="neovim-and-tmux">
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Neovim and Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ghostty.html">Ghostty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git (Notes)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_actions.html">Github Action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/feiniu.html">飞牛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typst.html">Learning Typst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macos.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="win11.html">Win11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
+<li><a class="reference internal" href="#install-neovim">Install Neovim</a><ul>
+<li><a class="reference internal" href="#neovim">Neovim</a></li>
+<li><a class="reference internal" href="#nodejs">NodeJS</a></li>
+<li><a class="reference internal" href="#tree-sitter-cli">Tree-sitter CLI</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-tmux">Install Tmux</a></li>
+<li><a class="reference internal" href="#why-neovim-instead-of-vim">Why Neovim instead of Vim</a></li>
+<li><a class="reference internal" href="#why-tmux-instead-of-zellij">Why tmux instead of Zellij</a></li>
+<li><a class="reference internal" href="#tmux-with-neovim">Tmux with Neovim</a></li>
+<li><a class="reference internal" href="#awesome-neovim-plugins">Awesome Neovim Plugins</a><ul>
+<li><a class="reference internal" href="#id6">vim-tmux-navigator</a></li>
+<li><a class="reference internal" href="#bufferline-nvim">bufferline.nvim</a></li>
+<li><a class="reference internal" href="#alpha-nvim">alpha-nvim</a></li>
+<li><a class="reference internal" href="#tpope">tpope&#22823;&#20332;&#31995;&#21015;</a></li>
+<li><a class="reference internal" href="#id9">toggleterm.nvim</a></li>
+<li><a class="reference internal" href="#nvim-tree-lua">nvim-tree.lua</a></li>
+<li><a class="reference internal" href="#symbols-outline">Symbols-outline</a></li>
+<li><a class="reference internal" href="#which-key">Which-key</a></li>
+<li><a class="reference internal" href="#gitsigns-nvim">gitsigns.nvim</a></li>
+<li><a class="reference internal" href="#null-ls">null-ls</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#neovim-fonts">Neovim Fonts</a></li>
+<li><a class="reference internal" href="#update-for-ultisnippts">Update for Ultisnippts</a></li>
+<li><a class="reference internal" href="#updates-for-null-ls">Updates for null-ls</a></li>
+<li><a class="reference internal" href="#why-not-coc-nvim">Why not coc.nvim</a></li>
+<li><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
+    
+    
+      <span>my_config</span>
+    
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/notes/neovim.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">My Dev Config</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Neovim and Tmux</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <div class="copy-page-wrapper relative pb-4 lg:absolute lg:top-8 lg:right-6 xl:right-12">
+  <div id="copy-page-trigger">
+    <button
+      type="button"
+      class="js-copy px-3 py-1 inline-flex items-center gap-1"
+      data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/neovim.rst"
+    >
+      <i class="i-lucide" data-icon="copy"></i>
+      <span>复制页面</span>
+    </button>
+    <button class="js-menu px-2 py-1" type="button" aria-label="更多操作"
+      aria-haspopup="menu" aria-expanded="false" aria-controls="copy-page-content">
+      <i class="i-lucide chevron-down"></i>
+    </button>
+  </div>
+  <div id="copy-page-content" role="menu" aria-orientation="vertical" aria-hidden="true">
+    <div role="presentation">
+      <div class="flex flex-col" role="group">
+        <button class="js-copy" type="button" role="menuitem"
+          data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/neovim.rst">
+          <span class="iconify-icon">
+            <i class="i-lucide" data-icon="copy"></i>
+          </span>
+          <span>复制页面</span>
+        </button>
+        <a role="menuitem" href="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/neovim.rst" target="_blank" rel="nofollow"><iconify-icon icon="bi:code-slash"></iconify-icon>
+            <span>查看源代码</span></a><a role="menuitem" href="https://chatgpt.com/?hints=search&q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/neovim.rst%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+          <iconify-icon icon="bi:openai"></iconify-icon>
+          <span>在 ChatGPT 中打开</span>
+        </a><a role="menuitem" href="https://claude.ai/new?q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/neovim.rst%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+          <iconify-icon icon="bi:claude"></iconify-icon>
+          <span>在 Claude 中打开</span>
+        </a></div>
+    </div>
+  </div>
+</div><article class="yue" role="main">
+          <section id="neovim-and-tmux">
 <h1>Neovim and Tmux<a class="headerlink" href="#neovim-and-tmux" title="链接到此标题。">¶</a></h1>
 <section id="install-neovim">
 <h2>Install Neovim<a class="headerlink" href="#install-neovim" title="链接到此标题。">¶</a></h2>
@@ -146,26 +297,51 @@ Compile</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </section>
-</section>
-<section id="install-tmux">
-<h2>Install Tmux<a class="headerlink" href="#install-tmux" title="链接到此标题。">¶</a></h2>
+<section id="tree-sitter-cli">
+<h3>Tree-sitter CLI<a class="headerlink" href="#tree-sitter-cli" title="链接到此标题。">¶</a></h3>
+<p>Since Neovim 0.12, highlighting, folds and indentation are provided by Neovim
+itself, and the <a class="reference external" href="https://github.com/nvim-treesitter/nvim-treesitter">main branch</a> of <code class="docutils literal notranslate"><span class="pre">nvim-treesitter</span></code>
+installs the parsers and queries for it. The old <code class="docutils literal notranslate"><span class="pre">master</span></code> branch is archived
+and raises errors such as <code class="docutils literal notranslate"><span class="pre">attempt</span> <span class="pre">to</span> <span class="pre">call</span> <span class="pre">method</span> <span class="pre">'range'</span> <span class="pre">(a</span> <span class="pre">nil</span> <span class="pre">value)</span></code> on
+Neovim 0.12.</p>
+<p>Installing or updating parsers requires the <a class="reference external" href="https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md">tree-sitter CLI</a>.
+The configuration installs the parsers automatically on startup when the CLI is
+available, otherwise run <code class="docutils literal notranslate"><span class="pre">:TSInstall</span> <span class="pre">&lt;language&gt;</span></code> manually.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-8">
-MacOS</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>tmux
+MacOS (homebrew)</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>tree-sitter-cli
 </span></pre></div>
 </div>
 </div>
 <input id="sd-tab-item-9" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-9">
+Others</label><div class="sd-tab-content docutils">
+<p>See the <a class="reference external" href="https://github.com/tree-sitter/tree-sitter/releases">official releases</a>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="install-tmux">
+<h2>Install Tmux<a class="headerlink" href="#install-tmux" title="链接到此标题。">¶</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+MacOS</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>tmux
+</span></pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
 Linux (APT)</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>tmux
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-10" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-10">
+<input id="sd-tab-item-12" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
 Linux (Source)</label><div class="sd-tab-content docutils">
 <p>First, please keep <code class="code docutils literal notranslate"><span class="pre">~/.local/bin</span></code>in the <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>, then <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">install</span></code>in the <code class="code docutils literal notranslate"><span class="pre">tmp/</span></code>dir.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>tmp
@@ -209,7 +385,7 @@ Linux (Source)</label><div class="sd-tab-content docutils">
 总体而言，比较讨厌写多个文件，喜欢使用<code class="code docutils literal notranslate"><span class="pre">&lt;Space&gt;fed</span></code>去打开配置文件，然后复制粘贴即可。</p>
 <p>有许多关于使用plug文件夹和多个不同插件配置的方式，我个人不是很喜欢。
 我更喜欢<a class="reference external" href="https://github.com/nvim-lua/kickstart.nvim">kickstart.nvim</a>这样的方式。</p>
-<p>由于 <a class="reference internal" href="#kickstart" id="id2"><span>[kickstart]</span></a> 使用的 <a class="reference internal" href="#lazy-nvim" id="id3"><span>[lazy.nvim]</span></a>, 所以也就切换到了 <a class="reference internal" href="#lazy-nvim" id="id4"><span>[lazy.nvim]</span></a></p>
+<p>由于 <a class="reference internal" href="#kickstart" id="id3"><span>[kickstart]</span></a> 使用的 <a class="reference internal" href="#lazy-nvim" id="id4"><span>[lazy.nvim]</span></a>, 所以也就切换到了 <a class="reference internal" href="#lazy-nvim" id="id5"><span>[lazy.nvim]</span></a></p>
 <p>具体的配置如下：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/nvim<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-SL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/nvim/init.lua<span class="w"> </span>-o<span class="w"> </span>~/.config/nvim/init.lua
 </span></pre></div>
@@ -658,248 +834,270 @@ Linux (Source)</label><div class="sd-tab-content docutils">
 </span><span data-line="439"><span class="w">		</span><span class="kr">end</span><span class="p">,</span>
 </span><span data-line="440"><span class="w">	</span><span class="p">},</span>
 </span><span data-line="441"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="c1">-- Highlight, edit, and navigate code</span>
-</span><span data-line="442"><span class="w">		</span><span class="s2">&quot;nvim-treesitter/nvim-treesitter&quot;</span><span class="p">,</span>
-</span><span data-line="443"><span class="w">		</span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">is_server_profile</span><span class="p">,</span>
-</span><span data-line="444"><span class="w">		</span><span class="nv">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="445"><span class="w">			</span><span class="s2">&quot;nvim-treesitter/nvim-treesitter-textobjects&quot;</span><span class="p">,</span>
-</span><span data-line="446"><span class="w">		</span><span class="p">},</span>
+</span><span data-line="442"><span class="w">		</span><span class="c1">-- The `master` branch is archived and incompatible with Neovim 0.12.</span>
+</span><span data-line="443"><span class="w">		</span><span class="s2">&quot;nvim-treesitter/nvim-treesitter&quot;</span><span class="p">,</span>
+</span><span data-line="444"><span class="w">		</span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">is_server_profile</span><span class="p">,</span>
+</span><span data-line="445"><span class="w">		</span><span class="nv">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+</span><span data-line="446"><span class="w">		</span><span class="nv">lazy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 </span><span data-line="447"><span class="w">		</span><span class="nv">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;:TSUpdate&quot;</span><span class="p">,</span>
-</span><span data-line="448"><span class="w">	</span><span class="p">},</span>
-</span><span data-line="449"><span class="p">},</span><span class="w"> </span><span class="p">{})</span>
-</span><span data-line="450">
-</span><span data-line="451"><span class="c1">-- [[ Highlight on yank ]]</span>
-</span><span data-line="452"><span class="c1">-- See `:help vim.highlight.on_yank()`</span>
-</span><span data-line="453"><span class="kd">local</span><span class="w"> </span><span class="nv">highlight_group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_augroup</span><span class="p">(</span><span class="s2">&quot;YankHighlight&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">clear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="454"><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;TextYankPost&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="455"><span class="w">	</span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
-</span><span data-line="456"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">highlight</span><span class="p">.</span><span class="nf">on_yank</span><span class="p">()</span>
-</span><span data-line="457"><span class="w">	</span><span class="kr">end</span><span class="p">,</span>
-</span><span data-line="458"><span class="w">	</span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">highlight_group</span><span class="p">,</span>
-</span><span data-line="459"><span class="w">	</span><span class="nv">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
-</span><span data-line="460"><span class="p">})</span>
-</span><span data-line="461">
-</span><span data-line="462"><span class="c1">-- [[ Configure Telescope ]]</span>
-</span><span data-line="463"><span class="c1">-- See `:help telescope` and `:help telescope.setup()`</span>
-</span><span data-line="464"><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">({</span>
-</span><span data-line="465"><span class="w">	</span><span class="nv">defaults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="466"><span class="w">		</span><span class="nv">mappings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="467"><span class="w">			</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="468"><span class="w">				</span><span class="p">[</span><span class="s2">&quot;&lt;C-u&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span data-line="469"><span class="w">				</span><span class="p">[</span><span class="s2">&quot;&lt;C-d&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span data-line="470"><span class="w">			</span><span class="p">},</span>
-</span><span data-line="471"><span class="w">		</span><span class="p">},</span>
-</span><span data-line="472"><span class="w">	</span><span class="p">},</span>
-</span><span data-line="473"><span class="p">})</span>
-</span><span data-line="474"><span class="c1">-- Enable telescope fzf native, if installed</span>
-</span><span data-line="475"><span class="nb">pcall</span><span class="p">(</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope&quot;</span><span class="p">).</span><span class="nv">load_extension</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fzf&quot;</span><span class="p">)</span>
-</span><span data-line="476">
-</span><span data-line="477"><span class="c1">-- See `:help telescope.builtin`</span>
-</span><span data-line="478"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;?&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">oldfiles</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[?] Find recently opened files&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="479"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;&lt;space&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">buffers</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[ ] Find existing buffers&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="480"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
-</span><span data-line="481"><span class="w">	</span><span class="c1">-- You can pass additional configuration to telescope to change theme, layout, etc.</span>
-</span><span data-line="482"><span class="w">	</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nf">current_buffer_fuzzy_find</span><span class="p">(</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.themes&quot;</span><span class="p">).</span><span class="nf">get_dropdown</span><span class="p">({</span>
-</span><span data-line="483"><span class="w">		</span><span class="nv">winblend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-</span><span data-line="484"><span class="w">		</span><span class="nv">previewer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-</span><span data-line="485"><span class="w">	</span><span class="p">}))</span>
-</span><span data-line="486"><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[/] Fuzzily search in current buffer&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="487">
-</span><span data-line="488"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">find_files</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch [F]iles&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="489"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fh&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">help_tags</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch [H]elp&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="490"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fw&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">grep_string</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch current [W]ord&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="491"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">live_grep</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch by [G]rep&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="492"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fd&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">diagnostics</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch [D]iagnostics&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="493">
-</span><span data-line="494"><span class="c1">-- [[ Configure Treesitter ]]</span>
-</span><span data-line="495"><span class="c1">-- See `:help nvim-treesitter`</span>
-</span><span data-line="496"><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">is_server_profile</span><span class="w"> </span><span class="kr">then</span>
-</span><span data-line="497"><span class="w">	</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;nvim-treesitter.configs&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">({</span>
-</span><span data-line="498"><span class="w">		</span><span class="c1">-- Add languages to be installed here that you want installed for treesitter</span>
-</span><span data-line="499"><span class="w">		</span><span class="nv">ensure_installed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tsx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;typescript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;vimdoc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;vim&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;typst&quot;</span><span class="w"> </span><span class="p">},</span>
-</span><span data-line="500">
-</span><span data-line="501"><span class="w">		</span><span class="c1">-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)</span>
-</span><span data-line="502"><span class="w">		</span><span class="nv">auto_install</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span data-line="448"><span class="w">		</span><span class="nv">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="449"><span class="w">			</span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;nvim-treesitter/nvim-treesitter-textobjects&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span data-line="450"><span class="w">		</span><span class="p">},</span>
+</span><span data-line="451"><span class="w">	</span><span class="p">},</span>
+</span><span data-line="452"><span class="p">},</span><span class="w"> </span><span class="p">{})</span>
+</span><span data-line="453">
+</span><span data-line="454"><span class="c1">-- [[ Highlight on yank ]]</span>
+</span><span data-line="455"><span class="c1">-- See `:help vim.highlight.on_yank()`</span>
+</span><span data-line="456"><span class="kd">local</span><span class="w"> </span><span class="nv">highlight_group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_augroup</span><span class="p">(</span><span class="s2">&quot;YankHighlight&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">clear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="457"><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;TextYankPost&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="458"><span class="w">	</span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+</span><span data-line="459"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">highlight</span><span class="p">.</span><span class="nf">on_yank</span><span class="p">()</span>
+</span><span data-line="460"><span class="w">	</span><span class="kr">end</span><span class="p">,</span>
+</span><span data-line="461"><span class="w">	</span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">highlight_group</span><span class="p">,</span>
+</span><span data-line="462"><span class="w">	</span><span class="nv">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+</span><span data-line="463"><span class="p">})</span>
+</span><span data-line="464">
+</span><span data-line="465"><span class="c1">-- [[ Configure Telescope ]]</span>
+</span><span data-line="466"><span class="c1">-- See `:help telescope` and `:help telescope.setup()`</span>
+</span><span data-line="467"><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">({</span>
+</span><span data-line="468"><span class="w">	</span><span class="nv">defaults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="469"><span class="w">		</span><span class="nv">mappings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="470"><span class="w">			</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="471"><span class="w">				</span><span class="p">[</span><span class="s2">&quot;&lt;C-u&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span data-line="472"><span class="w">				</span><span class="p">[</span><span class="s2">&quot;&lt;C-d&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span data-line="473"><span class="w">			</span><span class="p">},</span>
+</span><span data-line="474"><span class="w">		</span><span class="p">},</span>
+</span><span data-line="475"><span class="w">	</span><span class="p">},</span>
+</span><span data-line="476"><span class="p">})</span>
+</span><span data-line="477"><span class="c1">-- Enable telescope fzf native, if installed</span>
+</span><span data-line="478"><span class="nb">pcall</span><span class="p">(</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope&quot;</span><span class="p">).</span><span class="nv">load_extension</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fzf&quot;</span><span class="p">)</span>
+</span><span data-line="479">
+</span><span data-line="480"><span class="c1">-- See `:help telescope.builtin`</span>
+</span><span data-line="481"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;?&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">oldfiles</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[?] Find recently opened files&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="482"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;&lt;space&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">buffers</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[ ] Find existing buffers&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="483"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+</span><span data-line="484"><span class="w">	</span><span class="c1">-- You can pass additional configuration to telescope to change theme, layout, etc.</span>
+</span><span data-line="485"><span class="w">	</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nf">current_buffer_fuzzy_find</span><span class="p">(</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.themes&quot;</span><span class="p">).</span><span class="nf">get_dropdown</span><span class="p">({</span>
+</span><span data-line="486"><span class="w">		</span><span class="nv">winblend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span data-line="487"><span class="w">		</span><span class="nv">previewer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span data-line="488"><span class="w">	</span><span class="p">}))</span>
+</span><span data-line="489"><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[/] Fuzzily search in current buffer&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="490">
+</span><span data-line="491"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">find_files</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch [F]iles&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="492"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fh&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">help_tags</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch [H]elp&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="493"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fw&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">grep_string</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch current [W]ord&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="494"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">live_grep</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch by [G]rep&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="495"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fd&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">diagnostics</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[S]earch [D]iagnostics&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="496">
+</span><span data-line="497"><span class="c1">-- [[ Configure Treesitter ]]</span>
+</span><span data-line="498"><span class="c1">-- Neovim 0.12 provides highlighting, folds and indentation natively; the</span>
+</span><span data-line="499"><span class="c1">-- `main` branch of nvim-treesitter only installs parsers/queries for it.</span>
+</span><span data-line="500"><span class="c1">-- See `:help nvim-treesitter` and `:help treesitter`</span>
+</span><span data-line="501"><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">is_server_profile</span><span class="w"> </span><span class="kr">then</span>
+</span><span data-line="502"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">treesitter_parsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tsx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;typescript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;vimdoc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;vim&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;typst&quot;</span><span class="w"> </span><span class="p">}</span>
 </span><span data-line="503">
-</span><span data-line="504"><span class="w">		</span><span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
-</span><span data-line="505"><span class="w">		</span><span class="nv">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nv">disable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
-</span><span data-line="506"><span class="w">		</span><span class="nv">incremental_selection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="507"><span class="w">			</span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span data-line="508"><span class="w">			</span><span class="nv">keymaps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="509"><span class="w">				</span><span class="nv">init_selection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;c-space&gt;&quot;</span><span class="p">,</span>
-</span><span data-line="510"><span class="w">				</span><span class="nv">node_incremental</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;c-space&gt;&quot;</span><span class="p">,</span>
-</span><span data-line="511"><span class="w">				</span><span class="nv">scope_incremental</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;c-s&gt;&quot;</span><span class="p">,</span>
-</span><span data-line="512"><span class="w">				</span><span class="nv">node_decremental</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;M-space&gt;&quot;</span><span class="p">,</span>
-</span><span data-line="513"><span class="w">			</span><span class="p">},</span>
-</span><span data-line="514"><span class="w">		</span><span class="p">},</span>
-</span><span data-line="515"><span class="w">		</span><span class="nv">textobjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="516"><span class="w">			</span><span class="nb">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="517"><span class="w">				</span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span data-line="518"><span class="w">				</span><span class="nv">lookahead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Automatically jump forward to textobj, similar to targets.vim</span>
-</span><span data-line="519"><span class="w">				</span><span class="nv">keymaps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="520"><span class="w">					</span><span class="c1">-- You can use the capture groups defined in textobjects.scm</span>
-</span><span data-line="521"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;aa&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@parameter.outer&quot;</span><span class="p">,</span>
-</span><span data-line="522"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;ia&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@parameter.inner&quot;</span><span class="p">,</span>
-</span><span data-line="523"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;af&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">,</span>
-</span><span data-line="524"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;if&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.inner&quot;</span><span class="p">,</span>
-</span><span data-line="525"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;ac&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">,</span>
-</span><span data-line="526"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;ic&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.inner&quot;</span><span class="p">,</span>
-</span><span data-line="527"><span class="w">				</span><span class="p">},</span>
-</span><span data-line="528"><span class="w">			</span><span class="p">},</span>
-</span><span data-line="529"><span class="w">			</span><span class="nv">move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="530"><span class="w">				</span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span data-line="531"><span class="w">				</span><span class="nv">set_jumps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">-- whether to set jumps in the jumplist</span>
-</span><span data-line="532"><span class="w">				</span><span class="nv">goto_next_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="533"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;]m&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">,</span>
-</span><span data-line="534"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;]]&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">,</span>
-</span><span data-line="535"><span class="w">				</span><span class="p">},</span>
-</span><span data-line="536"><span class="w">				</span><span class="nv">goto_next_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="537"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;]M&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">,</span>
-</span><span data-line="538"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;][&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">,</span>
-</span><span data-line="539"><span class="w">				</span><span class="p">},</span>
-</span><span data-line="540"><span class="w">				</span><span class="nv">goto_previous_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="541"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;[m&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">,</span>
-</span><span data-line="542"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;[[&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">,</span>
-</span><span data-line="543"><span class="w">				</span><span class="p">},</span>
-</span><span data-line="544"><span class="w">				</span><span class="nv">goto_previous_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="545"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;[M&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">,</span>
-</span><span data-line="546"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;[]&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">,</span>
-</span><span data-line="547"><span class="w">				</span><span class="p">},</span>
-</span><span data-line="548"><span class="w">			</span><span class="p">},</span>
-</span><span data-line="549"><span class="w">			</span><span class="nv">swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="550"><span class="w">				</span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span data-line="551"><span class="w">				</span><span class="nv">swap_next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="552"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;&lt;leader&gt;a&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@parameter.inner&quot;</span><span class="p">,</span>
-</span><span data-line="553"><span class="w">				</span><span class="p">},</span>
-</span><span data-line="554"><span class="w">				</span><span class="nv">swap_previous</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="555"><span class="w">					</span><span class="p">[</span><span class="s2">&quot;&lt;leader&gt;A&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@parameter.inner&quot;</span><span class="p">,</span>
-</span><span data-line="556"><span class="w">				</span><span class="p">},</span>
-</span><span data-line="557"><span class="w">			</span><span class="p">},</span>
-</span><span data-line="558"><span class="w">		</span><span class="p">},</span>
-</span><span data-line="559"><span class="w">	</span><span class="p">})</span>
-</span><span data-line="560"><span class="kr">end</span>
-</span><span data-line="561">
-</span><span data-line="562"><span class="c1">-- Diagnostic keymaps</span>
-</span><span data-line="563"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">goto_prev</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to previous diagnostic message&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="564"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;]d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">goto_next</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to next diagnostic message&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="565"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;e&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">open_float</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open floating diagnostic message&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="566"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">setloclist</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open diagnostics list&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="567">
-</span><span data-line="568"><span class="kr">if</span><span class="w"> </span><span class="nv">enable_lsp</span><span class="w"> </span><span class="kr">then</span>
-</span><span data-line="569"><span class="w">	</span><span class="c1">-- LSP settings.</span>
-</span><span data-line="570"><span class="w">	</span><span class="c1">--  This function gets run when an LSP connects to a particular buffer.</span>
-</span><span data-line="571"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">on_attach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">)</span>
-</span><span data-line="572"><span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">nmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">keys</span><span class="p">,</span><span class="w"> </span><span class="nv">func</span><span class="p">,</span><span class="w"> </span><span class="nv">desc</span><span class="p">)</span>
-</span><span data-line="573"><span class="w">			</span><span class="kr">if</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="kr">then</span>
-</span><span data-line="574"><span class="w">				</span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LSP: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">desc</span>
-</span><span data-line="575"><span class="w">			</span><span class="kr">end</span>
-</span><span data-line="576">
-</span><span data-line="577"><span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">keys</span><span class="p">,</span><span class="w"> </span><span class="nv">func</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="578"><span class="w">		</span><span class="kr">end</span>
-</span><span data-line="579">
-</span><span data-line="580"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;rn&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">rename</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[R]e[n]ame&quot;</span><span class="p">)</span>
-</span><span data-line="581"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;ca&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">code_action</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[C]ode [A]ction&quot;</span><span class="p">)</span>
-</span><span data-line="582">
-</span><span data-line="583"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gd&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">definition</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [D]efinition&quot;</span><span class="p">)</span>
-</span><span data-line="584"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gr&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">lsp_references</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [R]eferences&quot;</span><span class="p">)</span>
-</span><span data-line="585"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gI&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">implementation</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [I]mplementation&quot;</span><span class="p">)</span>
-</span><span data-line="586"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">type_definition</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Type [D]efinition&quot;</span><span class="p">)</span>
-</span><span data-line="587"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;ds&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">lsp_document_symbols</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[D]ocument [S]ymbols&quot;</span><span class="p">)</span>
-</span><span data-line="588"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;ws&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">lsp_dynamic_workspace_symbols</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[W]orkspace [S]ymbols&quot;</span><span class="p">)</span>
+</span><span data-line="504"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">nvim_treesitter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;nvim-treesitter&quot;</span><span class="p">)</span>
+</span><span data-line="505"><span class="w">	</span><span class="c1">-- `install_dir` is prepended to &#39;runtimepath&#39; so freshly installed</span>
+</span><span data-line="506"><span class="w">	</span><span class="c1">-- parsers/queries take priority over stale ones.</span>
+</span><span data-line="507"><span class="w">	</span><span class="nv">nvim_treesitter</span><span class="p">.</span><span class="nf">setup</span><span class="p">({</span>
+</span><span data-line="508"><span class="w">		</span><span class="nv">install_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">stdpath</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;/site&quot;</span><span class="p">,</span>
+</span><span data-line="509"><span class="w">	</span><span class="p">})</span>
+</span><span data-line="510"><span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">executable</span><span class="p">(</span><span class="s2">&quot;tree-sitter&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+</span><span data-line="511"><span class="w">		</span><span class="c1">-- Parser installation needs the `tree-sitter` CLI (tree-sitter-cli).</span>
+</span><span data-line="512"><span class="w">		</span><span class="nv">nvim_treesitter</span><span class="p">.</span><span class="nf">install</span><span class="p">(</span><span class="nv">treesitter_parsers</span><span class="p">)</span>
+</span><span data-line="513"><span class="w">	</span><span class="kr">else</span>
+</span><span data-line="514"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="nf">notify_once</span><span class="p">(</span>
+</span><span data-line="515"><span class="w">			</span><span class="s2">&quot;[nvim-treesitter] `tree-sitter` CLI not found, parsers cannot be installed/updated. &quot;</span>
+</span><span data-line="516"><span class="w">				</span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;Install tree-sitter-cli (e.g. `brew install tree-sitter-cli`).&quot;</span><span class="p">,</span>
+</span><span data-line="517"><span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">log</span><span class="p">.</span><span class="py">levels</span><span class="p">.</span><span class="py">WARN</span>
+</span><span data-line="518"><span class="w">		</span><span class="p">)</span>
+</span><span data-line="519"><span class="w">	</span><span class="kr">end</span>
+</span><span data-line="520">
+</span><span data-line="521"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;FileType&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="522"><span class="w">		</span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">args</span><span class="p">)</span>
+</span><span data-line="523"><span class="w">			</span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="py">treesitter</span><span class="p">.</span><span class="py">start</span><span class="p">,</span><span class="w"> </span><span class="nv">args</span><span class="p">.</span><span class="py">buf</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+</span><span data-line="524"><span class="w">				</span><span class="kr">return</span>
+</span><span data-line="525"><span class="w">			</span><span class="kr">end</span>
+</span><span data-line="526"><span class="w">			</span><span class="c1">-- Treesitter indentation is experimental; python keeps its own filetype indent.</span>
+</span><span data-line="527"><span class="w">			</span><span class="kr">if</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">bo</span><span class="p">[</span><span class="nv">args</span><span class="p">.</span><span class="py">buf</span><span class="p">].</span><span class="nv">filetype</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="w"> </span><span class="kr">then</span>
+</span><span data-line="528"><span class="w">				</span><span class="nv">vim</span><span class="p">.</span><span class="py">bo</span><span class="p">[</span><span class="nv">args</span><span class="p">.</span><span class="py">buf</span><span class="p">].</span><span class="nv">indentexpr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v:lua.require&#39;nvim-treesitter&#39;.indentexpr()&quot;</span>
+</span><span data-line="529"><span class="w">			</span><span class="kr">end</span>
+</span><span data-line="530"><span class="w">		</span><span class="kr">end</span><span class="p">,</span>
+</span><span data-line="531"><span class="w">	</span><span class="p">})</span>
+</span><span data-line="532">
+</span><span data-line="533"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">textobjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;nvim-treesitter-textobjects&quot;</span><span class="p">)</span>
+</span><span data-line="534"><span class="w">	</span><span class="nv">textobjects</span><span class="p">.</span><span class="nf">setup</span><span class="p">({</span>
+</span><span data-line="535"><span class="w">		</span><span class="nb">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="536"><span class="w">			</span><span class="nv">lookahead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Automatically jump forward to textobj, similar to targets.vim</span>
+</span><span data-line="537"><span class="w">		</span><span class="p">},</span>
+</span><span data-line="538"><span class="w">		</span><span class="nv">move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="539"><span class="w">			</span><span class="nv">set_jumps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">-- whether to set jumps in the jumplist</span>
+</span><span data-line="540"><span class="w">		</span><span class="p">},</span>
+</span><span data-line="541"><span class="w">	</span><span class="p">})</span>
+</span><span data-line="542">
+</span><span data-line="543"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nb">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;nvim-treesitter-textobjects.select&quot;</span><span class="p">)</span>
+</span><span data-line="544"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;nvim-treesitter-textobjects.move&quot;</span><span class="p">)</span>
+</span><span data-line="545"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;nvim-treesitter-textobjects.swap&quot;</span><span class="p">)</span>
+</span><span data-line="546">
+</span><span data-line="547"><span class="w">	</span><span class="c1">-- You can use the capture groups defined in textobjects.scm</span>
+</span><span data-line="548"><span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">lhs</span><span class="p">,</span><span class="w"> </span><span class="nv">query</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span>
+</span><span data-line="549"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;aa&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@parameter.outer&quot;</span><span class="p">,</span>
+</span><span data-line="550"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;ia&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@parameter.inner&quot;</span><span class="p">,</span>
+</span><span data-line="551"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;af&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">,</span>
+</span><span data-line="552"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;if&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@function.inner&quot;</span><span class="p">,</span>
+</span><span data-line="553"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;ac&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">,</span>
+</span><span data-line="554"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;ic&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;@class.inner&quot;</span><span class="p">,</span>
+</span><span data-line="555"><span class="w">	</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+</span><span data-line="556"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nv">lhs</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+</span><span data-line="557"><span class="w">			</span><span class="nb">select</span><span class="p">.</span><span class="nf">select_textobject</span><span class="p">(</span><span class="nv">query</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;textobjects&quot;</span><span class="p">)</span>
+</span><span data-line="558"><span class="w">		</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Select &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">query</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="559"><span class="w">	</span><span class="kr">end</span>
+</span><span data-line="560">
+</span><span data-line="561"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">map_move</span><span class="p">(</span><span class="nv">lhs</span><span class="p">,</span><span class="w"> </span><span class="nv">func</span><span class="p">,</span><span class="w"> </span><span class="nv">query</span><span class="p">)</span>
+</span><span data-line="562"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nv">lhs</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+</span><span data-line="563"><span class="w">			</span><span class="nv">move</span><span class="p">[</span><span class="nv">func</span><span class="p">](</span><span class="nv">query</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;textobjects&quot;</span><span class="p">)</span>
+</span><span data-line="564"><span class="w">		</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Move to &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">query</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="565"><span class="w">	</span><span class="kr">end</span>
+</span><span data-line="566">
+</span><span data-line="567"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;]m&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_next_start&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">)</span>
+</span><span data-line="568"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;]]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_next_start&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">)</span>
+</span><span data-line="569"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;]M&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_next_end&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">)</span>
+</span><span data-line="570"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;][&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_next_end&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">)</span>
+</span><span data-line="571"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;[m&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_previous_start&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">)</span>
+</span><span data-line="572"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;[[&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_previous_start&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">)</span>
+</span><span data-line="573"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;[M&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_previous_end&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@function.outer&quot;</span><span class="p">)</span>
+</span><span data-line="574"><span class="w">	</span><span class="nf">map_move</span><span class="p">(</span><span class="s2">&quot;[]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;goto_previous_end&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@class.outer&quot;</span><span class="p">)</span>
+</span><span data-line="575">
+</span><span data-line="576"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+</span><span data-line="577"><span class="w">		</span><span class="nv">swap</span><span class="p">.</span><span class="nf">swap_next</span><span class="p">(</span><span class="s2">&quot;@parameter.inner&quot;</span><span class="p">)</span>
+</span><span data-line="578"><span class="w">	</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Swap with next parameter&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="579"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+</span><span data-line="580"><span class="w">		</span><span class="nv">swap</span><span class="p">.</span><span class="nf">swap_previous</span><span class="p">(</span><span class="s2">&quot;@parameter.inner&quot;</span><span class="p">)</span>
+</span><span data-line="581"><span class="w">	</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Swap with previous parameter&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="582"><span class="kr">end</span>
+</span><span data-line="583">
+</span><span data-line="584"><span class="c1">-- Diagnostic keymaps</span>
+</span><span data-line="585"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">goto_prev</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to previous diagnostic message&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="586"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;]d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">goto_next</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to next diagnostic message&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="587"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;e&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">open_float</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open floating diagnostic message&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="588"><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">diagnostic</span><span class="p">.</span><span class="py">setloclist</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open diagnostics list&quot;</span><span class="w"> </span><span class="p">})</span>
 </span><span data-line="589">
-</span><span data-line="590"><span class="w">		</span><span class="c1">-- See `:help K` for why this keymap</span>
-</span><span data-line="591"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">hover</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hover Documentation&quot;</span><span class="p">)</span>
-</span><span data-line="592"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;C-k&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">signature_help</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Signature Documentation&quot;</span><span class="p">)</span>
-</span><span data-line="593">
-</span><span data-line="594"><span class="w">		</span><span class="c1">-- Lesser used LSP functionality</span>
-</span><span data-line="595"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gD&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">declaration</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [D]eclaration&quot;</span><span class="p">)</span>
-</span><span data-line="596"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;wa&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">add_workspace_folder</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[W]orkspace [A]dd Folder&quot;</span><span class="p">)</span>
-</span><span data-line="597"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;wr&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">remove_workspace_folder</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[W]orkspace [R]emove Folder&quot;</span><span class="p">)</span>
+</span><span data-line="590"><span class="kr">if</span><span class="w"> </span><span class="nv">enable_lsp</span><span class="w"> </span><span class="kr">then</span>
+</span><span data-line="591"><span class="w">	</span><span class="c1">-- LSP settings.</span>
+</span><span data-line="592"><span class="w">	</span><span class="c1">--  This function gets run when an LSP connects to a particular buffer.</span>
+</span><span data-line="593"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">on_attach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">)</span>
+</span><span data-line="594"><span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">nmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">keys</span><span class="p">,</span><span class="w"> </span><span class="nv">func</span><span class="p">,</span><span class="w"> </span><span class="nv">desc</span><span class="p">)</span>
+</span><span data-line="595"><span class="w">			</span><span class="kr">if</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="kr">then</span>
+</span><span data-line="596"><span class="w">				</span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LSP: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">desc</span>
+</span><span data-line="597"><span class="w">			</span><span class="kr">end</span>
 </span><span data-line="598">
-</span><span data-line="599"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;f&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">format</span><span class="p">)</span>
-</span><span data-line="600"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_buf_create_user_command</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Format&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">_</span><span class="p">)</span>
-</span><span data-line="601"><span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="nf">format</span><span class="p">()</span>
-</span><span data-line="602"><span class="w">		</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Format current buffer with LSP&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="603"><span class="w">	</span><span class="kr">end</span>
+</span><span data-line="599"><span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">keys</span><span class="p">,</span><span class="w"> </span><span class="nv">func</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="600"><span class="w">		</span><span class="kr">end</span>
+</span><span data-line="601">
+</span><span data-line="602"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;rn&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">rename</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[R]e[n]ame&quot;</span><span class="p">)</span>
+</span><span data-line="603"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;ca&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">code_action</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[C]ode [A]ction&quot;</span><span class="p">)</span>
 </span><span data-line="604">
-</span><span data-line="605"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">servers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="606"><span class="w">		</span><span class="nv">pyright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span data-line="607"><span class="w">		</span><span class="nv">rust_analyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span data-line="608"><span class="w">		</span><span class="nv">ts_ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span data-line="609"><span class="w">		</span><span class="nv">texlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span data-line="610"><span class="w">		</span><span class="nv">tinymist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span data-line="611"><span class="w">	</span><span class="p">}</span>
-</span><span data-line="612">
-</span><span data-line="613"><span class="w">	</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;neodev&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">()</span>
-</span><span data-line="614">
-</span><span data-line="615"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">protocol</span><span class="p">.</span><span class="nf">make_client_capabilities</span><span class="p">()</span>
-</span><span data-line="616"><span class="w">	</span><span class="nv">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp_nvim_lsp&quot;</span><span class="p">).</span><span class="nf">default_capabilities</span><span class="p">(</span><span class="nv">capabilities</span><span class="p">)</span>
-</span><span data-line="617">
-</span><span data-line="618"><span class="w">	</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">()</span>
-</span><span data-line="619">
-</span><span data-line="620"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">mason_lspconfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason-lspconfig&quot;</span><span class="p">)</span>
-</span><span data-line="621">
-</span><span data-line="622"><span class="w">	</span><span class="nv">mason_lspconfig</span><span class="p">.</span><span class="nf">setup</span><span class="p">({</span>
-</span><span data-line="623"><span class="w">		</span><span class="nv">ensure_installed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="nf">tbl_keys</span><span class="p">(</span><span class="nv">servers</span><span class="p">),</span>
-</span><span data-line="624"><span class="w">	</span><span class="p">})</span>
-</span><span data-line="625">
-</span><span data-line="626"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">lspconfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;lspconfig&quot;</span><span class="p">)</span>
-</span><span data-line="627"><span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">server_name</span><span class="p">,</span><span class="w"> </span><span class="nv">server_opts</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">servers</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
-</span><span data-line="628"><span class="w">		</span><span class="nv">server_opts</span><span class="p">.</span><span class="py">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">capabilities</span>
-</span><span data-line="629"><span class="w">		</span><span class="nv">server_opts</span><span class="p">.</span><span class="py">on_attach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">on_attach</span>
-</span><span data-line="630"><span class="w">		</span><span class="nv">lspconfig</span><span class="p">[</span><span class="nv">server_name</span><span class="p">].</span><span class="nf">setup</span><span class="p">(</span><span class="nv">server_opts</span><span class="p">)</span>
-</span><span data-line="631"><span class="w">	</span><span class="kr">end</span>
-</span><span data-line="632"><span class="kr">end</span>
-</span><span data-line="633">
-</span><span data-line="634"><span class="c1">-- nvim-cmp setup</span>
-</span><span data-line="635"><span class="kd">local</span><span class="w"> </span><span class="nv">cmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp&quot;</span><span class="p">)</span>
-</span><span data-line="636"><span class="c1">-- local luasnip = require &#39;luasnip&#39;</span>
-</span><span data-line="637">
-</span><span data-line="638"><span class="kd">local</span><span class="w"> </span><span class="nv">cmp_sources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="639"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vsnip&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">-- For vsnip users.</span>
-</span><span data-line="640"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ultisnips&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">-- For ultisnips users.</span>
-</span><span data-line="641"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;buffer&quot;</span><span class="w"> </span><span class="p">},</span>
-</span><span data-line="642"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="w"> </span><span class="p">},</span>
-</span><span data-line="643"><span class="p">}</span>
-</span><span data-line="644"><span class="kr">if</span><span class="w"> </span><span class="nv">enable_lsp</span><span class="w"> </span><span class="kr">then</span>
-</span><span data-line="645"><span class="w">	</span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">cmp_sources</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nvim_lsp&quot;</span><span class="w"> </span><span class="p">})</span>
-</span><span data-line="646"><span class="kr">end</span>
+</span><span data-line="605"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gd&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">definition</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [D]efinition&quot;</span><span class="p">)</span>
+</span><span data-line="606"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gr&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">lsp_references</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [R]eferences&quot;</span><span class="p">)</span>
+</span><span data-line="607"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gI&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">implementation</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [I]mplementation&quot;</span><span class="p">)</span>
+</span><span data-line="608"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">type_definition</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Type [D]efinition&quot;</span><span class="p">)</span>
+</span><span data-line="609"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;ds&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">lsp_document_symbols</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[D]ocument [S]ymbols&quot;</span><span class="p">)</span>
+</span><span data-line="610"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;ws&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">).</span><span class="nv">lsp_dynamic_workspace_symbols</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[W]orkspace [S]ymbols&quot;</span><span class="p">)</span>
+</span><span data-line="611">
+</span><span data-line="612"><span class="w">		</span><span class="c1">-- See `:help K` for why this keymap</span>
+</span><span data-line="613"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">hover</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hover Documentation&quot;</span><span class="p">)</span>
+</span><span data-line="614"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;C-k&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">signature_help</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Signature Documentation&quot;</span><span class="p">)</span>
+</span><span data-line="615">
+</span><span data-line="616"><span class="w">		</span><span class="c1">-- Lesser used LSP functionality</span>
+</span><span data-line="617"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;gD&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">declaration</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[G]oto [D]eclaration&quot;</span><span class="p">)</span>
+</span><span data-line="618"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;wa&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">add_workspace_folder</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[W]orkspace [A]dd Folder&quot;</span><span class="p">)</span>
+</span><span data-line="619"><span class="w">		</span><span class="nf">nmap</span><span class="p">(</span><span class="s2">&quot;&lt;leader&gt;wr&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">remove_workspace_folder</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[W]orkspace [R]emove Folder&quot;</span><span class="p">)</span>
+</span><span data-line="620">
+</span><span data-line="621"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;f&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="py">format</span><span class="p">)</span>
+</span><span data-line="622"><span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_buf_create_user_command</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Format&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">_</span><span class="p">)</span>
+</span><span data-line="623"><span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="nf">format</span><span class="p">()</span>
+</span><span data-line="624"><span class="w">		</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Format current buffer with LSP&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="625"><span class="w">	</span><span class="kr">end</span>
+</span><span data-line="626">
+</span><span data-line="627"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">servers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="628"><span class="w">		</span><span class="nv">pyright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span data-line="629"><span class="w">		</span><span class="nv">rust_analyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span data-line="630"><span class="w">		</span><span class="nv">ts_ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span data-line="631"><span class="w">		</span><span class="nv">texlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span data-line="632"><span class="w">		</span><span class="nv">tinymist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span data-line="633"><span class="w">	</span><span class="p">}</span>
+</span><span data-line="634">
+</span><span data-line="635"><span class="w">	</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;neodev&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">()</span>
+</span><span data-line="636">
+</span><span data-line="637"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">protocol</span><span class="p">.</span><span class="nf">make_client_capabilities</span><span class="p">()</span>
+</span><span data-line="638"><span class="w">	</span><span class="nv">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp_nvim_lsp&quot;</span><span class="p">).</span><span class="nf">default_capabilities</span><span class="p">(</span><span class="nv">capabilities</span><span class="p">)</span>
+</span><span data-line="639">
+</span><span data-line="640"><span class="w">	</span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">()</span>
+</span><span data-line="641">
+</span><span data-line="642"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">mason_lspconfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason-lspconfig&quot;</span><span class="p">)</span>
+</span><span data-line="643">
+</span><span data-line="644"><span class="w">	</span><span class="nv">mason_lspconfig</span><span class="p">.</span><span class="nf">setup</span><span class="p">({</span>
+</span><span data-line="645"><span class="w">		</span><span class="nv">ensure_installed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="nf">tbl_keys</span><span class="p">(</span><span class="nv">servers</span><span class="p">),</span>
+</span><span data-line="646"><span class="w">	</span><span class="p">})</span>
 </span><span data-line="647">
-</span><span data-line="648"><span class="nv">cmp</span><span class="p">.</span><span class="nf">setup</span><span class="p">({</span>
-</span><span data-line="649"><span class="w">	</span><span class="nv">snippet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span data-line="650"><span class="w">		</span><span class="nv">expand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">args</span><span class="p">)</span>
-</span><span data-line="651"><span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">[</span><span class="s2">&quot;UltiSnips#Anon&quot;</span><span class="p">](</span><span class="nv">args</span><span class="p">.</span><span class="py">body</span><span class="p">)</span>
-</span><span data-line="652"><span class="w">		</span><span class="kr">end</span><span class="p">,</span>
-</span><span data-line="653"><span class="w">	</span><span class="p">},</span>
-</span><span data-line="654"><span class="w">	</span><span class="nv">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="py">preset</span><span class="p">.</span><span class="nf">insert</span><span class="p">({</span>
-</span><span data-line="655"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;C-d&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">scroll_docs</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span>
-</span><span data-line="656"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;C-f&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">scroll_docs</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
-</span><span data-line="657"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;C-Space&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">complete</span><span class="p">({}),</span>
-</span><span data-line="658"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;CR&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">confirm</span><span class="p">({</span>
-</span><span data-line="659"><span class="w">			</span><span class="nv">behavior</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">ConfirmBehavior</span><span class="p">.</span><span class="py">Replace</span><span class="p">,</span>
-</span><span data-line="660"><span class="w">			</span><span class="nb">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span data-line="661"><span class="w">		</span><span class="p">}),</span>
-</span><span data-line="662"><span class="w">	</span><span class="p">}),</span>
-</span><span data-line="663"><span class="w">	</span><span class="nv">sources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">config</span><span class="p">.</span><span class="nf">sources</span><span class="p">(</span><span class="nv">cmp_sources</span><span class="p">),</span>
-</span><span data-line="664"><span class="p">})</span>
-</span><span data-line="665">
-</span><span data-line="666"><span class="kr">function</span><span class="w"> </span><span class="nc">_G</span><span class="p">.</span><span class="nf">set_terminal_keymaps</span><span class="p">()</span>
-</span><span data-line="667"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
-</span><span data-line="668"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;esc&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
-</span><span data-line="669"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;jk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
-</span><span data-line="670"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-h&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd h&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
-</span><span data-line="671"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-j&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd j&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
-</span><span data-line="672"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-k&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd k&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
-</span><span data-line="673"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-l&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd l&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
-</span><span data-line="674"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;C-\&gt;&lt;C-n&gt;&lt;C-w&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
-</span><span data-line="675"><span class="kr">end</span>
-</span><span data-line="676">
-</span><span data-line="677"><span class="c1">-- if you only want these mappings for toggle term use term://*toggleterm#* instead</span>
-</span><span data-line="678"><span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s2">&quot;autocmd! TermOpen term://* lua set_terminal_keymaps()&quot;</span><span class="p">)</span>
-</span><span data-line="679">
-</span><span data-line="680"><span class="c1">-- The line beneath this is called `modeline`. See `:help modeline`</span>
-</span><span data-line="681"><span class="c1">-- vim: ts=2 sts=2 sw=2 et</span>
-</span><span data-line="682">
-</span><span data-line="683"><span class="nv">vim</span><span class="p">.</span><span class="py">g</span><span class="p">.</span><span class="py">tmux_navigator_no_mappings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</span><span data-line="648"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">lspconfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;lspconfig&quot;</span><span class="p">)</span>
+</span><span data-line="649"><span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">server_name</span><span class="p">,</span><span class="w"> </span><span class="nv">server_opts</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">servers</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+</span><span data-line="650"><span class="w">		</span><span class="nv">server_opts</span><span class="p">.</span><span class="py">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">capabilities</span>
+</span><span data-line="651"><span class="w">		</span><span class="nv">server_opts</span><span class="p">.</span><span class="py">on_attach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">on_attach</span>
+</span><span data-line="652"><span class="w">		</span><span class="nv">lspconfig</span><span class="p">[</span><span class="nv">server_name</span><span class="p">].</span><span class="nf">setup</span><span class="p">(</span><span class="nv">server_opts</span><span class="p">)</span>
+</span><span data-line="653"><span class="w">	</span><span class="kr">end</span>
+</span><span data-line="654"><span class="kr">end</span>
+</span><span data-line="655">
+</span><span data-line="656"><span class="c1">-- nvim-cmp setup</span>
+</span><span data-line="657"><span class="kd">local</span><span class="w"> </span><span class="nv">cmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;cmp&quot;</span><span class="p">)</span>
+</span><span data-line="658"><span class="c1">-- local luasnip = require &#39;luasnip&#39;</span>
+</span><span data-line="659">
+</span><span data-line="660"><span class="kd">local</span><span class="w"> </span><span class="nv">cmp_sources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="661"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vsnip&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">-- For vsnip users.</span>
+</span><span data-line="662"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ultisnips&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">-- For ultisnips users.</span>
+</span><span data-line="663"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;buffer&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span data-line="664"><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span data-line="665"><span class="p">}</span>
+</span><span data-line="666"><span class="kr">if</span><span class="w"> </span><span class="nv">enable_lsp</span><span class="w"> </span><span class="kr">then</span>
+</span><span data-line="667"><span class="w">	</span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">cmp_sources</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nvim_lsp&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span data-line="668"><span class="kr">end</span>
+</span><span data-line="669">
+</span><span data-line="670"><span class="nv">cmp</span><span class="p">.</span><span class="nf">setup</span><span class="p">({</span>
+</span><span data-line="671"><span class="w">	</span><span class="nv">snippet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span data-line="672"><span class="w">		</span><span class="nv">expand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">args</span><span class="p">)</span>
+</span><span data-line="673"><span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">[</span><span class="s2">&quot;UltiSnips#Anon&quot;</span><span class="p">](</span><span class="nv">args</span><span class="p">.</span><span class="py">body</span><span class="p">)</span>
+</span><span data-line="674"><span class="w">		</span><span class="kr">end</span><span class="p">,</span>
+</span><span data-line="675"><span class="w">	</span><span class="p">},</span>
+</span><span data-line="676"><span class="w">	</span><span class="nv">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="py">preset</span><span class="p">.</span><span class="nf">insert</span><span class="p">({</span>
+</span><span data-line="677"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;C-d&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">scroll_docs</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span>
+</span><span data-line="678"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;C-f&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">scroll_docs</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+</span><span data-line="679"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;C-Space&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">complete</span><span class="p">({}),</span>
+</span><span data-line="680"><span class="w">		</span><span class="p">[</span><span class="s2">&quot;&lt;CR&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">mapping</span><span class="p">.</span><span class="nf">confirm</span><span class="p">({</span>
+</span><span data-line="681"><span class="w">			</span><span class="nv">behavior</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">ConfirmBehavior</span><span class="p">.</span><span class="py">Replace</span><span class="p">,</span>
+</span><span data-line="682"><span class="w">			</span><span class="nb">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span data-line="683"><span class="w">		</span><span class="p">}),</span>
+</span><span data-line="684"><span class="w">	</span><span class="p">}),</span>
+</span><span data-line="685"><span class="w">	</span><span class="nv">sources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cmp</span><span class="p">.</span><span class="py">config</span><span class="p">.</span><span class="nf">sources</span><span class="p">(</span><span class="nv">cmp_sources</span><span class="p">),</span>
+</span><span data-line="686"><span class="p">})</span>
+</span><span data-line="687">
+</span><span data-line="688"><span class="kr">function</span><span class="w"> </span><span class="nc">_G</span><span class="p">.</span><span class="nf">set_terminal_keymaps</span><span class="p">()</span>
+</span><span data-line="689"><span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+</span><span data-line="690"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;esc&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
+</span><span data-line="691"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;jk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;C-\&gt;&lt;C-n&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
+</span><span data-line="692"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-h&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd h&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
+</span><span data-line="693"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-j&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd j&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
+</span><span data-line="694"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-k&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd k&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
+</span><span data-line="695"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-l&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;Cmd&gt;wincmd l&lt;CR&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
+</span><span data-line="696"><span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">[[&lt;C-\&gt;&lt;C-n&gt;&lt;C-w&gt;]]</span><span class="p">,</span><span class="w"> </span><span class="nv">opts</span><span class="p">)</span>
+</span><span data-line="697"><span class="kr">end</span>
+</span><span data-line="698">
+</span><span data-line="699"><span class="c1">-- if you only want these mappings for toggle term use term://*toggleterm#* instead</span>
+</span><span data-line="700"><span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s2">&quot;autocmd! TermOpen term://* lua set_terminal_keymaps()&quot;</span><span class="p">)</span>
+</span><span data-line="701">
+</span><span data-line="702"><span class="c1">-- The line beneath this is called `modeline`. See `:help modeline`</span>
+</span><span data-line="703"><span class="c1">-- vim: ts=2 sts=2 sw=2 et</span>
+</span><span data-line="704">
+</span><span data-line="705"><span class="nv">vim</span><span class="p">.</span><span class="py">g</span><span class="p">.</span><span class="py">tmux_navigator_no_mappings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </span></pre></div>
 </div>
 </div>
@@ -976,8 +1174,8 @@ Linux (Source)</label><div class="sd-tab-content docutils">
 </ul>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-11" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-11">
+<input checked="checked" id="sd-tab-item-13" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
 Lazy.nvim</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">{</span>
 </span><span data-line="2"><span class="w">  </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
@@ -991,8 +1189,8 @@ Lazy.nvim</label><div class="sd-tab-content docutils">
 </span></pre></div>
 </div>
 </div>
-<input id="sd-tab-item-12" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-12">
+<input id="sd-tab-item-14" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
 Plug</label><div class="sd-tab-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="w"> </span>Plug<span class="w"> </span><span class="s1">&#39;christoomey/vim-tmux-navigator&#39;</span>,
 </span><span data-line="2">
@@ -1008,8 +1206,8 @@ Plug</label><div class="sd-tab-content docutils">
 </section>
 <section id="awesome-neovim-plugins">
 <h2>Awesome Neovim Plugins<a class="headerlink" href="#awesome-neovim-plugins" title="链接到此标题。">¶</a></h2>
-<section id="id5">
-<h3>vim-tmux-navigator<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
+<section id="id6">
+<h3>vim-tmux-navigator<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h3>
 <p><a class="reference external" href="https://github.com/christoomey/vim-tmux-navigator">vim-tmux-navigator</a></p>
 <p>more config see the Tmux section above.</p>
 <p>这里之前有</p>
@@ -1065,8 +1263,8 @@ Plug</label><div class="sd-tab-content docutils">
 </ul>
 <p>之前还有一个 <a class="reference external" href="https://github.com/tpope/vim-commentary">vim-commentary</a>, 不过我还是用 <a class="reference external" href="https://github.com/numToStr/Comment.nvim">Comment.nvim</a>替代了。我相信 <code class="code docutils literal notranslate"><span class="pre">lua</span> <span class="pre">is</span> <span class="pre">better</span> <span class="pre">than</span> <span class="pre">vimscript</span></code>(see <a class="reference external" href="https://www.zhihu.com/question/445290918">你们的vim配置都换成lua了吗？</a>.</p>
 </section>
-<section id="id8">
-<h3>toggleterm.nvim<a class="headerlink" href="#id8" title="链接到此标题。">¶</a></h3>
+<section id="id9">
+<h3>toggleterm.nvim<a class="headerlink" href="#id9" title="链接到此标题。">¶</a></h3>
 <p><a class="reference external" href="thttps://github.com/akinsho/toggleterm.nvim">toggleterm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="k">function</span><span class="w"> </span>_G.set_terminal_keymaps<span class="o">()</span>
 </span><span data-line="2"><span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">}</span>
@@ -1131,9 +1329,9 @@ Plug</label><div class="sd-tab-content docutils">
 <h3>Symbols-outline<a class="headerlink" href="#symbols-outline" title="链接到此标题。">¶</a></h3>
 <p><a class="reference external" href="https://github.com/simrat39/symbols-outline.nvim">Symbols-outline</a></p>
 <p>核心的命令包括:</p>
-<div class="table-wrapper colwidths-given docutils container" id="id16">
-<table class="docutils align-default" id="id16">
-<caption><span class="caption-text">Symbols-outline Commands</span><a class="headerlink" href="#id16" title="链接到此表格。">¶</a></caption>
+<div class="table-wrapper colwidths-given docutils container" id="id17">
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Symbols-outline Commands</span><a class="headerlink" href="#id17" title="链接到此表格。">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1223,19 +1421,19 @@ Plug</label><div class="sd-tab-content docutils">
 <p><a class="reference external" href="https://www.nerdfonts.com/font-downloads">nerdfonts</a> 列出了目前可用的常见字体。</p>
 <p>操作如下：</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-13" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-13">
+<input checked="checked" id="sd-tab-item-15" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
 MacOS-brew</label><div class="sd-tab-content docutils">
 <p>brew install font-fantasque-sans-mono-nerd-font</p>
 <p># 如果想要其他的字体，直接尝试安装，如果失败了，brew会给出建议，这不用担心。</p>
 </div>
-<input id="sd-tab-item-14" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-14">
+<input id="sd-tab-item-16" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
 Linux</label><div class="sd-tab-content docutils">
 <p>Linux</p>
 </div>
-<input id="sd-tab-item-15" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-15">
+<input id="sd-tab-item-17" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-17">
 Windows</label><div class="sd-tab-content docutils">
 <p>NA</p>
 </div>
@@ -1260,25 +1458,41 @@ Windows</label><div class="sd-tab-content docutils">
 <div role="list" class="citation-list">
 <div class="citation" id="lazy-nvim" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>lazy.nvim<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id5">2</a>)</span>
 <p><a class="reference external" href="https://github.com/folke/lazy.nvim">lazy.nvim</a></p>
 </div>
 <div class="citation" id="kickstart" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">kickstart</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">kickstart</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/nvim-lua/kickstart.nvim">kickstart</a></p>
 </div>
 </div>
 <div class="section" /></section>
 </section>
 
-<div class="section ablog__blog_comments">
-   
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>回到顶部</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="../index.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>上一章</span><div class="title">首页</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="ghostty.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Ghostty</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
 </div>
-
-      </article>
-      
-    </main>
-  </div><footer class="sy-foot">
+<footer class="sy-foot">
   <div class="sy-foot-inner sy-container mx-auto">
     <div class="sy-foot-reserved md:flex justify-between items-center">
       <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>

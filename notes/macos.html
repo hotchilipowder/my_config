@@ -2,7 +2,7 @@
 <html lang="zh" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Learning Typst - My Dev Config</title><link rel="shortcut icon" href="../_static/my_config.png"/><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Vps Configs" href="vps.html" /><link rel="prev" title="飞牛" href="../blogs/feiniu.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>macOS - My Dev Config</title><link rel="shortcut icon" href="../_static/my_config.png"/><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Win11" href="win11.html" /><link rel="prev" title="Vps Configs" href="vps.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
@@ -22,7 +22,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Learning Typst"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="macOS"/>
     <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -69,9 +69,9 @@ data-aria-dark="切换到自动模式">
 <li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git (Notes)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github_actions.html">Github Action</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blogs/feiniu.html">飞牛</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Learning Typst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typst.html">Learning Typst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="macos.html">macOS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">macOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="win11.html">Win11</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
@@ -93,11 +93,11 @@ data-aria-dark="切换到自动模式">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
-<li><a class="reference internal" href="#install">Install</a></li>
-<li><a class="reference internal" href="#typst-talk">Typst-Talk</a></li>
-<li><a class="reference internal" href="#why-i-want-to-use-it">Why I want to use it</a></li>
-<li><a class="reference internal" href="#comparsion">Comparsion</a></li>
-<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#homebrew">1. Homebrew</a></li>
+<li><a class="reference internal" href="#rust">2. Rust</a></li>
+<li><a class="reference internal" href="#ghostty-stats">3. Ghostty &#19982; Stats</a></li>
+<li><a class="reference internal" href="#opencode">4. opencode</a></li>
+<li><a class="reference internal" href="#id1">&#39564;&#35777;</a></li>
 </ul>
 </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
   data-type="github" data-user="hotchilipowder" data-repo="my_config">
@@ -121,7 +121,7 @@ data-aria-dark="切换到自动模式">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/notes/typst.md">编辑此页面</a>
+  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/notes/macos.md">编辑此页面</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
@@ -138,7 +138,7 @@ data-aria-dark="切换到自动模式">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Learning Typst</strong>
+        <strong itemprop="name">macOS</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -155,7 +155,7 @@ data-aria-dark="切换到自动模式">
     <button
       type="button"
       class="js-copy px-3 py-1 inline-flex items-center gap-1"
-      data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/typst.md"
+      data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/macos.md"
     >
       <i class="i-lucide" data-icon="copy"></i>
       <span>复制页面</span>
@@ -169,80 +169,106 @@ data-aria-dark="切换到自动模式">
     <div role="presentation">
       <div class="flex flex-col" role="group">
         <button class="js-copy" type="button" role="menuitem"
-          data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/typst.md">
+          data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/macos.md">
           <span class="iconify-icon">
             <i class="i-lucide" data-icon="copy"></i>
           </span>
           <span>复制页面</span>
         </button>
-        <a role="menuitem" href="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/typst.md" target="_blank" rel="nofollow"><iconify-icon icon="bi:markdown"></iconify-icon>
-            <span>查看 Markdown 源代码</span></a><a role="menuitem" href="https://chatgpt.com/?hints=search&q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/typst.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+        <a role="menuitem" href="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/macos.md" target="_blank" rel="nofollow"><iconify-icon icon="bi:markdown"></iconify-icon>
+            <span>查看 Markdown 源代码</span></a><a role="menuitem" href="https://chatgpt.com/?hints=search&q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/macos.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
           <iconify-icon icon="bi:openai"></iconify-icon>
           <span>在 ChatGPT 中打开</span>
-        </a><a role="menuitem" href="https://claude.ai/new?q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/typst.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+        </a><a role="menuitem" href="https://claude.ai/new?q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/macos.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
           <iconify-icon icon="bi:claude"></iconify-icon>
           <span>在 Claude 中打开</span>
         </a></div>
     </div>
   </div>
 </div><article class="yue" role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="learning-typst">
-<h1>Learning Typst<a class="headerlink" href="#learning-typst" title="链接到此标题。">¶</a></h1>
-<section id="install">
-<h2>Install<a class="headerlink" href="#install" title="链接到此标题。">¶</a></h2>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-0">
-WSL</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">apt<span class="w"> </span>install<span class="w"> </span>pkg-config<span class="w"> </span>libssl-dev
-</span><span data-line="2">cargo<span class="w"> </span>install<span class="w"> </span>--locked<span class="w"> </span>typst-cli
+          <section class="tex2jax_ignore mathjax_ignore" id="macos">
+<h1>macOS<a class="headerlink" href="#macos" title="链接到此标题。">¶</a></h1>
+<p>记录一台全新的 macOS 从零配置到日常可用的过程，方便以后换机或者重装时快速恢复。
+下面按实际操作顺序整理：Homebrew → Rust → Ghostty / Stats → opencode。</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#homebrew" id="id2">1. Homebrew</a></p></li>
+<li><p><a class="reference internal" href="#rust" id="id3">2. Rust</a></p></li>
+<li><p><a class="reference internal" href="#ghostty-stats" id="id4">3. Ghostty 与 Stats</a></p></li>
+<li><p><a class="reference internal" href="#opencode" id="id5">4. opencode</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id6">验证</a></p></li>
+</ul>
+</nav>
+<section id="homebrew">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Homebrew</a><a class="headerlink" href="#homebrew" title="链接到此标题。">¶</a></h2>
+<p>一切从 Homebrew 开始，macOS 上绝大多数命令行工具和 GUI 应用都通过它安装：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </span></pre></div>
 </div>
+<p>Apple Silicon 安装完成后需要把 Homebrew 加入 PATH：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zprofile
+</span><span data-line="2"><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>/opt/homebrew/bin/brew<span class="w"> </span>shellenv<span class="k">)</span><span class="s2">&quot;</span>
+</span></pre></div>
 </div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
-Linux</label><div class="sd-tab-content docutils">
-<p>Linux</p>
-</div>
-<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-2">
-Windows</label><div class="sd-tab-content docutils">
-<p>Widows</p>
-</div>
+<p>验证：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>--version
+</span></pre></div>
 </div>
 </section>
-<section id="typst-talk">
-<h2>Typst-Talk<a class="headerlink" href="#typst-talk" title="链接到此标题。">¶</a></h2>
-<ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 可以在 slide 里展示一个用户可见的进度条或当前剩余页数提示。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 易于加入代码块，要有正确的高亮，以及最好能够做到可复制，而不仅是截一张图片。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 易于编写数学公式，最好是能直接复用已有的数学公式源文件，且易于编辑。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能够方便地设置文本样式，例如字号、字重和颜色。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能够复用已有模板，用户只需要做一些填充工作。有「子幻灯片」能力，在 Powerpoint 指一部分动画效果，在 Beamer 里指 pause。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 有「演讲者视图」，可以展示仅演讲者可见的提示或笔记。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能够方便地随意放置图片、以及图片之间的层叠覆盖，即基于页面的绝对定位布局。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能够加入一些箭头、高亮或说明文本，对 slide 的内容进行解释。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能够加入 GIF 动图或者视频。</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 能有动态过渡效果，例如淡入淡出、平滑等。</p></li>
+<section id="rust">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Rust</a><a class="headerlink" href="#rust" title="链接到此标题。">¶</a></h2>
+<p>Rust 通过官方的 rustup 安装（而不是 brew），这样版本管理和 toolchain 更灵活：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">&#39;=https&#39;</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-sSf<span class="w"> </span>https://sh.rustup.rs<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</span></pre></div>
+</div>
+<p>安装脚本默认会把 <code class="docutils literal notranslate"><span class="pre">~/.cargo/bin</span></code> 写入 shell 配置，当前终端可以手动生效：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.cargo/env&quot;</span>
+</span></pre></div>
+</div>
+<p>验证：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">rustc<span class="w"> </span>--version
+</span><span data-line="2">cargo<span class="w"> </span>--version
+</span></pre></div>
+</div>
+</section>
+<section id="ghostty-stats">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">3. Ghostty 与 Stats</a><a class="headerlink" href="#ghostty-stats" title="链接到此标题。">¶</a></h2>
+<p>终端和系统监控都直接用 Homebrew 的 cask 安装：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>ghostty
+</span><span data-line="2">brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>stats
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ghostty.org/">Ghostty</a>：原生、跨平台的终端模拟器，字体和主题等配置见
+<a class="reference internal" href="ghostty.html"><span class="doc">Ghostty</span></a>。</p></li>
+<li><p><a class="reference external" href="https://github.com/exelban/stats">Stats</a>：显示在菜单栏的系统监控工具，可以看
+CPU、内存、网络等占用。</p></li>
 </ul>
 </section>
-<section id="why-i-want-to-use-it">
-<h2>Why I want to use it<a class="headerlink" href="#why-i-want-to-use-it" title="链接到此标题。">¶</a></h2>
-<ol class="arabic simple">
-<li><p>不破不立，反正啥都没有</p></li>
-<li><p>日常教学需要： 数学、代码、标注</p></li>
-<li><p>论文作图，规整</p></li>
-<li><p>日常总结、笔记和规范化</p></li>
-<li><p>用来做科普视频，使用代码 总归来说比使用 👋 和 👀 要准确很多</p></li>
-</ol>
+<section id="opencode">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">4. opencode</a><a class="headerlink" href="#opencode" title="链接到此标题。">¶</a></h2>
+<p>opencode 使用官方安装脚本，默认安装到 <code class="docutils literal notranslate"><span class="pre">~/.opencode/bin</span></code>：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://opencode.ai/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</span></pre></div>
+</div>
+<p>然后把安装目录写入 <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> 的 PATH：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.opencode/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</span></pre></div>
+</div>
+<p>验证：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">opencode<span class="w"> </span>--version
+</span></pre></div>
+</div>
 </section>
-<section id="comparsion">
-<h2>Comparsion<a class="headerlink" href="#comparsion" title="链接到此标题。">¶</a></h2>
-<p><img alt="" src="../_images/2024-12-08-13-03-05.png" /></p>
-</section>
-<section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="链接到此标题。">¶</a></h2>
-<p>标记只是语法糖</p>
+<section id="id1">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">验证</a><a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h2>
+<p>上面的步骤全部完成后，可以用下面的命令确认环境就绪：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">brew<span class="w"> </span>--version
+</span><span data-line="2">rustc<span class="w"> </span>--version
+</span><span data-line="3">opencode<span class="w"> </span>--version
+</span></pre></div>
+</div>
+<p>后续的终端字体、快捷键等个性化配置见 <a class="reference internal" href="ghostty.html"><span class="doc">Ghostty</span></a>，其余工具链按需补充。</p>
 </section>
 </section>
 
@@ -252,16 +278,16 @@ Windows</label><div class="sd-tab-content docutils">
   </svg>
   <span>回到顶部</span>
 </button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="../blogs/feiniu.html">
+    <a href="vps.html">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>上一章</span><div class="title">飞牛</div></div>
+        <span>上一章</span><div class="title">Vps Configs</div></div>
     </a>
   </div><div class="navigation-next">
-    <a href="vps.html">
+    <a href="win11.html">
       <div class="page-info">
         <span>下一章</span>
-        <div class="title">Vps Configs</div>
+        <div class="title">Win11</div>
       </div>
       <i class="i-lucide chevron-right"></i>
     </a>

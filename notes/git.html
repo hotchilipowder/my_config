@@ -22,7 +22,9 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-        </head>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Awesome Git (Notes)"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
 <body><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
@@ -55,10 +57,168 @@ data-aria-dark="切换到自动模式">
       </button>
     </div>
   </div>
-</div><div class="sy-container mx-auto body">
-    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
-      <article class="yue" role="main">
-         <section id="awesome-git-notes">
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim and Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ghostty.html">Ghostty</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Awesome Git (Notes)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_actions.html">Github Action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/feiniu.html">飞牛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typst.html">Learning Typst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macos.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="win11.html">Win11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
+<li><a class="reference internal" href="#best-practice-for-git">Best Practice for Git</a></li>
+<li><a class="reference internal" href="#git">Git &#30340;&#19977;&#23618;&#24515;&#26234;&#27169;&#22411;&#65288;&#26368;&#37325;&#35201;&#65289;</a></li>
+<li><a class="reference internal" href="#restore-reset-checkout-rm">&#22235;&#20010;&#21629;&#20196;&#30340;&#20851;&#31995;&#65306;restore / reset / checkout / rm</a><ul>
+<li><a class="reference internal" href="#git-restore">Git Restore</a></li>
+<li><a class="reference internal" href="#git-reset">Git Reset</a></li>
+<li><a class="reference internal" href="#git-checkout-switch">Git Checkout / Switch</a></li>
+<li><a class="reference internal" href="#git-rm">Git RM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">&#24120;&#35265;&#8220;&#31561;&#20215;/&#19981;&#31561;&#20215;&#8221;&#23545;&#29031;&#34920;&#65288;&#38450;&#27490;&#28151;&#28102;&#65289;</a></li>
+<li><a class="reference internal" href="#pull-rebase-merge-fast-forward">Pull / Rebase / Merge / Fast-forward&#65288;&#20320;&#26368;&#22256;&#24785;&#30340;&#28857;&#65289;</a><ul>
+<li><a class="reference internal" href="#git-pull">git pull &#30340;&#26412;&#36136;</a></li>
+<li><a class="reference internal" href="#fast-forward">Fast-forward&#65288;&#24555;&#36827;&#65289;&#26159;&#20160;&#20040;&#65311;</a></li>
+<li><a class="reference internal" href="#merge">Merge&#65288;&#21512;&#24182;&#65289;&#26159;&#20160;&#20040;&#65311;</a></li>
+<li><a class="reference internal" href="#rebase">Rebase&#65288;&#21464;&#22522;&#65289;&#26159;&#20160;&#20040;&#65311;</a></li>
+<li><a class="reference internal" href="#pull-rebase-pull-ff">pull.rebase / pull.ff &#25105;&#24212;&#35813;&#24590;&#20040;&#36873;&#65311;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">&#22810;&#36134;&#21495;&#24555;&#36895;&#24037;&#20316;&#27969;&#65288;&#25105;&#29616;&#22312;&#25512;&#33616;&#30340;&#8220;&#21487;&#35299;&#37322;&#29256;&#26412;&#8221;&#65289;</a><ul>
+<li><a class="reference internal" href="#id3">&#27493;&#39588;</a></li>
+<li><a class="reference internal" href="#id4">&#35299;&#37322;&#65306;&#25105;&#21040;&#24213;&#35201;&#35774;&#32622;&#21040;&#20160;&#20040;&#31243;&#24230;&#65311;</a></li>
+<li><a class="reference internal" href="#macos-osxkeychain">&#24120;&#35265;&#22353;&#65306;MacOS &#30340; osxkeychain &#22810;&#36134;&#21495;&#19981;&#22909;&#29992;&#24590;&#20040;&#21150;&#65311;</a></li>
+<li><a class="reference internal" href="#credential-helper">&#25490;&#38169;&#65306;&#21040;&#24213;&#21738;&#20010; credential.helper &#22312;&#29983;&#25928;&#65311;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#common-git-skill">Common git skill</a><ul>
+<li><a class="reference internal" href="#id5">Git Restore&#65288;&#20877;&#24378;&#35843;&#19968;&#27425;&#65306;&#36866;&#21512;&#8220;&#31934;&#20934;&#25764;&#25991;&#20214;&#8221;&#65289;</a></li>
+<li><a class="reference internal" href="#change-history-user-name-and-user-email">Change history user.name and user.email</a></li>
+<li><a class="reference internal" href="#delete-all-history">Delete all history</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#github-action">Github Action</a><ul>
+<li><a class="reference internal" href="#my-config">My config</a></li>
+<li><a class="reference internal" href="#self-hosted-action">Self-hosted Action</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
+    
+    
+      <span>my_config</span>
+    
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/notes/git.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">My Dev Config</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Awesome Git (Notes)</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <div class="copy-page-wrapper relative pb-4 lg:absolute lg:top-8 lg:right-6 xl:right-12">
+  <div id="copy-page-trigger">
+    <button
+      type="button"
+      class="js-copy px-3 py-1 inline-flex items-center gap-1"
+      data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/git.rst"
+    >
+      <i class="i-lucide" data-icon="copy"></i>
+      <span>复制页面</span>
+    </button>
+    <button class="js-menu px-2 py-1" type="button" aria-label="更多操作"
+      aria-haspopup="menu" aria-expanded="false" aria-controls="copy-page-content">
+      <i class="i-lucide chevron-down"></i>
+    </button>
+  </div>
+  <div id="copy-page-content" role="menu" aria-orientation="vertical" aria-hidden="true">
+    <div role="presentation">
+      <div class="flex flex-col" role="group">
+        <button class="js-copy" type="button" role="menuitem"
+          data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/git.rst">
+          <span class="iconify-icon">
+            <i class="i-lucide" data-icon="copy"></i>
+          </span>
+          <span>复制页面</span>
+        </button>
+        <a role="menuitem" href="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/git.rst" target="_blank" rel="nofollow"><iconify-icon icon="bi:code-slash"></iconify-icon>
+            <span>查看源代码</span></a><a role="menuitem" href="https://chatgpt.com/?hints=search&q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/git.rst%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+          <iconify-icon icon="bi:openai"></iconify-icon>
+          <span>在 ChatGPT 中打开</span>
+        </a><a role="menuitem" href="https://claude.ai/new?q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/git.rst%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+          <iconify-icon icon="bi:claude"></iconify-icon>
+          <span>在 Claude 中打开</span>
+        </a></div>
+    </div>
+  </div>
+</div><article class="yue" role="main">
+          <section id="awesome-git-notes">
 <h1>Awesome Git (Notes)<a class="headerlink" href="#awesome-git-notes" title="链接到此标题。">¶</a></h1>
 <p>这个文档是我自己的 Git 查漏补缺笔记：偏“日常高频 + 容易混淆的点”。
 风格：先给心智模型，再给最常用命令，最后给坑点/排错。</p>
@@ -546,14 +706,30 @@ A--B--C           (origin/main)</p>
 </section>
 </section>
 
-<div class="section ablog__blog_comments">
-   
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>回到顶部</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="ghostty.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>上一章</span><div class="title">Ghostty</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="github_actions.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Github Action</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
 </div>
-
-      </article>
-      
-    </main>
-  </div><footer class="sy-foot">
+<footer class="sy-foot">
   <div class="sy-foot-inner sy-container mx-auto">
     <div class="sy-foot-reserved md:flex justify-between items-center">
       <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>

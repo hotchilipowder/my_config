@@ -22,7 +22,9 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-        </head>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Ghostty"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
 <body><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
@@ -55,23 +57,148 @@ data-aria-dark="切换到自动模式">
       </button>
     </div>
   </div>
-</div><div class="sy-container mx-auto body">
-    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
-      <article class="yue" role="main">
-         <section id="ghostty">
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="neovim.html">Neovim and Tmux</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ghostty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Awesome Git (Notes)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_actions.html">Github Action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/feiniu.html">飞牛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typst.html">Learning Typst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macos.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="win11.html">Win11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homelab.html">HomeLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>该页内容</h3><ul>
+<li><a class="reference internal" href="#id1">&#20174;&#38646;&#23433;&#35013;</a></li>
+<li><a class="reference internal" href="#id2">&#37197;&#32622;&#25991;&#20214;&#19982;&#20248;&#20808;&#32423;</a></li>
+<li><a class="reference internal" href="#id3">&#24403;&#21069;&#37197;&#32622;</a></li>
+<li><a class="reference internal" href="#id4">&#26816;&#26597;&#19982;&#37325;&#36733;</a></li>
+</ul>
+</div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
+    
+    
+      <span>my_config</span>
+    
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/hotchilipowder/my_config/blob/main/docs/notes/ghostty.md">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">My Dev Config</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Ghostty</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <div class="copy-page-wrapper relative pb-4 lg:absolute lg:top-8 lg:right-6 xl:right-12">
+  <div id="copy-page-trigger">
+    <button
+      type="button"
+      class="js-copy px-3 py-1 inline-flex items-center gap-1"
+      data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/ghostty.md"
+    >
+      <i class="i-lucide" data-icon="copy"></i>
+      <span>复制页面</span>
+    </button>
+    <button class="js-menu px-2 py-1" type="button" aria-label="更多操作"
+      aria-haspopup="menu" aria-expanded="false" aria-controls="copy-page-content">
+      <i class="i-lucide chevron-down"></i>
+    </button>
+  </div>
+  <div id="copy-page-content" role="menu" aria-orientation="vertical" aria-hidden="true">
+    <div role="presentation">
+      <div class="flex flex-col" role="group">
+        <button class="js-copy" type="button" role="menuitem"
+          data-url="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/ghostty.md">
+          <span class="iconify-icon">
+            <i class="i-lucide" data-icon="copy"></i>
+          </span>
+          <span>复制页面</span>
+        </button>
+        <a role="menuitem" href="https://raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/ghostty.md" target="_blank" rel="nofollow"><iconify-icon icon="bi:markdown"></iconify-icon>
+            <span>查看 Markdown 源代码</span></a><a role="menuitem" href="https://chatgpt.com/?hints=search&q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/ghostty.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+          <iconify-icon icon="bi:openai"></iconify-icon>
+          <span>在 ChatGPT 中打开</span>
+        </a><a role="menuitem" href="https://claude.ai/new?q=Read%20https%3A//raw.githubusercontent.com/hotchilipowder/my_config/refs/heads/main/docs/notes/ghostty.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="nofollow">
+          <iconify-icon icon="bi:claude"></iconify-icon>
+          <span>在 Claude 中打开</span>
+        </a></div>
+    </div>
+  </div>
+</div><article class="yue" role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="ghostty">
 <h1>Ghostty<a class="headerlink" href="#ghostty" title="链接到此标题。">¶</a></h1>
 <p>Ghostty 是一个原生、跨平台的终端模拟器。本仓库保存了日常使用的
 Ghostty 配置，方便在新机器上快速恢复字体、字号和主题。</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id7">从零安装</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id8">配置文件与优先级</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id9">当前配置</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id10">检查与重载</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id5">从零安装</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id6">配置文件与优先级</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id7">当前配置</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id8">检查与重载</a></p></li>
 </ul>
 </nav>
 <section id="id1">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">从零安装</a><a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">从零安装</a><a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h2>
 <p>全新机器上按以下顺序执行即可完成安装与配置。</p>
 <ol class="arabic">
 <li><p>安装 Ghostty。macOS 可以直接下载官方安装包，也可以通过 Homebrew 安装：</p>
@@ -88,12 +215,19 @@ Ghostty 配置，方便在新机器上快速恢复字体、字号和主题。</p
 <p>Linux 可从 <a class="reference external" href="https://www.nerdfonts.com/font-downloads">Nerd Fonts 下载页</a>
 下载后放入 <code class="docutils literal notranslate"><span class="pre">~/.local/share/fonts</span></code>，再执行 <code class="docutils literal notranslate"><span class="pre">fc-cache</span> <span class="pre">-fv</span></code>。</p>
 </li>
-<li><p>克隆本仓库并执行安装脚本：</p>
+<li><p>执行安装脚本，以下两种方式任选其一：</p>
+<p><strong>方式一：克隆仓库后执行</strong>（推荐，便于之后用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 同步配置）：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hotchilipowder/my_config.git
 </span><span data-line="2"><span class="nb">cd</span><span class="w"> </span>my_config
 </span><span data-line="3">./ghostty/install.sh
 </span></pre></div>
 </div>
+<p><strong>方式二：不克隆，直接执行</strong>：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/hotchilipowder/my_config/main/ghostty/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</span></pre></div>
+</div>
+<p>直接执行时，脚本在同目录找不到 <code class="docutils literal notranslate"><span class="pre">config.ghostty</span></code> 会自动从仓库下载。
+使用自己的 fork 时，可用环境变量 <code class="docutils literal notranslate"><span class="pre">MY_CONFIG_RAW_BASE</span></code> 指定 raw 地址前缀。</p>
 </li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">ghostty/install.sh</span></code> 可以重复执行，它会：</p>
@@ -102,12 +236,12 @@ Ghostty 配置，方便在新机器上快速恢复字体、字号和主题。</p
 <li><p>把已有的 <code class="docutils literal notranslate"><span class="pre">~/.config/ghostty/config.ghostty</span></code> 和旧的
 <code class="docutils literal notranslate"><span class="pre">~/.config/ghostty/config</span></code> 备份为带时间戳的 <code class="docutils literal notranslate"><span class="pre">.bak</span></code> 文件（内容与
 仓库一致时跳过备份）；</p></li>
-<li><p>把仓库中的 <code class="docutils literal notranslate"><span class="pre">ghostty/config.ghostty</span></code> 复制到
-<code class="docutils literal notranslate"><span class="pre">~/.config/ghostty/config.ghostty</span></code>；</p></li>
+<li><p>把 <code class="docutils literal notranslate"><span class="pre">config.ghostty</span></code> 复制到 <code class="docutils literal notranslate"><span class="pre">~/.config/ghostty/config.ghostty</span></code>，
+直接执行时会先自动下载；</p></li>
 <li><p>删除 macOS 下 Application Support 目录中的空配置文件；</p></li>
 <li><p>调用 <code class="docutils literal notranslate"><span class="pre">ghostty</span> <span class="pre">+validate-config</span></code> 校验配置语法。</p></li>
 </ul>
-<p>不使用脚本时，也可以手动执行：</p>
+<p>不使用脚本时，也可以在克隆后的仓库根目录手动执行：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/ghostty
 </span><span data-line="2"><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>~/.config/ghostty/config.ghostty<span class="w"> </span>~/.config/ghostty/config<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 </span><span data-line="3"><span class="w">  </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">.bak.</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d-%H%M%S<span class="k">)</span><span class="s2">&quot;</span>
@@ -116,8 +250,8 @@ Ghostty 配置，方便在新机器上快速恢复字体、字号和主题。</p
 </span></pre></div>
 </div>
 </section>
-<section id="id3">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">配置文件与优先级</a><a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
+<section id="id2">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">配置文件与优先级</a><a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
 <p>Ghostty 1.2.3 起推荐使用 <code class="docutils literal notranslate"><span class="pre">config.ghostty</span></code> 作为配置文件名，旧的 <code class="docutils literal notranslate"><span class="pre">config</span></code>
 仍会读取；同一个目录下两者同时存在时，<code class="docutils literal notranslate"><span class="pre">config.ghostty</span></code> 优先生效
 （Ghostty 1.3.1 实测）。本仓库统一使用 <code class="docutils literal notranslate"><span class="pre">config.ghostty</span></code>，避免手工维护
@@ -127,8 +261,8 @@ Ghostty 配置，方便在新机器上快速恢复字体、字号和主题。</p
 覆盖 XDG 配置中的同名选项。为了只维护一份配置，应避免在该目录保留非空
 配置；<code class="docutils literal notranslate"><span class="pre">install.sh</span></code> 会自动删除其中的空文件，非空时则给出提示。</p>
 </section>
-<section id="id4">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">当前配置</a><a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
+<section id="id3">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">当前配置</a><a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
 <p>仓库中的 <code class="docutils literal notranslate"><span class="pre">ghostty/config.ghostty</span></code> 内容如下：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">font-family = &quot;FantasqueSansMNFM-Regular&quot;
 </span><span data-line="2">font-size = 21
@@ -156,8 +290,8 @@ Ghostty 配置，方便在新机器上快速恢复字体、字号和主题。</p
 </span></pre></div>
 </div>
 </section>
-<section id="id5">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">检查与重载</a><a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
+<section id="id4">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">检查与重载</a><a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
 <p>修改或同步配置后，可以先进行语法检查：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># macOS：在仓库根目录执行</span>
 </span><span data-line="2">/Applications/Ghostty.app/Contents/MacOS/ghostty<span class="w"> </span><span class="se">\</span>
@@ -183,14 +317,30 @@ Ghostty 配置，方便在新机器上快速恢复字体、字号和主题。</p
 </section>
 </section>
 
-<div class="section ablog__blog_comments">
-   
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>回到顶部</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="neovim.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>上一章</span><div class="title">Neovim and Tmux</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="git.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Awesome Git (Notes)</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
 </div>
-
-      </article>
-      
-    </main>
-  </div><footer class="sy-foot">
+<footer class="sy-foot">
   <div class="sy-foot-inner sy-container mx-auto">
     <div class="sy-foot-reserved md:flex justify-between items-center">
       <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>

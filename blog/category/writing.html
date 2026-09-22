@@ -22,13 +22,8 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-      
-<link
-  rel="alternate"
-  type="application/atom+xml"
-  href="../../blog/atom.xml"
-  title="Posts in Writing"
-/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Posts in Writing"/>
+    <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
   <div class="sy-head-blur"></div>
@@ -62,29 +57,116 @@ data-aria-dark="切换到自动模式">
       </button>
     </div>
   </div>
-</div><div class="sy-container mx-auto body">
-    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
-      <article class="yue" role="main">
-         
-<div class="section ablog__collection">
-  <h1>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/neovim.html">Neovim and Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/ghostty.html">Ghostty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/git.html">Awesome Git (Notes)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/github_actions.html">Github Action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/feiniu.html">飞牛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/typst.html">Learning Typst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/vps.html">Vps Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/macos.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/win11.html">Win11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/docker.html">Dockers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/snippets.html">Snippets System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/homelab.html">HomeLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/hardware.html">Hardware记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/cookiecutter.html">Cookiecutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/tikz.html">Tikz Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/hotchilipowder/my_config"
+  data-type="github" data-user="hotchilipowder" data-repo="my_config">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
     
-    <span
-      >Posts in  Writing 
+    
+      <span>my_config</span>
+    
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
     </span>
-  </h1>
-   
-  <div class="section ablog-post">
-    <h2 class="ablog-post-title">
-      <a href="../../notes/snippets.html">Snippets System</a>
-    </h2>
-    <ul class="ablog-archive">
-      <li>
-         
-        <span>26 November 2024</span>
+  </span>
+</a><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html"><span itemprop="name">My Dev Config</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Posts in Writing</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          
+  <div class="section ablog__collection">
+    <h1>
+      
+      <span>
+        Posts in
         
-      </li>
-      <div class="ablog-sidebar-item ablog__postcard2">
+          Writing
+        
+      </span>
+    </h1>
+    
+      
+        <div class="section ablog-post">
+          <h2 class="ablog-post-title">
+            <a href="../../notes/snippets.html">Snippets System</a>
+          </h2>
+          <ul class="ablog-archive">
+            <li>
+              
+                
+                <span>26 November 2024</span>
+              
+            </li>
+            <div class="ablog-sidebar-item ablog__postcard2">
    
   <li id="ablog-sidebar-item author ablog__author">
     <span>
@@ -123,24 +205,31 @@ data-aria-dark="切换到自动模式">
   </li>
    
 </div>
-    </ul>
-    <p class="ablog-post-excerpt"><p>在使用了2年的 <a class="reference external" href="https://github.com/honza/vim-snippets">vim-snippets</a> 后，因为入坑了 <a class="reference internal" href="../../notes/snippets.html#typst" id="id1"><span>[typst]</span></a> ，所以决定还是切换到自己的repository下，以便能支持snippets.
+          </ul>
+          <p class="ablog-post-excerpt"><p>在使用了2年的 <a class="reference external" href="https://github.com/honza/vim-snippets">vim-snippets</a> 后，因为入坑了 <a class="reference internal" href="../../notes/snippets.html#typst" id="id1"><span>[typst]</span></a> ，所以决定还是切换到自己的repository下，以便能支持snippets.
 此外，因为写snippets的过程其实也是对于语法进行学习了解的过程，例如我根据阅读一些rst的snippet，很好的学习了许多的相关的用法。
 因此，个人认为是时候 (2024-12-08) 切换到这里来了。</p>
 </p>
 
-    <p class="ablog-post-expand">
-      <a href="../../notes/snippets.html"><em>Read more ...</em></a>
-    </p>
-    <hr />
-  </div>
-   
-</div>
-
-      </article>
+          <p class="ablog-post-expand">
+            <a href="../../notes/snippets.html"><em>Read more ...</em></a>
+          </p>
+          <hr />
+        </div>
       
-    </main>
-  </div><footer class="sy-foot">
+    
+  </div>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>回到顶部</span>
+</button><div class="navigation flex print:hidden"></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
   <div class="sy-foot-inner sy-container mx-auto">
     <div class="sy-foot-reserved md:flex justify-between items-center">
       <div class="sy-foot-copyright"><p>2023, hotchilipowder</p>
